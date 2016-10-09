@@ -1,0 +1,409 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to PaperTrail Support Portal", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-papertrail-support-portal", 
+            "text": "", 
+            "title": "Welcome to PaperTrail Support Portal"
+        }, 
+        {
+            "location": "/Configuration/basic/", 
+            "text": "Adding nodes (folders)\n\n\nCreating users and groups\n\n\nAdding permisions to a node\n\n\nMore Links\n\n\nAdvanced Configuration", 
+            "title": "Basic"
+        }, 
+        {
+            "location": "/Configuration/basic/#adding-nodes-folders", 
+            "text": "", 
+            "title": "Adding nodes (folders)"
+        }, 
+        {
+            "location": "/Configuration/basic/#creating-users-and-groups", 
+            "text": "", 
+            "title": "Creating users and groups"
+        }, 
+        {
+            "location": "/Configuration/basic/#adding-permisions-to-a-node", 
+            "text": "More Links  Advanced Configuration", 
+            "title": "Adding permisions to a node"
+        }, 
+        {
+            "location": "/Configuration/solution-pack/", 
+            "text": "Solution Packs\n\n\nSolution packs provide a simplemechanism to export the configuration and deployment from one server to another\n\n\nExporting\n\n\nTo export a solution pack browse to \n/solutions/export/\n while logged on as an adminstrator - A solution pack (.zip) file will be downloaded with the following contents:\n\n\n\n\nNode Structure\n\n\nTemplates\n\n\nForms\n\n\nSystem/scripts/\n\n\nSystem/templates\n\n\nWorkflows\n\n\n\n\nThe .zip can be manually edited and updated as required.\n\n\nImporting\n\n\nTo import a solution pack drop it into the \nplugins\n folder or import via the CLI:\n\n\npt deploy solution-pack.zip", 
+            "title": "Solution pack"
+        }, 
+        {
+            "location": "/Configuration/solution-pack/#solution-packs", 
+            "text": "Solution packs provide a simplemechanism to export the configuration and deployment from one server to another", 
+            "title": "Solution Packs"
+        }, 
+        {
+            "location": "/Configuration/solution-pack/#exporting", 
+            "text": "To export a solution pack browse to  /solutions/export/  while logged on as an adminstrator - A solution pack (.zip) file will be downloaded with the following contents:   Node Structure  Templates  Forms  System/scripts/  System/templates  Workflows   The .zip can be manually edited and updated as required.", 
+            "title": "Exporting"
+        }, 
+        {
+            "location": "/Configuration/solution-pack/#importing", 
+            "text": "To import a solution pack drop it into the  plugins  folder or import via the CLI:  pt deploy solution-pack.zip", 
+            "title": "Importing"
+        }, 
+        {
+            "location": "/Configuration/ssl/", 
+            "text": "Configuring HTTPS (Server Side Only)\n\n\nTo configure PaperTrail to use HTTPS:\n\n\n\n\nCreate a Java key store (JKS) with a name of \nkeystore\n and place it in the \nconf\n directory\n\n\nSpecify the keystore password via \nhttp.ssl.password\n\n\nCheck Properties -\n HTTPS -\n Enable (\nhttp.ssl\n) to true\n\n\nSet the HTTPS port (\nhttp.ssl.port\n) to 443 or 8443\n\n\nCheck Force SSL (\nhttp.ssl.force\n) to always redirect from HTTP to HTTPS\n\n\n\n\nConverting PKCS#7 to PKCS#12\n\n\nopenssl pkcs12 -export -in server.crt -inkey server.key   -out keystore.p12 -name www\n\n\nConverting PKCS#12 to JKS\n\n\nkeytool -importkeystore -destkeystore keystore -srckeystore keystore.p12 -srcstoretype PKCS12\n               \n\n\nImport Root and Intermediate CA's\n\n\nkeytool -import -trustcacerts -alias root -file root.crt -keystore keystore\n\n\nVerifying\n\n\nTo verify that the keystore is configured correctly:\n\n\nkeytool -list -keystore keystore\n \n\n\nWhich should produce something like:\n\n\n\n\nKeystore type: JKS\nKeystore provider: SUN\n\n\nYour keystore contains 1 entry\n\n\n*.papertrail.co.za, Oct 29, 2015, PrivateKeyEntry, \n\n\n\n\nThe last line has a syntax of \n{CN} {Expiry} {Key Type}\n  \n\n\n{CN}\n should match the URL you would be accessing PaperTrail by\n\n\n{Key Type}\n must be PrivateKeyEntry  \n\n\nConfiguring Client Authentication (Mutual SSL)\n\n\n\n\nConfigure server side SSL as above\n\n\nCreate a new a JKS file called \ntruststore\n containing the trusted CA's\n\n\nCheck Require Client Certificates (\nhttp.ssl.client.require\n)\n\n\n\n\nConfiguring client certificates requires that \nall\n clients supply a trusted certificate\n\n\nThe Common Name (\nCN\n) of the certificate will be used to map the a certificate to a user via the login field", 
+            "title": "Ssl"
+        }, 
+        {
+            "location": "/Configuration/ssl/#configuring-https-server-side-only", 
+            "text": "To configure PaperTrail to use HTTPS:   Create a Java key store (JKS) with a name of  keystore  and place it in the  conf  directory  Specify the keystore password via  http.ssl.password  Check Properties -  HTTPS -  Enable ( http.ssl ) to true  Set the HTTPS port ( http.ssl.port ) to 443 or 8443  Check Force SSL ( http.ssl.force ) to always redirect from HTTP to HTTPS", 
+            "title": "Configuring HTTPS (Server Side Only)"
+        }, 
+        {
+            "location": "/Configuration/ssl/#converting-pkcs7-to-pkcs12", 
+            "text": "openssl pkcs12 -export -in server.crt -inkey server.key   -out keystore.p12 -name www", 
+            "title": "Converting PKCS#7 to PKCS#12"
+        }, 
+        {
+            "location": "/Configuration/ssl/#converting-pkcs12-to-jks", 
+            "text": "keytool -importkeystore -destkeystore keystore -srckeystore keystore.p12 -srcstoretype PKCS12", 
+            "title": "Converting PKCS#12 to JKS"
+        }, 
+        {
+            "location": "/Configuration/ssl/#import-root-and-intermediate-cas", 
+            "text": "keytool -import -trustcacerts -alias root -file root.crt -keystore keystore", 
+            "title": "Import Root and Intermediate CA's"
+        }, 
+        {
+            "location": "/Configuration/ssl/#verifying", 
+            "text": "To verify that the keystore is configured correctly:  keytool -list -keystore keystore    Which should produce something like:   Keystore type: JKS\nKeystore provider: SUN  Your keystore contains 1 entry  *.papertrail.co.za, Oct 29, 2015, PrivateKeyEntry,    The last line has a syntax of  {CN} {Expiry} {Key Type}     {CN}  should match the URL you would be accessing PaperTrail by  {Key Type}  must be PrivateKeyEntry", 
+            "title": "Verifying"
+        }, 
+        {
+            "location": "/Configuration/ssl/#configuring-client-authentication-mutual-ssl", 
+            "text": "Configure server side SSL as above  Create a new a JKS file called  truststore  containing the trusted CA's  Check Require Client Certificates ( http.ssl.client.require )   Configuring client certificates requires that  all  clients supply a trusted certificate  The Common Name ( CN ) of the certificate will be used to map the a certificate to a user via the login field", 
+            "title": "Configuring Client Authentication (Mutual SSL)"
+        }, 
+        {
+            "location": "/Installation/Windows/", 
+            "text": "Windows Installations\n\n\n\n\nOn some versions of Windows 2012 you may need to install \nVisual C++\n\n\n\n\nSQL Server Windows Authentication\n\n\n\n\nCopy \nntmlauth.dll\n file to C:\\Windows \n\n\nFor remote installations, make sure that the Windows user granted DB\naccess is the same as the user that is being logged on to the application\nmachine.", 
+            "title": "Windows"
+        }, 
+        {
+            "location": "/Installation/Windows/#windows-installations", 
+            "text": "On some versions of Windows 2012 you may need to install  Visual C++", 
+            "title": "Windows Installations"
+        }, 
+        {
+            "location": "/Installation/Windows/#sql-server-windows-authentication", 
+            "text": "Copy  ntmlauth.dll  file to C:\\Windows   For remote installations, make sure that the Windows user granted DB\naccess is the same as the user that is being logged on to the application\nmachine.", 
+            "title": "SQL Server Windows Authentication"
+        }, 
+        {
+            "location": "/Installation/end-user-installation/", 
+            "text": "Installation and Configuration\n\n\nSystem Requirements\n\n\nThe minimum requirements that are advised for Workstations are as follows:\n\n 2-4 GB RAM\n\n Dual Core i3/i5 CPU\n\n Internet Explorer 11/Edge OR\n\n Chrome (latest stable release) OR\n* Firefox (latest stable release)\n\n\nAdvanced Plugin\n\n\n\n\nClick on Help / Cog -\n Check Installation and then follow the instructions that will guide you through the installation process\n\n\n\n\nSee \nWindows\n\n\nDesktop Agent\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n and \nLinux\n\n\nOffice Addin\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n\n\nWeb Scan\n\n\nWeb scan is distributed as an addon to the Advanced Plugin:\n\n\n\n\nInstall the Advanced Plugin\n\n\nDownload and Install the Web Scan Addon from \nDownloads\n\n\nConfigure scan profiles under System -\n Scanning", 
+            "title": "End user installation"
+        }, 
+        {
+            "location": "/Installation/end-user-installation/#installation-and-configuration", 
+            "text": "", 
+            "title": "Installation and Configuration"
+        }, 
+        {
+            "location": "/Installation/end-user-installation/#system-requirements", 
+            "text": "The minimum requirements that are advised for Workstations are as follows:  2-4 GB RAM  Dual Core i3/i5 CPU  Internet Explorer 11/Edge OR  Chrome (latest stable release) OR\n* Firefox (latest stable release)", 
+            "title": "System Requirements"
+        }, 
+        {
+            "location": "/Installation/end-user-installation/#advanced-plugin", 
+            "text": "Click on Help / Cog -  Check Installation and then follow the instructions that will guide you through the installation process   See  Windows", 
+            "title": "Advanced Plugin"
+        }, 
+        {
+            "location": "/Installation/end-user-installation/#desktop-agent", 
+            "text": "Download and run the installer from  http://downloads.papertrail.co.za  See  Windows  and  Linux", 
+            "title": "Desktop Agent"
+        }, 
+        {
+            "location": "/Installation/end-user-installation/#office-addin", 
+            "text": "Download and run the installer from  http://downloads.papertrail.co.za  See  Windows", 
+            "title": "Office Addin"
+        }, 
+        {
+            "location": "/Installation/end-user-installation/#web-scan", 
+            "text": "Web scan is distributed as an addon to the Advanced Plugin:   Install the Advanced Plugin  Download and Install the Web Scan Addon from  Downloads  Configure scan profiles under System -  Scanning", 
+            "title": "Web Scan"
+        }, 
+        {
+            "location": "/Installation/server-installation/", 
+            "text": "Installation and Configuration\n\n\nInstallation\n\n\nTo install PaperTrail you will first need to install the prequisties:\n\n\n\n\nJava 8 SDK\n\n\nPostgreSQL or MS SQL on localhost or remote server\n\n\n\n\nLibreOffice\n\n\n\n\n\n\nDownload and run the installer - this can be done silently using the \n-q\n option\n\n\n\n\nAccess the installation wizard at \nhttp://localhost:8080\n \n\n\nWhen complete conduct a \nHealth Check\n  \n\n\n\n\nSee \nWindows\n, \n \nLinux\n, \nMacOSX\n \n\n\nUpgrades\n\n\n\n\nRun a full \nbackup\n\nRename the \nPapertrail\n installation folder according to date of upgrade and current version, i.e. \nPapertrail_2013-03-04_r864\n as it allows for simplified rollbacks\n\n\nRun the installer\n\n(If applicable also reconfigure the service under the correct user account)\n\n\nTurn on \nmaintenance mode\n\n\nStart PaperTrail and Conduct a health check\n\n\nTurn off \nmaintenance mode\n\n\n\n\nMore Links\n\n\nService options\n\n\nBackups\n\n\nReplication\n\n\nLDAP / Active Directory", 
+            "title": "Server installation"
+        }, 
+        {
+            "location": "/Installation/server-installation/#installation-and-configuration", 
+            "text": "", 
+            "title": "Installation and Configuration"
+        }, 
+        {
+            "location": "/Installation/server-installation/#installation", 
+            "text": "To install PaperTrail you will first need to install the prequisties:   Java 8 SDK  PostgreSQL or MS SQL on localhost or remote server   LibreOffice    Download and run the installer - this can be done silently using the  -q  option   Access the installation wizard at  http://localhost:8080    When complete conduct a  Health Check      See  Windows , \n  Linux ,  MacOSX", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/Installation/server-installation/#upgrades", 
+            "text": "Run a full  backup \nRename the  Papertrail  installation folder according to date of upgrade and current version, i.e.  Papertrail_2013-03-04_r864  as it allows for simplified rollbacks  Run the installer \n(If applicable also reconfigure the service under the correct user account)  Turn on  maintenance mode  Start PaperTrail and Conduct a health check  Turn off  maintenance mode", 
+            "title": "Upgrades"
+        }, 
+        {
+            "location": "/Installation/server-installation/#more-links", 
+            "text": "Service options  Backups  Replication  LDAP / Active Directory", 
+            "title": "More Links"
+        }, 
+        {
+            "location": "/Installation/solution/", 
+            "text": "Deploying Solutions\n\n\n\n\nFirst take a full \nbackup\n if possible.\n\n\nNB: Turn on \nMaintenance Mode\n\n\nNote A SolutionPack.zip is used in the examples below, however each solution will have it's own filename e.g.  Travel.zip, HR.zip\n\n\n\n\n\n\n\n\nVia the CLI\n\n\npt deploy SolutionPack.zip\n\n\nVia the GUI\n\n\n\n\nGo to the Admin \n Services \n Tasks \n Bulk Import \n Deploy Pack\n\n\n\n\nSelect the \nSolutionPack.zip\n\n\n\n\n\n\nThen conduct a \nHealth Check\n\n\n\n\nFinally turn off \nMaintenance Mode", 
+            "title": "Solution"
+        }, 
+        {
+            "location": "/Installation/solution/#deploying-solutions", 
+            "text": "First take a full  backup  if possible.  NB: Turn on  Maintenance Mode  Note A SolutionPack.zip is used in the examples below, however each solution will have it's own filename e.g.  Travel.zip, HR.zip", 
+            "title": "Deploying Solutions"
+        }, 
+        {
+            "location": "/Installation/solution/#via-the-cli", 
+            "text": "pt deploy SolutionPack.zip", 
+            "title": "Via the CLI"
+        }, 
+        {
+            "location": "/Installation/solution/#via-the-gui", 
+            "text": "Go to the Admin   Services   Tasks   Bulk Import   Deploy Pack   Select the  SolutionPack.zip    Then conduct a  Health Check   Finally turn off  Maintenance Mode", 
+            "title": "Via the GUI"
+        }, 
+        {
+            "location": "/Integration/folder-watch/", 
+            "text": "Normal\n\n\nAny file dropped into the Watched Folder will be imported into the specified node.\u00a0\n\n\nCSV\n\n\nPaperTrail will scan the watched folder for any CSV file. The CSV will then be processed and matching files will be imported with their indexes.  \n\n\nSample.csv\n  \n\n\nfilename,index1,index2  \nSample1.txt,value1,value2  \nSample2.txt,value3,value4\n\n\n\nSample1.txt\n  \n\n\nJust some content in Sample1\n\n\n\nSample2.txt\n  \n\n\nJust some content in Sample2\n\n\n\nIn this example \nSample1.txt\n and \nSample2.txt\n would get imported with the index values (value1,value1) and (value3,value4) respectively\u00a0\n\n\nImport and Sync\n\n\nImport ant sync works by creating a temporary staging table to contain metadata coming from external systems - This metadata is dropped off in a XML or CSV file. A mapping file is used to map and reformat the data in these files, the mapping file takes the format of a CSV file imported into PaperTrail with the following columns:  \n\n\n\n\n\n\n\n\n\n\n\nColumn\n\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\n\n\n\nCSV Only - The name of the CSV column\n\n\n\n\n\n\n\n\n\nxpath\u00a0\u00a0\u00a0\u00a0\n\n\n\nXML Only - The XPATH to use\u00a0\n\n\n\n\n\n\n\n\n\nindex\n\n\n\nThe PaperTrail node index name\n\n\n\n\n\n\n\n\n\nexpression\n\n\n\nOptional - A Groovy standard expression used to filter or reformat the data\u00a0  \ne.g  \n\nPREFIX-${value}\n - Add a prefix to the value  \n\n${value.find('\\d+')}\n - Extract only digits using a regular expression\n\n\n\n\n\n\n\n\n\nformat\n\n\n\nOptional - The date format of the value in the CSV/XML - PaperTrail will parse the date using this format and then reformat it using the configured system wide format for consistency.\n\n\n\n\n\n\n\n\n\n\n\n\nMapping.csv\n\n\nname,index,expression,format  \nindex 1,filename,,  \nindex 2,index2,,  \nindex 3,index3,${value}-smith,  \ndate 3,date3,,dd/MM/yyyy\n\n\n\nData.csv\n  \n\n\nindex 1,index 2,date 3,index 3  \nfile1,oncreate,01/01/2015,john\n\n\n\nXML Mapping.csv\n\n\nxpath,index,format,expression  \n/Data/index1/@value,filename,  \n/Data/index2/text(),index2,  \n/Data/index3/text(),index3,,${value}-smith  \n/Data/date3/text(),date3,MM/dd/yyyy,\n\n\n\nData.xml\n\n\n?xml version=\"1.0\"?\n\n\nData\n\n    \nindex1 value=\"file1\"/\n\n    \nindex2\nonupdate\n/index2\n\n    \nindex3\njohn\n/index3\n\n    \ndate3\n01/01/2015\n/date3\n\n\n/Data\n\n\n\n\nStructured\n\n\nStructured imports import raw textual data and overlay it onto a PDF Template.\u00a0\n\nA Datamap file is used to map blocks of text to fields in the PDF.\u00a0\n\nThe raw data can optionally be processed through a executable (exe) or a groovy script to format it, so that the datamap can extract the content correctly.\u00a0\n\n\nUpdate\n\n\nDeprecated in favour of Import and Sync CSV or XML\n\n\nAttach To Form\n\n\nThis will spawn the specified form and attach the document dropped in the watched folder to the form.\u00a0\n\n\nDocument Archive\n\n\nThis will import a complete document with all versions, indexes, notes, etc. Document Archives are created using Bulk Export or an Auto Export rule.", 
+            "title": "Folder watch"
+        }, 
+        {
+            "location": "/Integration/folder-watch/#normal", 
+            "text": "Any file dropped into the Watched Folder will be imported into the specified node.", 
+            "title": "Normal"
+        }, 
+        {
+            "location": "/Integration/folder-watch/#csv", 
+            "text": "PaperTrail will scan the watched folder for any CSV file. The CSV will then be processed and matching files will be imported with their indexes.    Sample.csv     filename,index1,index2  \nSample1.txt,value1,value2  \nSample2.txt,value3,value4  Sample1.txt     Just some content in Sample1  Sample2.txt     Just some content in Sample2  In this example  Sample1.txt  and  Sample2.txt  would get imported with the index values (value1,value1) and (value3,value4) respectively", 
+            "title": "CSV"
+        }, 
+        {
+            "location": "/Integration/folder-watch/#import-and-sync", 
+            "text": "Import ant sync works by creating a temporary staging table to contain metadata coming from external systems - This metadata is dropped off in a XML or CSV file. A mapping file is used to map and reformat the data in these files, the mapping file takes the format of a CSV file imported into PaperTrail with the following columns:       Column  Description      name  CSV Only - The name of the CSV column    xpath\u00a0\u00a0\u00a0\u00a0  XML Only - The XPATH to use\u00a0    index  The PaperTrail node index name    expression  Optional - A Groovy standard expression used to filter or reformat the data\u00a0  \ne.g   PREFIX-${value}  - Add a prefix to the value   ${value.find('\\d+')}  - Extract only digits using a regular expression    format  Optional - The date format of the value in the CSV/XML - PaperTrail will parse the date using this format and then reformat it using the configured system wide format for consistency.     Mapping.csv  name,index,expression,format  \nindex 1,filename,,  \nindex 2,index2,,  \nindex 3,index3,${value}-smith,  \ndate 3,date3,,dd/MM/yyyy  Data.csv     index 1,index 2,date 3,index 3  \nfile1,oncreate,01/01/2015,john  XML Mapping.csv  xpath,index,format,expression  \n/Data/index1/@value,filename,  \n/Data/index2/text(),index2,  \n/Data/index3/text(),index3,,${value}-smith  \n/Data/date3/text(),date3,MM/dd/yyyy,  Data.xml  ?xml version=\"1.0\"?  Data \n     index1 value=\"file1\"/ \n     index2 onupdate /index2 \n     index3 john /index3 \n     date3 01/01/2015 /date3  /Data", 
+            "title": "Import and Sync"
+        }, 
+        {
+            "location": "/Integration/folder-watch/#structured", 
+            "text": "Structured imports import raw textual data and overlay it onto a PDF Template.\u00a0 \nA Datamap file is used to map blocks of text to fields in the PDF.\u00a0 \nThe raw data can optionally be processed through a executable (exe) or a groovy script to format it, so that the datamap can extract the content correctly.", 
+            "title": "Structured"
+        }, 
+        {
+            "location": "/Integration/folder-watch/#update", 
+            "text": "Deprecated in favour of Import and Sync CSV or XML", 
+            "title": "Update"
+        }, 
+        {
+            "location": "/Integration/folder-watch/#attach-to-form", 
+            "text": "This will spawn the specified form and attach the document dropped in the watched folder to the form.", 
+            "title": "Attach To Form"
+        }, 
+        {
+            "location": "/Integration/folder-watch/#document-archive", 
+            "text": "This will import a complete document with all versions, indexes, notes, etc. Document Archives are created using Bulk Export or an Auto Export rule.", 
+            "title": "Document Archive"
+        }, 
+        {
+            "location": "/Integration/ldap-ad/", 
+            "text": "LDAP Configuration\n\n\nOpenLDAP\u00a0\n\n\nConfigure User format = \nuid=${user},o=Directory\n\n\n\n\n\n**Note:** Active directory will return less results and attributes when using port 3268 vs 389\n\n\n\n\n\nMultiple LDAP Servers\n\n\nConfigured by addition a set of properties per domain:\n\n\nldap.extra.**_domain1-corp.local_**.host=  \nldap.extra.domain1-corp.local.user=  \nldap.extra.domain1-corp.local.pass=  \nldap.extra._**domain2-corp.local**_.host=  \nldap.extra.domain2-corp.local.user=  \nldap.extra.domain2-corp.local.pass=\n\n\nSynchronizing With LDAP / Active Directory\n\n\nCheck \nLDAP -\n Auto Create\n \nusers\n to create new users from LDAP when they login\n\nCheck \nLDAP -\n Auto Sync Groups\n \u00a0to synchronize group membership, this will sync on user create and on the interval specified under \nAuthentication -\n Group Sync Interval\n\n\nYou can also specify a datasource under \nAuthentication -\n Group Sync Provider\n e.g. ds:groups \n\n\nSELECT memberOf as groups FROM '@ldap/objectClass=user\nSAMAccountName=${filter}\n\n\nTroubleshooting\n\n\n\n\nGet the LDAP queries that PaperTrail is executing by increasing the log level: \u00a0\ncom.egis.utils.ldap\u00a0in\u00a0\n8.8.4 or \ncom.egis.security.ldap\n\u00a0in 8.8.4+\n\n\n\n\nDEBUG\n to see the results of queries\n\n\nTRACE\n to see the actual query being run and authentication requests\n\n\n\n\nUse an off the shelf tool to check what options work when connecting:\n\n\n\n\nGUI:  \n\n\nhttp://jxplorer.org/\n\n\nhttp://www.ldapsoft.com/ldapbrowser/ldapadmintool.html\n  \n\n\nCLI:  \n\n\nldapsearch -h 172.16.237.131 -D \"administrator@corp.egis-software.com\" -w password -b \"cn=users,dc=corp,dc=egis-software,dc=com\" -s sub \"(\n(objectClass=user)(mail=*))\" '*'\n  \n\n\nUse tcpdump\u00a0or wireshark to capture ldap\u00a0queries and results at the protocol level.  \n\n\n\n\nAdjust the LDAP query string in \nServices -\n Properties -\n LDAP\n as appropriate", 
+            "title": "Ldap ad"
+        }, 
+        {
+            "location": "/Integration/ldap-ad/#ldap-configuration", 
+            "text": "OpenLDAP\u00a0  Configure User format =  uid=${user},o=Directory   **Note:** Active directory will return less results and attributes when using port 3268 vs 389", 
+            "title": "LDAP Configuration"
+        }, 
+        {
+            "location": "/Integration/ldap-ad/#synchronizing-with-ldap-active-directory", 
+            "text": "Check  LDAP -  Auto Create   users  to create new users from LDAP when they login \nCheck  LDAP -  Auto Sync Groups  \u00a0to synchronize group membership, this will sync on user create and on the interval specified under  Authentication -  Group Sync Interval  You can also specify a datasource under  Authentication -  Group Sync Provider  e.g. ds:groups   SELECT memberOf as groups FROM '@ldap/objectClass=user SAMAccountName=${filter}", 
+            "title": "Synchronizing With LDAP / Active Directory"
+        }, 
+        {
+            "location": "/Integration/ldap-ad/#troubleshooting", 
+            "text": "Get the LDAP queries that PaperTrail is executing by increasing the log level: \u00a0 com.egis.utils.ldap\u00a0in\u00a0 8.8.4 or  com.egis.security.ldap \u00a0in 8.8.4+   DEBUG  to see the results of queries  TRACE  to see the actual query being run and authentication requests   Use an off the shelf tool to check what options work when connecting:   GUI:    http://jxplorer.org/  http://www.ldapsoft.com/ldapbrowser/ldapadmintool.html     CLI:    ldapsearch -h 172.16.237.131 -D \"administrator@corp.egis-software.com\" -w password -b \"cn=users,dc=corp,dc=egis-software,dc=com\" -s sub \"( (objectClass=user)(mail=*))\" '*'     Use tcpdump\u00a0or wireshark to capture ldap\u00a0queries and results at the protocol level.     Adjust the LDAP query string in  Services -  Properties -  LDAP  as appropriate", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/Reference/Linking/", 
+            "text": "Manipulating the linking critera\n\n\nLinking Documents On Numbers Only\n\n\nSpecific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.\n\n\n    \nDestination Node\n/recursive=true\nDestination Index\n=${if (\nSource Index\n == null) \"\" else \nSource Index\n.find(\"\\\\d+\")}\n\n\n\nDestination Node: \n\n\nrecursive=true: when searching over multiple child nodes\n\n\nDestination Index: Index field you want to link to\n\n\nSource Index: Index field on node you're linking from\n\n\n${if (\n == null): If source index has no Value\n\n\n\"\" else \n.find(\"\\d+\")}: Find matching Numeric Value\n\n\n\n\nLinking on Numeric with custom field Order_No\n\n\neg. Order_No = 12345\n\n\n   \nDestination Node\n/recursive=true\nOrder_No=${if (Order_No == null) \"\" else Order_No.find(\"\\\\d+\")}\n\n\n\nLinking on Alphanumeric with custom field Order_No\n\n\neg. Order_No = PO12345\n\n\n  \"\" else Order_No.find(\"\\\\w+\")}\n\n\n\nLinking on Alphanumeric, Space, Numeric with custom field Order_No\n\n\neg. Order_No = PO 12345\n\n\n \"\" else Order_No.find(\"\\\\w+\\\\s+\\\\d+\")}\n\n\n\nRegex Examples eg.\n\n\n\\w+\n    : All alphanumeric values\n\n\n\\W\n     : A non-word character: [^\\w]\n\n\n\\d+\n    : All numeric values\n\n\n\\D\n     : A non-digit: [^0-9]\n\n\n\\s\n     : A whitespace character", 
+            "title": "Linking"
+        }, 
+        {
+            "location": "/Reference/Linking/#manipulating-the-linking-critera", 
+            "text": "", 
+            "title": "Manipulating the linking critera"
+        }, 
+        {
+            "location": "/Reference/Linking/#linking-documents-on-numbers-only", 
+            "text": "", 
+            "title": "Linking Documents On Numbers Only"
+        }, 
+        {
+            "location": "/Reference/Linking/#specific-node-links-can-be-added-to-only-search-the-digit-portion-of-the-index-value-using-if-else-logic-ie", 
+            "text": "Destination Node /recursive=true Destination Index =${if ( Source Index  == null) \"\" else  Source Index .find(\"\\\\d+\")}", 
+            "title": "Specific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e."
+        }, 
+        {
+            "location": "/Reference/Linking/#destination-node", 
+            "text": "", 
+            "title": "Destination Node: "
+        }, 
+        {
+            "location": "/Reference/Linking/#recursivetrue-when-searching-over-multiple-child-nodes", 
+            "text": "", 
+            "title": "recursive=true: when searching over multiple child nodes"
+        }, 
+        {
+            "location": "/Reference/Linking/#destination-index-index-field-you-want-to-link-to", 
+            "text": "", 
+            "title": "Destination Index: Index field you want to link to"
+        }, 
+        {
+            "location": "/Reference/Linking/#source-index-index-field-on-node-youre-linking-from", 
+            "text": "", 
+            "title": "Source Index: Index field on node you're linking from"
+        }, 
+        {
+            "location": "/Reference/Linking/#if-null-if-source-index-has-no-value", 
+            "text": "", 
+            "title": "${if ( == null): If source index has no Value"
+        }, 
+        {
+            "location": "/Reference/Linking/#else-find92d-find-matching-numeric-value", 
+            "text": "", 
+            "title": "\"\" else .find(\"\\d+\")}: Find matching Numeric Value"
+        }, 
+        {
+            "location": "/Reference/Linking/#linking-on-numeric-with-custom-field-order_no", 
+            "text": "eg. Order_No = 12345      Destination Node /recursive=true Order_No=${if (Order_No == null) \"\" else Order_No.find(\"\\\\d+\")}", 
+            "title": "Linking on Numeric with custom field Order_No"
+        }, 
+        {
+            "location": "/Reference/Linking/#linking-on-alphanumeric-with-custom-field-order_no", 
+            "text": "eg. Order_No = PO12345    \"\" else Order_No.find(\"\\\\w+\")}", 
+            "title": "Linking on Alphanumeric with custom field Order_No"
+        }, 
+        {
+            "location": "/Reference/Linking/#linking-on-alphanumeric-space-numeric-with-custom-field-order_no", 
+            "text": "eg. Order_No = PO 12345   \"\" else Order_No.find(\"\\\\w+\\\\s+\\\\d+\")}", 
+            "title": "Linking on Alphanumeric, Space, Numeric with custom field Order_No"
+        }, 
+        {
+            "location": "/Reference/Linking/#regex-examples-eg", 
+            "text": "", 
+            "title": "Regex Examples eg."
+        }, 
+        {
+            "location": "/Reference/Linking/#92w-all-alphanumeric-values", 
+            "text": "", 
+            "title": "\\w+    : All alphanumeric values"
+        }, 
+        {
+            "location": "/Reference/Linking/#92w-a-non-word-character-w", 
+            "text": "", 
+            "title": "\\W     : A non-word character: [^\\w]"
+        }, 
+        {
+            "location": "/Reference/Linking/#92d-all-numeric-values", 
+            "text": "", 
+            "title": "\\d+    : All numeric values"
+        }, 
+        {
+            "location": "/Reference/Linking/#92d-a-non-digit-0-9", 
+            "text": "", 
+            "title": "\\D     : A non-digit: [^0-9]"
+        }, 
+        {
+            "location": "/Reference/Linking/#92s-a-whitespace-character", 
+            "text": "", 
+            "title": "\\s     : A whitespace character"
+        }, 
+        {
+            "location": "/Reference/health/", 
+            "text": "Health checks should be conduced after evyer new installation, upgrade, custom deployment or major config change\n\n\nConducting Health Checks\n\n\n\n\nMonitor the log files under  (\nlogs\n) for any startup or migration errors\n\n\nCheck system health using \n/health\n and ensuring everything is \nGood\n\n\nLog into all applications used (\n/web/webapps\n, \n/web/admin\n,\n/web/portal\n, \n/web/capture\n etc..) and ensure they load and function correctly", 
+            "title": "Health"
+        }, 
+        {
+            "location": "/Reference/health/#conducting-health-checks", 
+            "text": "Monitor the log files under  ( logs ) for any startup or migration errors  Check system health using  /health  and ensuring everything is  Good  Log into all applications used ( /web/webapps ,  /web/admin , /web/portal ,  /web/capture  etc..) and ensure they load and function correctly", 
+            "title": "Conducting Health Checks"
+        }, 
+        {
+            "location": "/Reference/licensing/", 
+            "text": "Licensing Details\n\n\nFull\n\n\nFull\n - Full functionality including import via Desktop Agent and Office Add-In.\n\n\nFull v2\n - The same permissions as Full, but defaults to using the new UI\n\n\nCustom\n - Full but with a different starting page e.g. a custom tool or static form.\n\n\nSub Licenses\n\n\nSub licenses are not added directly each full license provides te ability to create 2 or more sub type users. e.g. 1 full user license allows 5 share users to be created.\n\n\nShare (5)\n - Cannot login, can only access PaperTrail from email links Sent via Share, Share Node and eSign actions.\n\n\nView (2)\n - View only functions, no import capabilities.\n\n\nDesktop (2)\n - Import only via Desktop Agent or PaperTrail Office Add-In, no login via front-end.\n\n\nPortal (External)\n\n\nPortal licenses are designed to allow external companies and users to login to a very minimal view to view documents that are logically owned by them e.g. Viewing invoices made out to you.\n\n\nPortal Users have the same permissons as \nView\n and are automatically redirected to the Classic Portal view:  http://\n:8080/web/portal/portal.html.\n\n\nScan\n\n\nSame as Full but also allows the use of the Web Scan client.\n\n\nDepreceated\n\n\nMobile\n Removed in 8.8.0, all users except desktop can use mobile.", 
+            "title": "Licensing"
+        }, 
+        {
+            "location": "/Reference/licensing/#licensing-details", 
+            "text": "", 
+            "title": "Licensing Details"
+        }, 
+        {
+            "location": "/Reference/licensing/#full", 
+            "text": "Full  - Full functionality including import via Desktop Agent and Office Add-In.  Full v2  - The same permissions as Full, but defaults to using the new UI  Custom  - Full but with a different starting page e.g. a custom tool or static form.", 
+            "title": "Full"
+        }, 
+        {
+            "location": "/Reference/licensing/#sub-licenses", 
+            "text": "Sub licenses are not added directly each full license provides te ability to create 2 or more sub type users. e.g. 1 full user license allows 5 share users to be created.  Share (5)  - Cannot login, can only access PaperTrail from email links Sent via Share, Share Node and eSign actions.  View (2)  - View only functions, no import capabilities.  Desktop (2)  - Import only via Desktop Agent or PaperTrail Office Add-In, no login via front-end.", 
+            "title": "Sub Licenses"
+        }, 
+        {
+            "location": "/Reference/licensing/#portal-external", 
+            "text": "Portal licenses are designed to allow external companies and users to login to a very minimal view to view documents that are logically owned by them e.g. Viewing invoices made out to you.  Portal Users have the same permissons as  View  and are automatically redirected to the Classic Portal view:  http:// :8080/web/portal/portal.html.", 
+            "title": "Portal (External)"
+        }, 
+        {
+            "location": "/Reference/licensing/#scan", 
+            "text": "Same as Full but also allows the use of the Web Scan client.", 
+            "title": "Scan"
+        }, 
+        {
+            "location": "/Reference/licensing/#depreceated", 
+            "text": "Mobile  Removed in 8.8.0, all users except desktop can use mobile.", 
+            "title": "Depreceated"
+        }, 
+        {
+            "location": "/Reference/maintenance/", 
+            "text": "Maintenance Mode\n\n\n\n\nSetting maintenance mode is essential when conducting upgrades as it will ensure that no new documents/emails are imported after the upgrade is completed, as when a rollback is necessary, the imported documents will no longer be available in watched mailbox. \n\n\n\n\nTurning On Maintenance Mode:\n\n\n\n\nConfigure papertrail to start in maintenance mode by adding the following line to the \nconf/papertrail.properties\n\n\n\n\nmode=Maintenance\n\n\n\n\n\n\nRestart PaperTrail\n\n\n\n\nTurning Off Maintenance\n\n\n\n\nRemove or comment out the \nmode\n property in \nconf/papertrail.properties\n\n\nRestart PaperTrail", 
+            "title": "Maintenance"
+        }, 
+        {
+            "location": "/Reference/maintenance/#maintenance-mode", 
+            "text": "Setting maintenance mode is essential when conducting upgrades as it will ensure that no new documents/emails are imported after the upgrade is completed, as when a rollback is necessary, the imported documents will no longer be available in watched mailbox.", 
+            "title": "Maintenance Mode"
+        }, 
+        {
+            "location": "/Reference/maintenance/#turning-on-maintenance-mode", 
+            "text": "Configure papertrail to start in maintenance mode by adding the following line to the  conf/papertrail.properties   mode=Maintenance   Restart PaperTrail", 
+            "title": "Turning On Maintenance Mode:"
+        }, 
+        {
+            "location": "/Reference/maintenance/#turning-off-maintenance", 
+            "text": "Remove or comment out the  mode  property in  conf/papertrail.properties  Restart PaperTrail", 
+            "title": "Turning Off Maintenance"
+        }, 
+        {
+            "location": "/Reference/regex/", 
+            "text": "============\n\n\nParagraphs are separated by a blank line.\n\n\n2nd paragraph. \nItalic\n, \nbold\n, and \nmonospace\n. Itemized lists\nlook like:\n\n\n\n\nthis one\n\n\nthat one\n\n\nthe other one\n\n\n\n\nNote that --- not considering the asterisk --- the actual text\ncontent starts at 4-columns in.\n\n\n\n\nBlock quotes are\nwritten like so.\n\n\nThey can span multiple paragraphs,\nif you like.\n\n\n\n\ncode block\n\n\n\n\nInline code `codez\n\n\nUse 3 dashes for an em-dash. Use 2 dashes for ranges (ex., \"it's all\nin chapters 12--14\"). Three dots ... will be converted to an ellipsis.\nUnicode is supported.", 
+            "title": "Regex"
+        }
+    ]
+}
