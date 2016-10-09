@@ -1,0 +1,24 @@
+machine:
+  node:
+    version: 4.4.2
+
+dependencies:
+  override:
+    - sudo pip install -e git+https://github.com/MadLittleMods/markdown-icons.git || echo ok
+    - sudo pip install mkdocs
+    - npm install
+
+test:
+  override:
+    - echo ok
+  post:
+    - mkdocs build
+
+deployment:
+  production:
+    branch: master
+    commands:
+
+    - git config --global user.email circleci@circleci
+    - git config --global user.name CircleCI
+    - ./node_modules/gh-pages/bin/gh-pages -d site
