@@ -11,6 +11,116 @@
             "title": "Welcome to PaperTrail Support Portal"
         }, 
         {
+            "location": "/Configuration/Backups/", 
+            "text": "Backups\n\n\nWhat needs to be backed up?\n\n\n\n\nDatabase\n and transaction logs\n\n\nFile Repository\n (Everything under PT_Repo)\n\n\nSSL Certificate\n e.g. conf/keystore (If configured)\n\n\nEncryption Keys\n e.g. conf/keys.* If File store encryption is\n    configured\n\n\nIndexes\n Only for very large installations where an index rebuild\n    is too time-consuming\n\n\n\n\nSchedule Database Backups using PaperTrail\n\n\nPapertrail can automatically backup databases on schedule configured\nunder\u00a0Services\u00a0\u00a0\u2192\u00a0Properties\u00a0\u00a0\u2192\u00a0Backup \u2192\u00a0DB Schedule\n(db.backup.schedule).\n\n\nPaperTrail will run the pgdump, mysql_dump or SQL Server Backup\nDatabase command \u00a0and store the result in the file repository.\u00a0\n\n\nNote: Backups can only be made of local database\n\n\nConfiguring cloud backups\n\n\nCloud backups let you back up the PaperTrail file repository (and\noptionally the PaperTrail database) in near real time to the Amazon S3\ncloud (http://aws.amazon.com/s3/).\n\n\nIf you set up the Amazon S3 account, use the information from that\naccount to configure cloud backups. For Egis managed backups, Egis will\nsupply the information to you.\n\n\n\n\nFrom Services \u00a0\u2192\u00a0\u00a0Tasks\u00a0\u2192\u00a0 Wizards, select Configure cloud backups.\nEnter the values of the Amazon S3 account in these fields:\\\n\n\nBucket\n The Amazon S3 bucket to use, for example:\nacme.papertrail\\\n\n\nAccess key\n An access key that has read and write permissions to\nthe bucket.\\\n\n\nSecret key\n\n\n\n\nConfiguring periodic Windows file share backups\n\n\nPaperTrail creates an incremental backup ZIP file and copies the ZIP\nfile to the specified shared folder.  \n\n\nSpecify these options under the Backup Settings page of the\ninstallation wizard or after installation via Services\u00a0\u2192\u00a0 Tasks\u00a0\u2192\u00a0\nWizards \u00a0\u2192\u00a0\n\n\nConfigure Windows Share backups\n\n\n\n\nHost \u2013 the hostname of the Windows or SMB/CIFS based fileserver\\\n\n\nBackup Dir \u2013 The share and path location (e.g.,\nBackups/Papertrail Relative to the file share, not relative the root\ndirector)\n\n\nUsername and Password if applicable\n\n\n\n\nAd-Hoc Backup\n\n\nTypically, do an ad-hoc backup before you upgrade PaperTrail or before\nyou migrate to a different server.\n\n An ad-hoc backup will export all the files in the repository to a local\nor windows file share location. Multiple ZIP files will be created; a\nlog file for each ZIP file will also be created containing the names of\nthe files in the corresponding ZIP file.  \n\n\nAn ad-hoc backup can be re-run using the same destination path, the\nlogs files will be read and only new files added will be backed up.\n\n1. Under Services \u2192 Tasks \u2192 Backups \u2192 Backup Repository\n\n2. Destination: Local or windows file share\n(\nsmb://user@pass:host/Share/folder\n)\n\n3.\u00a0Optional: Check verify to verify the backup once complete\n\n4.\u00a0Max File Size: Enter a maximum file size. Once a backup file\nreaches this limit (it may not be exact depending on the size of\nindividual files) a new backup file will start.\n\n\nRestoring from backup\n\n\nSelect Restore from Windows File Share or Cloud from the installation\nwizard.\n\n\n3rd Party backup\n\n\n\n\nBackup the database and applicable transaction logs.\n\n\nBackup the PT_Repo directory (defaults to C:\\Data\\PT_Repo).\n\n\n\n\n\n\nNote: PaperTrail does not update files in the PT_Repo directory so once\nbacked up a file does not need to backed-up again.\n\n\n\n\n3.\u00a0\u00a0 \u00a0For large installations the indexes can also be backed up to\ndecrease restore times\n\n Under Services \u00a0\u2192\u00a0Properties \u00a0\u2192\u00a0Backup \u00a0Specify an Index Backup\nSchedule \n Directory\n\n\nNative restore from backup\n\n\n\n\nRestore database and file repository to original locations\n\n\nInstall PaperTrail\n\n\nCheck new installation and enter existing database details", 
+            "title": "Backups"
+        }, 
+        {
+            "location": "/Configuration/Backups/#backups", 
+            "text": "", 
+            "title": "Backups"
+        }, 
+        {
+            "location": "/Configuration/Backups/#what-needs-to-be-backed-up", 
+            "text": "Database  and transaction logs  File Repository  (Everything under PT_Repo)  SSL Certificate  e.g. conf/keystore (If configured)  Encryption Keys  e.g. conf/keys.* If File store encryption is\n    configured  Indexes  Only for very large installations where an index rebuild\n    is too time-consuming", 
+            "title": "What needs to be backed up?"
+        }, 
+        {
+            "location": "/Configuration/Backups/#schedule-database-backups-using-papertrail", 
+            "text": "Papertrail can automatically backup databases on schedule configured\nunder\u00a0Services\u00a0\u00a0\u2192\u00a0Properties\u00a0\u00a0\u2192\u00a0Backup \u2192\u00a0DB Schedule\n(db.backup.schedule).  PaperTrail will run the pgdump, mysql_dump or SQL Server Backup\nDatabase command \u00a0and store the result in the file repository.\u00a0  Note: Backups can only be made of local database", 
+            "title": "Schedule Database Backups using PaperTrail"
+        }, 
+        {
+            "location": "/Configuration/Backups/#configuring-cloud-backups", 
+            "text": "Cloud backups let you back up the PaperTrail file repository (and\noptionally the PaperTrail database) in near real time to the Amazon S3\ncloud (http://aws.amazon.com/s3/).  If you set up the Amazon S3 account, use the information from that\naccount to configure cloud backups. For Egis managed backups, Egis will\nsupply the information to you.   From Services \u00a0\u2192\u00a0\u00a0Tasks\u00a0\u2192\u00a0 Wizards, select Configure cloud backups.\nEnter the values of the Amazon S3 account in these fields:\\  Bucket  The Amazon S3 bucket to use, for example:\nacme.papertrail\\  Access key  An access key that has read and write permissions to\nthe bucket.\\  Secret key", 
+            "title": "Configuring cloud backups"
+        }, 
+        {
+            "location": "/Configuration/Backups/#configuring-periodic-windows-file-share-backups", 
+            "text": "PaperTrail creates an incremental backup ZIP file and copies the ZIP\nfile to the specified shared folder.    Specify these options under the Backup Settings page of the\ninstallation wizard or after installation via Services\u00a0\u2192\u00a0 Tasks\u00a0\u2192\u00a0\nWizards \u00a0\u2192", 
+            "title": "Configuring periodic Windows file share backups"
+        }, 
+        {
+            "location": "/Configuration/Backups/#configure-windows-share-backups", 
+            "text": "Host \u2013 the hostname of the Windows or SMB/CIFS based fileserver\\  Backup Dir \u2013 The share and path location (e.g.,\nBackups/Papertrail Relative to the file share, not relative the root\ndirector)  Username and Password if applicable", 
+            "title": "Configure Windows Share backups"
+        }, 
+        {
+            "location": "/Configuration/Backups/#ad-hoc-backup", 
+            "text": "Typically, do an ad-hoc backup before you upgrade PaperTrail or before\nyou migrate to a different server. \n An ad-hoc backup will export all the files in the repository to a local\nor windows file share location. Multiple ZIP files will be created; a\nlog file for each ZIP file will also be created containing the names of\nthe files in the corresponding ZIP file.    An ad-hoc backup can be re-run using the same destination path, the\nlogs files will be read and only new files added will be backed up. \n1. Under Services \u2192 Tasks \u2192 Backups \u2192 Backup Repository \n2. Destination: Local or windows file share\n( smb://user@pass:host/Share/folder ) \n3.\u00a0Optional: Check verify to verify the backup once complete \n4.\u00a0Max File Size: Enter a maximum file size. Once a backup file\nreaches this limit (it may not be exact depending on the size of\nindividual files) a new backup file will start.", 
+            "title": "Ad-Hoc Backup"
+        }, 
+        {
+            "location": "/Configuration/Backups/#restoring-from-backup", 
+            "text": "Select Restore from Windows File Share or Cloud from the installation\nwizard.", 
+            "title": "Restoring from backup"
+        }, 
+        {
+            "location": "/Configuration/Backups/#3rd-party-backup", 
+            "text": "Backup the database and applicable transaction logs.  Backup the PT_Repo directory (defaults to C:\\Data\\PT_Repo).    Note: PaperTrail does not update files in the PT_Repo directory so once\nbacked up a file does not need to backed-up again.   3.\u00a0\u00a0 \u00a0For large installations the indexes can also be backed up to\ndecrease restore times \n Under Services \u00a0\u2192\u00a0Properties \u00a0\u2192\u00a0Backup \u00a0Specify an Index Backup\nSchedule   Directory", 
+            "title": "3rd Party backup"
+        }, 
+        {
+            "location": "/Configuration/Backups/#native-restore-from-backup", 
+            "text": "Restore database and file repository to original locations  Install PaperTrail  Check new installation and enter existing database details", 
+            "title": "Native restore from backup"
+        }, 
+        {
+            "location": "/Configuration/Branding/", 
+            "text": "Branding PaperTrail\n\n\n\n\nImages are placed in the System/images node.\n\n\nImages must end in .png (if they are a .jpeg or .gif they can be\n    safely renamed).\n\n\nImages should be the correct size, if the image is bigger or smaller\n    it should be manually resized before importing into System/images.\n\n\nTo prevent the images from being overwritten after upgrades, they\n    should be permanently checked out.\n\n\n\n\nlogin_background.png (320x365)\n\n\nThe honeycomb that sits behind the login and password boxes.\n\n\npapertrail.png (110x26)\n\n\nThe logo that sits in the top left of the main application screen.\\\n The background should be transparent.\n\n\nlogo.png (320x50)\n\n\nThe logo that sits above the honeycomb.\\\n Add white space to the left of image to center it above the honeycomb.\n\n\negis.png (75x25)\n\n\nThe egis logo on the bottom right of the screen.", 
+            "title": "Branding"
+        }, 
+        {
+            "location": "/Configuration/Branding/#branding-papertrail", 
+            "text": "Images are placed in the System/images node.  Images must end in .png (if they are a .jpeg or .gif they can be\n    safely renamed).  Images should be the correct size, if the image is bigger or smaller\n    it should be manually resized before importing into System/images.  To prevent the images from being overwritten after upgrades, they\n    should be permanently checked out.", 
+            "title": "Branding PaperTrail"
+        }, 
+        {
+            "location": "/Configuration/Branding/#login95backgroundpng-320x365", 
+            "text": "The honeycomb that sits behind the login and password boxes.", 
+            "title": "login_background.png (320x365)"
+        }, 
+        {
+            "location": "/Configuration/Branding/#papertrailpng-110x26", 
+            "text": "The logo that sits in the top left of the main application screen.\\\n The background should be transparent.", 
+            "title": "papertrail.png (110x26)"
+        }, 
+        {
+            "location": "/Configuration/Branding/#logopng-320x50", 
+            "text": "The logo that sits above the honeycomb.\\\n Add white space to the left of image to center it above the honeycomb.", 
+            "title": "logo.png (320x50)"
+        }, 
+        {
+            "location": "/Configuration/Branding/#egispng-75x25", 
+            "text": "The egis logo on the bottom right of the screen.", 
+            "title": "egis.png (75x25)"
+        }, 
+        {
+            "location": "/Configuration/LDAP/", 
+            "text": "LDAP Configuration\n\n\nOpenLDAP\n\n\nConfigure User format = uid=${user},o=Directory\n\n\n\nNote:\n Active directory will return less results and attributes when\nusing port 3268 vs 389\n\n\n\\\n Multiple LDAP Servers\n\n\n\n\nConfigured by addition a set of properties per domain:\n\n\nldap.extra.domain1-corp.local.host=\nldap.extra.domain1-corp.local.user=\nldap.extra.domain1-corp.local.pass=\n\nldap.extra.domain2-corp.local.host=\nldap.extra.domain2-corp.local.user=\nldap.extra.domain2-corp.local.pass=\n\n\n\n\nSynchronizing With LDAP / Active Directory\n\n\nCheck LDAP -> Auto Create users to create new users from LDAP when\nthey login\\\n Check LDAP -> Auto Sync Groups \u00a0to synchronize group membership, this\nwill sync on user create and on the interval specified under\nAuthentication -> Group Sync Interval\n\n\nTroubleshooting\n\n\n\n\nGet the LDAP queries that PaperTrail is executing by increasing the\n    log level: \u00a0com.egis.utils.ldap\u00a0in\u00a0\\\n8.8.4 or\n    com.egis.security.ldap\u00a0in 8.8.4+\n\n\n\n\nDEBUG to see the results of queries\\\n TRACE to see the actual query being run and authentication requests\n\n\n\n\nUse an off the shelf tool to check what options work when\n    connecting:\n\n\n\n\nGUI:\n\n\nhttp://jxplorer.org/\n\n\nhttp://www.ldapsoft.com/ldapbrowser/ldapadmintool.html\n\n\nCLI:\n\n\nldapsearch -h 172.16.237.131 -D \"administrator@corp.egis-software.com\" -w password -b \"cn=users,dc=corp,dc=egis-software,dc=com\" -s sub \"(\n(objectClass=user)(mail=*))\" '*'\n  \n\n\nUse tcpdump\u00a0or wireshark to capture ldap\u00a0queries and results at the\nprotocol level.\\\n \u00a0\n\n\n\n\nAdjust the LDAP query string in Services -> Properties -> LDAP as\n    appropriate", 
+            "title": "LDAP"
+        }, 
+        {
+            "location": "/Configuration/LDAP/#ldap-configuration", 
+            "text": "", 
+            "title": "LDAP Configuration"
+        }, 
+        {
+            "location": "/Configuration/LDAP/#openldap", 
+            "text": "Configure User format = uid=${user},o=Directory  Note:  Active directory will return less results and attributes when\nusing port 3268 vs 389  \\\n Multiple LDAP Servers   Configured by addition a set of properties per domain:  ldap.extra.domain1-corp.local.host=\nldap.extra.domain1-corp.local.user=\nldap.extra.domain1-corp.local.pass=\n\nldap.extra.domain2-corp.local.host=\nldap.extra.domain2-corp.local.user=\nldap.extra.domain2-corp.local.pass=", 
+            "title": "OpenLDAP"
+        }, 
+        {
+            "location": "/Configuration/LDAP/#synchronizing-with-ldap-active-directory", 
+            "text": "Check LDAP -> Auto Create users to create new users from LDAP when\nthey login\\\n Check LDAP -> Auto Sync Groups \u00a0to synchronize group membership, this\nwill sync on user create and on the interval specified under\nAuthentication -> Group Sync Interval", 
+            "title": "Synchronizing With LDAP / Active Directory"
+        }, 
+        {
+            "location": "/Configuration/LDAP/#troubleshooting", 
+            "text": "Get the LDAP queries that PaperTrail is executing by increasing the\n    log level: \u00a0com.egis.utils.ldap\u00a0in\u00a0\\ 8.8.4 or\n    com.egis.security.ldap\u00a0in 8.8.4+   DEBUG to see the results of queries\\\n TRACE to see the actual query being run and authentication requests   Use an off the shelf tool to check what options work when\n    connecting:   GUI:  http://jxplorer.org/  http://www.ldapsoft.com/ldapbrowser/ldapadmintool.html  CLI:  ldapsearch -h 172.16.237.131 -D \"administrator@corp.egis-software.com\" -w password -b \"cn=users,dc=corp,dc=egis-software,dc=com\" -s sub \"( (objectClass=user)(mail=*))\" '*'     Use tcpdump\u00a0or wireshark to capture ldap\u00a0queries and results at the\nprotocol level.\\\n \u00a0   Adjust the LDAP query string in Services -> Properties -> LDAP as\n    appropriate", 
+            "title": "Troubleshooting"
+        }, 
+        {
             "location": "/Configuration/basic/", 
             "text": "Adding nodes (folders)\n\n\nCreating users and groups\n\n\nAdding permisions to a node\n\n\nMore Links\n\n\nAdvanced Configuration", 
             "title": "Basic"
@@ -29,6 +139,36 @@
             "location": "/Configuration/basic/#adding-permisions-to-a-node", 
             "text": "More Links  Advanced Configuration", 
             "title": "Adding permisions to a node"
+        }, 
+        {
+            "location": "/Configuration/security/", 
+            "text": "Security Settings\n\n\nPaperTrail can be run in 4 distinct\u00a0security modes:\n\n\nLow (Default)\n\n\nSuitable for intranet based deployments without confidential data\u00a0\n\n\nMedium\n\n\nAccess to the various API's used for replication and clustering is\nrestricted based on Trusted Server entries, some of the endpoints\nrestricted include:\n \u00a0\n\n\n\n\nconversion\n\n\nsignature/upload\n\n\nindex/replication\n\n\nstore\n\n\nreplicate\n\n\n\n\nHigh\n\n\nIncludes all the restrictions of Medium and:\n \u00a0\n\n\n\n\ndisables the /script/console endpoint (used by\n    /web/admin/console.html and pt script\u00a0CLI)\n\n\n\n\nprevents updates to the following properties via the web UI, they\n    need to be set via papertrail.properties file:\n\n\nldap.host\nwaffle.enable\nspnego.enable\nspnego.kdc\nsmtp.debug\nemail.spool\nsmtp.host\nsms.url\nweb.login.sms.otp\nindex.store\nhttp.ssl\ndisabled.audits\ndisabled.entity.audits\nopenoffice.path\ntiff2pdf.process\npdf2swf.process\nsecurity.level\n\n\n\n\n\n\nVery High\n\n\nIncludes all the restrictions of High and further restricts:\n\n\n\n\nLoading jar files via System/jars folder\n\n\nLoading scripts via System/scripts folder\n\n\nLoading UI plugins via System/plugins folder\n\n\nScripted data sources\n\n\nrunScript, dbLookup and commandLineProcess rules\n\n\nCustom options in Meta Model Fields\n\n\nPQL Expressions", 
+            "title": "Security"
+        }, 
+        {
+            "location": "/Configuration/security/#security-settings", 
+            "text": "PaperTrail can be run in 4 distinct\u00a0security modes:", 
+            "title": "Security Settings"
+        }, 
+        {
+            "location": "/Configuration/security/#low-default", 
+            "text": "Suitable for intranet based deployments without confidential data", 
+            "title": "Low (Default)"
+        }, 
+        {
+            "location": "/Configuration/security/#medium", 
+            "text": "Access to the various API's used for replication and clustering is\nrestricted based on Trusted Server entries, some of the endpoints\nrestricted include:\n \u00a0   conversion  signature/upload  index/replication  store  replicate", 
+            "title": "Medium"
+        }, 
+        {
+            "location": "/Configuration/security/#high", 
+            "text": "Includes all the restrictions of Medium and:\n \u00a0   disables the /script/console endpoint (used by\n    /web/admin/console.html and pt script\u00a0CLI)   prevents updates to the following properties via the web UI, they\n    need to be set via papertrail.properties file:  ldap.host\nwaffle.enable\nspnego.enable\nspnego.kdc\nsmtp.debug\nemail.spool\nsmtp.host\nsms.url\nweb.login.sms.otp\nindex.store\nhttp.ssl\ndisabled.audits\ndisabled.entity.audits\nopenoffice.path\ntiff2pdf.process\npdf2swf.process\nsecurity.level", 
+            "title": "High"
+        }, 
+        {
+            "location": "/Configuration/security/#very-high", 
+            "text": "Includes all the restrictions of High and further restricts:   Loading jar files via System/jars folder  Loading scripts via System/scripts folder  Loading UI plugins via System/plugins folder  Scripted data sources  runScript, dbLookup and commandLineProcess rules  Custom options in Meta Model Fields  PQL Expressions", 
+            "title": "Very High"
         }, 
         {
             "location": "/Configuration/solution-pack/", 
@@ -86,6 +226,31 @@
             "title": "Configuring Client Authentication (Mutual SSL)"
         }, 
         {
+            "location": "/Installation/Sizing/", 
+            "text": "PaperTrail Server Requirements\n\n\n\n\n2 - 4GB RAM\n\n\n2 Modern CPU Cores\n\n\n20GB + free disk space\n\n\n\n\nDatabase\n\n\nThe database should be kept entirely in RAM on fast disks (SSD, RAID 1\nwith cache etc)\\\n\\\n As a rough guideline is 1GB of RAM per 1 million docs.\\\n A centralized database can be used, however\u00a0it can introduce latency.\n\n\nIndex Directory\n\n\nThe index directory is where Lucene stores all indexes for searching, as\na rule of thumb is its around 1 - 2 GB per million docs, more if full\ntext searching is enabled.\u00a0\\\n\\\n The index directory needs to be on fast disks (RAID 0, SSD) and does\nnot need to backed up as it can be easily and quickly (with full text\ndisabled) rebuilt.\n\n\nFile Repository\n\n\nThe file repository has lots of small file based IO, each file is stored\nby name as checksum, so once written a file is never updated only\ndeleted.\\\n It can safely be backed up and then archived.\\\n\\\n RAID 6+ is sufficient.\u00a0\\\n\\\n Files can also be stored on a object storage platform like Amazon S3,\nCaringo CAStore reducing the need for backups.\\\n\\\n Replication can also be configured between 2 PaperTrail instances using\nfile stores.\\", 
+            "title": "Sizing"
+        }, 
+        {
+            "location": "/Installation/Sizing/#papertrail-server-requirements", 
+            "text": "2 - 4GB RAM  2 Modern CPU Cores  20GB + free disk space", 
+            "title": "PaperTrail Server Requirements"
+        }, 
+        {
+            "location": "/Installation/Sizing/#database", 
+            "text": "The database should be kept entirely in RAM on fast disks (SSD, RAID 1\nwith cache etc)\\\n\\\n As a rough guideline is 1GB of RAM per 1 million docs.\\\n A centralized database can be used, however\u00a0it can introduce latency.", 
+            "title": "Database"
+        }, 
+        {
+            "location": "/Installation/Sizing/#index-directory", 
+            "text": "The index directory is where Lucene stores all indexes for searching, as\na rule of thumb is its around 1 - 2 GB per million docs, more if full\ntext searching is enabled.\u00a0\\\n\\\n The index directory needs to be on fast disks (RAID 0, SSD) and does\nnot need to backed up as it can be easily and quickly (with full text\ndisabled) rebuilt.", 
+            "title": "Index Directory"
+        }, 
+        {
+            "location": "/Installation/Sizing/#file-repository", 
+            "text": "The file repository has lots of small file based IO, each file is stored\nby name as checksum, so once written a file is never updated only\ndeleted.\\\n It can safely be backed up and then archived.\\\n\\\n RAID 6+ is sufficient.\u00a0\\\n\\\n Files can also be stored on a object storage platform like Amazon S3,\nCaringo CAStore reducing the need for backups.\\\n\\\n Replication can also be configured between 2 PaperTrail instances using\nfile stores.\\", 
+            "title": "File Repository"
+        }, 
+        {
             "location": "/Installation/Windows/", 
             "text": "Windows Installations\n\n\n\n\nOn some versions of Windows 2012 you may need to install \nVisual C++\n\n\n\n\nSQL Server Windows Authentication\n\n\n\n\nCopy \nntmlauth.dll\n file to C:\\Windows \n\n\nFor remote installations, make sure that the Windows user granted DB\naccess is the same as the user that is being logged on to the application\nmachine.", 
             "title": "Windows"
@@ -99,6 +264,26 @@
             "location": "/Installation/Windows/#sql-server-windows-authentication", 
             "text": "Copy  ntmlauth.dll  file to C:\\Windows   For remote installations, make sure that the Windows user granted DB\naccess is the same as the user that is being logged on to the application\nmachine.", 
             "title": "SQL Server Windows Authentication"
+        }, 
+        {
+            "location": "/Installation/db-tuning/", 
+            "text": "Database Performance Tuning\n\n\n\n\nUse READ COMMITTED default tx isolation level.\n\n\nUse a transaction logging mode that allows point in time recovery\n    (PITR) if possible\n\n\n\n\nRecommended PostgreSQL Settings\n\n\nmax_connections = 300 shared_buffers =\u00a01GB\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0# increase based on db and RAM size \ntemp_buffers = 1GB\u00a0\u00a0# increase based on db and RAM size \nmax_prepared_transactions = 0 \nwork_mem = 4MB \nmaintenance_work_mem = 512MB\neffective_io_concurrency = 4\u00a0\u00a0 \u00a0 \nwal_level = archive\u00a0\u00a0 \u00a0# allows PITR and restore \nfsync = on\u00a0\u00a0 # setting it to off can boost performance at the risk of full db corruption\nsynchronous_commit = on \u00a0# can be safely set to off full_page_writes = on\n\n\n\n\nRecommended MySQL Settings\n\n\ncharacter-set-server=utf8\ndefault-character-set=utf8\ndefault-storage-engine=INNODB\nmax_connections=800\n\n# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 \ninnodb_flush_log_at_trx_commit=1\u00a0 \nsync_binlog=1  \n\n# increase based on db size and RAM \ninnodb_buffer_pool_size=1G \ntx_isolation=READ-COMMITTED\nbinlog-format=ROW  \ntmp_table_size=64M \ninnodb_log_file_size=500M \nmax_allowed_packet=4M  \ninnodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 \n\n# disable query cache \nquery_cache_size=0 \nquery_cache_type=0 \nthread_cache_size=10", 
+            "title": "Db tuning"
+        }, 
+        {
+            "location": "/Installation/db-tuning/#database-performance-tuning", 
+            "text": "Use READ COMMITTED default tx isolation level.  Use a transaction logging mode that allows point in time recovery\n    (PITR) if possible", 
+            "title": "Database Performance Tuning"
+        }, 
+        {
+            "location": "/Installation/db-tuning/#recommended-postgresql-settings", 
+            "text": "max_connections = 300 shared_buffers =\u00a01GB\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0# increase based on db and RAM size \ntemp_buffers = 1GB\u00a0\u00a0# increase based on db and RAM size \nmax_prepared_transactions = 0 \nwork_mem = 4MB \nmaintenance_work_mem = 512MB\neffective_io_concurrency = 4\u00a0\u00a0 \u00a0 \nwal_level = archive\u00a0\u00a0 \u00a0# allows PITR and restore \nfsync = on\u00a0\u00a0 # setting it to off can boost performance at the risk of full db corruption\nsynchronous_commit = on \u00a0# can be safely set to off full_page_writes = on", 
+            "title": "Recommended PostgreSQL Settings"
+        }, 
+        {
+            "location": "/Installation/db-tuning/#recommended-mysql-settings", 
+            "text": "character-set-server=utf8\ndefault-character-set=utf8\ndefault-storage-engine=INNODB\nmax_connections=800\n\n# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 \ninnodb_flush_log_at_trx_commit=1\u00a0 \nsync_binlog=1  \n\n# increase based on db size and RAM \ninnodb_buffer_pool_size=1G \ntx_isolation=READ-COMMITTED\nbinlog-format=ROW  \ntmp_table_size=64M \ninnodb_log_file_size=500M \nmax_allowed_packet=4M  \ninnodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 \n\n# disable query cache \nquery_cache_size=0 \nquery_cache_type=0 \nthread_cache_size=10", 
+            "title": "Recommended MySQL Settings"
         }, 
         {
             "location": "/Installation/end-user-installation/", 
@@ -161,6 +346,21 @@
             "title": "More Links"
         }, 
         {
+            "location": "/Installation/service/", 
+            "text": "Configuring service settings\n\n\nOS\n                               Linux\n  \nConfiguration applied in\n         /opt/Papertrail/run.sh\n\n\nConfiguration Options\n\n\n\n\nOption\n               -Xmx                     -Xms\n  \nDescription\n          Max memory               Min memory\n  \nExample\n              -Xmx2048M                -Xms2048M", 
+            "title": "Service"
+        }, 
+        {
+            "location": "/Installation/service/#configuring-service-settings", 
+            "text": "OS                                Linux\n   Configuration applied in          /opt/Papertrail/run.sh", 
+            "title": "Configuring service settings"
+        }, 
+        {
+            "location": "/Installation/service/#configuration-options", 
+            "text": "Option                -Xmx                     -Xms\n   Description           Max memory               Min memory\n   Example               -Xmx2048M                -Xms2048M", 
+            "title": "Configuration Options"
+        }, 
+        {
             "location": "/Installation/solution/", 
             "text": "Deploying Solutions\n\n\n\n\nFirst take a full \nbackup\n if possible.\n\n\nNB: Turn on \nMaintenance Mode\n\n\nNote A SolutionPack.zip is used in the examples below, however each solution will have it's own filename e.g.  Travel.zip, HR.zip\n\n\n\n\n\n\n\n\nVia the CLI\n\n\npt deploy SolutionPack.zip\n\n\nVia the GUI\n\n\n\n\nGo to the Admin \n Services \n Tasks \n Bulk Import \n Deploy Pack\n\n\n\n\nSelect the \nSolutionPack.zip\n\n\n\n\n\n\nThen conduct a \nHealth Check\n\n\n\n\nFinally turn off \nMaintenance Mode", 
             "title": "Solution"
@@ -179,6 +379,76 @@
             "location": "/Installation/solution/#via-the-gui", 
             "text": "Go to the Admin   Services   Tasks   Bulk Import   Deploy Pack   Select the  SolutionPack.zip    Then conduct a  Health Check   Finally turn off  Maintenance Mode", 
             "title": "Via the GUI"
+        }, 
+        {
+            "location": "/Integration/data-sources/", 
+            "text": "Data Sources\n\n\nData sources allow for data to be looked up in a centralized fashion -\nthese data sources are always referenced by name so they can differ in\nproduction and dev environments - both in parameters and type.\n\n\nSystem properties can also be used for the URL, username and password\nfields:\\\n e.g.\\\n\n\n${external.db.username} ${external.db.password} jdbc:mysql://${external.db.host}/\n{.ini}\\\n The properties can then be added to a .properties file in the\nPapertrail/conf installation folder\\\n \u00a0\n\n\nJDBC\n\n\nConnect to any remote database accessible via a JDBC URL examples of\nwhich are:\n\n\njdbc:mysql://host:3306/{db}\n{.sql}\n\n\njdbc:sqlserver://host:1443;databaseName={db}\n{.sql}\n\n\njdbc:postgresql://host:5432/{db}\n{.sql}\n\n\nParameters can be specified using \n\\${param}\n syntax (they are\nescaped to prevent SQL Injection):\n e.g.\n\n\nSELECT index1 as name, index2 as value FROM external_table WHERE index3 LIKE '${filter}'\n{.sql}\n\n\nNote the \naliasing\n to \nname\n and \nvalue\n which is required to\ncorrectly render in lookup fields/lists.\n\n\nAlthough any parameter can be used \n\\${filter}\n is reserved for user\nentered input.\n\n\nLocal DB\n\n\nA subtype of JDBC - connects to same database as PaperTrail can be used\nto query papertrail core tables, import and sync tables, or any other\ntable added to this db.\\\n \u00a0\n\n\nNode Query\n\n\nReturns the result of a PQL query - Commonly used for config nodes.\n \u00a0\n\n\nScripted\n\n\nAllows groovy script to be executed to return any arbritrary list of\ndata.", 
+            "title": "Data sources"
+        }, 
+        {
+            "location": "/Integration/data-sources/#data-sources", 
+            "text": "Data sources allow for data to be looked up in a centralized fashion -\nthese data sources are always referenced by name so they can differ in\nproduction and dev environments - both in parameters and type.  System properties can also be used for the URL, username and password\nfields:\\\n e.g.\\  ${external.db.username} ${external.db.password} jdbc:mysql://${external.db.host}/ {.ini}\\\n The properties can then be added to a .properties file in the\nPapertrail/conf installation folder\\", 
+            "title": "Data Sources"
+        }, 
+        {
+            "location": "/Integration/data-sources/#jdbc", 
+            "text": "Connect to any remote database accessible via a JDBC URL examples of\nwhich are:  jdbc:mysql://host:3306/{db} {.sql}  jdbc:sqlserver://host:1443;databaseName={db} {.sql}  jdbc:postgresql://host:5432/{db} {.sql}  Parameters can be specified using  \\${param}  syntax (they are\nescaped to prevent SQL Injection):\n e.g.  SELECT index1 as name, index2 as value FROM external_table WHERE index3 LIKE '${filter}' {.sql}  Note the  aliasing  to  name  and  value  which is required to\ncorrectly render in lookup fields/lists.  Although any parameter can be used  \\${filter}  is reserved for user\nentered input.", 
+            "title": "JDBC"
+        }, 
+        {
+            "location": "/Integration/data-sources/#local-db", 
+            "text": "A subtype of JDBC - connects to same database as PaperTrail can be used\nto query papertrail core tables, import and sync tables, or any other\ntable added to this db.\\", 
+            "title": "Local DB"
+        }, 
+        {
+            "location": "/Integration/data-sources/#node-query", 
+            "text": "Returns the result of a PQL query - Commonly used for config nodes.", 
+            "title": "Node Query"
+        }, 
+        {
+            "location": "/Integration/data-sources/#scripted", 
+            "text": "Allows groovy script to be executed to return any arbritrary list of\ndata.", 
+            "title": "Scripted"
+        }, 
+        {
+            "location": "/Integration/db-lookup/", 
+            "text": "Database JDBC Configs\n\n\nMicrosoft SQL Server\u200b\n\n\njdbc:sqlserver://[serverName[\\instanceName][:portNumber]];databaseName=\ndatabaseName\n[;property=value[;property=value]]\n\n\ne.g.\n\n\njdbc:sqlserver://host;databaseName=test123\n\n\nMYSQL\u00a0\u200b\n\n\njdbc:mysql://\ndatabase server\n:\nports\n/\ndatabase names\n\n\nPostgreSQL\u00a0\u200b\\\n\n\n\\\n \njdbc:postgresql://\ndatabase server\n:\nport\n/\ndatabaseName\n\\\n\\\n SQL\n\n\nSQL statement used to update records in PaperTrail or update DB records\nfrom PaperTrail:\\\n \u00a0\n\n\n\n\n\n\nSELECT STATEMENT\n: To Update records from an external database to\n    PaperTrail records.\n\n\n\n\nFORMAT\n: \nSELECT \\\nCOLOUMNS>\u00a0FROM \\\nTABLENAME> WHERE\n    \\\nDATABASE INDEX> = \\${\\\nPAPERTRAIL INDEX>}\n\n\n\n\nEXAMPLE\n:\n\n\n{style=\"background:rgba(238,238,238,0.92);color:#000\"}\nSELECT No_ AS Invoice_No, \nLEFT(CONVERT(date, \"Posting Date\"),10) \n     AS Invoice_Date,\"Order No_\" \n     AS Internal_Order, \"Sell-to Customer No_\" \n     AS Customer_No,\"External Document No_\" \n     AS Customer_Order_No, \"Shipment Method Code\" \n     AS Delivery_Method \nFROM \"SAFINTRA JHB$Sales Invoice Header\" \nWHERE No_ = '${invoice_no}\n\n\n\n\n\n\n\n\n\n\nUPDATE STATEMENT\n\n\n\n\nFORMAT\n: \nUPDATE \\\nTABLE NAME> SET \\\nDATABASE INDEX> =\n    '\\\nVALUE>' WHERE \\\nDATABASE INDEX> = \\${\\\nPAPERTRAIL\n    INDEX>}\n\n\n\n\nEXAMPLE\n:\n\n\n{style=\"background:rgba(238,238,238,0.92);color:#000\"}\nUPDATE test \nSET Index1 = 'asdf' \nWHERE Invoice_Number = ${Invoice_Number}\n\n\n\n\n\n\n\n\n\n\n\\\n \u00a0\n\n\nRules for SQL statements\n\n\n\n\nColumn headers and index values must match index values in\n    PaperTrail, otherwise give columns aliases by using the \u201cAS\u201d\n    function.\n\n\nAll native SQL commands and functions can be used in the statement.\n\n\nSeparate columns in SELECT statements by commas.\n\n\nIf column names contain spaces, double quotes (\u201c \u201c) should be used\n    to surround the name in order to concatenate the name.\n\n\n\n\nEvent\n\n\n\\\n When to run the SQL Lookup or Update.", 
+            "title": "Db lookup"
+        }, 
+        {
+            "location": "/Integration/db-lookup/#database-jdbc-configs", 
+            "text": "", 
+            "title": "Database JDBC Configs"
+        }, 
+        {
+            "location": "/Integration/db-lookup/#microsoft-sql-server", 
+            "text": "jdbc:sqlserver://[serverName[\\instanceName][:portNumber]];databaseName= databaseName [;property=value[;property=value]]", 
+            "title": "Microsoft SQL Server\u200b"
+        }, 
+        {
+            "location": "/Integration/db-lookup/#eg", 
+            "text": "jdbc:sqlserver://host;databaseName=test123", 
+            "title": "e.g."
+        }, 
+        {
+            "location": "/Integration/db-lookup/#mysql", 
+            "text": "jdbc:mysql:// database server : ports / database names", 
+            "title": "MYSQL\u00a0\u200b"
+        }, 
+        {
+            "location": "/Integration/db-lookup/#postgresql", 
+            "text": "\\\n  jdbc:postgresql:// database server : port / databaseName \\\n\\\n SQL  SQL statement used to update records in PaperTrail or update DB records\nfrom PaperTrail:\\\n \u00a0    SELECT STATEMENT : To Update records from an external database to\n    PaperTrail records.   FORMAT :  SELECT \\ COLOUMNS>\u00a0FROM \\ TABLENAME> WHERE\n    \\ DATABASE INDEX> = \\${\\ PAPERTRAIL INDEX>}   EXAMPLE :  {style=\"background:rgba(238,238,238,0.92);color:#000\"}\nSELECT No_ AS Invoice_No, \nLEFT(CONVERT(date, \"Posting Date\"),10) \n     AS Invoice_Date,\"Order No_\" \n     AS Internal_Order, \"Sell-to Customer No_\" \n     AS Customer_No,\"External Document No_\" \n     AS Customer_Order_No, \"Shipment Method Code\" \n     AS Delivery_Method \nFROM \"SAFINTRA JHB$Sales Invoice Header\" \nWHERE No_ = '${invoice_no}      UPDATE STATEMENT   FORMAT :  UPDATE \\ TABLE NAME> SET \\ DATABASE INDEX> =\n    '\\ VALUE>' WHERE \\ DATABASE INDEX> = \\${\\ PAPERTRAIL\n    INDEX>}   EXAMPLE :  {style=\"background:rgba(238,238,238,0.92);color:#000\"}\nUPDATE test \nSET Index1 = 'asdf' \nWHERE Invoice_Number = ${Invoice_Number}      \\", 
+            "title": "PostgreSQL\u00a0\u200b\\"
+        }, 
+        {
+            "location": "/Integration/db-lookup/#rules-for-sql-statements", 
+            "text": "Column headers and index values must match index values in\n    PaperTrail, otherwise give columns aliases by using the \u201cAS\u201d\n    function.  All native SQL commands and functions can be used in the statement.  Separate columns in SELECT statements by commas.  If column names contain spaces, double quotes (\u201c \u201c) should be used\n    to surround the name in order to concatenate the name.", 
+            "title": "Rules for SQL statements"
+        }, 
+        {
+            "location": "/Integration/db-lookup/#event", 
+            "text": "\\\n When to run the SQL Lookup or Update.", 
+            "title": "Event"
         }, 
         {
             "location": "/Integration/folder-watch/", 
@@ -381,6 +651,41 @@
             "title": "Depreceated"
         }, 
         {
+            "location": "/Reference/linking_syntax/", 
+            "text": "PaperTrail Document Linking Syntax\n\n\n\\\n Retrieving a document by docId\n\n\n\n\n\\\n \nGET: /public/file/100/test.doc\n{.sql}\\\n e.g.\\\n http://host:8080/public/file/100/test.doc\\\n\\\n \u00a0\n\n\nRetrieving a document by path\n\n\n\\\n \nGET: /public/file/Division/cabinet/test.doc/dummy.doc\n{.sql}\\\n e.g.\\\n http://host:8080/public/file/Division/cabinet/test.doc.\\\n\\\n N.B. A dummy filename must be appended to the path e.g. dummy.doc.\\\n\\\n \u00a0\n\n\nRetrieving an attachment\n\n\n\\\n \nGET: /public/file/100/test.doc?path=attachments/att01.doc\n{.sql}\\\n e.g.\\\n\n\nhttp://host:8080/public/file/Division/cabinet/test.doc?path=attachments/att01.doc\\\n\\\n \u00a0\n\n\nRetrieving a PDF for a document\n\n\n\\\n \nGET: /public/file/100/test.pdf?path=pdf\n{.sql}\\\n e.g.\\\n http://host:8080/public/file/100/test.pdf?path=pdf\\\n\\\n \u00a0\n\n\nRetrieving a version of a document\n\n\n\\\n \nGET: /public/file/100/test.doc?path=versions/0.2/source\n{.sql}\\\n e.g.\\\n http://host:8080/public/file/Division/cabinet/test.doc?\npath=versions/0.2/source\\\n\\\n \u00a0\n\n\nRetrieving a document via a query\n\n\n\\\n \nGET: /public/file/invoiceNo=AB123/test.doc\n{.sql}\\\n e.g.\\\n http://host:8080/public/file/Division/cabinet/test.doc?\npath=versions/0.2/source\\\n \u00a0\n\n\n\\\n Query Syntax\n\n\n\n\nDivision/Cabinet/*\n:   - Returns all documents directly under Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet?recursive=true\n:   - Returns all document under Division/Cabinet including documents in\n    sub nodes.\\\n     \u00a0\nDivision/Cabinet/test.doc\n:   - Returns the document where the filename is test.doc in\n    Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/filename=test.doc\n:   - Equivalent to the above query Division/Cabinet/filename=*.doc\n:   - Returns all documents that end in .doc\\\n     \u00a0\nDivision/Cabinet Division/Cabinet/filename*=test\n:   - Returns all documents that begin with test in Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/test.doc?index1=value1\n:   - Returns the document where the filename is test.doc and\n    index1=value1 in Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/index=value\n:   - Returns all documents where index1=value1 in Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/index1=value1 \n index2=value2\n:   - Returns all documents where index1=value1 and index2=value2 in\n    Division/Cabinet.\\\n    \\\n     \u00a0\nindex1=value2\n:   - Returns all documents where index1=value1 in all nodes and folders\n    Equals.\n\n\nEquals = Not Equals != Contains *=* Starts With *= Ends With =* Between \n=\n Bigger Than (Number) \n= Smaller Than (Number) \n= After (Date) \n= Before (Date) \n= Is Empty !=!", 
+            "title": "Linking syntax"
+        }, 
+        {
+            "location": "/Reference/linking_syntax/#papertrail-document-linking-syntax", 
+            "text": "\\\n Retrieving a document by docId   \\\n  GET: /public/file/100/test.doc {.sql}\\\n e.g.\\\n http://host:8080/public/file/100/test.doc\\\n\\", 
+            "title": "PaperTrail Document Linking Syntax"
+        }, 
+        {
+            "location": "/Reference/linking_syntax/#retrieving-a-document-by-path", 
+            "text": "\\\n  GET: /public/file/Division/cabinet/test.doc/dummy.doc {.sql}\\\n e.g.\\\n http://host:8080/public/file/Division/cabinet/test.doc.\\\n\\\n N.B. A dummy filename must be appended to the path e.g. dummy.doc.\\\n\\", 
+            "title": "Retrieving a document by path"
+        }, 
+        {
+            "location": "/Reference/linking_syntax/#retrieving-an-attachment", 
+            "text": "\\\n  GET: /public/file/100/test.doc?path=attachments/att01.doc {.sql}\\\n e.g.\\  http://host:8080/public/file/Division/cabinet/test.doc?path=attachments/att01.doc\\\n\\", 
+            "title": "Retrieving an attachment"
+        }, 
+        {
+            "location": "/Reference/linking_syntax/#retrieving-a-pdf-for-a-document", 
+            "text": "\\\n  GET: /public/file/100/test.pdf?path=pdf {.sql}\\\n e.g.\\\n http://host:8080/public/file/100/test.pdf?path=pdf\\\n\\", 
+            "title": "Retrieving a PDF for a document"
+        }, 
+        {
+            "location": "/Reference/linking_syntax/#retrieving-a-version-of-a-document", 
+            "text": "\\\n  GET: /public/file/100/test.doc?path=versions/0.2/source {.sql}\\\n e.g.\\\n http://host:8080/public/file/Division/cabinet/test.doc?\npath=versions/0.2/source\\\n\\", 
+            "title": "Retrieving a version of a document"
+        }, 
+        {
+            "location": "/Reference/linking_syntax/#retrieving-a-document-via-a-query", 
+            "text": "\\\n  GET: /public/file/invoiceNo=AB123/test.doc {.sql}\\\n e.g.\\\n http://host:8080/public/file/Division/cabinet/test.doc?\npath=versions/0.2/source\\\n \u00a0  \\\n Query Syntax   Division/Cabinet/*\n:   - Returns all documents directly under Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet?recursive=true\n:   - Returns all document under Division/Cabinet including documents in\n    sub nodes.\\\n     \u00a0\nDivision/Cabinet/test.doc\n:   - Returns the document where the filename is test.doc in\n    Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/filename=test.doc\n:   - Equivalent to the above query Division/Cabinet/filename=*.doc\n:   - Returns all documents that end in .doc\\\n     \u00a0\nDivision/Cabinet Division/Cabinet/filename*=test\n:   - Returns all documents that begin with test in Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/test.doc?index1=value1\n:   - Returns the document where the filename is test.doc and\n    index1=value1 in Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/index=value\n:   - Returns all documents where index1=value1 in Division/Cabinet.\\\n     \u00a0\nDivision/Cabinet/index1=value1   index2=value2\n:   - Returns all documents where index1=value1 and index2=value2 in\n    Division/Cabinet.\\\n    \\\n     \u00a0\nindex1=value2\n:   - Returns all documents where index1=value1 in all nodes and folders\n    Equals.  Equals = Not Equals != Contains *=* Starts With *= Ends With =* Between  =  Bigger Than (Number)  = Smaller Than (Number)  = After (Date)  = Before (Date)  = Is Empty !=!", 
+            "title": "Retrieving a document via a query"
+        }, 
+        {
             "location": "/Reference/maintenance/", 
             "text": "Maintenance Mode\n\n\n\n\nSetting maintenance mode is essential when conducting upgrades as it will ensure that no new documents/emails are imported after the upgrade is completed, as when a rollback is necessary, the imported documents will no longer be available in watched mailbox. \n\n\n\n\nTurning On Maintenance Mode:\n\n\n\n\nConfigure papertrail to start in maintenance mode by adding the following line to the \nconf/papertrail.properties\n\n\n\n\nmode=Maintenance\n\n\n\n\n\n\nRestart PaperTrail\n\n\n\n\nTurning Off Maintenance\n\n\n\n\nRemove or comment out the \nmode\n property in \nconf/papertrail.properties\n\n\nRestart PaperTrail", 
             "title": "Maintenance"
@@ -401,9 +706,104 @@
             "title": "Turning Off Maintenance"
         }, 
         {
+            "location": "/Reference/pql/", 
+            "text": "PQL\n\n\n\\\n PQL is an SQL-like language that can be used for quering and filtering\ndata in PaperTrail it can be used in the following places:\n\n\n\n\nAnywhere where a query expression is used e.g. Advanced Search\n    Reports, Queues, Scheduled Rules, Document linking etc..\n\n\nAs an alternative to groovy based expressions on node rule filters\n\n\n\n\ne.g. instead of:\\\n \nfilename == 'filename \n a == 'b'\n\\\n Use:\\\n \nWHERE filename = 'filename' AND a = 'b'\n\\\n\\\n PQL filters are fully case-insensitive and null safe so instead of:\n\nindex1 != null \n index1.toLowerCase() == 'abc'\n\\\n Use:\\\n \nWHERE index1 = 'abc'\n\n\nSyntax\n\n\nThe SELECT clause MUST contain exactly one of the following:\n\n\n\n\n\n\nA comma-separated list of one or more column names (node or document\n    index names).\\\n     You can use aliases to rename returned columns, e.g.\n    \ncolumn AS alias\n.\n\n\n\n\nIf an explicit column list is provided: Only the columns listed\n    will be returned and only in the order supplied\n\n\n\n\n-   \n*\n : All standard indexes and any custom indexes will be\n    returned in the default order\n-   \n**\n: Only custom indexes will be returned\u00a0\n\n\n\n\n\n\nOne or more calls to aggregate functions.\n\n\nAggregate functions produce a single row output from multiple rows\nin a group.\\\n \u00a0\n\n\n\n\n\n\nColumn Expressions\n\n\nGroovy expressions can be used to format data returned e.g.\u00a0\\\n\\\n \nSELECT '${name[0]}' as Initial FROM Clients\n{.sql}\n\n\nMultiple columns can also be referenced:\\\n \nSELECT '${LastName}, ${FirstName}' as FullName FROM Clients\n{.sql}\u00a0\\\n\\\n As well as arithmetic on \nNumber\n and \nDouble\n indexes:\\\n \nSELECT '${total + vat}' as GrandTotal FROM 'Sales'\n{.sql}\n\n\n\\\n FROM Clause\n\n\n\n\nThe FROM clause identifies which Virtual Table (Node) the query will be\nrun against, as described in the previous section.\n\n\nThe FROM clause MUST contain the full path of a node, and MUST be single\nquoted if there are any spaces .e.g\\\n\\\n FROM parent/division\\\n FROM 'parent/sub folder/folder'\\\n FROM '@{VirtualDataSource}\n\n\nFROM @WorkflowHistory\n\n\n\\\n The workflow history virtual data source will return details about the\nunassigned and human tasks of a one or more documents e.g.\u00a0\\\n\\\n \nSELECT * FROM '@WorkflowHistory' WHERE docId = 1\n\\\n Will return the following special columns:\\\n \u00a0\n\n\n\n\nColumn\n \u00a0\u00a0                        allocation\n  \nDescription\n                      The final user allocated\n\n\n\n\nAny standard and custom indexes can also be merged into the results by\nadding them into the column list.\\\n Any standard search criteria can also be used\n\n\nFROM '@Activity'\n\n\nFROM '@QueueHistory\"\n\n\nWHERE\n\n\nThis clause identifies the constraints that rows MUST satisfy to be\nconsidered a result for the query.\n\n\nAll column names MUST be valid \u201cqueryName\u201d or their aliased values for\nproperties that are defined as \u201cqueryable\u201d in the Object-Type(s) whose\nVirtual Tables are listed in the FROM clause.\n\n\nProperties are defined to not support a \u201cnull\u201d value, therefore the\n\\\nnull predicate> MUST be interpreted as testing the not set or set\nstate of the specified property.\n\n\nComparisons permitted in the WHERE clause.\n\n\nPQL supports the following predicates:\n\n\n\n\n= (equals)\n\n\n> (bigger than, after)\n\n\n\n\n\\\n (smaller than, before)\n\n\nNote: Bigger than / Less than and end equal to (>=, \\\n=) are not\nsupported\n\n\n\n\n\n\ncontains\n\n\n\n\nstartsWith\n\n\nendWith\n\n\n\n\nBETWEEN and NOT BETWEEN predicates to compare on ranges\n\n\ne.g. \ncolumn BETWEEN a AND b\n, is equivalent to\n\ncolumn \n= a AND column \n= b\n\u00a0\n\n\n\n\n\n\nIN\n\n\n\n\nLIKE\u00a0\n\n\nIS NULL\n\n\nIS NOT NULL\n\n\n\n\nall_empty\n\n\ne.g. a filter that matches when all 4 indexes are populated\\\n \nWHERE not all_empty (invoice_no,total,date,approved)\n{.sql}\n\n\n\n\n\n\nnot all_empty\n\n\n\n\nbefore, after\\\n     \nWHERE createdDate BEFORE '2015-01-01'\n{.sql}\n\n\n\n\nWHERE Expressions\n\n\n\\\n Expressions can also be used within WHERE clauses. e.g.\\\n\\\n \nSELECT name FROM Customers WHERE '${name[0]}' = 'A'\n{.sql}\n\n\nORDER BY\n\n\nThis clause MUST a single column to order by\\\n All column names referenced in this clause MUST be valid \u201cqueryName\u201d or\nalias (either for an aggregate function result or a column).\\\n Only columns in the SELECT clause MAY be in the ORDER BY clause.\n\n\nGROUP BY\n\n\nThis clause specifies one or many columns to group by.\n\n\nSupported functions:\n\n\n\n\nCOUNT(column)\n, \nCOUNT(*)\n - returns a number of entries in a\n    group. \nCOUNT(column)\n skips null values.\n\n\nAVG(column)\n - returns an average value of a column in a group.\n\n\nMIN(column), MAX(column)\n - return a minimal or maximal value of a\n    certain column in a group.\n\n\nSUM(column)\n - returns a sum of a column in a group.\n\n\n\n\nEscaping\n\n\nRepositories MUST support the escaping of characters using a backslash\n(\\) in the query statement.\u00a0 The backslash character (\\) will be used\nto escape characters\u00a0within quoted strings\u00a0in the query as follows:\n\n\n\n\n\\\u2019 will represent a single-quote(\u2018) character\n\n\n\\ \\ will represent a backslash (\\) character\n\n\nWithin a LIKE string, \\% and \\_ will represent the literal\n    characters % and _, respectively.\n\n\nAll other instances of a \\ are errors.", 
+            "title": "Pql"
+        }, 
+        {
+            "location": "/Reference/pql/#pql", 
+            "text": "\\\n PQL is an SQL-like language that can be used for quering and filtering\ndata in PaperTrail it can be used in the following places:   Anywhere where a query expression is used e.g. Advanced Search\n    Reports, Queues, Scheduled Rules, Document linking etc..  As an alternative to groovy based expressions on node rule filters   e.g. instead of:\\\n  filename == 'filename   a == 'b' \\\n Use:\\\n  WHERE filename = 'filename' AND a = 'b' \\\n\\\n PQL filters are fully case-insensitive and null safe so instead of: index1 != null   index1.toLowerCase() == 'abc' \\\n Use:\\\n  WHERE index1 = 'abc'", 
+            "title": "PQL"
+        }, 
+        {
+            "location": "/Reference/pql/#syntax", 
+            "text": "The SELECT clause MUST contain exactly one of the following:    A comma-separated list of one or more column names (node or document\n    index names).\\\n     You can use aliases to rename returned columns, e.g.\n     column AS alias .   If an explicit column list is provided: Only the columns listed\n    will be returned and only in the order supplied   -    *  : All standard indexes and any custom indexes will be\n    returned in the default order\n-    ** : Only custom indexes will be returned\u00a0    One or more calls to aggregate functions.  Aggregate functions produce a single row output from multiple rows\nin a group.\\", 
+            "title": "Syntax"
+        }, 
+        {
+            "location": "/Reference/pql/#column-expressions", 
+            "text": "Groovy expressions can be used to format data returned e.g.\u00a0\\\n\\\n  SELECT '${name[0]}' as Initial FROM Clients {.sql}  Multiple columns can also be referenced:\\\n  SELECT '${LastName}, ${FirstName}' as FullName FROM Clients {.sql}\u00a0\\\n\\\n As well as arithmetic on  Number  and  Double  indexes:\\\n  SELECT '${total + vat}' as GrandTotal FROM 'Sales' {.sql}  \\\n FROM Clause   The FROM clause identifies which Virtual Table (Node) the query will be\nrun against, as described in the previous section.  The FROM clause MUST contain the full path of a node, and MUST be single\nquoted if there are any spaces .e.g\\\n\\\n FROM parent/division\\\n FROM 'parent/sub folder/folder'\\\n FROM '@{VirtualDataSource}", 
+            "title": "Column Expressions"
+        }, 
+        {
+            "location": "/Reference/pql/#from-workflowhistory", 
+            "text": "\\\n The workflow history virtual data source will return details about the\nunassigned and human tasks of a one or more documents e.g.\u00a0\\\n\\\n  SELECT * FROM '@WorkflowHistory' WHERE docId = 1 \\\n Will return the following special columns:\\\n \u00a0   Column  \u00a0\u00a0                        allocation\n   Description                       The final user allocated   Any standard and custom indexes can also be merged into the results by\nadding them into the column list.\\\n Any standard search criteria can also be used", 
+            "title": "FROM @WorkflowHistory"
+        }, 
+        {
+            "location": "/Reference/pql/#from-activity", 
+            "text": "", 
+            "title": "FROM '@Activity'"
+        }, 
+        {
+            "location": "/Reference/pql/#from-queuehistory", 
+            "text": "", 
+            "title": "FROM '@QueueHistory\""
+        }, 
+        {
+            "location": "/Reference/pql/#where", 
+            "text": "This clause identifies the constraints that rows MUST satisfy to be\nconsidered a result for the query.  All column names MUST be valid \u201cqueryName\u201d or their aliased values for\nproperties that are defined as \u201cqueryable\u201d in the Object-Type(s) whose\nVirtual Tables are listed in the FROM clause.  Properties are defined to not support a \u201cnull\u201d value, therefore the\n\\ null predicate> MUST be interpreted as testing the not set or set\nstate of the specified property.  Comparisons permitted in the WHERE clause.  PQL supports the following predicates:   = (equals)  > (bigger than, after)   \\  (smaller than, before)  Note: Bigger than / Less than and end equal to (>=, \\ =) are not\nsupported    contains   startsWith  endWith   BETWEEN and NOT BETWEEN predicates to compare on ranges  e.g.  column BETWEEN a AND b , is equivalent to column  = a AND column  = b \u00a0    IN   LIKE\u00a0  IS NULL  IS NOT NULL   all_empty  e.g. a filter that matches when all 4 indexes are populated\\\n  WHERE not all_empty (invoice_no,total,date,approved) {.sql}    not all_empty   before, after\\\n      WHERE createdDate BEFORE '2015-01-01' {.sql}", 
+            "title": "WHERE"
+        }, 
+        {
+            "location": "/Reference/pql/#where-expressions", 
+            "text": "\\\n Expressions can also be used within WHERE clauses. e.g.\\\n\\\n  SELECT name FROM Customers WHERE '${name[0]}' = 'A' {.sql}", 
+            "title": "WHERE Expressions"
+        }, 
+        {
+            "location": "/Reference/pql/#order-by", 
+            "text": "This clause MUST a single column to order by\\\n All column names referenced in this clause MUST be valid \u201cqueryName\u201d or\nalias (either for an aggregate function result or a column).\\\n Only columns in the SELECT clause MAY be in the ORDER BY clause.", 
+            "title": "ORDER BY"
+        }, 
+        {
+            "location": "/Reference/pql/#group-by", 
+            "text": "This clause specifies one or many columns to group by.  Supported functions:   COUNT(column) ,  COUNT(*)  - returns a number of entries in a\n    group.  COUNT(column)  skips null values.  AVG(column)  - returns an average value of a column in a group.  MIN(column), MAX(column)  - return a minimal or maximal value of a\n    certain column in a group.  SUM(column)  - returns a sum of a column in a group.", 
+            "title": "GROUP BY"
+        }, 
+        {
+            "location": "/Reference/pql/#escaping", 
+            "text": "Repositories MUST support the escaping of characters using a backslash\n(\\) in the query statement.\u00a0 The backslash character (\\) will be used\nto escape characters\u00a0within quoted strings\u00a0in the query as follows:   \\\u2019 will represent a single-quote(\u2018) character  \\ \\ will represent a backslash (\\) character  Within a LIKE string, \\% and \\_ will represent the literal\n    characters % and _, respectively.  All other instances of a \\ are errors.", 
+            "title": "Escaping"
+        }, 
+        {
             "location": "/Reference/regex/", 
             "text": "============\n\n\nParagraphs are separated by a blank line.\n\n\n2nd paragraph. \nItalic\n, \nbold\n, and \nmonospace\n. Itemized lists\nlook like:\n\n\n\n\nthis one\n\n\nthat one\n\n\nthe other one\n\n\n\n\nNote that --- not considering the asterisk --- the actual text\ncontent starts at 4-columns in.\n\n\n\n\nBlock quotes are\nwritten like so.\n\n\nThey can span multiple paragraphs,\nif you like.\n\n\n\n\ncode block\n\n\n\n\nInline code `codez\n\n\nUse 3 dashes for an em-dash. Use 2 dashes for ranges (ex., \"it's all\nin chapters 12--14\"). Three dots ... will be converted to an ellipsis.\nUnicode is supported.", 
             "title": "Regex"
+        }, 
+        {
+            "location": "/Troubleshooting/Performance/", 
+            "text": "Check underlying system\n\n\n\n\nIs there enough memory? \u00a0Their should always be at least 1 - 2GB\n    free memory in production to avoid using swap space\n\n\nIs CPU Usage high? Then check the\u00a0\nCPU Usage guide\n\n\nCheck network performance via ICMP ping and Browser developer tools\n    network tab - Response times of \\\n 250ms are good \\\n 1s are\n    acceptable\n\n\n\n\nCheck the following resources for identifying lower level\n    bottlenecks\n\n\n\n\n\n\nhttp://www.brendangregg.com/usemethod.html\n\n\n\n\nhttp://www.brendangregg.com/linuxperf.html\n\n\nhttp://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html", 
+            "title": "Performance"
+        }, 
+        {
+            "location": "/Troubleshooting/cpu-usage/", 
+            "text": "Troubleshooting high cpu usage\n\n\nBefore doing anything else\n\n\nBefore restarting PaperTrail always try and get a snapshot:\n\n\nhttp://localhost:8080/snapshot\n  \n\n\nand/or a thread dump  \n\n\nhttp://localhost:8080/snapshot/threads\n\n\nIf the web interface is unresponsive use the command line to retrieve a\nthread dump.\n\n\nOn Linux: \n/etc/init.d/papertrail heap\n\nOn Windows \n \u00a0Run \njps\n to get the PID of the service and then \njstack\u00a0-dump:format=b,file=C:\\heap.bin \u00a0\nPID\n\n\nCommon Causes of high CPU usage\n\n\nIf a single CPU core is at 100% \u00a0the culprit would normally be \u00a0 single\nthread that reoccurs in every single thread dump.\n\n\nIf all CPU cores are at 100% or near 100%, the cause is either:\n\n\na) memory exhaustion - very little free memory,\u00a0 \njstat\n \u00a0would return\nvery high garbage collection times (GC)\n\nb) an endless loop\n\nc) too many worker threads and/or too few cores\n \u00a0\n\n\nAnalyzing a Thread Dump\n\n\nAnalyzing a thread dump involves looking through all the threads on the\nrunning system to identify a) a pattern\u00a0\n\n\nAny thread in a \nTIMED_WAITING\n or \nWAITING\n state can be safely ignored\nas these threads are sleeping waiting for something else to occur.\n\n\nJetty threads in\nthe\u00a0\njava.net.SocketInputStream.socketRead RUNNING\nstate can also be\nignored as they are waiting for a client to make a TCP/IP connection", 
+            "title": "Cpu usage"
+        }, 
+        {
+            "location": "/Troubleshooting/cpu-usage/#troubleshooting-high-cpu-usage", 
+            "text": "", 
+            "title": "Troubleshooting high cpu usage"
+        }, 
+        {
+            "location": "/Troubleshooting/cpu-usage/#before-doing-anything-else", 
+            "text": "Before restarting PaperTrail always try and get a snapshot:  http://localhost:8080/snapshot     and/or a thread dump    http://localhost:8080/snapshot/threads  If the web interface is unresponsive use the command line to retrieve a\nthread dump.  On Linux:  /etc/init.d/papertrail heap \nOn Windows   \u00a0Run  jps  to get the PID of the service and then  jstack\u00a0-dump:format=b,file=C:\\heap.bin \u00a0 PID", 
+            "title": "Before doing anything else"
+        }, 
+        {
+            "location": "/Troubleshooting/cpu-usage/#common-causes-of-high-cpu-usage", 
+            "text": "If a single CPU core is at 100% \u00a0the culprit would normally be \u00a0 single\nthread that reoccurs in every single thread dump.  If all CPU cores are at 100% or near 100%, the cause is either:  a) memory exhaustion - very little free memory,\u00a0  jstat  \u00a0would return\nvery high garbage collection times (GC) \nb) an endless loop \nc) too many worker threads and/or too few cores", 
+            "title": "Common Causes of high CPU usage"
+        }, 
+        {
+            "location": "/Troubleshooting/cpu-usage/#analyzing-a-thread-dump", 
+            "text": "Analyzing a thread dump involves looking through all the threads on the\nrunning system to identify a) a pattern\u00a0  Any thread in a  TIMED_WAITING  or  WAITING  state can be safely ignored\nas these threads are sleeping waiting for something else to occur.  Jetty threads in\nthe\u00a0 java.net.SocketInputStream.socketRead RUNNING state can also be\nignored as they are waiting for a client to make a TCP/IP connection", 
+            "title": "Analyzing a Thread Dump"
+        }, 
+        {
+            "location": "/Troubleshooting/exceptions/", 
+            "text": "java.io.IOException: Cannot run program \"pg\\_dump\": CreateProcess\nerror=2\n\n\u00a0The system cannot find the file specified\nAdd the Postgresql/bin directory to the System PATH environment\nvariable\n\n\njava.io.IOException: Cannot run program \"mysql\\_dump\"\n\n \u00a0The system cannot find the file specified\u00a0\nAdd the MySQL/bin directory to the System PATH environment variable\\\n \u00a0\n\nJDBCExceptionReporter [:] Cannot get a connection, pool error Timeout\nwaiting for idle object Database connection pool is exhausted,\n\n \u00a0- Check for database connection leak warning messages in the log files\nbeforehand\n\n \u00a0- Check database lookup configurations\n\n\nfailed \nSocketConnector@0.0.0.0\n:80:\n[java.net](http://java.net/).BindException: Permission denied\n\n\nTo run PaperTrail on port 80 you need to be root, change\nhttp.port=8080\\", 
+            "title": "Exceptions"
         }
     ]
 }

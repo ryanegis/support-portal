@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Backups - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -60,49 +60,49 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../../Configuration/Backups/">Backups</a>
+<li class="active">
+    <a href="./">Backups</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Branding/">Branding</a>
+    <a href="../Branding/">Branding</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/LDAP/">LDAP</a>
+    <a href="../LDAP/">LDAP</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/basic/">Basic</a>
+    <a href="../basic/">Basic</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/security/">Security</a>
+    <a href="../security/">Security</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/solution-pack/">Solution pack</a>
+    <a href="../solution-pack/">Solution pack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/ssl/">Ssl</a>
+    <a href="../ssl/">Ssl</a>
 </li>
 
                         
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../..">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../Branding/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,117 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#backups">Backups</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+            <li><a href="#what-needs-to-be-backed-up">What needs to be backed up?</a></li>
+        
+            <li><a href="#schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</a></li>
+        
+            <li><a href="#configuring-cloud-backups">Configuring cloud backups</a></li>
+        
+            <li><a href="#configuring-periodic-windows-file-share-backups">Configuring periodic Windows file share backups</a></li>
+        
+            <li><a href="#configure-windows-share-backups">Configure Windows Share backups</a></li>
+        
+            <li><a href="#ad-hoc-backup">Ad-Hoc Backup</a></li>
+        
+            <li><a href="#restoring-from-backup">Restoring from backup</a></li>
+        
+            <li><a href="#3rd-party-backup">3rd Party backup</a></li>
+        
+            <li><a href="#native-restore-from-backup">Native restore from backup</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
+<h1 id="backups">Backups</h1>
+<h2 id="what-needs-to-be-backed-up">What needs to be backed up?</h2>
 <ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<li><strong>Database</strong> and transaction logs</li>
+<li><strong>File Repository</strong> (Everything under PT_Repo)</li>
+<li><strong>SSL Certificate</strong> e.g. conf/keystore (If configured)</li>
+<li><strong>Encryption Keys</strong> e.g. conf/keys.* If File store encryption is
+    configured</li>
+<li><strong>Indexes</strong> Only for very large installations where an index rebuild
+    is too time-consuming</li>
+</ul>
+<h2 id="schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</h2>
+<p>Papertrail can automatically backup databases on schedule configured
+under Services  → Properties  → Backup → DB Schedule
+(db.backup.schedule).</p>
+<p>PaperTrail will run the pgdump, mysql_dump or SQL Server Backup
+Database command  and store the result in the file repository. </p>
+<p>Note: Backups can only be made of local database</p>
+<h2 id="configuring-cloud-backups">Configuring cloud backups</h2>
+<p>Cloud backups let you back up the PaperTrail file repository (and
+optionally the PaperTrail database) in near real time to the Amazon S3
+cloud (http://aws.amazon.com/s3/).</p>
+<p>If you set up the Amazon S3 account, use the information from that
+account to configure cloud backups. For Egis managed backups, Egis will
+supply the information to you.</p>
+<ol>
+<li>From Services  →  Tasks →  Wizards, select Configure cloud backups.
+Enter the values of the Amazon S3 account in these fields:\</li>
+<li><strong>Bucket</strong> The Amazon S3 bucket to use, for example:
+acme.papertrail\</li>
+<li><strong>Access key</strong> An access key that has read and write permissions to
+the bucket.\</li>
+<li><strong>Secret key</strong></li>
+</ol>
+<h2 id="configuring-periodic-windows-file-share-backups">Configuring periodic Windows file share backups</h2>
+<p>PaperTrail creates an incremental backup ZIP file and copies the ZIP
+file to the specified shared folder.  </p>
+<p>Specify these options under the Backup Settings page of the
+installation wizard or after installation via Services →  Tasks → 
+Wizards  → </p>
+<h2 id="configure-windows-share-backups">Configure Windows Share backups</h2>
+<ol>
+<li>Host – the hostname of the Windows or SMB/CIFS based fileserver\</li>
+<li>Backup Dir – The share and path location (e.g.,
+Backups/Papertrail Relative to the file share, not relative the root
+director)</li>
+<li>Username and Password if applicable</li>
+</ol>
+<h2 id="ad-hoc-backup">Ad-Hoc Backup</h2>
+<p>Typically, do an ad-hoc backup before you upgrade PaperTrail or before
+you migrate to a different server.<br />
+ An ad-hoc backup will export all the files in the repository to a local
+or windows file share location. Multiple ZIP files will be created; a
+log file for each ZIP file will also be created containing the names of
+the files in the corresponding ZIP file.  </p>
+<p>An ad-hoc backup can be re-run using the same destination path, the
+logs files will be read and only new files added will be backed up.<br />
+1. Under Services → Tasks → Backups → Backup Repository<br />
+2. Destination: Local or windows file share
+(<code>smb://user@pass:host/Share/folder</code>)<br />
+3. Optional: Check verify to verify the backup once complete<br />
+4. Max File Size: Enter a maximum file size. Once a backup file
+reaches this limit (it may not be exact depending on the size of
+individual files) a new backup file will start.</p>
+<h2 id="restoring-from-backup">Restoring from backup</h2>
+<p>Select Restore from Windows File Share or Cloud from the installation
+wizard.</p>
+<h2 id="3rd-party-backup">3rd Party backup</h2>
+<ol>
+<li>Backup the database and applicable transaction logs.</li>
+<li>Backup the PT_Repo directory (defaults to C:\Data\PT_Repo).</li>
+</ol>
+<blockquote>
+<p>Note: PaperTrail does not update files in the PT_Repo directory so once
+backed up a file does not need to backed-up again.</p>
+</blockquote>
+<p>3.    For large installations the indexes can also be backed up to
+decrease restore times<br />
+ Under Services  → Properties  → Backup  Specify an Index Backup
+Schedule &amp; Directory</p>
+<h2 id="native-restore-from-backup">Native restore from backup</h2>
+<ol>
+<li>Restore database and file repository to original locations</li>
+<li>Install PaperTrail</li>
+<li>Check new installation and enter existing database details</li>
+</ol></div>
             
         </div>
 

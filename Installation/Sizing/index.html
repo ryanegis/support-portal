@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Sizing - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -116,14 +116,14 @@
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../Sizing/">Sizing</a>
+<li class="active">
+    <a href="./">Sizing</a>
 </li>
 
                         
                             
-<li class="active">
-    <a href="./">Windows</a>
+<li >
+    <a href="../Windows/">Windows</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../../Configuration/ssl/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../Windows/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,53 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#papertrail-server-requirements">PaperTrail Server Requirements</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+            <li><a href="#database">Database</a></li>
+        
+            <li><a href="#index-directory">Index Directory</a></li>
+        
+            <li><a href="#file-repository">File Repository</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
+<h1 id="papertrail-server-requirements">PaperTrail Server Requirements</h1>
 <ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<li>2 - 4GB RAM</li>
+<li>2 Modern CPU Cores</li>
+<li>20GB + free disk space</li>
+</ul>
+<h3 id="database">Database</h3>
+<p>The database should be kept entirely in RAM on fast disks (SSD, RAID 1
+with cache etc)\
+\
+ As a rough guideline is 1GB of RAM per 1 million docs.\
+ A centralized database can be used, however it can introduce latency.</p>
+<h3 id="index-directory">Index Directory</h3>
+<p>The index directory is where Lucene stores all indexes for searching, as
+a rule of thumb is its around 1 - 2 GB per million docs, more if full
+text searching is enabled. \
+\
+ The index directory needs to be on fast disks (RAID 0, SSD) and does
+not need to backed up as it can be easily and quickly (with full text
+disabled) rebuilt.</p>
+<h3 id="file-repository">File Repository</h3>
+<p>The file repository has lots of small file based IO, each file is stored
+by name as checksum, so once written a file is never updated only
+deleted.\
+ It can safely be backed up and then archived.\
+\
+ RAID 6+ is sufficient. \
+\
+ Files can also be stored on a object storage platform like Amazon S3,
+Caringo CAStore reducing the need for backups.\
+\
+ Replication can also be configured between 2 PaperTrail instances using
+file stores.\
+  </p></div>
             
         </div>
 

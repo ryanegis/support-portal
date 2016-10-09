@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Service - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Windows</a>
+<li >
+    <a href="../Windows/">Windows</a>
 </li>
 
                         
@@ -146,8 +146,8 @@
 
                         
                             
-<li >
-    <a href="../service/">Service</a>
+<li class="active">
+    <a href="./">Service</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../server-installation/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../solution/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,25 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#configuring-service-settings">Configuring service settings</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+    
+        <li class="main "><a href="#configuration-options">Configuration Options</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
-<ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<h3 id="configuring-service-settings">Configuring service settings</h3>
+<p><strong>OS</strong>                               Linux
+  <strong>Configuration applied in</strong>         /opt/Papertrail/run.sh</p>
+<h3 id="configuration-options">Configuration Options</h3>
+<hr />
+<p><strong>Option</strong>               -Xmx                     -Xms
+  <strong>Description</strong>          Max memory               Min memory
+  <strong>Example</strong>              -Xmx2048M                -Xms2048M</p>
+<hr /></div>
             
         </div>
 

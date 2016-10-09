@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Db lookup - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -162,31 +162,31 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Integration/data-sources/">Data sources</a>
+    <a href="../data-sources/">Data sources</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Db lookup</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Integration/db-lookup/">Db lookup</a>
+    <a href="../folder-watch/">Folder watch</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Integration/folder-watch/">Folder watch</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Integration/ldap-ad/">Ldap ad</a>
+    <a href="../ldap-ad/">Ldap ad</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../data-sources/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../folder-watch/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,95 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#database-jdbc-configs">Database JDBC Configs</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+            <li><a href="#microsoft-sql-server">Microsoft SQL Server​</a></li>
+        
+            <li><a href="#eg">e.g.</a></li>
+        
+            <li><a href="#mysql">MYSQL ​</a></li>
+        
+            <li><a href="#postgresql">PostgreSQL ​\</a></li>
+        
+    
+        <li class="main "><a href="#rules-for-sql-statements">Rules for SQL statements</a></li>
+        
+    
+        <li class="main "><a href="#event">Event</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
+<h1 id="database-jdbc-configs">Database JDBC Configs</h1>
+<h3 id="microsoft-sql-server">Microsoft SQL Server​</h3>
+<p><code>jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=&lt;databaseName&gt;[;property=value[;property=value]]</code></p>
+<h3 id="eg">e.g.</h3>
+<p><code>jdbc:sqlserver://host;databaseName=test123</code></p>
+<h3 id="mysql">MYSQL ​</h3>
+<p><code>jdbc:mysql://&lt;database server&gt;:&lt;ports&gt;/&lt;database names&gt;</code></p>
+<h3 id="postgresql">PostgreSQL ​\</h3>
+<p>\
+ <code>jdbc:postgresql://&lt;database server&gt;:&lt;port&gt;/&lt;databaseName&gt;</code>\
+\
+ SQL</p>
+<p>SQL statement used to update records in PaperTrail or update DB records
+from PaperTrail:\
+  </p>
 <ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<li>
+<p><strong>SELECT STATEMENT</strong>: To Update records from an external database to
+    PaperTrail records.</p>
+<ul>
+<li><strong>FORMAT</strong>: <strong>SELECT \&lt;COLOUMNS> FROM \&lt;TABLENAME> WHERE
+    \&lt;DATABASE INDEX> = \${\&lt;PAPERTRAIL INDEX>}</strong></li>
+<li>
+<p><strong>EXAMPLE</strong>:</p>
+<p><code>{style="background:rgba(238,238,238,0.92);color:#000"}
+SELECT No_ AS Invoice_No, 
+LEFT(CONVERT(date, "Posting Date"),10) 
+     AS Invoice_Date,"Order No_" 
+     AS Internal_Order, "Sell-to Customer No_" 
+     AS Customer_No,"External Document No_" 
+     AS Customer_Order_No, "Shipment Method Code" 
+     AS Delivery_Method 
+FROM "SAFINTRA JHB$Sales Invoice Header" 
+WHERE No_ = '${invoice_no}</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>UPDATE STATEMENT</strong></p>
+<ul>
+<li><strong>FORMAT</strong>: <strong>UPDATE \&lt;TABLE NAME> SET \&lt;DATABASE INDEX> =
+    '\&lt;VALUE>' WHERE \&lt;DATABASE INDEX> = \${\&lt;PAPERTRAIL
+    INDEX>}</strong></li>
+<li>
+<p><strong>EXAMPLE</strong>:</p>
+<p><code>{style="background:rgba(238,238,238,0.92);color:#000"}
+UPDATE test 
+SET Index1 = 'asdf' 
+WHERE Invoice_Number = ${Invoice_Number}</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>\
+  </p>
+<h1 id="rules-for-sql-statements">Rules for SQL statements</h1>
+<ul>
+<li>Column headers and index values must match index values in
+    PaperTrail, otherwise give columns aliases by using the “AS”
+    function.</li>
+<li>All native SQL commands and functions can be used in the statement.</li>
+<li>Separate columns in SELECT statements by commas.</li>
+<li>If column names contain spaces, double quotes (“ “) should be used
+    to surround the name in order to concatenate the name.</li>
+</ul>
+<h1 id="event">Event</h1>
+<p>\
+ When to run the SQL Lookup or Update.</p></div>
             
         </div>
 

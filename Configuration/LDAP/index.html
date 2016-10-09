@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>LDAP - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -60,49 +60,49 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Configuration/Backups/">Backups</a>
+    <a href="../Backups/">Backups</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Branding/">Branding</a>
+    <a href="../Branding/">Branding</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">LDAP</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/LDAP/">LDAP</a>
+    <a href="../basic/">Basic</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/basic/">Basic</a>
+    <a href="../security/">Security</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/security/">Security</a>
+    <a href="../solution-pack/">Solution pack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/solution-pack/">Solution pack</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Configuration/ssl/">Ssl</a>
+    <a href="../ssl/">Ssl</a>
 </li>
 
                         
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../Branding/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../basic/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,25 +304,70 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#ldap-configuration">LDAP Configuration</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+    
+        <li class="main "><a href="#openldap">OpenLDAP</a></li>
+        
+    
+        <li class="main "><a href="#synchronizing-with-ldap-active-directory">Synchronizing With LDAP / Active Directory</a></li>
+        
+    
+        <li class="main "><a href="#troubleshooting">Troubleshooting</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
+<h2 id="ldap-configuration">LDAP Configuration</h2>
+<h2 id="openldap">OpenLDAP</h2>
+<pre><code>Configure User format = uid=${user},o=Directory
+</code></pre>
+<p><strong>Note:</strong> Active directory will return less results and attributes when
+using port 3268 vs 389</p>
+<p>\
+ Multiple LDAP Servers</p>
+<hr />
+<p>Configured by addition a set of properties per domain:</p>
+<pre><code>ldap.extra.domain1-corp.local.host=
+ldap.extra.domain1-corp.local.user=
+ldap.extra.domain1-corp.local.pass=
+
+ldap.extra.domain2-corp.local.host=
+ldap.extra.domain2-corp.local.user=
+ldap.extra.domain2-corp.local.pass=
+</code></pre>
+
+<h2 id="synchronizing-with-ldap-active-directory">Synchronizing With LDAP / Active Directory</h2>
+<p>Check LDAP -> Auto Create users to create new users from LDAP when
+they login\
+ Check LDAP -> Auto Sync Groups  to synchronize group membership, this
+will sync on user create and on the interval specified under
+Authentication -> Group Sync Interval</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
 <ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
+<li>Get the LDAP queries that PaperTrail is executing by increasing the
+    log level:  com.egis.utils.ldap in \&lt;8.8.4 or
+    com.egis.security.ldap in 8.8.4+</li>
+</ul>
+<p>DEBUG to see the results of queries\
+ TRACE to see the actual query being run and authentication requests</p>
+<ul>
+<li>Use an off the shelf tool to check what options work when
+    connecting:</li>
+</ul>
+<p>GUI:<br />
+<a href="http://jxplorer.org/">http://jxplorer.org/</a><br />
+<a href="http://www.ldapsoft.com/ldapbrowser/ldapadmintool.html">http://www.ldapsoft.com/ldapbrowser/ldapadmintool.html</a></p>
+<p>CLI:</p>
+<p><code>ldapsearch -h 172.16.237.131 -D "administrator@corp.egis-software.com" -w password -b "cn=users,dc=corp,dc=egis-software,dc=com" -s sub "(&amp;(objectClass=user)(mail=*))" '*'</code>  </p>
+<p>Use tcpdump or wireshark to capture ldap queries and results at the
+protocol level.\
+  </p>
+<ul>
+<li>Adjust the LDAP query string in Services -> Properties -> LDAP as
+    appropriate </li>
 </ul></div>
             
         </div>

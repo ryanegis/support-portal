@@ -12,7 +12,31 @@
     
         
     <url>
+     <loc>None/Configuration/Backups/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Configuration/Branding/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Configuration/LDAP/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/Configuration/basic/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Configuration/security/</loc>
      <lastmod>2016-10-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -34,7 +58,19 @@
     
         
     <url>
+     <loc>None/Installation/Sizing/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/Installation/Windows/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Installation/db-tuning/</loc>
      <lastmod>2016-10-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -52,6 +88,12 @@
     </url>
         
     <url>
+     <loc>None/Installation/service/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/Installation/solution/</loc>
      <lastmod>2016-10-09</lastmod>
      <changefreq>daily</changefreq>
@@ -60,6 +102,18 @@
     
 
     
+        
+    <url>
+     <loc>None/Integration/data-sources/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Integration/db-lookup/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
         
     <url>
      <loc>None/Integration/folder-watch/</loc>
@@ -96,13 +150,47 @@
     </url>
         
     <url>
+     <loc>None/Reference/linking_syntax/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/Reference/maintenance/</loc>
      <lastmod>2016-10-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
+     <loc>None/Reference/pql/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/Reference/regex/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/Troubleshooting/Performance/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Troubleshooting/cpu-usage/</loc>
+     <lastmod>2016-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Troubleshooting/exceptions/</loc>
      <lastmod>2016-10-09</lastmod>
      <changefreq>daily</changefreq>
     </url>

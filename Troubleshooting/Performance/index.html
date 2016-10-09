@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Performance - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -246,25 +246,25 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Troubleshooting <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../../Troubleshooting/Performance/">Performance</a>
+<li class="active">
+    <a href="./">Performance</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Troubleshooting/cpu-usage/">Cpu usage</a>
+    <a href="../cpu-usage/">Cpu usage</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Troubleshooting/exceptions/">Exceptions</a>
+    <a href="../exceptions/">Exceptions</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../../Reference/regex/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../cpu-usage/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,28 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
-        
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
-<ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<p>Check underlying system</p>
+<ol>
+<li>Is there enough memory?  Their should always be at least 1 - 2GB
+    free memory in production to avoid using swap space</li>
+<li>Is CPU Usage high? Then check the <a href="../cpu-usage">CPU Usage guide</a></li>
+<li>Check network performance via ICMP ping and Browser developer tools
+    network tab - Response times of \&lt; 250ms are good \&lt; 1s are
+    acceptable</li>
+<li>
+<p>Check the following resources for identifying lower level
+    bottlenecks</p>
+</li>
+<li>
+<p><a href="http://www.brendangregg.com/usemethod.html">http://www.brendangregg.com/usemethod.html</a></p>
+</li>
+<li><a href="http://www.brendangregg.com/linuxperf.html">http://www.brendangregg.com/linuxperf.html</a></li>
+<li><a href="http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html">http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html</a></li>
+</ol></div>
             
         </div>
 

@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Pql - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -195,49 +195,49 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Reference/Linking/">Linking</a>
+    <a href="../Linking/">Linking</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/health/">Health</a>
+    <a href="../health/">Health</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/licensing/">Licensing</a>
+    <a href="../licensing/">Licensing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/linking_syntax/">Linking syntax</a>
+    <a href="../linking_syntax/">Linking syntax</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/maintenance/">Maintenance</a>
+    <a href="../maintenance/">Maintenance</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Pql</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/pql/">Pql</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Reference/regex/">Regex</a>
+    <a href="../regex/">Regex</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../maintenance/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../regex/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,189 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#pql">PQL</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+            <li><a href="#syntax">Syntax</a></li>
+        
+            <li><a href="#column-expressions">Column Expressions</a></li>
+        
+            <li><a href="#from-workflowhistory">FROM @WorkflowHistory</a></li>
+        
+            <li><a href="#from-activity">FROM '@Activity'</a></li>
+        
+            <li><a href="#from-queuehistory">FROM '@QueueHistory"</a></li>
+        
+            <li><a href="#where">WHERE</a></li>
+        
+            <li><a href="#where-expressions">WHERE Expressions</a></li>
+        
+            <li><a href="#order-by">ORDER BY</a></li>
+        
+            <li><a href="#group-by">GROUP BY</a></li>
+        
+            <li><a href="#escaping">Escaping</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
+<h1 id="pql">PQL</h1>
+<p>\
+ PQL is an SQL-like language that can be used for quering and filtering
+data in PaperTrail it can be used in the following places:</p>
 <ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<li>Anywhere where a query expression is used e.g. Advanced Search
+    Reports, Queues, Scheduled Rules, Document linking etc..</li>
+<li>As an alternative to groovy based expressions on node rule filters</li>
+</ul>
+<p>e.g. instead of:\
+ <code>filename == 'filename &amp;&amp; a == 'b'</code>\
+ Use:\
+ <code>WHERE filename = 'filename' AND a = 'b'</code>\
+\
+ PQL filters are fully case-insensitive and null safe so instead of:
+<code>index1 != null &amp;&amp; index1.toLowerCase() == 'abc'</code>\
+ Use:\
+ <code>WHERE index1 = 'abc'</code></p>
+<h2 id="syntax">Syntax</h2>
+<p>The SELECT clause MUST contain exactly one of the following:</p>
+<ol>
+<li>
+<p>A comma-separated list of one or more column names (node or document
+    index names).\
+     You can use aliases to rename returned columns, e.g.
+    <code>column AS alias</code>.</p>
+<ul>
+<li>If an explicit column list is provided: Only the columns listed
+    will be returned and only in the order supplied</li>
+</ul>
+<p>-   <strong>*</strong> : All standard indexes and any custom indexes will be
+    returned in the default order
+-   <strong>**</strong>: Only custom indexes will be returned </p>
+</li>
+<li>
+<p>One or more calls to aggregate functions.</p>
+<p>Aggregate functions produce a single row output from multiple rows
+in a group.\
+  </p>
+</li>
+</ol>
+<h2 id="column-expressions">Column Expressions</h2>
+<p>Groovy expressions can be used to format data returned e.g. \
+\
+ <code>SELECT '${name[0]}' as Initial FROM Clients</code>{.sql}</p>
+<p>Multiple columns can also be referenced:\
+ <code>SELECT '${LastName}, ${FirstName}' as FullName FROM Clients</code>{.sql} \
+\
+ As well as arithmetic on <em>Number</em> and <em>Double</em> indexes:\
+ <code>SELECT '${total + vat}' as GrandTotal FROM 'Sales'</code>{.sql}</p>
+<p>\
+ FROM Clause</p>
+<hr />
+<p>The FROM clause identifies which Virtual Table (Node) the query will be
+run against, as described in the previous section.</p>
+<p>The FROM clause MUST contain the full path of a node, and MUST be single
+quoted if there are any spaces .e.g\
+\
+ FROM parent/division\
+ FROM 'parent/sub folder/folder'\
+ FROM '@{VirtualDataSource}</p>
+<h2 id="from-workflowhistory">FROM @WorkflowHistory</h2>
+<p>\
+ The workflow history virtual data source will return details about the
+unassigned and human tasks of a one or more documents e.g. \
+\
+ <code>SELECT * FROM '@WorkflowHistory' WHERE docId = 1</code>\
+ Will return the following special columns:\
+  </p>
+<hr />
+<p><strong>Column</strong>                           allocation
+  <strong>Description</strong>                      The final user allocated</p>
+<hr />
+<p>Any standard and custom indexes can also be merged into the results by
+adding them into the column list.\
+ Any standard search criteria can also be used</p>
+<h2 id="from-activity">FROM '@Activity'</h2>
+<h2 id="from-queuehistory">FROM '@QueueHistory"</h2>
+<h2 id="where">WHERE</h2>
+<p>This clause identifies the constraints that rows MUST satisfy to be
+considered a result for the query.</p>
+<p>All column names MUST be valid “queryName” or their aliased values for
+properties that are defined as “queryable” in the Object-Type(s) whose
+Virtual Tables are listed in the FROM clause.</p>
+<p>Properties are defined to not support a “null” value, therefore the
+\&lt;null predicate> MUST be interpreted as testing the not set or set
+state of the specified property.</p>
+<p>Comparisons permitted in the WHERE clause.</p>
+<p>PQL supports the following predicates:</p>
+<ul>
+<li>= (equals)</li>
+<li>> (bigger than, after)</li>
+<li>
+<p>\&lt; (smaller than, before)</p>
+<p>Note: Bigger than / Less than and end equal to (>=, \&lt;=) are not
+supported</p>
+</li>
+<li>
+<p>contains</p>
+</li>
+<li>startsWith</li>
+<li>endWith</li>
+<li>
+<p>BETWEEN and NOT BETWEEN predicates to compare on ranges</p>
+<p>e.g. <code>column BETWEEN a AND b</code>, is equivalent to
+<code>column &gt;= a AND column &lt;= b</code> </p>
+</li>
+<li>
+<p>IN</p>
+</li>
+<li>LIKE </li>
+<li>IS NULL</li>
+<li>IS NOT NULL</li>
+<li>
+<p>all_empty</p>
+<p>e.g. a filter that matches when all 4 indexes are populated\
+ <code>WHERE not all_empty (invoice_no,total,date,approved)</code>{.sql}</p>
+</li>
+<li>
+<p>not all_empty</p>
+</li>
+<li>before, after\
+     <code>WHERE createdDate BEFORE '2015-01-01'</code>{.sql}</li>
+</ul>
+<h2 id="where-expressions">WHERE Expressions</h2>
+<p>\
+ Expressions can also be used within WHERE clauses. e.g.\
+\
+ <code>SELECT name FROM Customers WHERE '${name[0]}' = 'A'</code>{.sql}</p>
+<h2 id="order-by">ORDER BY</h2>
+<p>This clause MUST a single column to order by\
+ All column names referenced in this clause MUST be valid “queryName” or
+alias (either for an aggregate function result or a column).\
+ Only columns in the SELECT clause MAY be in the ORDER BY clause.</p>
+<h2 id="group-by">GROUP BY</h2>
+<p>This clause specifies one or many columns to group by.</p>
+<p>Supported functions:</p>
+<ul>
+<li><code>COUNT(column)</code>, <code>COUNT(*)</code> - returns a number of entries in a
+    group. <code>COUNT(column)</code> skips null values.</li>
+<li><code>AVG(column)</code> - returns an average value of a column in a group.</li>
+<li><code>MIN(column), MAX(column)</code> - return a minimal or maximal value of a
+    certain column in a group.</li>
+<li><code>SUM(column)</code> - returns a sum of a column in a group.</li>
+</ul>
+<h2 id="escaping">Escaping</h2>
+<p>Repositories MUST support the escaping of characters using a backslash
+(\) in the query statement.  The backslash character (\) will be used
+to escape characters within quoted strings in the query as follows:</p>
+<ol>
+<li>\’ will represent a single-quote(‘) character</li>
+<li>\ \ will represent a backslash (\) character</li>
+<li>Within a LIKE string, \% and \_ will represent the literal
+    characters % and _, respectively.</li>
+<li>All other instances of a \ are errors.</li>
+</ol></div>
             
         </div>
 

@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Exceptions - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -246,25 +246,25 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Troubleshooting <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Troubleshooting/Performance/">Performance</a>
+    <a href="../Performance/">Performance</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Troubleshooting/cpu-usage/">Cpu usage</a>
+    <a href="../cpu-usage/">Cpu usage</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../Troubleshooting/exceptions/">Exceptions</a>
+<li class="active">
+    <a href="./">Exceptions</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../cpu-usage/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../db-tuning/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,29 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
-        
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
-<ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<p><code>java.io.IOException: Cannot run program "pg\_dump": CreateProcess
+error=2</code><br />
+ The system cannot find the file specified
+Add the Postgresql/bin directory to the System PATH environment
+variable</p>
+<p><code>java.io.IOException: Cannot run program "mysql\_dump"</code><br />
+  The system cannot find the file specified 
+Add the MySQL/bin directory to the System PATH environment variable\
+  
+<code>JDBCExceptionReporter [:] Cannot get a connection, pool error Timeout
+waiting for idle object Database connection pool is exhausted,</code><br />
+  - Check for database connection leak warning messages in the log files
+beforehand<br />
+  - Check database lookup configurations<br />
+<code>failed &lt;SocketConnector@0.0.0.0&gt;:80:
+[java.net](http://java.net/).BindException: Permission denied</code></p>
+<p>To run PaperTrail on port 80 you need to be root, change
+http.port=8080\
+  </p></div>
             
         </div>
 

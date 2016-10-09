@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Linking syntax - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -195,49 +195,49 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Reference/Linking/">Linking</a>
+    <a href="../Linking/">Linking</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/health/">Health</a>
+    <a href="../health/">Health</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/licensing/">Licensing</a>
+    <a href="../licensing/">Licensing</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Linking syntax</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/linking_syntax/">Linking syntax</a>
+    <a href="../maintenance/">Maintenance</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/maintenance/">Maintenance</a>
+    <a href="../pql/">Pql</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Reference/pql/">Pql</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Reference/regex/">Regex</a>
+    <a href="../regex/">Regex</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../licensing/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../maintenance/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,108 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#papertrail-document-linking-syntax">PaperTrail Document Linking Syntax</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+            <li><a href="#retrieving-a-document-by-path">Retrieving a document by path</a></li>
+        
+            <li><a href="#retrieving-an-attachment">Retrieving an attachment</a></li>
+        
+            <li><a href="#retrieving-a-pdf-for-a-document">Retrieving a PDF for a document</a></li>
+        
+            <li><a href="#retrieving-a-version-of-a-document">Retrieving a version of a document</a></li>
+        
+            <li><a href="#retrieving-a-document-via-a-query">Retrieving a document via a query</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
-<ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<h1 id="papertrail-document-linking-syntax">PaperTrail Document Linking Syntax</h1>
+<p>\
+ Retrieving a document by docId</p>
+<hr />
+<p>\
+ <code>GET: /public/file/100/test.doc</code>{.sql}\
+ e.g.\
+ http://host:8080/public/file/100/test.doc\
+\
+  </p>
+<h2 id="retrieving-a-document-by-path">Retrieving a document by path</h2>
+<p>\
+ <code>GET: /public/file/Division/cabinet/test.doc/dummy.doc</code>{.sql}\
+ e.g.\
+ http://host:8080/public/file/Division/cabinet/test.doc.\
+\
+ N.B. A dummy filename must be appended to the path e.g. dummy.doc.\
+\
+  </p>
+<h2 id="retrieving-an-attachment">Retrieving an attachment</h2>
+<p>\
+ <code>GET: /public/file/100/test.doc?path=attachments/att01.doc</code>{.sql}\
+ e.g.\</p>
+<p>http://host:8080/public/file/Division/cabinet/test.doc?path=attachments/att01.doc\
+\
+  </p>
+<h2 id="retrieving-a-pdf-for-a-document">Retrieving a PDF for a document</h2>
+<p>\
+ <code>GET: /public/file/100/test.pdf?path=pdf</code>{.sql}\
+ e.g.\
+ http://host:8080/public/file/100/test.pdf?path=pdf\
+\
+  </p>
+<h2 id="retrieving-a-version-of-a-document">Retrieving a version of a document</h2>
+<p>\
+ <code>GET: /public/file/100/test.doc?path=versions/0.2/source</code>{.sql}\
+ e.g.\
+ http://host:8080/public/file/Division/cabinet/test.doc?
+path=versions/0.2/source\
+\
+  </p>
+<h2 id="retrieving-a-document-via-a-query">Retrieving a document via a query</h2>
+<p>\
+ <code>GET: /public/file/invoiceNo=AB123/test.doc</code>{.sql}\
+ e.g.\
+ http://host:8080/public/file/Division/cabinet/test.doc?
+path=versions/0.2/source\
+  </p>
+<p>\
+ Query Syntax</p>
+<hr />
+<p>Division/Cabinet/*
+:   - Returns all documents directly under Division/Cabinet.\
+      
+Division/Cabinet?recursive=true
+:   - Returns all document under Division/Cabinet including documents in
+    sub nodes.\
+      
+Division/Cabinet/test.doc
+:   - Returns the document where the filename is test.doc in
+    Division/Cabinet.\
+      
+Division/Cabinet/filename=test.doc
+:   - Equivalent to the above query Division/Cabinet/filename=*.doc
+:   - Returns all documents that end in .doc\
+      
+Division/Cabinet Division/Cabinet/filename*=test
+:   - Returns all documents that begin with test in Division/Cabinet.\
+      
+Division/Cabinet/test.doc?index1=value1
+:   - Returns the document where the filename is test.doc and
+    index1=value1 in Division/Cabinet.\
+      
+Division/Cabinet/index=value
+:   - Returns all documents where index1=value1 in Division/Cabinet.\
+      
+Division/Cabinet/index1=value1 &amp; index2=value2
+:   - Returns all documents where index1=value1 and index2=value2 in
+    Division/Cabinet.\
+    \
+      
+index1=value2
+:   - Returns all documents where index1=value1 in all nodes and folders
+    Equals.</p>
+<p><code>Equals = Not Equals != Contains *=* Starts With *= Ends With =* Between &lt;=&gt; Bigger Than (Number) &gt;= Smaller Than (Number) &lt;= After (Date) &gt;&gt;= Before (Date) &lt;&lt;= Is Empty !=!</code></p></div>
             
         </div>
 

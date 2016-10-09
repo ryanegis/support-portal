@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Cpu usage - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -246,25 +246,25 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Troubleshooting <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Troubleshooting/Performance/">Performance</a>
+    <a href="../Performance/">Performance</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Cpu usage</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Troubleshooting/cpu-usage/">Cpu usage</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Troubleshooting/exceptions/">Exceptions</a>
+    <a href="../exceptions/">Exceptions</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../Performance/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../exceptions/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,47 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#troubleshooting-high-cpu-usage">Troubleshooting high cpu usage</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+            <li><a href="#before-doing-anything-else">Before doing anything else</a></li>
+        
+            <li><a href="#common-causes-of-high-cpu-usage">Common Causes of high CPU usage</a></li>
+        
+            <li><a href="#analyzing-a-thread-dump">Analyzing a Thread Dump</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
-<ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<h1 id="troubleshooting-high-cpu-usage">Troubleshooting high cpu usage</h1>
+<h2 id="before-doing-anything-else">Before doing anything else</h2>
+<p>Before restarting PaperTrail always try and get a snapshot:</p>
+<p><em>http://localhost:8080/snapshot</em>  </p>
+<p>and/or a thread dump  </p>
+<p><em>http://localhost:8080/snapshot/threads</em></p>
+<p>If the web interface is unresponsive use the command line to retrieve a
+thread dump.</p>
+<p>On Linux: <code>/etc/init.d/papertrail heap</code>
+On Windows <Java Bin Directory>  Run <code>jps</code> to get the PID of the service and then <code>jstack -dump:format=b,file=C:\heap.bin  &lt;PID&gt;</code></p>
+<h2 id="common-causes-of-high-cpu-usage">Common Causes of high CPU usage</h2>
+<p>If a single CPU core is at 100%  the culprit would normally be   single
+thread that reoccurs in every single thread dump.</p>
+<p>If all CPU cores are at 100% or near 100%, the cause is either:</p>
+<p>a) memory exhaustion - very little free memory,  <code>jstat</code>  would return
+very high garbage collection times (GC)<br />
+b) an endless loop<br />
+c) too many worker threads and/or too few cores
+  </p>
+<h2 id="analyzing-a-thread-dump">Analyzing a Thread Dump</h2>
+<p>Analyzing a thread dump involves looking through all the threads on the
+running system to identify a) a pattern </p>
+<p>Any thread in a <code>TIMED_WAITING</code> or <code>WAITING</code> state can be safely ignored
+as these threads are sleeping waiting for something else to occur.</p>
+<p>Jetty threads in
+the <code>java.net.SocketInputStream.socketRead RUNNING</code>state can also be
+ignored as they are waiting for a client to make a TCP/IP connection
+  </p></div>
             
         </div>
 

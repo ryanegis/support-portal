@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Branding - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -60,49 +60,49 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Configuration/Backups/">Backups</a>
+    <a href="../Backups/">Backups</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Branding</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Branding/">Branding</a>
+    <a href="../LDAP/">LDAP</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/LDAP/">LDAP</a>
+    <a href="../basic/">Basic</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/basic/">Basic</a>
+    <a href="../security/">Security</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/security/">Security</a>
+    <a href="../solution-pack/">Solution pack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/solution-pack/">Solution pack</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Configuration/ssl/">Ssl</a>
+    <a href="../ssl/">Ssl</a>
 </li>
 
                         
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../Backups/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../LDAP/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,41 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#branding-papertrail">Branding PaperTrail</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+            <li><a href="#login95backgroundpng-320x365">login_background.png (320x365)</a></li>
+        
+            <li><a href="#papertrailpng-110x26">papertrail.png (110x26)</a></li>
+        
+            <li><a href="#logopng-320x50">logo.png (320x50)</a></li>
+        
+            <li><a href="#egispng-75x25">egis.png (75x25)</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
+<h1 id="branding-papertrail">Branding PaperTrail</h1>
 <ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<li>Images are placed in the System/images node.</li>
+<li>Images must end in .png (if they are a .jpeg or .gif they can be
+    safely renamed).</li>
+<li>Images should be the correct size, if the image is bigger or smaller
+    it should be manually resized before importing into System/images.</li>
+<li>To prevent the images from being overwritten after upgrades, they
+    should be permanently checked out.</li>
+</ul>
+<h2 id="login95backgroundpng-320x365">login_background.png (320x365)</h2>
+<p>The honeycomb that sits behind the login and password boxes.</p>
+<h2 id="papertrailpng-110x26">papertrail.png (110x26)</h2>
+<p>The logo that sits in the top left of the main application screen.\
+ The background should be transparent.</p>
+<h2 id="logopng-320x50">logo.png (320x50)</h2>
+<p>The logo that sits above the honeycomb.\
+ Add white space to the left of image to center it above the honeycomb.</p>
+<h2 id="egispng-75x25">egis.png (75x25)</h2>
+<p>The egis logo on the bottom right of the screen.</p></div>
             
         </div>
 

@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Windows - Support Portal</title>
+	<title>Data sources - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -111,49 +111,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Windows</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
 
                         
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/db-tuning/">Db tuning</a>
 </li>
 
                         
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
 
                         
@@ -162,31 +162,31 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../../Integration/data-sources/">Data sources</a>
+<li class="active">
+    <a href="./">Data sources</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Integration/db-lookup/">Db lookup</a>
+    <a href="../db-lookup/">Db lookup</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Integration/folder-watch/">Folder watch</a>
+    <a href="../folder-watch/">Folder watch</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Integration/ldap-ad/">Ldap ad</a>
+    <a href="../ldap-ad/">Ldap ad</a>
 </li>
 
                         
@@ -283,12 +283,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Sizing/">
+                        <a rel="next" href="../../Installation/solution/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../db-lookup/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -304,26 +304,62 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#windows-installations">Windows Installations</a></li>
+        <li class="main active"><a href="#data-sources">Data Sources</a></li>
         
-            <li><a href="#sql-server-windows-authentication">SQL Server Windows Authentication</a></li>
+    
+        <li class="main "><a href="#jdbc">JDBC</a></li>
+        
+    
+        <li class="main "><a href="#local-db">Local DB</a></li>
+        
+    
+        <li class="main "><a href="#node-query">Node Query</a></li>
+        
+    
+        <li class="main "><a href="#scripted">Scripted</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="windows-installations">Windows Installations</h2>
-<blockquote>
-<p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632">Visual C++</a></p>
-</blockquote>
-<h3 id="sql-server-windows-authentication">SQL Server Windows Authentication</h3>
-<ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user granted DB
-access is the same as the user that is being logged on to the application
-machine.</li>
-</ul></div>
+<h2 id="data-sources">Data Sources</h2>
+<p>Data sources allow for data to be looked up in a centralized fashion -
+these data sources are always referenced by name so they can differ in
+production and dev environments - both in parameters and type.</p>
+<p>System properties can also be used for the URL, username and password
+fields:\
+ e.g.\</p>
+<p><code>${external.db.username} ${external.db.password} jdbc:mysql://${external.db.host}/</code>{.ini}\
+ The properties can then be added to a .properties file in the
+Papertrail/conf installation folder\
+  </p>
+<h2 id="jdbc">JDBC</h2>
+<p>Connect to any remote database accessible via a JDBC URL examples of
+which are:</p>
+<p><code>jdbc:mysql://host:3306/{db}</code>{.sql}</p>
+<p><code>jdbc:sqlserver://host:1443;databaseName={db}</code>{.sql}</p>
+<p><code>jdbc:postgresql://host:5432/{db}</code>{.sql}</p>
+<p>Parameters can be specified using <strong>\${param}</strong> syntax (they are
+escaped to prevent SQL Injection):
+ e.g.</p>
+<p><code>SELECT index1 as name, index2 as value FROM external_table WHERE index3 LIKE '${filter}'</code>{.sql}</p>
+<p>Note the <strong>aliasing</strong> to <strong>name</strong> and <strong>value</strong> which is required to
+correctly render in lookup fields/lists.</p>
+<p>Although any parameter can be used <strong>\${filter}</strong> is reserved for user
+entered input.</p>
+<h2 id="local-db">Local DB</h2>
+<p>A subtype of JDBC - connects to same database as PaperTrail can be used
+to query papertrail core tables, import and sync tables, or any other
+table added to this db.\
+  </p>
+<h2 id="node-query">Node Query</h2>
+<p>Returns the result of a PQL query - Commonly used for config nodes.
+  </p>
+<h2 id="scripted">Scripted</h2>
+<p>Allows groovy script to be executed to return any arbritrary list of
+data.
+  </p></div>
             
         </div>
 
