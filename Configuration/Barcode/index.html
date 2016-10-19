@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Backups - Support Portal</title>
+	<title>Barcode - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -65,14 +65,14 @@
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Backups</a>
+<li >
+    <a href="../Backups/">Backups</a>
 </li>
 
                         
                             
-<li >
-    <a href="../Barcode/">Barcode</a>
+<li class="active">
+    <a href="./">Barcode</a>
 </li>
 
                         
@@ -295,12 +295,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../..">
+                        <a rel="next" href="../Backups/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../Barcode/">
+                        <a rel="prev" href="../Branding/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -316,117 +316,112 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#backups">Backups</a></li>
+        <li class="main active"><a href="#barcode-recognition-setup">Barcode Recognition Setup</a></li>
         
-            <li><a href="#what-needs-to-be-backed-up">What needs to be backed up?</a></li>
-        
-            <li><a href="#schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</a></li>
-        
-            <li><a href="#configuring-cloud-backups">Configuring cloud backups</a></li>
-        
-            <li><a href="#configuring-periodic-windows-file-share-backups">Configuring periodic Windows file share backups</a></li>
-        
-            <li><a href="#configure-windows-share-backups">Configure Windows Share backups</a></li>
-        
-            <li><a href="#ad-hoc-backup">Ad-Hoc Backup</a></li>
-        
-            <li><a href="#restoring-from-backup">Restoring from backup</a></li>
-        
-            <li><a href="#3rd-party-backup">3rd Party backup</a></li>
-        
-            <li><a href="#native-restore-from-backup">Native restore from backup</a></li>
+    
+        <li class="main "><a href="#properties">Properties</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="backups">Backups</h1>
-<h2 id="what-needs-to-be-backed-up">What needs to be backed up?</h2>
-<ul>
-<li><strong>Database</strong> and transaction logs</li>
-<li><strong>File Repository</strong> (Everything under PT_Repo)</li>
-<li><strong>SSL Certificate</strong> e.g. conf/keystore (If configured)</li>
-<li><strong>Encryption Keys</strong> e.g. conf/keys.* If File store encryption is
-    configured</li>
-<li><strong>Indexes</strong> Only for very large installations where an index rebuild
-    is too time-consuming</li>
-</ul>
-<h2 id="schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</h2>
-<p>Papertrail can automatically backup databases on schedule configured
-under Services  → Properties  → Backup → DB Schedule
-(db.backup.schedule).</p>
-<p>PaperTrail will run the pgdump, mysql_dump or SQL Server Backup
-Database command  and store the result in the file repository. </p>
-<p>Note: Backups can only be made of local database</p>
-<h2 id="configuring-cloud-backups">Configuring cloud backups</h2>
-<p>Cloud backups let you back up the PaperTrail file repository (and
-optionally the PaperTrail database) in near real time to the Amazon S3
-cloud (http://aws.amazon.com/s3/).</p>
-<p>If you set up the Amazon S3 account, use the information from that
-account to configure cloud backups. For Egis managed backups, Egis will
-supply the information to you.</p>
-<ol>
-<li>From Services  →  Tasks →  Wizards, select Configure cloud backups.
-Enter the values of the Amazon S3 account in these fields:\</li>
-<li><strong>Bucket</strong> The Amazon S3 bucket to use, for example:
-acme.papertrail\</li>
-<li><strong>Access key</strong> An access key that has read and write permissions to
-the bucket.\</li>
-<li><strong>Secret key</strong></li>
-</ol>
-<h2 id="configuring-periodic-windows-file-share-backups">Configuring periodic Windows file share backups</h2>
-<p>PaperTrail creates an incremental backup ZIP file and copies the ZIP
-file to the specified shared folder.  </p>
-<p>Specify these options under the Backup Settings page of the
-installation wizard or after installation via Services →  Tasks → 
-Wizards  → </p>
-<h2 id="configure-windows-share-backups">Configure Windows Share backups</h2>
-<ol>
-<li>Host – the hostname of the Windows or SMB/CIFS based fileserver\</li>
-<li>Backup Dir – The share and path location (e.g.,
-Backups/Papertrail Relative to the file share, not relative the root
-director)</li>
-<li>Username and Password if applicable</li>
-</ol>
-<h2 id="ad-hoc-backup">Ad-Hoc Backup</h2>
-<p>Typically, do an ad-hoc backup before you upgrade PaperTrail or before
-you migrate to a different server.<br />
- An ad-hoc backup will export all the files in the repository to a local
-or windows file share location. Multiple ZIP files will be created; a
-log file for each ZIP file will also be created containing the names of
-the files in the corresponding ZIP file.  </p>
-<p>An ad-hoc backup can be re-run using the same destination path, the
-logs files will be read and only new files added will be backed up.<br />
-1. Under Services → Tasks → Backups → Backup Repository<br />
-2. Destination: Local or windows file share
-(<code>smb://user@pass:host/Share/folder</code>)<br />
-3. Optional: Check verify to verify the backup once complete<br />
-4. Max File Size: Enter a maximum file size. Once a backup file
-reaches this limit (it may not be exact depending on the size of
-individual files) a new backup file will start.</p>
-<h2 id="restoring-from-backup">Restoring from backup</h2>
-<p>Select Restore from Windows File Share or Cloud from the installation
-wizard.</p>
-<h2 id="3rd-party-backup">3rd Party backup</h2>
-<ol>
-<li>Backup the database and applicable transaction logs.</li>
-<li>Backup the PT_Repo directory (defaults to C:\Data\PT_Repo).</li>
-</ol>
-<blockquote>
-<p>Note: PaperTrail does not update files in the PT_Repo directory so once
-backed up a file does not need to backed-up again.</p>
-</blockquote>
-<p>3.    For large installations the indexes can also be backed up to
-decrease restore times<br />
- Under Services  → Properties  → Backup  Specify an Index Backup
-Schedule &amp; Directory</p>
-<h2 id="native-restore-from-backup">Native restore from backup</h2>
-<ol>
-<li>Restore database and file repository to original locations</li>
-<li>Install PaperTrail</li>
-<li>Check new installation and enter existing database details</li>
-</ol></div>
+<h2 id="barcode-recognition-setup">Barcode Recognition Setup</h2>
+<p>Setup an extractFromBarcode rule on at he appropriate node
+Install the Softek SDK**  Download the latest version from:<br />
+<a href="http://http://softeksoftware.co.uk/download/barcode_sdk/windows/softek_barcode_sdk_8_1_2.zip">Windows SDK
+v8.1.2</a><br />
+<a href="http://bardecode.com/barcode_linux.tar.gz">Linux SDK v8.1.2</a></p>
+<p>Libraries need to be copied to /usr/lib/java, /usr/lib/ or
+C:\Windows\System32 or to where the java.library.path is pointing\</p>
+<p>For a list of all versions goto http://www.bardecode.com/en1/quick-download/ although a different
+license may need to be loaded via the License property</p>
+<h2 id="properties">Properties</h2>
+<p><strong>AllowDuplicateValues</strong>  Barcodes containing the same text on the same
+page
+<strong>BarcodesAtTopOfPage</strong>  Search from the top of a page downwards
+<strong>Code128Lenient</strong>  relax some of the requirements for Code 128 barcodes
+<strong>Code25Checksum</strong>  Code 25 barcodes include checksum character
+<strong>Code25MinLengthOccurrence</strong>  control for false positive readings for
+Code 25 barcodes
+<strong>Code39Checksum</strong>  Code 39 barcodes include checksum character
+<strong>Code39MaxRatioPcnt</strong>  set the max ratio between the wide and narrow
+bars
+<strong>Code39NeedStartStop</strong>  Require start and stop * characters for a Code
+39 barcode
+<strong>ColorProcessingLevel</strong>  control the amount of processing time spent
+reading barcode values from color images
+<strong>ColorThreshold</strong>  Contrast setting for color images
+<strong>ConvertUPCEToEAN13</strong>  Output UPC-E barcodes in EAN-13 format
+<strong>DatabarOptions</strong>  set the advanced options for reading GS1 Databar
+barcodes
+<strong>DataMatrixAutoUTF8</strong>  Automatic detection of UTF8 data in datamatrix
+barcodes
+<strong>Despeckle</strong>  Clean up images containing specks of black and white
+<strong>Encoding</strong>  character encoding for barcode values
+<strong>ErrorCorrection</strong>  Correct errors in barcodes
+<strong>ExtendedCode39</strong>  Read Code 39 barcodes in the extended symbol set
+<strong>GammaCorrection</strong>  gamma correction value for color images
+<strong>LineJump</strong>  Frequency of line sampling in an image
+<strong>MaxLength</strong>  Maximum string length of a barcode
+<strong>MaxRectOverlap</strong>  maximum number of threads
+<strong>MaxThreads</strong>  maximum overlap for bounding rectangles
+<strong>MedianFilter</strong>  Apply a median filter to the image
+<strong>MedianFilterBias</strong>  Lighten/darken an image during a median filter
+<strong>MinLength</strong>  Minimum string length of a barcode
+<strong>MinOccurrence</strong>  Minimum number of hits needed to read a barcode
+<strong>MinSeparation</strong>  Minimum distance between similar barcodes
+<strong>MinSpaceBarWidth</strong>  Minimum width of a space in a barcode
+<strong>MultipleRead</strong>  Read more than one barcode
+<strong>NoiseReduction</strong>  Clean up images containing un-wanted black marks
+<strong>PageNo</strong>  Page number to scan in an image
+<strong>Pattern</strong>  Regular expression to search for
+<strong>PDF417AutoUTF8</strong>  Automatic identification of UTF8 data in PDF-417
+barcodes
+<strong>Pdf417ChannelMode</strong>  Control the way macros are handled in PDF417
+barcodes
+<strong>Pdf417MacroEscapeBackslash</strong>  Handling of back slash characters in
+PDF417 macros
+<strong>Photometric</strong>  Photometric interpretation for a black and white bitmap
+<strong>PrefOccurrence</strong>  Preferred number of hits for a barcode
+<strong>QRCodeAutoUTF8</strong>  Automatic identification of UTF8 data in QrCode
+barcodes
+<strong>QRCodeBWAutoMedianFilter</strong>  automatic use of median filter for QrCode
+detection
+<strong>QuietZoneSize</strong>  Size of quiet zone around a barcode
+<strong>ReadCodabar</strong>  Read Codabar barcodes
+<strong>ReadCode128</strong>  Read Code 128 barcodes
+<strong>ReadCode25</strong>  Read Code 25 (interlaced) barcodes
+<strong>ReadCode25ni</strong>  Read Code 25 (non-interlaced) barcodes
+<strong>ReadCode39</strong>  Read Code 39 barcodes
+<strong>ReadDatabar</strong>  Read GS1 Databar barcodes
+<strong>ReadDataMatrix</strong>  Read Data Matrix barcodes
+<strong>ReadEAN13</strong>  Read EAN-13 barcodes
+<strong>ReadEAN8</strong>  Read EAN-8 barcodes
+<strong>ReadMicroPDF417</strong>  Read micro-PDF-417 barcodes
+<strong>ReadNumeric</strong>  Only read numeric barcodes
+<strong>ReadPatchCodes</strong>  Read Patch Codes
+<strong>ReadPDF417- Read PDF-417 barcodes
+</strong>ReadShortCode128<strong>  Read short Code 128 barcodes
+</strong>ReadUPCA<strong> Read UPC-A barcodes
+</strong>ReadUPCE<strong> Read UPC-E barcodes
+</strong>ReportUnreadBarcodes- Report barcodes that could not be decoded
+<strong>ScanDirection</strong>  Orientation to scan for a barcode
+<strong>ShortCode128MinLength</strong>  Minimum length for a barcode of type
+"SHORTCODE128"
+<strong>ShowCheckDigit</strong>  Display check digits
+<strong>SkewedDatamatrix</strong>  Check for skewed linear barcodes
+<strong>SkewedLinear</strong>  Check for skewed datamatrix barcodes
+<strong>SkewLineJump</strong>  Frequency of line sampling for skewed barcodes
+<strong>SkewTolerance</strong>  Search for barcodes at an angle to horizontal or
+vertical
+<strong>TifSplitMode</strong>  Controls how a TIF file should be split
+<strong>TifSplitPath</strong>  Split a TIF file into smaller parts based on the
+location of barcodes in the image
+<strong>TimeOut</strong>  Set a time out for barcode detection
+<strong>UseFastScan</strong>  Do a quick scan prior to a deeper search.
+<strong>UseOverSampling</strong>  Another method for cleaning up 'noisy' images
+<strong>WeightLongerBarcodes</strong>  boost the hit count for longer barcodes.</p></div>
             
         </div>
 

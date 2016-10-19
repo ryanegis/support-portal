@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Backups - Support Portal</title>
+	<title>EasyPDF - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -65,8 +65,8 @@
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Backups</a>
+<li >
+    <a href="../Backups/">Backups</a>
 </li>
 
                         
@@ -83,8 +83,8 @@
 
                         
                             
-<li >
-    <a href="../EasyPDF/">EasyPDF</a>
+<li class="active">
+    <a href="./">EasyPDF</a>
 </li>
 
                         
@@ -295,12 +295,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../..">
+                        <a rel="next" href="../Branding/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../Barcode/">
+                        <a rel="prev" href="../LDAP/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -316,117 +316,81 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#backups">Backups</a></li>
-        
-            <li><a href="#what-needs-to-be-backed-up">What needs to be backed up?</a></li>
-        
-            <li><a href="#schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</a></li>
-        
-            <li><a href="#configuring-cloud-backups">Configuring cloud backups</a></li>
-        
-            <li><a href="#configuring-periodic-windows-file-share-backups">Configuring periodic Windows file share backups</a></li>
-        
-            <li><a href="#configure-windows-share-backups">Configure Windows Share backups</a></li>
-        
-            <li><a href="#ad-hoc-backup">Ad-Hoc Backup</a></li>
-        
-            <li><a href="#restoring-from-backup">Restoring from backup</a></li>
-        
-            <li><a href="#3rd-party-backup">3rd Party backup</a></li>
-        
-            <li><a href="#native-restore-from-backup">Native restore from backup</a></li>
+        <li class="main active"><a href="#the-following-combination-of-software-will-need-to-be-installed-on-the-easypdf-server">The following combination of software will need to be installed on the EasyPDF server</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="backups">Backups</h1>
-<h2 id="what-needs-to-be-backed-up">What needs to be backed up?</h2>
-<ul>
-<li><strong>Database</strong> and transaction logs</li>
-<li><strong>File Repository</strong> (Everything under PT_Repo)</li>
-<li><strong>SSL Certificate</strong> e.g. conf/keystore (If configured)</li>
-<li><strong>Encryption Keys</strong> e.g. conf/keys.* If File store encryption is
-    configured</li>
-<li><strong>Indexes</strong> Only for very large installations where an index rebuild
-    is too time-consuming</li>
-</ul>
-<h2 id="schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</h2>
-<p>Papertrail can automatically backup databases on schedule configured
-under Services  → Properties  → Backup → DB Schedule
-(db.backup.schedule).</p>
-<p>PaperTrail will run the pgdump, mysql_dump or SQL Server Backup
-Database command  and store the result in the file repository. </p>
-<p>Note: Backups can only be made of local database</p>
-<h2 id="configuring-cloud-backups">Configuring cloud backups</h2>
-<p>Cloud backups let you back up the PaperTrail file repository (and
-optionally the PaperTrail database) in near real time to the Amazon S3
-cloud (http://aws.amazon.com/s3/).</p>
-<p>If you set up the Amazon S3 account, use the information from that
-account to configure cloud backups. For Egis managed backups, Egis will
-supply the information to you.</p>
-<ol>
-<li>From Services  →  Tasks →  Wizards, select Configure cloud backups.
-Enter the values of the Amazon S3 account in these fields:\</li>
-<li><strong>Bucket</strong> The Amazon S3 bucket to use, for example:
-acme.papertrail\</li>
-<li><strong>Access key</strong> An access key that has read and write permissions to
-the bucket.\</li>
-<li><strong>Secret key</strong></li>
-</ol>
-<h2 id="configuring-periodic-windows-file-share-backups">Configuring periodic Windows file share backups</h2>
-<p>PaperTrail creates an incremental backup ZIP file and copies the ZIP
-file to the specified shared folder.  </p>
-<p>Specify these options under the Backup Settings page of the
-installation wizard or after installation via Services →  Tasks → 
-Wizards  → </p>
-<h2 id="configure-windows-share-backups">Configure Windows Share backups</h2>
-<ol>
-<li>Host – the hostname of the Windows or SMB/CIFS based fileserver\</li>
-<li>Backup Dir – The share and path location (e.g.,
-Backups/Papertrail Relative to the file share, not relative the root
-director)</li>
-<li>Username and Password if applicable</li>
-</ol>
-<h2 id="ad-hoc-backup">Ad-Hoc Backup</h2>
-<p>Typically, do an ad-hoc backup before you upgrade PaperTrail or before
-you migrate to a different server.<br />
- An ad-hoc backup will export all the files in the repository to a local
-or windows file share location. Multiple ZIP files will be created; a
-log file for each ZIP file will also be created containing the names of
-the files in the corresponding ZIP file.  </p>
-<p>An ad-hoc backup can be re-run using the same destination path, the
-logs files will be read and only new files added will be backed up.<br />
-1. Under Services → Tasks → Backups → Backup Repository<br />
-2. Destination: Local or windows file share
-(<code>smb://user@pass:host/Share/folder</code>)<br />
-3. Optional: Check verify to verify the backup once complete<br />
-4. Max File Size: Enter a maximum file size. Once a backup file
-reaches this limit (it may not be exact depending on the size of
-individual files) a new backup file will start.</p>
-<h2 id="restoring-from-backup">Restoring from backup</h2>
-<p>Select Restore from Windows File Share or Cloud from the installation
-wizard.</p>
-<h2 id="3rd-party-backup">3rd Party backup</h2>
-<ol>
-<li>Backup the database and applicable transaction logs.</li>
-<li>Backup the PT_Repo directory (defaults to C:\Data\PT_Repo).</li>
-</ol>
-<blockquote>
-<p>Note: PaperTrail does not update files in the PT_Repo directory so once
-backed up a file does not need to backed-up again.</p>
-</blockquote>
-<p>3.    For large installations the indexes can also be backed up to
-decrease restore times<br />
- Under Services  → Properties  → Backup  Specify an Index Backup
-Schedule &amp; Directory</p>
-<h2 id="native-restore-from-backup">Native restore from backup</h2>
-<ol>
-<li>Restore database and file repository to original locations</li>
-<li>Install PaperTrail</li>
-<li>Check new installation and enter existing database details</li>
-</ol></div>
+<p><strong>EasyPDF deployment and configuration</strong> ========================================</p>
+<h1 id="the-following-combination-of-software-will-need-to-be-installed-on-the-easypdf-server">The following combination of software will need to be installed on the EasyPDF server</h1>
+<p>·       Windows Server 2008 32/64 bit.</p>
+<p>·       PaperTrail 32 bit (latest release available).</p>
+<p>·       EasyPDF version 6/7 32 bit.</p>
+<p>·       EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453
+and EasyPDF 7 requires Addon r8738).</p>
+<p>·       Microsoft Office 2010.</p>
+<p>·       Any other native applications that may need to be converted to
+PDF by EasyPDF (i.e. AutoCAD).</p>
+<p><strong>Note : UAC should be disabled on the machine before any software is
+installed.</strong></p>
+<p><strong>Local installation</strong> (Both PaperTrail and EasyPDF running on same
+host) :</p>
+<p>1.     Install EasyPDF application.</p>
+<p>2.     Install PaperTrail release.</p>
+<p>3.     Install EasyPDF PaperTrail Addon.</p>
+<p>4.     Set the “BCL easyPDF SDK 7 Loader” and “Papertrail” services to
+run as the same account which should be granted administrative
+permissions.</p>
+<p>5.     Start PaperTrail and confirm that installation was successful.</p>
+<p>6.     Add the following line to the easypdf.properties file and restart
+PaperTrail thereafter :</p>
+<p>easypdf.word.nativeOfficePDF=true</p>
+<p>7.     Import test documents to confirm that all is set up correctly.</p>
+<p><strong> </strong></p>
+<p><strong>Remote installation</strong> (PaperTrail and EasyPDF running on separate
+hosts) :</p>
+<p>·       <strong>EasyPDF server</strong> :</p>
+<p>1.     Install EasyPDF application.</p>
+<p>2.     Install PaperTrail release.</p>
+<p>3.     Install EasyPDF PaperTrail Addon.</p>
+<p>4.     Set the “BCL easyPDF SDK 7 Loader” and “Papertrail” services to
+run as the same account which should be granted administrative
+permissions.</p>
+<p>5.     Start PaperTrail and confirm that installation was successful.</p>
+<p>6.     Add the following line to the easypdf.properties file and restart
+PaperTrail thereafter :</p>
+<p>easypdf.word.nativeOfficePDF=true</p>
+<p>7.     Import test documents locally to confirm that all is set up
+correctly.</p>
+<p>·       <strong>PaperTrail application server</strong> :</p>
+<p>1.     Once PaperTrail is up and running, set the below properties in
+the papertrail.properties file to enable remote conversions :</p>
+<pre><code>conversion.filetype.\*=remote
+conversion.filetype.pdf=pdf
+conversion.remote.host=http://host1:8080
+</code></pre>
+
+<p>2.     Import test documents on application server to confirm that all
+is set up correctly.</p>
+<p><strong>Troubleshooting</strong></p>
+<p>If any conversion issue are being experienced, create a .vbs
+file which can be run to test conversions outside of PaperTrail. The
+paths in the properties are input and output files, and should be
+configured accordingly :</p>
+<pre><code class="vbscript">Set oPrinter = CreateObject(&quot;easyPDF.Printer.7&quot;)
+Set oPrintJob = oPrinter.PrintJob
+oPrintJob.PrintOut &quot;C:\\test.txt&quot;, &quot;C:\\output.pdf&quot;
+</code></pre>
+
+<p>Another way to test the conversions is to navigate to
+<em>C:\Users\Public\Documents\BCL Technologies\easyPDF SDK
+7\Samples\Visual C#\EasyPDFPrinterTest</em> and then running
+EasyPDFPrinterTest.exe. This will allow you to select an input document
+to convert and specify the output path of the PDF.</p>
+<p>For any more information, the user manual can be accessed at
+<a href="http://www.pdfonline.com/easypdf/sdk/usermanual/">http://www.pdfonline.com/easypdf/sdk/usermanual/</a></p></div>
             
         </div>
 
