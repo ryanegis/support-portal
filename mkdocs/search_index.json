@@ -312,7 +312,7 @@
         }, 
         {
             "location": "/Installation/end-user-installation/", 
-            "text": "Installation and Configuration\n\n\nSystem Requirements\n\n\nThe minimum requirements that are advised for Workstations are as follows:\n\n 2-4 GB RAM\n\n Dual Core i3/i5 CPU\n\n Internet Explorer 11/Edge OR\n\n Chrome (latest stable release) OR\n* Firefox (latest stable release)\n\n\nAdvanced Plugin\n\n\n\n\nClick on Help / Cog -\n Check Installation and then follow the instructions that will guide you through the installation process\n\n\n\n\nSee \nWindows\n\n\nDesktop Agent\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n and \nLinux\n\n\nOffice Addin\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n\n\nWeb Scan\n\n\nWeb scan is distributed as an addon to the Advanced Plugin:\n\n\n\n\nInstall the Advanced Plugin\n\n\nDownload and Install the Web Scan Addon from \nDownloads\n\n\nConfigure scan profiles under System -\n Scanning", 
+            "text": "Installation and Configuration\n\n\nSystem Requirements\n\n\nThe minimum requirements that are advised for Workstations are as follows:\n\n 2-4 GB RAM\n\n Dual Core i3/i5 CPU\n\n Internet Explorer 11/Edge OR\n\n Chrome (latest stable release) OR\n* Firefox (latest stable release)\n\n\nAdvanced Plugin\n\n\n\n\nClick on Help / Cog -\n Check Installation and then follow the instructions that will guide you through the installation process\n\n\n\n\nSee \nWindows\n\n\nFor silent installation use following command:\n\n\nPaperTrailSetup.exe /S\n\n\n\n\nDesktop Agent\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n and \nLinux\n\n\nOffice Addin\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n\n\nWeb Scan\n\n\nWeb scan is distributed as an addon to the Advanced Plugin:\n\n\n\n\nInstall the Advanced Plugin\n\n\nDownload and Install the Web Scan Addon from \nDownloads\n\n\nConfigure scan profiles under System -\n Scanning", 
             "title": "End user installation"
         }, 
         {
@@ -327,7 +327,7 @@
         }, 
         {
             "location": "/Installation/end-user-installation/#advanced-plugin", 
-            "text": "Click on Help / Cog -  Check Installation and then follow the instructions that will guide you through the installation process   See  Windows", 
+            "text": "Click on Help / Cog -  Check Installation and then follow the instructions that will guide you through the installation process   See  Windows  For silent installation use following command:  PaperTrailSetup.exe /S", 
             "title": "Advanced Plugin"
         }, 
         {
