@@ -28,7 +28,7 @@ Note: Backups can only be made of local database
  Configuring cloud backups
 --------------------------
 
-Cloud backups let you back up the PaperTrail file repository (and
+Cloud backups lets you back up the PaperTrail file repository (and
 optionally the PaperTrail database) in near real time to the Amazon S3
 cloud (http://aws.amazon.com/s3/).
 
