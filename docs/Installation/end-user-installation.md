@@ -12,6 +12,12 @@ The minimum requirements that are advised for Workstations are as follows:
 1. Click on Help / Cog -> Check Installation and then follow the instructions that will guide you through the installation process
 
 See [Windows](http://docs.papertrail.co.za/Installation/advanced-plugin)
+
+For silent installation use following command:
+```
+PaperTrailSetup.exe /S
+```
+
 ### Desktop Agent
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
