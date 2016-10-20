@@ -10,7 +10,9 @@
 
 ## Sub Licenses
 
-Sub licenses are not added directly each full license provides te ability to create 2 or more sub type users. e.g. 1 full user license allows 5 share users to be created.
+Sub licenses are not added directly. 
+Each full license provides the ability to create 2 or more sub type users. 
+e.g. 1 full user license allows 5 share users to be created.
 
 **Share (5)** - Cannot login, can only access PaperTrail from email links Sent via Share, Share Node and eSign actions.
 
@@ -29,7 +31,7 @@ Portal Users have the same permissons as *View* and are automatically redirected
 
 Same as Full but also allows the use of the Web Scan client.
 
-### Depreceated
+### Deprecated
 
 **Mobile** Removed in 8.8.0, all users except desktop can use mobile.
 
