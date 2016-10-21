@@ -406,6 +406,21 @@
             "title": "Via the GUI"
         }, 
         {
+            "location": "/Integration/Database/", 
+            "text": "Data Sources\n\n\nA DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the frontend via the \n/data/{datasource name}/\n. The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..\n\n\n\n\nDatabase connections are pooled based on connection string and username\n\n\nColumn headers and index values must match index values in\n    PaperTrail, otherwise give columns aliases by using the \u201cAS\u201d function\n\n\nAll native SQL commands and functions can be used in the statement\n\n\nSeparate columns in SELECT statements by commas\n\n\nIf column names contain spaces, double quotes (\u201c \u201c) should be used\n    to surround the name in order to concatenate the name\n\n\n\n\n\n\nIt is recommended to use system properties to specify the URL, Username and Password so that they can be externalized and reused across multiple rules. e.g. \n${lob.db.url}\n\n\n\n\nParamaters are passed via \n${param1}\n expressions e.g.\n\n\n SELECT * FROM Invoices WHERE Invoice_No = '${invoice_no}\n\n\n\n\nUsing \nUPDATE\n, \nDELETE\n, \nEXEC\n or \nINSERT\n SQL keywords will use \nPreparedStatement.executeUpdate()\n while all other Keywords will use \nPreparedStatement.executeQuery\n\n\nDirect Access\n\n\nYou can also use direct JDBC or the SQLUtils library to access external databases via a runScript rule - Ensure that you follow the pattern below\n\n\nimport com.egis.datasource.JdbcDataSourceCache\nimport com.egis.kernel.Kernel\nimport com.egis.utils.SQLUtils\nimport javax.sql.DataSource\n\nString url = System.getProperty(\nlob.db.url\n);\nString username = System.getProperty(\nlob.db.username\n);\nString password  = System.getProperty(\nlob.db.password\n);\nDataSource ds = Kernel.get(JdbcDataSourceCache.class).get(url, username, password)\n\nSQLUtils.executeStatement(ds, \nEXEC sp.StoreProc(?,?,?)\n, \nparam1\n, \nparam2\n, \nparam3\n)\n\n\n\n\n\n\nNote that a \nConnection\n or \nDataSource\n is not created directly but delegated to \nJdbcDataSourceCache\n so that connection pooling can occur", 
+            "title": "Database"
+        }, 
+        {
+            "location": "/Integration/Database/#data-sources", 
+            "text": "A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the frontend via the  /data/{datasource name}/ . The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..   Database connections are pooled based on connection string and username  Column headers and index values must match index values in\n    PaperTrail, otherwise give columns aliases by using the \u201cAS\u201d function  All native SQL commands and functions can be used in the statement  Separate columns in SELECT statements by commas  If column names contain spaces, double quotes (\u201c \u201c) should be used\n    to surround the name in order to concatenate the name    It is recommended to use system properties to specify the URL, Username and Password so that they can be externalized and reused across multiple rules. e.g.  ${lob.db.url}   Paramaters are passed via  ${param1}  expressions e.g.   SELECT * FROM Invoices WHERE Invoice_No = '${invoice_no}  Using  UPDATE ,  DELETE ,  EXEC  or  INSERT  SQL keywords will use  PreparedStatement.executeUpdate()  while all other Keywords will use  PreparedStatement.executeQuery", 
+            "title": "Data Sources"
+        }, 
+        {
+            "location": "/Integration/Database/#direct-access", 
+            "text": "You can also use direct JDBC or the SQLUtils library to access external databases via a runScript rule - Ensure that you follow the pattern below  import com.egis.datasource.JdbcDataSourceCache\nimport com.egis.kernel.Kernel\nimport com.egis.utils.SQLUtils\nimport javax.sql.DataSource\n\nString url = System.getProperty( lob.db.url );\nString username = System.getProperty( lob.db.username );\nString password  = System.getProperty( lob.db.password );\nDataSource ds = Kernel.get(JdbcDataSourceCache.class).get(url, username, password)\n\nSQLUtils.executeStatement(ds,  EXEC sp.StoreProc(?,?,?) ,  param1 ,  param2 ,  param3 )   Note that a  Connection  or  DataSource  is not created directly but delegated to  JdbcDataSourceCache  so that connection pooling can occur", 
+            "title": "Direct Access"
+        }, 
+        {
             "location": "/Integration/data-sources/", 
             "text": "Data Sources\n\n\nData sources allow for data to be looked up in a centralized fashion -\nthese data sources are always referenced by name so they can differ in\nproduction and dev environments - both in parameters and type.\n\n\nSystem properties can also be used for the URL, username and password\nfields:\\\n e.g.\\\n\n\n${external.db.username} ${external.db.password} jdbc:mysql://${external.db.host}/\n{.ini}\\\n The properties can then be added to a .properties file in the\nPapertrail/conf installation folder\\\n \u00a0\n\n\nJDBC\n\n\nConnect to any remote database accessible via a JDBC URL examples of\nwhich are:\n\n\njdbc:mysql://host:3306/{db}\n{.sql}\n\n\njdbc:sqlserver://host:1443;databaseName={db}\n{.sql}\n\n\njdbc:postgresql://host:5432/{db}\n{.sql}\n\n\nParameters can be specified using \n\\${param}\n syntax (they are\nescaped to prevent SQL Injection):\n e.g.\n\n\nSELECT index1 as name, index2 as value FROM external_table WHERE index3 LIKE '${filter}'\n{.sql}\n\n\nNote the \naliasing\n to \nname\n and \nvalue\n which is required to\ncorrectly render in lookup fields/lists.\n\n\nAlthough any parameter can be used \n\\${filter}\n is reserved for user\nentered input.\n\n\nLocal DB\n\n\nA subtype of JDBC - connects to same database as PaperTrail can be used\nto query papertrail core tables, import and sync tables, or any other\ntable added to this db.\\\n \u00a0\n\n\nNode Query\n\n\nReturns the result of a PQL query - Commonly used for config nodes.\n \u00a0\n\n\nScripted\n\n\nAllows groovy script to be executed to return any arbritrary list of\ndata.", 
             "title": "Data sources"
@@ -434,46 +449,6 @@
             "location": "/Integration/data-sources/#scripted", 
             "text": "Allows groovy script to be executed to return any arbritrary list of\ndata.", 
             "title": "Scripted"
-        }, 
-        {
-            "location": "/Integration/db-lookup/", 
-            "text": "Database JDBC Configs\n\n\nMicrosoft SQL Server\u200b\n\n\njdbc:sqlserver://[serverName[\\instanceName][:portNumber]];databaseName=\ndatabaseName\n[;property=value[;property=value]]\n\n\ne.g.\n\n\njdbc:sqlserver://host;databaseName=test123\n\n\nMYSQL\u00a0\u200b\n\n\njdbc:mysql://\ndatabase server\n:\nports\n/\ndatabase names\n\n\nPostgreSQL\u00a0\u200b\\\n\n\n\\\n \njdbc:postgresql://\ndatabase server\n:\nport\n/\ndatabaseName\n\\\n\\\n SQL\n\n\nSQL statement used to update records in PaperTrail or update DB records\nfrom PaperTrail:\\\n \u00a0\n\n\n\n\n\n\nSELECT STATEMENT\n: To Update records from an external database to\n    PaperTrail records.\n\n\n\n\nFORMAT\n: \nSELECT \\\nCOLOUMNS>\u00a0FROM \\\nTABLENAME> WHERE\n    \\\nDATABASE INDEX> = \\${\\\nPAPERTRAIL INDEX>}\n\n\n\n\nEXAMPLE\n:\n\n\n{style=\"background:rgba(238,238,238,0.92);color:#000\"}\nSELECT No_ AS Invoice_No, \nLEFT(CONVERT(date, \"Posting Date\"),10) \n     AS Invoice_Date,\"Order No_\" \n     AS Internal_Order, \"Sell-to Customer No_\" \n     AS Customer_No,\"External Document No_\" \n     AS Customer_Order_No, \"Shipment Method Code\" \n     AS Delivery_Method \nFROM \"SAFINTRA JHB$Sales Invoice Header\" \nWHERE No_ = '${invoice_no}\n\n\n\n\n\n\n\n\n\n\nUPDATE STATEMENT\n\n\n\n\nFORMAT\n: \nUPDATE \\\nTABLE NAME> SET \\\nDATABASE INDEX> =\n    '\\\nVALUE>' WHERE \\\nDATABASE INDEX> = \\${\\\nPAPERTRAIL\n    INDEX>}\n\n\n\n\nEXAMPLE\n:\n\n\n{style=\"background:rgba(238,238,238,0.92);color:#000\"}\nUPDATE test \nSET Index1 = 'asdf' \nWHERE Invoice_Number = ${Invoice_Number}\n\n\n\n\n\n\n\n\n\n\n\\\n \u00a0\n\n\nRules for SQL statements\n\n\n\n\nColumn headers and index values must match index values in\n    PaperTrail, otherwise give columns aliases by using the \u201cAS\u201d\n    function.\n\n\nAll native SQL commands and functions can be used in the statement.\n\n\nSeparate columns in SELECT statements by commas.\n\n\nIf column names contain spaces, double quotes (\u201c \u201c) should be used\n    to surround the name in order to concatenate the name.\n\n\n\n\nEvent\n\n\n\\\n When to run the SQL Lookup or Update.", 
-            "title": "Db lookup"
-        }, 
-        {
-            "location": "/Integration/db-lookup/#database-jdbc-configs", 
-            "text": "", 
-            "title": "Database JDBC Configs"
-        }, 
-        {
-            "location": "/Integration/db-lookup/#microsoft-sql-server", 
-            "text": "jdbc:sqlserver://[serverName[\\instanceName][:portNumber]];databaseName= databaseName [;property=value[;property=value]]", 
-            "title": "Microsoft SQL Server\u200b"
-        }, 
-        {
-            "location": "/Integration/db-lookup/#eg", 
-            "text": "jdbc:sqlserver://host;databaseName=test123", 
-            "title": "e.g."
-        }, 
-        {
-            "location": "/Integration/db-lookup/#mysql", 
-            "text": "jdbc:mysql:// database server : ports / database names", 
-            "title": "MYSQL\u00a0\u200b"
-        }, 
-        {
-            "location": "/Integration/db-lookup/#postgresql", 
-            "text": "\\\n  jdbc:postgresql:// database server : port / databaseName \\\n\\\n SQL  SQL statement used to update records in PaperTrail or update DB records\nfrom PaperTrail:\\\n \u00a0    SELECT STATEMENT : To Update records from an external database to\n    PaperTrail records.   FORMAT :  SELECT \\ COLOUMNS>\u00a0FROM \\ TABLENAME> WHERE\n    \\ DATABASE INDEX> = \\${\\ PAPERTRAIL INDEX>}   EXAMPLE :  {style=\"background:rgba(238,238,238,0.92);color:#000\"}\nSELECT No_ AS Invoice_No, \nLEFT(CONVERT(date, \"Posting Date\"),10) \n     AS Invoice_Date,\"Order No_\" \n     AS Internal_Order, \"Sell-to Customer No_\" \n     AS Customer_No,\"External Document No_\" \n     AS Customer_Order_No, \"Shipment Method Code\" \n     AS Delivery_Method \nFROM \"SAFINTRA JHB$Sales Invoice Header\" \nWHERE No_ = '${invoice_no}      UPDATE STATEMENT   FORMAT :  UPDATE \\ TABLE NAME> SET \\ DATABASE INDEX> =\n    '\\ VALUE>' WHERE \\ DATABASE INDEX> = \\${\\ PAPERTRAIL\n    INDEX>}   EXAMPLE :  {style=\"background:rgba(238,238,238,0.92);color:#000\"}\nUPDATE test \nSET Index1 = 'asdf' \nWHERE Invoice_Number = ${Invoice_Number}      \\", 
-            "title": "PostgreSQL\u00a0\u200b\\"
-        }, 
-        {
-            "location": "/Integration/db-lookup/#rules-for-sql-statements", 
-            "text": "Column headers and index values must match index values in\n    PaperTrail, otherwise give columns aliases by using the \u201cAS\u201d\n    function.  All native SQL commands and functions can be used in the statement.  Separate columns in SELECT statements by commas.  If column names contain spaces, double quotes (\u201c \u201c) should be used\n    to surround the name in order to concatenate the name.", 
-            "title": "Rules for SQL statements"
-        }, 
-        {
-            "location": "/Integration/db-lookup/#event", 
-            "text": "\\\n When to run the SQL Lookup or Update.", 
-            "title": "Event"
         }, 
         {
             "location": "/Integration/folder-watch/", 
