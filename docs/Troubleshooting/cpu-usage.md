@@ -6,17 +6,19 @@ Before doing anything else
 
 Before restarting PaperTrail always try and get a snapshot:
 
-*http://localhost:8080/snapshot*  
+`http://localhost:8080/snapshot`
 
 and/or a thread dump  
 
-*http://localhost:8080/snapshot/threads*
+`http://localhost:8080/snapshot/threads`
 
- If the web interface is unresponsive use the command line to retrieve a
+If the web interface is unresponsive use the command line to retrieve a
 thread dump.
 
-On Linux: `/etc/init.d/papertrail heap`
-On Windows <Java Bin Directory>  Run `jps` to get the PID of the service and then `jstack -dump:format=b,file=C:\heap.bin  <PID>`
+## Taking a Memory Dump
+
+On Linux: `/etc/init.d/papertrail heap`  
+On Windows <Java Bin Directory>  Run `jps` to get the PID of the service and then `jstack -dump:format=b,file=C:\heap.bin  <PID>`  
 
 Common Causes of high CPU usage
 -------------------------------
