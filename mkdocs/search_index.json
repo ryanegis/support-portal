@@ -777,7 +777,7 @@
         }, 
         {
             "location": "/Troubleshooting/cpu-usage/", 
-            "text": "Troubleshooting high cpu usage\n\n\nBefore doing anything else\n\n\nBefore restarting PaperTrail always try and get a snapshot:\n\n\nhttp://localhost:8080/snapshot\n  \n\n\nand/or a thread dump  \n\n\nhttp://localhost:8080/snapshot/threads\n\n\nIf the web interface is unresponsive use the command line to retrieve a\nthread dump.\n\n\nOn Linux: \n/etc/init.d/papertrail heap\n\nOn Windows \n \u00a0Run \njps\n to get the PID of the service and then \njstack\u00a0-dump:format=b,file=C:\\heap.bin \u00a0\nPID\n\n\nCommon Causes of high CPU usage\n\n\nIf a single CPU core is at 100% \u00a0the culprit would normally be \u00a0 single\nthread that reoccurs in every single thread dump.\n\n\nIf all CPU cores are at 100% or near 100%, the cause is either:\n\n\na) memory exhaustion - very little free memory,\u00a0 \njstat\n \u00a0would return\nvery high garbage collection times (GC)\n\nb) an endless loop\n\nc) too many worker threads and/or too few cores\n \u00a0\n\n\nAnalyzing a Thread Dump\n\n\nAnalyzing a thread dump involves looking through all the threads on the\nrunning system to identify a) a pattern\u00a0\n\n\nAny thread in a \nTIMED_WAITING\n or \nWAITING\n state can be safely ignored\nas these threads are sleeping waiting for something else to occur.\n\n\nJetty threads in\nthe\u00a0\njava.net.SocketInputStream.socketRead RUNNING\nstate can also be\nignored as they are waiting for a client to make a TCP/IP connection", 
+            "text": "Troubleshooting high cpu usage\n\n\nBefore doing anything else\n\n\nBefore restarting PaperTrail always try and get a snapshot:\n\n\nhttp://localhost:8080/snapshot\n\n\nand/or a thread dump  \n\n\nhttp://localhost:8080/snapshot/threads\n\n\nIf the web interface is unresponsive use the command line to retrieve a\nthread dump.\n\n\nTaking a Memory Dump\n\n\nOn Linux: \n/etc/init.d/papertrail heap\n\nOn Windows \n \u00a0Run \njps\n to get the PID of the service and then \njstack\u00a0-dump:format=b,file=C:\\heap.bin \u00a0\nPID\n  \n\n\nCommon Causes of high CPU usage\n\n\nIf a single CPU core is at 100% \u00a0the culprit would normally be \u00a0 single\nthread that reoccurs in every single thread dump.\n\n\nIf all CPU cores are at 100% or near 100%, the cause is either:\n\n\na) memory exhaustion - very little free memory,\u00a0 \njstat\n \u00a0would return\nvery high garbage collection times (GC)\n\nb) an endless loop\n\nc) too many worker threads and/or too few cores\n \u00a0\n\n\nAnalyzing a Thread Dump\n\n\nAnalyzing a thread dump involves looking through all the threads on the\nrunning system to identify a) a pattern\u00a0\n\n\nAny thread in a \nTIMED_WAITING\n or \nWAITING\n state can be safely ignored\nas these threads are sleeping waiting for something else to occur.\n\n\nJetty threads in\nthe\u00a0\njava.net.SocketInputStream.socketRead RUNNING\nstate can also be\nignored as they are waiting for a client to make a TCP/IP connection", 
             "title": "Cpu usage"
         }, 
         {
@@ -787,8 +787,13 @@
         }, 
         {
             "location": "/Troubleshooting/cpu-usage/#before-doing-anything-else", 
-            "text": "Before restarting PaperTrail always try and get a snapshot:  http://localhost:8080/snapshot     and/or a thread dump    http://localhost:8080/snapshot/threads  If the web interface is unresponsive use the command line to retrieve a\nthread dump.  On Linux:  /etc/init.d/papertrail heap \nOn Windows   \u00a0Run  jps  to get the PID of the service and then  jstack\u00a0-dump:format=b,file=C:\\heap.bin \u00a0 PID", 
+            "text": "Before restarting PaperTrail always try and get a snapshot:  http://localhost:8080/snapshot  and/or a thread dump    http://localhost:8080/snapshot/threads  If the web interface is unresponsive use the command line to retrieve a\nthread dump.", 
             "title": "Before doing anything else"
+        }, 
+        {
+            "location": "/Troubleshooting/cpu-usage/#taking-a-memory-dump", 
+            "text": "On Linux:  /etc/init.d/papertrail heap \nOn Windows   \u00a0Run  jps  to get the PID of the service and then  jstack\u00a0-dump:format=b,file=C:\\heap.bin \u00a0 PID", 
+            "title": "Taking a Memory Dump"
         }, 
         {
             "location": "/Troubleshooting/cpu-usage/#common-causes-of-high-cpu-usage", 
