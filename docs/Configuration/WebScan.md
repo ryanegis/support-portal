@@ -1,8 +1,8 @@
-## Web Scan
+# Web Scan
 
-### Web Scan Profile Settings
+## Web Scan Profile Settings
 
-#### separation
+### separation
 
 type - *string*
 
@@ -28,7 +28,7 @@ Possible values:
 
   As a result of **Blank** separation, scan addon will return 3 PDF files: 1 page (image1), 3 pages (image with barcode1, image2, image3) and 1 page (image with barcode3).
 
-#### resolution
+### resolution
 
 type - *object*
 
@@ -50,7 +50,7 @@ Fields:
    
 **Important note:** list of supported values for *resolution* may vary depending on scanner model
    
-#### compressionMode
+### compressionMode
    
 type - *string*
    
@@ -70,7 +70,7 @@ Common values:
 
 **Important note:** list of supported values for *compressionMode* may vary depending on scanner model
 
-#### pdfDecoder
+### pdfDecoder
 
 type - *object*
 
@@ -78,13 +78,13 @@ Fields:
 
 1. **resolution** - integer, resolution at which to render a PDF page. Minimum - 1, maximum - 3600.
 
-#### barcodeSettings
+### barcodeSettings
 
 type - *object*
 
 See (Barcode Configuration)[http://support.papertrail.co.za/Configuration/Barcode/] for list of supported properties
 
-### Examples
+## Examples
 
 Split images into PDF files by barcode and use 300x300px scan resolution
 
