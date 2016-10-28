@@ -133,7 +133,7 @@ detection
 
 **ReadPatchCodes**  Read Patch Codes
 
-**ReadPDF417- Read PDF-417 barcodes
+**ReadPDF417** Read PDF-417 barcodes
 
 **ReadShortCode128**  Read short Code 128 barcodes
 
@@ -141,7 +141,7 @@ detection
 
 **ReadUPCE** Read UPC-E barcodes
 
-**ReportUnreadBarcodes- Report barcodes that could not be decoded
+**ReportUnreadBarcodes** Report barcodes that could not be decoded
 
 **ScanDirection**  Orientation to scan for a barcode
 
