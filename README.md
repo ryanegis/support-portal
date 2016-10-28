@@ -1,6 +1,6 @@
 # support-portal
 
-Published to [egis.github.io/support-portal](egis.github.io/support-portal)  
+Published to [egis.github.io/support-portal](http://egis.github.io/support-portal)  
 
 To edit and compile locally use [mkdocs](http://www.mkdocs.org/)  
 
