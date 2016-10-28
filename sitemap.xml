@@ -42,6 +42,12 @@
     </url>
         
     <url>
+     <loc>None/Configuration/WebScan/</loc>
+     <lastmod>2016-10-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/Configuration/basic/</loc>
      <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>

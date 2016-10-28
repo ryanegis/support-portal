@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Data sources - Support Portal</title>
+	<title>WebScan - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -60,67 +60,67 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Configuration/Backups/">Backups</a>
+    <a href="../Backups/">Backups</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Barcode/">Barcode</a>
+    <a href="../Barcode/">Barcode</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Branding/">Branding</a>
+    <a href="../Branding/">Branding</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/EasyPDF/">EasyPDF</a>
+    <a href="../EasyPDF/">EasyPDF</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/LDAP/">LDAP</a>
+    <a href="../LDAP/">LDAP</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">WebScan</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/WebScan/">WebScan</a>
+    <a href="../basic/">Basic</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/basic/">Basic</a>
+    <a href="../security/">Security</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/security/">Security</a>
+    <a href="../solution-pack/">Solution pack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/solution-pack/">Solution pack</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Configuration/ssl/">Ssl</a>
+    <a href="../ssl/">Ssl</a>
 </li>
 
                         
@@ -180,31 +180,31 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Database/">Database</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Data sources</a>
+    <a href="../../Integration/Database/">Database</a>
 </li>
 
                         
                             
 <li >
-    <a href="../folder-watch/">Folder watch</a>
+    <a href="../../Integration/data-sources/">Data sources</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ldap-ad/">Ldap ad</a>
+    <a href="../../Integration/folder-watch/">Folder watch</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Integration/ldap-ad/">Ldap ad</a>
 </li>
 
                         
@@ -307,12 +307,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Database/">
+                        <a rel="next" href="../LDAP/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../folder-watch/">
+                        <a rel="prev" href="../basic/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -328,62 +328,120 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#data-sources">Data Sources</a></li>
+        <li class="main active"><a href="#web-scan">Web Scan</a></li>
         
-    
-        <li class="main "><a href="#jdbc">JDBC</a></li>
+            <li><a href="#web-scan-profile-settings">Web Scan Profile Settings</a></li>
         
-    
-        <li class="main "><a href="#local-db">Local DB</a></li>
-        
-    
-        <li class="main "><a href="#node-query">Node Query</a></li>
-        
-    
-        <li class="main "><a href="#scripted">Scripted</a></li>
+            <li><a href="#examples">Examples</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="data-sources">Data Sources</h2>
-<p>Data sources allow for data to be looked up in a centralized fashion -
-these data sources are always referenced by name so they can differ in
-production and dev environments - both in parameters and type.</p>
-<p>System properties can also be used for the URL, username and password
-fields:\
- e.g.\</p>
-<p><code>${external.db.username} ${external.db.password} jdbc:mysql://${external.db.host}/</code>{.ini}\
- The properties can then be added to a .properties file in the
-Papertrail/conf installation folder\
-  </p>
-<h2 id="jdbc">JDBC</h2>
-<p>Connect to any remote database accessible via a JDBC URL examples of
-which are:</p>
-<p><code>jdbc:mysql://host:3306/{db}</code>{.sql}</p>
-<p><code>jdbc:sqlserver://host:1443;databaseName={db}</code>{.sql}</p>
-<p><code>jdbc:postgresql://host:5432/{db}</code>{.sql}</p>
-<p>Parameters can be specified using <strong>\${param}</strong> syntax (they are
-escaped to prevent SQL Injection):
- e.g.</p>
-<p><code>SELECT index1 as name, index2 as value FROM external_table WHERE index3 LIKE '${filter}'</code>{.sql}</p>
-<p>Note the <strong>aliasing</strong> to <strong>name</strong> and <strong>value</strong> which is required to
-correctly render in lookup fields/lists.</p>
-<p>Although any parameter can be used <strong>\${filter}</strong> is reserved for user
-entered input.</p>
-<h2 id="local-db">Local DB</h2>
-<p>A subtype of JDBC - connects to same database as PaperTrail can be used
-to query papertrail core tables, import and sync tables, or any other
-table added to this db.\
-  </p>
-<h2 id="node-query">Node Query</h2>
-<p>Returns the result of a PQL query - Commonly used for config nodes.
-  </p>
-<h2 id="scripted">Scripted</h2>
-<p>Allows groovy script to be executed to return any arbritrary list of
-data.
-  </p></div>
+<h1 id="web-scan">Web Scan</h1>
+<h2 id="web-scan-profile-settings">Web Scan Profile Settings</h2>
+<h3 id="separation">separation</h3>
+<p>type - <em>string</em></p>
+<p>Possible values:</p>
+<ol>
+<li>
+<p><strong>None</strong> - combine all images to single PDF file;</p>
+</li>
+<li>
+<p><strong>Page</strong> - put each image to new PDF file, so each PDF file will contain single page;</p>
+</li>
+<li>
+<p><strong>Blank</strong> - create new PDF when blank image appeared. For instance, there is images sequence:</p>
+</li>
+</ol>
+<p><code>image1, image2, blank image, image3, image4, image5, blank image, image6</code></p>
+<p>As a result of <strong>Blank</strong> separation, scan addon will return 3 PDF files: 2 pages (image1, image2), 3 pages (image3, image4, image5) and 1 page (image6).</p>
+<ol>
+<li><strong>Barcode</strong> - create new PDF when image with unique barcode appeared. For instance, there is images sequence:</li>
+</ol>
+<p><code>image1, image with barcode1, image2, image3, image with barcode3</code></p>
+<p>As a result of <strong>Blank</strong> separation, scan addon will return 3 PDF files: 1 page (image1), 3 pages (image with barcode1, image2, image3) and 1 page (image with barcode3).</p>
+<h3 id="resolution">resolution</h3>
+<p>type - <em>object</em></p>
+<p>Fields:</p>
+<ol>
+<li>
+<p><strong>x</strong> - integer, <em>x</em> value of resolution. Common possible values: 100 - 600</p>
+</li>
+<li>
+<p><strong>y</strong> - integer, <em>y</em> value of resolution. Common possible values: 100 - 600</p>
+</li>
+<li>
+<p><em>units</em> - string, measure units for <em>x</em> and <em>y</em>. Possible values:</p>
+</li>
+<li>
+<p>Inches</p>
+</li>
+<li>
+<p>Centimeters</p>
+</li>
+<li>
+<p>Points</p>
+</li>
+<li>
+<p>Pixels</p>
+</li>
+</ol>
+<p><strong>Important note:</strong> list of supported values for <em>resolution</em> may vary depending on scanner model</p>
+<h3 id="compressionmode">compressionMode</h3>
+<p>type - <em>string</em></p>
+<p>Common values:</p>
+<ol>
+<li>
+<p><strong>None</strong> - don't use any compression mode;</p>
+</li>
+<li>
+<p><strong>Jpeg</strong> - intended for the compression of color photographs</p>
+</li>
+<li>
+<p><strong>Lzw</strong> - a compression licensed by UNISYS</p>
+</li>
+<li>
+<p><strong>Jbig</strong> - intended for bi-tonal and grayscale document images</p>
+</li>
+<li>
+<p><strong>Png</strong> - Portable Network Graphic</p>
+</li>
+<li>
+<p><strong>Group4</strong> - CCITT Group 4 fax encoding, intended for document images</p>
+</li>
+</ol>
+<p><strong>Important note:</strong> list of supported values for <em>compressionMode</em> may vary depending on scanner model</p>
+<h3 id="pdfdecoder">pdfDecoder</h3>
+<p>type - <em>object</em></p>
+<p>Fields:</p>
+<ol>
+<li><strong>resolution</strong> - integer, resolution at which to render a PDF page. Minimum - 1, maximum - 3600.</li>
+</ol>
+<h3 id="barcodesettings">barcodeSettings</h3>
+<p>type - <em>object</em></p>
+<p>See (Barcode Configuration)[http://support.papertrail.co.za/Configuration/Barcode/] for list of supported properties</p>
+<h2 id="examples">Examples</h2>
+<p>Split images into PDF files by barcode and use 300x300px scan resolution</p>
+<pre><code>{
+  &quot;separation&quot;: &quot;Barcode&quot;,
+  &quot;resolution&quot;: {
+    &quot;x&quot;: 300,
+    &quot;y&quot;: 300,
+    &quot;units&quot;: &quot;Pixels&quot;
+  }
+}
+</code></pre>
+
+<p>Create single PDF file from scanned images and render it with 80 resolution</p>
+<pre><code>{
+  &quot;separation&quot;: &quot;None&quot;,
+  &quot;pdfDecoder&quot;: {
+    &quot;resolution&quot;: 80
+  }
+}
+</code></pre></div>
             
         </div>
 
