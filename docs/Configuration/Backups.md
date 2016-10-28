@@ -12,6 +12,28 @@ What needs to be backed up?
 -   **Indexes** Only for very large installations where an index rebuild
     is too time-consuming
 
+
+How to backup?
+--------------
+
+To backup in PostgreSQL 
+
+```java
+cd "C:\Program Files"
+cd PostgreSQL\9.2\bin
+pg_dump –U postgres –h localhost {postgresdb} > ”C:\{location}\{location}{backupname}.sql”
+psql -U postgres -h localhost {pt8} > C:\{location}\{location}{backupname}.restore.sql
+```
+
+To backup in MySQL 
+
+```java
+cd MySQL\MySQL Server 5.1\bin
+C:\ProgramFiles\MySQL\MySQL Server 5.1\bin>mysql -u {username} -p {password} {MYSQL db} < "e:\database.sql"
+```
+
+Backups in MSSQL can be done from the management console.
+
 Schedule Database Backups using PaperTrail
 ------------------------------------------
 
