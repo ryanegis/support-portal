@@ -14,19 +14,19 @@ Possible values:
 
 3. **Blank** - create new PDF when blank image appeared. For instance, there is images sequence:
 
-```
-image1, image2, blank image, image3, image4, image5, blank image, image6
-```
+  ```
+  image1, image2, blank image, image3, image4, image5, blank image, image6
+  ```
 
-As a result of **Blank** separation, scan addon will return 3 PDF files: 2 pages (image1, image2), 3 pages (image3, image4, image5) and 1 page (image6).
+  As a result of **Blank** separation, scan addon will return 3 PDF files: 2 pages (image1, image2), 3 pages (image3, image4, image5) and 1 page (image6).
 
 4. **Barcode** - create new PDF when image with unique barcode appeared. For instance, there is images sequence:
 
-```
-image1, image with barcode1, image2, image3, image with barcode3
-```
+  ```
+  image1, image with barcode1, image2, image3, image with barcode3
+  ```
 
-As a result of **Blank** separation, scan addon will return 3 PDF files: 1 page (image1), 3 pages (image with barcode1, image2, image3) and 1 page (image with barcode3).
+  As a result of **Blank** separation, scan addon will return 3 PDF files: 1 page (image1), 3 pages (image with barcode1, image2, image3) and 1 page (image with barcode3).
 
 #### resolution
 
