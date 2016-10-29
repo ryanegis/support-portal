@@ -135,6 +135,12 @@
                         
                             
 <li >
+    <a href="../../Installation/Replication/">Replication</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../Installation/Sizing/">Sizing</a>
 </li>
 
@@ -332,6 +338,8 @@
         
             <li><a href="#what-needs-to-be-backed-up">What needs to be backed up?</a></li>
         
+            <li><a href="#how-to-backup">How to backup?</a></li>
+        
             <li><a href="#schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</a></li>
         
             <li><a href="#configuring-cloud-backups">Configuring cloud backups</a></li>
@@ -364,6 +372,20 @@
 <li><strong>Indexes</strong> Only for very large installations where an index rebuild
     is too time-consuming</li>
 </ul>
+<h2 id="how-to-backup">How to backup?</h2>
+<p>To backup in PostgreSQL </p>
+<pre><code class="java">cd &quot;C:\Program Files&quot;
+cd PostgreSQL\9.2\bin
+pg_dump –U postgres –h localhost {postgresdb} &gt; ”C:\{location}\{location}{backupname}.sql”
+psql -U postgres -h localhost {pt8} &gt; C:\{location}\{location}{backupname}.restore.sql
+</code></pre>
+
+<p>To backup in MySQL </p>
+<pre><code class="java">cd MySQL\MySQL Server 5.1\bin
+C:\ProgramFiles\MySQL\MySQL Server 5.1\bin&gt;mysql -u {username} -p {password} {MYSQL db} &lt; &quot;e:\database.sql&quot;
+</code></pre>
+
+<p>Backups in MSSQL can be done from the management console.</p>
 <h2 id="schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</h2>
 <p>Papertrail can automatically backup databases on schedule configured
 under Services  → Properties  → Backup → DB Schedule
