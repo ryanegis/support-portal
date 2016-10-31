@@ -14,6 +14,33 @@ C:\\Windows\\System32 or to where the java.library.path is pointing\
 For a list of all versions goto http://www.bardecode.com/en1/quick-download/ although a different
 license may need to be loaded via the License property
 
+### Supported Barcodes
+
+*  Codabar also known as Code 2 of 7, Codeabar, Ames Code, NW-7 and Monarch (ReadCodabar)
+*  Code 128 Symbol Sets A, B and C (ReadCode128)
+*  Code 128 Short Format (ReadShortCode128)
+*  Code 2 of 5 Datalogic (ReadCode25ni)
+*  Code 2 of 5 Iata1 (ReadCode25ni)
+*  Code 2 of 5 Iata2 (ReadCode25ni)
+*  Code 2 of 5 Industrial (ReadCode25ni)
+*  Code 2 of 5 Interleaved (ReadCode25)
+*  Code 2 of 5 Matrix (ReadCode25ni)
+*  Code 3 of 9 (ReadCode39)
+*  Code 3 of 9 Extended (ReadCode39 and ExtendedCode39)
+*  Code 93 (ReadCode93)
+*  EAN-8, European Article Number/International Article Number (ReadEAN8)
+*  EAN-13 and UPC-A, European Article Number/International Article Number (ReadEAN13)
+*  GS1-128, UCC-128, EAN-128 (ReadCode128)
+*  GS1-Databar (please see 2-D section below)
+*  Patch Code Symbols (ReadPatchCodes)
+*  UPC-A, Universal Product Code (ReadEAN13 and ReadUPCA)
+*  UPC-E, Universal Product Code (ReadUPCE)
+*  QR-Code (ReadQRCode)
+*  Data Matrix ECC200 sizes 8x8 to 144x144 (ReadDataMatrix)
+*  GS1-Databar
+*  Micro-PDF-417 (ReadMicroPDF417)
+*  PDF-417, Portable Data File (ReadPDF417)
+
 Properties
 ----------
 
