@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Database - Support Portal</title>
+	<title>Logging - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -60,73 +60,73 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Configuration/Backups/">Backups</a>
+    <a href="../Backups/">Backups</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Barcode/">Barcode</a>
+    <a href="../Barcode/">Barcode</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Branding/">Branding</a>
+    <a href="../Branding/">Branding</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/EasyPDF/">EasyPDF</a>
+    <a href="../EasyPDF/">EasyPDF</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/LDAP/">LDAP</a>
+    <a href="../LDAP/">LDAP</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Logging</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/Logging/">Logging</a>
+    <a href="../WebScan/">WebScan</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/WebScan/">WebScan</a>
+    <a href="../basic/">Basic</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/basic/">Basic</a>
+    <a href="../security/">Security</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/security/">Security</a>
+    <a href="../solution-pack/">Solution pack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Configuration/solution-pack/">Solution pack</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Configuration/ssl/">Ssl</a>
+    <a href="../ssl/">Ssl</a>
 </li>
 
                         
@@ -192,31 +192,31 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Database</a>
+<li >
+    <a href="../../Integration/Database/">Database</a>
 </li>
 
                         
                             
 <li >
-    <a href="../data-sources/">Data sources</a>
+    <a href="../../Integration/data-sources/">Data sources</a>
 </li>
 
                         
                             
 <li >
-    <a href="../folder-watch/">Folder watch</a>
+    <a href="../../Integration/folder-watch/">Folder watch</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ldap-ad/">Ldap ad</a>
+    <a href="../../Integration/ldap-ad/">Ldap ad</a>
 </li>
 
                         
@@ -319,12 +319,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../../Installation/solution/">
+                        <a rel="next" href="../LDAP/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../data-sources/">
+                        <a rel="prev" href="../WebScan/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -340,53 +340,90 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#data-sources">Data Sources</a></li>
+        <li class="main active"><a href="#logging">Logging</a></li>
         
-    
-        <li class="main "><a href="#direct-access">Direct Access</a></li>
+            <li><a href="#updating-the-log-settings">Updating the log settings</a></li>
+        
+            <li><a href="#log-file-retention">Log file Retention</a></li>
+        
+            <li><a href="#logging-to-syslog-host">Logging to Syslog Host</a></li>
+        
+            <li><a href="#logging-to-a-gelf-host">Logging to a GELF Host</a></li>
+        
+            <li><a href="#logging-to-individual-files-per-logger">Logging to individual files per logger</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="data-sources">Data Sources</h2>
-<p>A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the frontend via the <code>/data/{datasource name}/</code>. The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..</p>
+<h1 id="logging">Logging</h1>
+<h2 id="updating-the-log-settings">Updating the log settings</h2>
+<p>All log settings are stored in the <code>conf/logback.groovy</code> file 
+ The Admin -> Services -> Logging  page will make changes to this file
+if the After Restart  option is selected</p>
+<h2 id="log-file-retention">Log file Retention</h2>
+<ol>
+<li>
+<p>To configure the number of days to keep Papertrail logs, locate and
+    edit the following document: PaperTrail/conf/logback.groovy</p>
 <ul>
-<li>Database connections are pooled based on connection string and username</li>
-<li>Column headers and index values must match index values in
-    PaperTrail, otherwise give columns aliases by using the “AS” function</li>
-<li>All native SQL commands and functions can be used in the statement</li>
-<li>Separate columns in SELECT statements by commas</li>
-<li>If column names contain spaces, double quotes (“ “) should be used
-    to surround the name in order to concatenate the name</li>
+<li>The example below keeps the logs for a period of 14 days:
+    <code>appender("FILE", RollingFileAppender) {             file = "logs/server.log"             append = true             rollingPolicy(TimeBasedRollingPolicy) {                 maxHistory = 14                 FileNamePattern = "logs/server-%d{yyyy-MM-dd}.log"             }         }</code>{.groovy}</li>
 </ul>
-<blockquote>
-<p>It is recommended to use system properties to specify the URL, Username and Password so that they can be externalized and reused across multiple rules. e.g. <code>${lob.db.url}</code></p>
-</blockquote>
-<p>Paramaters are passed via <code>${param1}</code> expressions e.g.</p>
-<pre><code class="sql"> SELECT * FROM Invoices WHERE Invoice_No = '${invoice_no}
+</li>
+<li>
+<p>Locate the section <code>maxHistory = 14</code>{.ini} Please modify the 14 with
+    the amount of days to keep logs.</p>
+</li>
+<li>Restart PaperTrail for the settings to take effect.</li>
+</ol>
+<h2 id="logging-to-syslog-host">Logging to Syslog Host</h2>
+<pre><code>import com.egis.utils.apm.*; 
+import org.productivity.java.syslog4j.impl.net.tcp.*; 
+
+ appender(&quot;SYSLOG&quot;, SyslogAppender) {  
+    layout(LogglyLayout) {     apiToken = &quot;XXXXX&quot;     }    
+    syslogConfig(TCPNetSyslogConfig) {     
+        host =  &quot;logs-01.loggly.com&quot;
+        port = 514
+        ident = &quot;papertrail&quot;
+    } 
+}
 </code></pre>
 
-<p>Using <code>UPDATE</code>, <code>DELETE</code>, <code>EXEC</code> or <code>INSERT</code> SQL keywords will use <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html#executeUpdate()">PreparedStatement.executeUpdate()</a> while all other Keywords will use <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html#executeQuery()">PreparedStatement.executeQuery</a></p>
-<h2 id="direct-access">Direct Access</h2>
-<p>You can also use direct JDBC or the SQLUtils library to access external databases via a runScript rule - Ensure that you follow the pattern below</p>
-<pre><code class="groovy">import com.egis.datasource.JdbcDataSourceCache
-import com.egis.kernel.Kernel
-import com.egis.utils.SQLUtils
-import javax.sql.DataSource
-
-String url = System.getProperty(&quot;lob.db.url&quot;);
-String username = System.getProperty(&quot;lob.db.username&quot;);
-String password  = System.getProperty(&quot;lob.db.password&quot;);
-DataSource ds = Kernel.get(JdbcDataSourceCache.class).get(url, username, password)
-
-SQLUtils.executeStatement(ds, &quot;EXEC sp.StoreProc(?,?,?)&quot;, &quot;param1&quot;, &quot;param2&quot;, &quot;param3&quot;)
+<h2 id="logging-to-a-gelf-host">Logging to a GELF Host</h2>
+<p>Replace //gelf in the logback.groovy with:</p>
+<pre><code class="groovy">appender(&quot;GELF&quot;, GelfAppender) {     
+    host = &quot;${gelfHost}&quot;    
+    filter(ThresholdFilter) {       
+        level = ${gelfLevel}   
+   }    
+   port = 12201  
+   additionalFields =  '{&quot;threadName&quot;: &quot;threadName&quot;, &quot;exception&quot;: &quot;exception&quot;, &quot;loggerName&quot;: &quot;loggerName&quot;, &quot;ip&quot;:&quot;ip&quot;,&quot;user&quot;:&quot;user&quot;,&quot;doc&quot;:&quot;doc&quot;}' 
+}
 </code></pre>
 
-<blockquote>
-<p>Note that a <code>Connection</code> or <code>DataSource</code> is not created directly but delegated to <code>JdbcDataSourceCache</code> so that connection pooling can occur</p>
-</blockquote></div>
+<p>The following properties will automate this
+setup: <code>gelf.host</code> and <code>gelf.level</code></p>
+<h2 id="logging-to-individual-files-per-logger">Logging to individual files per logger</h2>
+<p>e.g. to append file access logs to a standalone <code>storage.log</code> file:</p>
+<pre><code class="groovy">appender(&quot;STORAGE&quot;, RollingFileAppender) {
+    file = &quot;logs/storage.log&quot;
+    append = true
+    rollingPolicy(TimeBasedRollingPolicy) {
+        maxHistory = 14
+        FileNamePattern = &quot;logs/storahe-%d{yyyy-MM-dd}.log&quot;
+    }
+    encoder(PatternLayoutEncoder) {
+        pattern = &quot;%d{HH:mm:ss.SSS} %level %logger{0} [%X{user}%X{doc}:%X{ip}] %msg%n&quot;
+    }
+}
+
+
+logger('com.egis.storage', INFO)
+logger(&quot;com.egis.storage&quot;, DEBUG, ['STORAGE'], false)
+</code></pre></div>
             
         </div>
 
