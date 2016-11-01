@@ -364,18 +364,23 @@
 if the After Restart  option is selected</p>
 <h2 id="log-file-retention">Log file Retention</h2>
 <ol>
-<li>
-<p>To configure the number of days to keep Papertrail logs, locate and
-    edit the following document: PaperTrail/conf/logback.groovy</p>
-<ul>
-<li>The example below keeps the logs for a period of 14 days:
-    <code>appender("FILE", RollingFileAppender) {             file = "logs/server.log"             append = true             rollingPolicy(TimeBasedRollingPolicy) {                 maxHistory = 14                 FileNamePattern = "logs/server-%d{yyyy-MM-dd}.log"             }         }</code>{.groovy}</li>
-</ul>
-</li>
-<li>
-<p>Locate the section <code>maxHistory = 14</code>{.ini} Please modify the 14 with
-    the amount of days to keep logs.</p>
-</li>
+<li>To configure the number of days to keep Papertrail logs, locate and
+    edit the following document: <code>PaperTrail/conf/logback.groovy</code>
+e.g. keeps the logs for a period of 14 days:</li>
+</ol>
+<pre><code class="groovy">appender(&quot;FILE&quot;, RollingFileAppender) {             
+    file = &quot;logs/server.log&quot;             
+    append = true             
+    rollingPolicy(TimeBasedRollingPolicy) {                 
+        maxHistory = 14                 
+        FileNamePattern = &quot;logs/server-%d{yyyy-MM-dd}.log&quot;             
+    }         
+}
+</code></pre>
+
+<ol>
+<li>Locate the section <code>maxHistory = 14</code>  modify the 14 with
+    the amount of days to keep logs.</li>
 <li>Restart PaperTrail for the settings to take effect.</li>
 </ol>
 <h2 id="logging-to-syslog-host">Logging to Syslog Host</h2>
