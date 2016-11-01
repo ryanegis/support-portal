@@ -13,11 +13,20 @@ if the After Restart  option is selected
 -------------------
 
 1.  To configure the number of days to keep Papertrail logs, locate and
-    edit the following document: PaperTrail/conf/logback.groovy
-    -   The example below keeps the logs for a period of 14 days:
-        `appender("FILE", RollingFileAppender) {             file = "logs/server.log"             append = true             rollingPolicy(TimeBasedRollingPolicy) {                 maxHistory = 14                 FileNamePattern = "logs/server-%d{yyyy-MM-dd}.log"             }         }`{.groovy}
+    edit the following document: `PaperTrail/conf/logback.groovy`
+e.g. keeps the logs for a period of 14 days:
+```groovy
+appender("FILE", RollingFileAppender) {             
+	file = "logs/server.log"             
+	append = true             
+	rollingPolicy(TimeBasedRollingPolicy) {                 
+		maxHistory = 14                 
+		FileNamePattern = "logs/server-%d{yyyy-MM-dd}.log"             
+	}         
+}
+```
 
-2.  Locate the section `maxHistory = 14`{.ini} Please modify the 14 with
+2.  Locate the section `maxHistory = 14`  modify the 14 with
     the amount of days to keep logs.
 3.  Restart PaperTrail for the settings to take effect.
 
