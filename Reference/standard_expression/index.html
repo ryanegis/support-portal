@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Health - Support Portal</title>
+	<title>Standard expression - Support Portal</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -242,8 +242,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Health</a>
+<li >
+    <a href="../health/">Health</a>
 </li>
 
                         
@@ -278,8 +278,8 @@
 
                         
                             
-<li >
-    <a href="../standard_expression/">Standard expression</a>
+<li class="active">
+    <a href="./">Standard expression</a>
 </li>
 
                         
@@ -325,12 +325,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../Linking/">
+                        <a rel="next" href="../regex/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../licensing/">
+                        <a rel="prev" href="../../Troubleshooting/Performance/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -346,20 +346,48 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#conducting-health-checks">Conducting Health Checks</a></li>
+        <li class="main active"><a href="#standard-expressions">Standard Expressions</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>Health checks should be conduced after evyer new installation, upgrade, custom deployment or major config change</p>
-<h2 id="conducting-health-checks">Conducting Health Checks</h2>
-<ol>
-<li>Monitor the log files under  (<code>logs</code>) for any startup or migration errors</li>
-<li>Check system health using <code>/health</code> and ensuring everything is <strong>Good</strong></li>
-<li>Log into all applications used (<code>/web/webapps</code>, <code>/web/admin</code>,<code>/web/portal</code>, <code>/web/capture</code> etc..) and ensure they load and function correctly</li>
-</ol></div>
+<h1 id="standard-expressions">Standard Expressions</h1>
+<p>Expressions allow for values to be substituted at runtime. As an example of how expression values are substituted, if you are given a document with the following index values:</p>
+<pre><code class="javascript">createdDate = 2009-03-15  
+filename = test.doc  
+title = sample title  
+docid = 123  
+</code></pre>
+
+<p>If the basic syntax is <code>${lookup?defaultValue:format}</code> then this is how you would read the expression results using the values in the table in Document properties / indexes on page :</p>
+<table>
+<thead>
+<tr>
+<th>Standard Expression</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${createdDate:yyyy}</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>${createdDate:yyyy-MM-dd}</td>
+<td>2009-13-15</td>
+</tr>
+<tr>
+<td>${createdDate:yyyyMM}</td>
+<td>200903</td>
+</tr>
+<tr>
+<td>${filename} - ${title} ($docid})</td>
+<td>test.doc - sample (123)</td>
+</tr>
+</tbody>
+</table></div>
             
         </div>
 

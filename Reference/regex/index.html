@@ -277,6 +277,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../standard_expression/">Standard expression</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -324,7 +330,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../Troubleshooting/Performance/">
+                        <a rel="prev" href="../standard_expression/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -340,34 +346,69 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#regular-expressions">Regular Expressions</a></li>
+        
+            <li><a href="#examples-of-regular-expression">Examples of Regular Expression</a></li>
+        
+            <li><a href="#simple-email-validation">Simple email validation</a></li>
+        
+            <li><a href="#advanced-email-validation">Advanced Email Validation</a></li>
+        
+            <li><a href="#phone-number-style-1">Phone number, style 1</a></li>
+        
+            <li><a href="#phone-number-style-2">Phone number, style 2</a></li>
+        
+            <li><a href="#south-african-id">South African ID</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>============</p>
-<p>Paragraphs are separated by a blank line.</p>
-<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>. Itemized lists
-look like:</p>
-<ul>
-<li>this one</li>
-<li>that one</li>
-<li>the other one</li>
-</ul>
-<p>Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.</p>
-<blockquote>
-<p>Block quotes are
-written like so.</p>
-<p>They can span multiple paragraphs,
-if you like.</p>
-</blockquote>
-<pre><code>code block
+<h1 id="regular-expressions">Regular Expressions</h1>
+<p>A regular expression is an expression (character string) that is used to match patterns in text.</p>
+<p>You can use a regular expression to do these things:<br />
+1. Extract indexes from the body of a document.<br />
+2. Extract indexes from the filename of a document.<br />
+3. Make sure that node indexes are correct. For example, make sure that an e-mail address or a phone number has the correct structure.  </p>
+<p>You can use all the regular expressions <a href="http://download.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html">here</a>. </p>
+<p>Additionally, you can use a named capturing group.</p>
+<p>For information about regular expressions, refer to <a href="http://regexlib.com">RegexLib</a>.</p>
+<h2 id="examples-of-regular-expression">Examples of Regular Expression</h2>
+<h2 id="simple-email-validation">Simple email validation</h2>
+<pre><code class="javascript">[\w-]+@([\w-]+\.)+[\w-]+
 </code></pre>
 
-<p>Inline code `codez</p>
-<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. </p></div>
+<p>Matches: test@example.com<br />
+Matches: test@example.c<br />
+Does not match: test@exa$mple.com  </p>
+<h2 id="advanced-email-validation">Advanced Email Validation</h2>
+<pre><code class="javascript">^[A-Za-z0-9._%+-]+@([A-Za-z0-9-_]+\.)+[A-Za-z]{2,6}$
+</code></pre>
+
+<p>Matches: test@example.com (and the e-mail address must be at the start of a line)<br />
+Does not match: test@example.c<br />
+Does not match: test@exa$mple.com  </p>
+<h2 id="phone-number-style-1">Phone number, style 1</h2>
+<pre><code class="javascript">[0]\d{2}-\d{7}
+</code></pre>
+
+<p>Matches: 011-8804411<br />
+Does not match: 011-880 4411  </p>
+<h2 id="phone-number-style-2">Phone number, style 2</h2>
+<pre><code class="javascript">^\([0]\d{2}\)\d{7}
+</code></pre>
+
+<p>Matches: (011)8804411 (and the phone number must be at the start of a line)<br />
+Does not match: (011) 880 4411<br />
+Does not match: (0118)804411  </p>
+<h2 id="south-african-id">South African ID</h2>
+<pre><code class="javascript">(((\d{2}((0[13578]|1[02])(0[1-9]|[12]\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\d|30)|02(0[1-9]|1\d|2[0-8])))|([02468][048]|[13579][26])0229))(( |-)(\d{4})( |-)(\d{3})|(\d{7}))
+</code></pre>
+
+<p>Matches: 8001015009087<br />
+Does not match: d001015009087  </p>
+<p>Refer <a href="http://en.wikipedia.org/wiki/National_identification_number#South_Africa">National Identification Number</a>.</p></div>
             
         </div>
 

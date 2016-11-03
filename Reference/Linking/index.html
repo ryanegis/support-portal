@@ -277,6 +277,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../standard_expression/">Standard expression</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -350,8 +356,6 @@
         
             <li><a href="#linking-on-alphanumeric-space-numeric-with-custom-field-order_no">Linking on Alphanumeric, Space, Numeric with custom field Order_No</a></li>
         
-            <li><a href="#regex-examples-eg">Regex Examples eg.</a></li>
-        
     
     </ul>
 </div></div>
@@ -359,34 +363,17 @@
 
 <h2 id="manipulating-the-linking-critera">Manipulating the linking critera</h2>
 <h3 id="linking-documents-on-numbers-only">Linking Documents On Numbers Only</h3>
-<h6 id="specific-node-links-can-be-added-to-only-search-the-digit-portion-of-the-index-value-using-if-else-logic-ie">Specific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.</h6>
-<pre><code>    &lt;Destination Node&gt;/recursive=true&amp;&lt;Destination Index&gt;=${if (&lt;Source Index&gt; == null) "" else &lt;Source Index&gt;.find("\\d+")}
-</code></pre>
-<h6 id="destination-node">Destination Node: <Root node/child node/></h6>
-<h6 id="recursivetrue-when-searching-over-multiple-child-nodes">recursive=true: when searching over multiple child nodes</h6>
-<h6 id="destination-index-index-field-you-want-to-link-to">Destination Index: Index field you want to link to</h6>
-<h6 id="source-index-index-field-on-node-youre-linking-from">Source Index: Index field on node you're linking from</h6>
-<h6 id="if-null-if-source-index-has-no-value">${if (<Source Index> == null): If source index has no Value</h6>
-<h6 id="else-find92d-find-matching-numeric-value">"" else <Source Index>.find("\d+")}: Find matching Numeric Value</h6>
-<hr />
+<p>Specific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.
+<code>&lt;Destination Node&gt;/recursive=true&amp;&lt;Destination Index&gt;=${if (&lt;Source Index&gt; == null) "" else &lt;Source Index&gt;.find("\\d+")}</code></p>
 <h3 id="linking-on-numeric-with-custom-field-order_no">Linking on Numeric with custom field Order_No</h3>
 <p>eg. Order_No = 12345</p>
-<pre><code>   &lt;Destination Node&gt;/recursive=true&amp;Order_No=${if (Order_No == null) "" else Order_No.find("\\d+")}
-</code></pre>
+<p><code>&lt;Destination Node&gt;/recursive=true&amp;Order_No=${if (Order_No == null) "" else Order_No.find("\\d+")}</code></p>
 <h3 id="linking-on-alphanumeric-with-custom-field-order_no">Linking on Alphanumeric with custom field Order_No</h3>
 <p>eg. Order_No = PO12345</p>
-<pre><code>  "" else Order_No.find("\\w+")}
-</code></pre>
+<p><code>"" else Order_No.find("\\w+")</code></p>
 <h3 id="linking-on-alphanumeric-space-numeric-with-custom-field-order_no">Linking on Alphanumeric, Space, Numeric with custom field Order_No</h3>
 <p>eg. Order_No = PO 12345</p>
-<pre><code> "" else Order_No.find("\\w+\\s+\\d+")}
-</code></pre>
-<h3 id="regex-examples-eg">Regex Examples eg.</h3>
-<h6 id="92w-all-alphanumeric-values"><strong>\w+</strong>    : All alphanumeric values</h6>
-<h6 id="92w-a-non-word-character-w"><strong>\W</strong>     : A non-word character: [^\w]</h6>
-<h6 id="92d-all-numeric-values"><strong>\d+</strong>    : All numeric values</h6>
-<h6 id="92d-a-non-digit-0-9"><strong>\D</strong>     : A non-digit: [^0-9]</h6>
-<h6 id="92s-a-whitespace-character"><strong>\s</strong>     : A whitespace character</h6></div>
+<p><code>else Order_No.find("\\w+\\s+\\d+")</code></p></div>
             
         </div>
 

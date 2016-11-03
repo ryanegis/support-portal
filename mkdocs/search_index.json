@@ -662,7 +662,7 @@
         }, 
         {
             "location": "/Reference/Linking/", 
-            "text": "Manipulating the linking critera\n\n\nLinking Documents On Numbers Only\n\n\nSpecific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.\n\n\n    \nDestination Node\n/recursive=true\nDestination Index\n=${if (\nSource Index\n == null) \"\" else \nSource Index\n.find(\"\\\\d+\")}\n\n\n\nDestination Node: \n\n\nrecursive=true: when searching over multiple child nodes\n\n\nDestination Index: Index field you want to link to\n\n\nSource Index: Index field on node you're linking from\n\n\n${if (\n == null): If source index has no Value\n\n\n\"\" else \n.find(\"\\d+\")}: Find matching Numeric Value\n\n\n\n\nLinking on Numeric with custom field Order_No\n\n\neg. Order_No = 12345\n\n\n   \nDestination Node\n/recursive=true\nOrder_No=${if (Order_No == null) \"\" else Order_No.find(\"\\\\d+\")}\n\n\n\nLinking on Alphanumeric with custom field Order_No\n\n\neg. Order_No = PO12345\n\n\n  \"\" else Order_No.find(\"\\\\w+\")}\n\n\n\nLinking on Alphanumeric, Space, Numeric with custom field Order_No\n\n\neg. Order_No = PO 12345\n\n\n \"\" else Order_No.find(\"\\\\w+\\\\s+\\\\d+\")}\n\n\n\nRegex Examples eg.\n\n\n\\w+\n    : All alphanumeric values\n\n\n\\W\n     : A non-word character: [^\\w]\n\n\n\\d+\n    : All numeric values\n\n\n\\D\n     : A non-digit: [^0-9]\n\n\n\\s\n     : A whitespace character", 
+            "text": "Manipulating the linking critera\n\n\nLinking Documents On Numbers Only\n\n\nSpecific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.\n\nDestination Node\n/recursive=true\nDestination Index\n=${if (\nSource Index\n == null) \"\" else \nSource Index\n.find(\"\\\\d+\")}\n\n\nLinking on Numeric with custom field Order_No\n\n\neg. Order_No = 12345\n\n\nDestination Node\n/recursive=true\nOrder_No=${if (Order_No == null) \"\" else Order_No.find(\"\\\\d+\")}\n\n\nLinking on Alphanumeric with custom field Order_No\n\n\neg. Order_No = PO12345\n\n\n\"\" else Order_No.find(\"\\\\w+\")\n\n\nLinking on Alphanumeric, Space, Numeric with custom field Order_No\n\n\neg. Order_No = PO 12345\n\n\nelse Order_No.find(\"\\\\w+\\\\s+\\\\d+\")", 
             "title": "Linking"
         }, 
         {
@@ -672,88 +672,23 @@
         }, 
         {
             "location": "/Reference/Linking/#linking-documents-on-numbers-only", 
-            "text": "", 
+            "text": "Specific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e. Destination Node /recursive=true Destination Index =${if ( Source Index  == null) \"\" else  Source Index .find(\"\\\\d+\")}", 
             "title": "Linking Documents On Numbers Only"
         }, 
         {
-            "location": "/Reference/Linking/#specific-node-links-can-be-added-to-only-search-the-digit-portion-of-the-index-value-using-if-else-logic-ie", 
-            "text": "Destination Node /recursive=true Destination Index =${if ( Source Index  == null) \"\" else  Source Index .find(\"\\\\d+\")}", 
-            "title": "Specific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e."
-        }, 
-        {
-            "location": "/Reference/Linking/#destination-node", 
-            "text": "", 
-            "title": "Destination Node: "
-        }, 
-        {
-            "location": "/Reference/Linking/#recursivetrue-when-searching-over-multiple-child-nodes", 
-            "text": "", 
-            "title": "recursive=true: when searching over multiple child nodes"
-        }, 
-        {
-            "location": "/Reference/Linking/#destination-index-index-field-you-want-to-link-to", 
-            "text": "", 
-            "title": "Destination Index: Index field you want to link to"
-        }, 
-        {
-            "location": "/Reference/Linking/#source-index-index-field-on-node-youre-linking-from", 
-            "text": "", 
-            "title": "Source Index: Index field on node you're linking from"
-        }, 
-        {
-            "location": "/Reference/Linking/#if-null-if-source-index-has-no-value", 
-            "text": "", 
-            "title": "${if ( == null): If source index has no Value"
-        }, 
-        {
-            "location": "/Reference/Linking/#else-find92d-find-matching-numeric-value", 
-            "text": "", 
-            "title": "\"\" else .find(\"\\d+\")}: Find matching Numeric Value"
-        }, 
-        {
             "location": "/Reference/Linking/#linking-on-numeric-with-custom-field-order_no", 
-            "text": "eg. Order_No = 12345      Destination Node /recursive=true Order_No=${if (Order_No == null) \"\" else Order_No.find(\"\\\\d+\")}", 
+            "text": "eg. Order_No = 12345  Destination Node /recursive=true Order_No=${if (Order_No == null) \"\" else Order_No.find(\"\\\\d+\")}", 
             "title": "Linking on Numeric with custom field Order_No"
         }, 
         {
             "location": "/Reference/Linking/#linking-on-alphanumeric-with-custom-field-order_no", 
-            "text": "eg. Order_No = PO12345    \"\" else Order_No.find(\"\\\\w+\")}", 
+            "text": "eg. Order_No = PO12345  \"\" else Order_No.find(\"\\\\w+\")", 
             "title": "Linking on Alphanumeric with custom field Order_No"
         }, 
         {
             "location": "/Reference/Linking/#linking-on-alphanumeric-space-numeric-with-custom-field-order_no", 
-            "text": "eg. Order_No = PO 12345   \"\" else Order_No.find(\"\\\\w+\\\\s+\\\\d+\")}", 
+            "text": "eg. Order_No = PO 12345  else Order_No.find(\"\\\\w+\\\\s+\\\\d+\")", 
             "title": "Linking on Alphanumeric, Space, Numeric with custom field Order_No"
-        }, 
-        {
-            "location": "/Reference/Linking/#regex-examples-eg", 
-            "text": "", 
-            "title": "Regex Examples eg."
-        }, 
-        {
-            "location": "/Reference/Linking/#92w-all-alphanumeric-values", 
-            "text": "", 
-            "title": "\\w+    : All alphanumeric values"
-        }, 
-        {
-            "location": "/Reference/Linking/#92w-a-non-word-character-w", 
-            "text": "", 
-            "title": "\\W     : A non-word character: [^\\w]"
-        }, 
-        {
-            "location": "/Reference/Linking/#92d-all-numeric-values", 
-            "text": "", 
-            "title": "\\d+    : All numeric values"
-        }, 
-        {
-            "location": "/Reference/Linking/#92d-a-non-digit-0-9", 
-            "text": "", 
-            "title": "\\D     : A non-digit: [^0-9]"
-        }, 
-        {
-            "location": "/Reference/Linking/#92s-a-whitespace-character", 
-            "text": "", 
-            "title": "\\s     : A whitespace character"
         }, 
         {
             "location": "/Reference/health/", 
@@ -932,8 +867,53 @@
         }, 
         {
             "location": "/Reference/regex/", 
-            "text": "============\n\n\nParagraphs are separated by a blank line.\n\n\n2nd paragraph. \nItalic\n, \nbold\n, and \nmonospace\n. Itemized lists\nlook like:\n\n\n\n\nthis one\n\n\nthat one\n\n\nthe other one\n\n\n\n\nNote that --- not considering the asterisk --- the actual text\ncontent starts at 4-columns in.\n\n\n\n\nBlock quotes are\nwritten like so.\n\n\nThey can span multiple paragraphs,\nif you like.\n\n\n\n\ncode block\n\n\n\n\nInline code `codez\n\n\nUse 3 dashes for an em-dash. Use 2 dashes for ranges (ex., \"it's all\nin chapters 12--14\"). Three dots ... will be converted to an ellipsis.\nUnicode is supported.", 
+            "text": "Regular Expressions\n\n\nA regular expression is an expression (character string) that is used to match patterns in text.\n\n\nYou can use a regular expression to do these things:\n\n1. Extract indexes from the body of a document.\n\n2. Extract indexes from the filename of a document.\n\n3. Make sure that node indexes are correct. For example, make sure that an e-mail address or a phone number has the correct structure.  \n\n\nYou can use all the regular expressions \nhere\n. \n\n\nAdditionally, you can use a named capturing group.\n\n\nFor information about regular expressions, refer to \nRegexLib\n.\n\n\nExamples of Regular Expression\n\n\nSimple email validation\n\n\n[\\w-]+@([\\w-]+\\.)+[\\w-]+\n\n\n\n\nMatches: test@example.com\n\nMatches: test@example.c\n\nDoes not match: test@exa$mple.com  \n\n\nAdvanced Email Validation\n\n\n^[A-Za-z0-9._%+-]+@([A-Za-z0-9-_]+\\.)+[A-Za-z]{2,6}$\n\n\n\n\nMatches: test@example.com (and the e-mail address must be at the start of a line)\n\nDoes not match: test@example.c\n\nDoes not match: test@exa$mple.com  \n\n\nPhone number, style 1\n\n\n[0]\\d{2}-\\d{7}\n\n\n\n\nMatches: 011-8804411\n\nDoes not match: 011-880 4411  \n\n\nPhone number, style 2\n\n\n^\\([0]\\d{2}\\)\\d{7}\n\n\n\n\nMatches: (011)8804411 (and the phone number must be at the start of a line)\n\nDoes not match: (011) 880 4411\n\nDoes not match: (0118)804411  \n\n\nSouth African ID\n\n\n(((\\d{2}((0[13578]|1[02])(0[1-9]|[12]\\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\\d|30)|02(0[1-9]|1\\d|2[0-8])))|([02468][048]|[13579][26])0229))(( |-)(\\d{4})( |-)(\\d{3})|(\\d{7}))\n\n\n\n\nMatches: 8001015009087\n\nDoes not match: d001015009087  \n\n\nRefer \nNational Identification Number\n.", 
             "title": "Regex"
+        }, 
+        {
+            "location": "/Reference/regex/#regular-expressions", 
+            "text": "A regular expression is an expression (character string) that is used to match patterns in text.  You can use a regular expression to do these things: \n1. Extract indexes from the body of a document. \n2. Extract indexes from the filename of a document. \n3. Make sure that node indexes are correct. For example, make sure that an e-mail address or a phone number has the correct structure.    You can use all the regular expressions  here .   Additionally, you can use a named capturing group.  For information about regular expressions, refer to  RegexLib .", 
+            "title": "Regular Expressions"
+        }, 
+        {
+            "location": "/Reference/regex/#examples-of-regular-expression", 
+            "text": "", 
+            "title": "Examples of Regular Expression"
+        }, 
+        {
+            "location": "/Reference/regex/#simple-email-validation", 
+            "text": "[\\w-]+@([\\w-]+\\.)+[\\w-]+  Matches: test@example.com \nMatches: test@example.c \nDoes not match: test@exa$mple.com", 
+            "title": "Simple email validation"
+        }, 
+        {
+            "location": "/Reference/regex/#advanced-email-validation", 
+            "text": "^[A-Za-z0-9._%+-]+@([A-Za-z0-9-_]+\\.)+[A-Za-z]{2,6}$  Matches: test@example.com (and the e-mail address must be at the start of a line) \nDoes not match: test@example.c \nDoes not match: test@exa$mple.com", 
+            "title": "Advanced Email Validation"
+        }, 
+        {
+            "location": "/Reference/regex/#phone-number-style-1", 
+            "text": "[0]\\d{2}-\\d{7}  Matches: 011-8804411 \nDoes not match: 011-880 4411", 
+            "title": "Phone number, style 1"
+        }, 
+        {
+            "location": "/Reference/regex/#phone-number-style-2", 
+            "text": "^\\([0]\\d{2}\\)\\d{7}  Matches: (011)8804411 (and the phone number must be at the start of a line) \nDoes not match: (011) 880 4411 \nDoes not match: (0118)804411", 
+            "title": "Phone number, style 2"
+        }, 
+        {
+            "location": "/Reference/regex/#south-african-id", 
+            "text": "(((\\d{2}((0[13578]|1[02])(0[1-9]|[12]\\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\\d|30)|02(0[1-9]|1\\d|2[0-8])))|([02468][048]|[13579][26])0229))(( |-)(\\d{4})( |-)(\\d{3})|(\\d{7}))  Matches: 8001015009087 \nDoes not match: d001015009087    Refer  National Identification Number .", 
+            "title": "South African ID"
+        }, 
+        {
+            "location": "/Reference/standard_expression/", 
+            "text": "Standard Expressions\n\n\nExpressions allow for values to be substituted at runtime. As an example of how expression values are substituted, if you are given a document with the following index values:\n\n\ncreatedDate = 2009-03-15  \nfilename = test.doc  \ntitle = sample title  \ndocid = 123  \n\n\n\n\nIf the basic syntax is \n${lookup?defaultValue:format}\n then this is how you would read the expression results using the values in the table in Document properties / indexes on page :\n\n\n\n\n\n\n\n\nStandard Expression\n\n\nOutput\n\n\n\n\n\n\n\n\n\n\n${createdDate:yyyy}\n\n\n2009\n\n\n\n\n\n\n${createdDate:yyyy-MM-dd}\n\n\n2009-13-15\n\n\n\n\n\n\n${createdDate:yyyyMM}\n\n\n200903\n\n\n\n\n\n\n${filename} - ${title} ($docid})\n\n\ntest.doc - sample (123)", 
+            "title": "Standard expression"
+        }, 
+        {
+            "location": "/Reference/standard_expression/#standard-expressions", 
+            "text": "Expressions allow for values to be substituted at runtime. As an example of how expression values are substituted, if you are given a document with the following index values:  createdDate = 2009-03-15  \nfilename = test.doc  \ntitle = sample title  \ndocid = 123    If the basic syntax is  ${lookup?defaultValue:format}  then this is how you would read the expression results using the values in the table in Document properties / indexes on page :     Standard Expression  Output      ${createdDate:yyyy}  2009    ${createdDate:yyyy-MM-dd}  2009-13-15    ${createdDate:yyyyMM}  200903    ${filename} - ${title} ($docid})  test.doc - sample (123)", 
+            "title": "Standard Expressions"
         }, 
         {
             "location": "/Troubleshooting/Performance/", 
