@@ -1,7 +1,5 @@
-Branding PaperTrail 
-===================
+# Branding PaperTrail 
 
- 
 
 -   Images are placed in the System/images node.
 -   Images must end in .png (if they are a .jpeg or .gif they can be
@@ -20,14 +18,14 @@ The honeycomb that sits behind the login and password boxes.
 papertrail.png (110x26)
 -----------------------
 
-The logo that sits in the top left of the main application screen.\
- The background should be transparent.
+The logo that sits in the top left of the main application screen.  
+The background should be transparent.
 
 logo.png (320x50)
 -----------------
 
-The logo that sits above the honeycomb.\
- Add white space to the left of image to center it above the honeycomb.
+The logo that sits above the honeycomb.  
+Add white space to the left of image to center it above the honeycomb.
 
 egis.png (75x25) 
 ----------------
