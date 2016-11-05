@@ -2,26 +2,27 @@
 
 ## System Requirements
 The minimum requirements that are advised for Workstations are as follows:
-* 2-4 GB RAM
-* Dual Core i3/i5 CPU
-* Internet Explorer 11/Edge OR
-* Chrome (latest stable release) OR
-* Firefox (latest stable release)
+
+*  2-4 GB RAM  
+*  Dual Core i3/i5 CPU  
+*  Internet Explorer 11/Edge OR  
+*  Chrome (latest stable release) OR  
+*  Firefox (latest stable release)  
 
 ### Advanced Plugin
 1. Click on Help / Cog -> Check Installation and then follow the instructions that will guide you through the installation process
 
-See [Windows](http://docs.papertrail.co.za/Installation/advanced-plugin)
+See [Windows](Windows)
 ### Desktop Agent
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
 
-See [Windows](http://docs.papertrail.co.za/Installation/desktop-agent) and [Linux](http://docs.papertrail.co.za/Installation/desktop-agent-linux)
+See [Windows](Windows) and [Linux](http://docs.papertrail.co.za/Installation/desktop-agent-linux)
 ### Office Addin
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
 
-See [Windows](http://docs.papertrail.co.za/Installation/msoffice)
+See [Windows](Windows)
 ### Web Scan
 
 Web scan is distributed as an addon to the Advanced Plugin:
