@@ -1,11 +1,10 @@
-Security Settings
-=================
+# Security Settings
 
 PaperTrail can be run in 4 distinct security modes:
 
 ###  Low (Default)
 
-Suitable for intranet based deployments without confidential data 
+Suitable for intra-net based deployments without confidential data 
 
 ### Medium
 
@@ -32,24 +31,25 @@ Includes all the restrictions of Medium and:
     need to be set via papertrail.properties file:
 
  
-
-    ldap.host
-    waffle.enable
-    spnego.enable
-    spnego.kdc
-    smtp.debug
-    email.spool
-    smtp.host
-    sms.url
-    web.login.sms.otp
-    index.store
-    http.ssl
-    disabled.audits
-    disabled.entity.audits
-    openoffice.path
-    tiff2pdf.process
-    pdf2swf.process
-    security.level
+```javascript
+    ldap.host  
+    waffle.enable  
+    spnego.enable  
+    spnego.kdc  
+    smtp.debug  
+    email.spool  
+    smtp.host  
+    sms.url  
+    web.login.sms.otp  
+    index.store  
+    http.ssl  
+    disabled.audits  
+    disabled.entity.audits  
+    openoffice.path  
+    tiff2pdf.process  
+    pdf2swf.process  
+    security.level  
+```
 
 ### Very High
 
