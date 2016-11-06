@@ -1,13 +1,9 @@
-Database JDBC Configs
-=====================
+# Database JDBC Configs
 
- 
 
 ### Microsoft SQL Server​
 
 `jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=<databaseName>[;property=value[;property=value]] `
-
-### e.g.
 
 `jdbc:sqlserver://host;databaseName=test123`
 
@@ -15,55 +11,47 @@ Database JDBC Configs
 
 `jdbc:mysql://<database server>:<ports>/<database names>`
 
-### PostgreSQL ​\
-\
- `jdbc:postgresql://<database server>:<port>/<databaseName>`\
-\
- SQL
+### PostgreSQL 
 
-SQL statement used to update records in PaperTrail or update DB records
-from PaperTrail:\
+`jdbc:postgresql://<database server>:<port>/<databaseName>`
+
+## SQL
   
+SELECT Statement : To Fetch records from an external database to PaperTrail records.  
 
--   **SELECT STATEMENT**: To Update records from an external database to
-    PaperTrail records.
-    -   **FORMAT**: **SELECT \<COLOUMNS\> FROM \<TABLENAME\> WHERE
-        \<DATABASE INDEX\> = \${\<PAPERTRAIL INDEX\>}**
-    -   **EXAMPLE**:
+Format : 
+```javascript
+   **SELECT \<COLUMNS\> FROM \<TABLENAME\> WHERE
+   \<DATABASE INDEX\> = \${\<PAPERTRAIL INDEX\>}**
+```
 
-        ``` {style="background:rgba(238,238,238,0.92);color:#000"}
-        SELECT No_ AS Invoice_No, 
-        LEFT(CONVERT(date, "Posting Date"),10) 
-             AS Invoice_Date,"Order No_" 
-             AS Internal_Order, "Sell-to Customer No_" 
-             AS Customer_No,"External Document No_" 
-             AS Customer_Order_No, "Shipment Method Code" 
-             AS Delivery_Method 
-        FROM "SAFINTRA JHB$Sales Invoice Header" 
-        WHERE No_ = '${invoice_no}
-        ```
+```javascript
+   SELECT No_ AS Invoice_No, 
+     LEFT(CONVERT(date, "Posting Date"),10) 
+     AS Invoice_Date,"Order No_" 
+     AS Internal_Order, "Sell-to Customer No_" 
+     AS Customer_No,"External Document No_" 
+     AS Customer_Order_No, "Shipment Method Code" 
+     AS Delivery_Method 
+   FROM "SAFINTRA JHB$Sales Invoice Header" 
+   WHERE No_ = '${invoice_no}
+```
 
- 
+UPDATE Statement : To Update records from an external database to PaperTrail records.  
 
--   **UPDATE STATEMENT**
-    -   **FORMAT**: **UPDATE \<TABLE NAME\> SET \<DATABASE INDEX\> =
-        '\<VALUE\>' WHERE \<DATABASE INDEX\> = \${\<PAPERTRAIL
-        INDEX\>}**
-    -   **EXAMPLE**:
+```javascript
+**FORMAT**: **UPDATE \<TABLE NAME\> SET \<DATABASE INDEX\> =
+'\<VALUE\>' WHERE \<DATABASE INDEX\> = \${\<PAPERTRAIL
+INDEX\>}**
+```
 
-        ``` {style="background:rgba(238,238,238,0.92);color:#000"}
-        UPDATE test 
-        SET Index1 = 'asdf' 
-        WHERE Invoice_Number = ${Invoice_Number}
-        ```
+```javascript
+UPDATE test 
+SET Index1 = 'asdf' 
+WHERE Invoice_Number = ${Invoice_Number}
+```
 
- \
-  
-
-Rules for SQL statements
-========================
-
- 
+## Rules for SQL statements
 
 -   Column headers and index values must match index values in
     PaperTrail, otherwise give columns aliases by using the “AS”
@@ -75,9 +63,7 @@ Rules for SQL statements
 
  
 
-Event 
-======
+## Event 
 
-\
- When to run the SQL Lookup or Update.
+When to run the SQL Lookup or Update.
 
