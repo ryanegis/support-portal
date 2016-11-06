@@ -14,7 +14,7 @@ Once you have the prerequisites :
 3.  When complete, conduct a [Health Check](../Reference/health)  
 
 See [Windows](Windows), 
- [Linux](http://docs.papertrail.co.za/Installation/ubuntu-linux), [MacOSX](http://docs.papertrail.co.za/Installation/MacOSX) 
+ [Linux](ubuntu-linux), [MacOSX](macosx) 
 
 ## Upgrades
 
@@ -27,9 +27,10 @@ Rename the `Papertrail` installation folder according to date of upgrade and cur
 1. Turn off [maintenance mode](../Reference/maintenance)
 
 #### More Links
+TODO : Link Broken
 [Service options](../Configuration/service)  
 [Backups](../Configuration/Backups)  
-[Replication](http://egis.papertrail.co.za/wiki/Installation/Replication)  
-[LDAP / Active Directory](http://egis.papertrail.co.za/wiki/Integration/LDAP)
+[Replication](Replication)  
+[LDAP / Active Directory](../Integration/ldap-ad)
 
 
