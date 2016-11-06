@@ -1,8 +1,11 @@
- `java.io.IOException: Cannot run program "pg\_dump": CreateProcess
+# Exceptions 
+
+## System cannot find the file specified
+
+`java.io.IOException: Cannot run program "pg\_dump": CreateProcess
 error=2`  
- The system cannot find the file specified
-Add the Postgresql/bin directory to the System PATH environment
-variable
+Reason : The system cannot find the file specified  
+Solution : Add the Postgresql/bin directory to the System PATH environment variable
 
 
 `java.io.IOException: Cannot run program "mysql\_dump"`  
@@ -19,5 +22,5 @@ beforehand
 [java.net](http://java.net/).BindException: Permission denied`
 
  To run PaperTrail on port 80 you need to be root, change
-http.port=8080\
+http.port=8080
   
