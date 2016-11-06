@@ -25,11 +25,11 @@ e.g. 1 full user license allows 5 share users to be created.
 
 Portal licenses are designed to allow external companies and users to login to a very minimal view to view documents that are logically owned by them e.g. Viewing invoices made out to you.
 
-Portal Users have the same permissons as *View* and are automatically redirected to the Classic Portal view:  http://<servername>:8080/web/portal/portal.html.
+Portal Users have the same permissions as *View* and are automatically redirected to the Classic Portal view:  http://<servername>:8080/web/portal/portal.html.
 
 ## Scan
 
-Same as Full but also allows the use of the Web Scan client.
+Same as [Full](#full) but also allows the use of the Web Scan client.
 
 ### Deprecated
 
