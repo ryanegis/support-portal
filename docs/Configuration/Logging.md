@@ -1,18 +1,15 @@
-Logging
-=======
+#Logging
 
-Updating the log settings
--------------------------
+## Updating the log settings
 
-All log settings are stored in the `conf/logback.groovy` file 
- The Admin -\> Services -\> Logging  page will make changes to this file
+*  All log settings are stored in the `conf/logback.groovy` file 
+*  The _Admin -\> Services -\> Logging_  page will make changes to this file
 if the After Restart  option is selected
 
 
- Log file Retention 
--------------------
+## Log file Retention 
 
-1.  To configure the number of days to keep Papertrail logs, locate and
+*  To configure the number of days to keep Papertrail logs, locate and
     edit the following document: `PaperTrail/conf/logback.groovy`
 e.g. keeps the logs for a period of 14 days:
 ```groovy
@@ -26,15 +23,14 @@ appender("FILE", RollingFileAppender) {             
 }
 ```
 
-2.  Locate the section `maxHistory = 14`  modify the 14 with
+*  Locate the section `maxHistory = 14`  modify the 14 with
     the amount of days to keep logs.
-3.  Restart PaperTrail for the settings to take effect.
+*  Restart PaperTrail for the settings to take effect.
 
 
-Logging to Syslog Host 
------------------------
+## Logging to Syslog Host
 
-```
+``java
 import com.egis.utils.apm.*; 
 import org.productivity.java.syslog4j.impl.net.tcp.*; 
 
@@ -48,8 +44,7 @@ import org.productivity.java.syslog4j.impl.net.tcp.*;
 }
 ```
 
-Logging to a GELF Host 
-----------------------
+## Logging to a GELF Host 
 
 Replace //gelf in the logback.groovy with:
 

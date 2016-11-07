@@ -8,11 +8,11 @@ type - *string*
 
 Possible values:
 
-1. **None** - combine all images to single PDF file;
+- **None** - combine all images to single PDF file;
 
-2. **Page** - put each image to new PDF file, so each PDF file will contain single page;
+- **Page** - put each image to new PDF file, so each PDF file will contain single page;
 
-3. **Blank** - create new PDF when blank image appeared. For instance, there is images sequence:
+- **Blank** - create new PDF when blank image appeared. For instance, there is images sequence:
 
   ```
   image1, image2, blank image, image3, image4, image5, blank image, image6
@@ -20,7 +20,7 @@ Possible values:
 
   As a result of **Blank** separation, scan addon will return 3 PDF files: 2 pages (image1, image2), 3 pages (image3, image4, image5) and 1 page (image6).
 
-4. **Barcode** - create new PDF when image with unique barcode appeared. For instance, there is images sequence:
+- **Barcode** - create new PDF when image with unique barcode appeared. For instance, there is images sequence:
 
   ```
   image1, image with barcode1, image2, image3, image with barcode3
@@ -34,19 +34,16 @@ type - *object*
 
 Fields:
 
-1. **x** - integer, *x* value of resolution. Common possible values: 100 - 600
+- **x** - integer, *x* value of resolution. Common possible values: 100 - 600
 
-2. **y** - integer, *y* value of resolution. Common possible values: 100 - 600
+- **y** - integer, *y* value of resolution. Common possible values: 100 - 600
 
-3. *units* - string, measure units for *x* and *y*. Possible values:
+- *units* - string, measure units for *x* and *y*. Possible values:  
 
-  * Inches
-  
-  * Centimeters
-   
-  * Points
-   
-  * Pixels
+    * Inches  
+    * Centimeters  
+    * Points  
+    * Pixels  
    
 **Important note:** list of supported values for *resolution* may vary depending on scanner model
    
@@ -56,17 +53,12 @@ type - *string*
    
 Common values:
    
-1. **None** - don't use any compression mode;
-   
-2. **Jpeg** - intended for the compression of color photographs
-   
-3. **Lzw** - a compression licensed by UNISYS
-   
-4. **Jbig** - intended for bi-tonal and grayscale document images
-   
-5. **Png** - Portable Network Graphic
-   
-6. **Group4** - CCITT Group 4 fax encoding, intended for document images
+- **None** - don't use any compression mode;
+- **Jpeg** - intended for the compression of color photographs
+- **Lzw** - a compression licensed by UNISYS
+- **Jbig** - intended for bi-tonal and grayscale document images
+- **Png** - Portable Network Graphic
+- **Group4** - CCITT Group 4 fax encoding, intended for document images
 
 **Important note:** list of supported values for *compressionMode* may vary depending on scanner model
 
@@ -76,13 +68,13 @@ type - *object*
 
 Fields:
 
-1. **resolution** - integer, resolution at which to render a PDF page. Minimum - 1, maximum - 3600.
+- **resolution** - integer, resolution at which to render a PDF page. Minimum - 1, maximum - 3600.
 
 ### barcodeSettings
 
 type - *object*
 
-See (Barcode Configuration)[http://support.papertrail.co.za/Configuration/Barcode/] for list of supported properties
+See [Barcode Configuration](Barcode) for list of supported properties
 
 ## Examples
 
