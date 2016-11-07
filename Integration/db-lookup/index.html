@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Linking syntax - Support Portal</title>
+        <title>Db lookup - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -143,69 +143,69 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../Integration/Database/">Database</a>
+    <a href="../Database/">Database</a>
 </li>
                             
 <li >
-    <a href="../../Integration/data-sources/">Data sources</a>
+    <a href="../data-sources/">Data sources</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Db lookup</a>
 </li>
                             
 <li >
-    <a href="../../Integration/db-lookup/">Db lookup</a>
+    <a href="../folder-watch/">Folder watch</a>
 </li>
                             
 <li >
-    <a href="../../Integration/folder-watch/">Folder watch</a>
-</li>
-                            
-<li >
-    <a href="../../Integration/ldap-ad/">Ldap ad</a>
+    <a href="../ldap-ad/">Ldap ad</a>
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Document Properties/">Document Properties</a>
+    <a href="../../Reference/Document Properties/">Document Properties</a>
 </li>
                             
 <li >
-    <a href="../Linking/">Linking</a>
+    <a href="../../Reference/Linking/">Linking</a>
 </li>
                             
 <li >
-    <a href="../health/">Health</a>
+    <a href="../../Reference/health/">Health</a>
 </li>
                             
 <li >
-    <a href="../licensing/">Licensing</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Linking syntax</a>
+    <a href="../../Reference/licensing/">Licensing</a>
 </li>
                             
 <li >
-    <a href="../maintenance/">Maintenance</a>
+    <a href="../../Reference/linking_syntax/">Linking syntax</a>
 </li>
                             
 <li >
-    <a href="../pql/">Pql</a>
+    <a href="../../Reference/maintenance/">Maintenance</a>
 </li>
                             
 <li >
-    <a href="../regex/">Regex</a>
+    <a href="../../Reference/pql/">Pql</a>
 </li>
                             
 <li >
-    <a href="../standard_expression/">Standard expression</a>
+    <a href="../../Reference/regex/">Regex</a>
+</li>
+                            
+<li >
+    <a href="../../Reference/standard_expression/">Standard expression</a>
 </li>
                         </ul>
                     </li>
@@ -235,12 +235,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../licensing/">
+                        <a rel="next" href="../data-sources/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../maintenance/">
+                        <a rel="prev" href="../folder-watch/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -252,90 +252,66 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#papertrail-document-linking-syntax">PaperTrail Document Linking Syntax</a></li>
-            <li><a href="#retrieving-a-document-by-docid">Retrieving a document by docId</a></li>
-            <li><a href="#retrieving-a-document-by-path">Retrieving a document by path</a></li>
-            <li><a href="#retrieving-an-attachment">Retrieving an attachment</a></li>
-            <li><a href="#retrieving-a-pdf-for-a-document">Retrieving a PDF for a document</a></li>
-            <li><a href="#retrieving-a-version-of-a-document">Retrieving a version of a document</a></li>
-            <li><a href="#retrieving-a-document-via-a-query">Retrieving a document via a query</a></li>
-            <li><a href="#query-syntax">Query Syntax</a></li>
+        <li class="main active"><a href="#database-jdbc-configs">Database JDBC Configs</a></li>
+            <li><a href="#microsoft-sql-server">Microsoft SQL Server​</a></li>
+            <li><a href="#mysql">MYSQL ​</a></li>
+            <li><a href="#postgresql">PostgreSQL</a></li>
+            <li><a href="#sql">SQL</a></li>
+            <li><a href="#rules-for-sql-statements">Rules for SQL statements</a></li>
+            <li><a href="#event">Event</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="papertrail-document-linking-syntax">PaperTrail Document Linking Syntax</h1>
-<h2 id="retrieving-a-document-by-docid">Retrieving a document by docId</h2>
-<p><code>GET: /public/file/100/test.doc</code>{.sql}</p>
-<p>e.x : http://host:8080/public/file/100/test.doc
-  </p>
-<h2 id="retrieving-a-document-by-path">Retrieving a document by path</h2>
-<p><code>GET: /public/file/Division/cabinet/test.doc/dummy.doc</code>{.sql}</p>
-<p>e.x : http://host:8080/public/file/Division/cabinet/test.doc.</p>
-<p>Note : A dummy filename must be appended to the path e.g. dummy.doc
-  </p>
-<h2 id="retrieving-an-attachment">Retrieving an attachment</h2>
-<p><code>GET: /public/file/100/test.doc?path=attachments/att01.doc</code>{.sql}</p>
-<p>e.x : http://host:8080/public/file/Division/cabinet/test.doc?path=attachments/att01.doc
-  </p>
-<h2 id="retrieving-a-pdf-for-a-document">Retrieving a PDF for a document</h2>
-<p><code>GET: /public/file/100/test.pdf?path=pdf</code>{.sql}</p>
-<p>e.x : http://host:8080/public/file/100/test.pdf?path=pdf
-  </p>
-<h2 id="retrieving-a-version-of-a-document">Retrieving a version of a document</h2>
-<p><code>GET: /public/file/100/test.doc?path=versions/0.2/source</code>{.sql}</p>
-<p>e.x : http://host:8080/public/file/Division/cabinet/test.doc?path=versions/0.2/source
-  </p>
-<h2 id="retrieving-a-document-via-a-query">Retrieving a document via a query</h2>
-<p><code>GET: /public/file/invoiceNo=AB123/test.doc</code>{.sql}</p>
-<p>e.x : http://host:8080/public/file/Division/cabinet/test.doc?path=versions/0.2/source
-  </p>
-<h2 id="query-syntax">Query Syntax</h2>
-<table>
-<thead>
-<tr>
-<th>Properties</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Division/Cabinet/*</td>
-<td>Returns all documents directly under Division/Cabinet.</td>
-</tr>
-<tr>
-<td>Division/Cabinet?recursive=true</td>
-<td>Returns all document under Division/Cabinet including documents in sub nodes.</td>
-</tr>
-<tr>
-<td>Division/Cabinet/test.doc</td>
-<td>Returns the document where the filename is test.doc in Division/Cabinet.</td>
-</tr>
-<tr>
-<td>Division/Cabinet/filename=test.doc</td>
-<td>Equivalent to the above query Division/Cabinet/filename=*.doc and Returns all documents that end in .doc</td>
-</tr>
-<tr>
-<td>Division/Cabinet Division/Cabinet/filename*=test</td>
-<td>Returns all documents that begin with test in Division/Cabinet.</td>
-</tr>
-<tr>
-<td>Division/Cabinet/test.doc?index1=value1</td>
-<td>Returns the document where the filename is test.doc and index1=value1 in Division/Cabinet</td>
-</tr>
-<tr>
-<td>Division/Cabinet/index=value</td>
-<td>Returns all documents where index1=value1 in Division/Cabinet.</td>
-</tr>
-<tr>
-<td>Division/Cabinet/index1=value1 &amp; index2=value2</td>
-<td>Returns all documents where index1=value1 and index2=value2 in Division/Cabinet.</td>
-</tr>
-</tbody>
-</table>
-<p>Note : index1=value2 : Returns all documents where index1=value1 in all nodes and folders Equals. </p>
-<pre><code class="javascript">Equals = Not Equals != Contains *=* Starts With *= Ends With =* Between &lt;=&gt; Bigger Than (Number) &gt;= Smaller Than (Number) &lt;= After (Date) &gt;&gt;= Before (Date) &lt;&lt;= Is Empty !=!
-</code></pre></div>
+<h1 id="database-jdbc-configs">Database JDBC Configs</h1>
+<h3 id="microsoft-sql-server">Microsoft SQL Server​</h3>
+<p><code>jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=&lt;databaseName&gt;[;property=value[;property=value]]</code></p>
+<p><code>jdbc:sqlserver://host;databaseName=test123</code></p>
+<h3 id="mysql">MYSQL ​</h3>
+<p><code>jdbc:mysql://&lt;database server&gt;:&lt;ports&gt;/&lt;database names&gt;</code></p>
+<h3 id="postgresql">PostgreSQL</h3>
+<p><code>jdbc:postgresql://&lt;database server&gt;:&lt;port&gt;/&lt;databaseName&gt;</code></p>
+<h2 id="sql">SQL</h2>
+<p>SELECT Statement : To Fetch records from an external database to PaperTrail records.  </p>
+<p>Format : </p>
+<pre><code class="javascript">   **SELECT \&lt;COLUMNS\&gt; FROM \&lt;TABLENAME\&gt; WHERE
+   \&lt;DATABASE INDEX\&gt; = \${\&lt;PAPERTRAIL INDEX\&gt;}**
+</code></pre>
+
+<pre><code class="javascript">   SELECT No_ AS Invoice_No, 
+     LEFT(CONVERT(date, &quot;Posting Date&quot;),10) 
+     AS Invoice_Date,&quot;Order No_&quot; 
+     AS Internal_Order, &quot;Sell-to Customer No_&quot; 
+     AS Customer_No,&quot;External Document No_&quot; 
+     AS Customer_Order_No, &quot;Shipment Method Code&quot; 
+     AS Delivery_Method 
+   FROM &quot;SAFINTRA JHB$Sales Invoice Header&quot; 
+   WHERE No_ = '${invoice_no}
+</code></pre>
+
+<p>UPDATE Statement : To Update records from an external database to PaperTrail records.  </p>
+<pre><code class="javascript">**FORMAT**: **UPDATE \&lt;TABLE NAME\&gt; SET \&lt;DATABASE INDEX\&gt; =
+'\&lt;VALUE\&gt;' WHERE \&lt;DATABASE INDEX\&gt; = \${\&lt;PAPERTRAIL
+INDEX\&gt;}**
+</code></pre>
+
+<pre><code class="javascript">UPDATE test 
+SET Index1 = 'asdf' 
+WHERE Invoice_Number = ${Invoice_Number}
+</code></pre>
+
+<h2 id="rules-for-sql-statements">Rules for SQL statements</h2>
+<ul>
+<li>Column headers and index values must match index values in
+    PaperTrail, otherwise give columns aliases by using the “AS”
+    function.</li>
+<li>All native SQL commands and functions can be used in the statement.</li>
+<li>Separate columns in SELECT statements by commas.</li>
+<li>If column names contain spaces, double quotes (“ “) should be used
+    to surround the name in order to concatenate the name.</li>
+</ul>
+<h2 id="event">Event</h2>
+<p>When to run the SQL Lookup or Update.</p></div>
         </div>
 
         <footer class="col-md-12">
