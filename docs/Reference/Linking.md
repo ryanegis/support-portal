@@ -2,7 +2,6 @@
 
 ### Linking Documents On Numbers Only
 
-
 Specific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.
 ```javascript
 <Destination Node>/recursive=true&<Destination Index>=${if (<Source Index> == null) "" else <Source Index>.find("\\d+")}
@@ -21,15 +20,15 @@ where
 ### Linking on Numeric with custom field Order_No
 eg. Order_No = 12345
 
-       <Destination Node>/recursive=true&Order_No=${if (Order_No == null) "" else Order_No.find("\\d+")}
+`<Destination Node>/recursive=true&Order_No=${if (Order_No == null) "" else Order_No.find("\\d+")}`
+
 ### Linking on Alphanumeric with custom field Order_No
 eg. Order_No = PO12345
 
-      "" else Order_No.find("\\w+")}
+`"" else Order_No.find("\\w+")`
 ### Linking on Alphanumeric, Space, Numeric with custom field Order_No
 eg. Order_No = PO 12345
 
-     "" else Order_No.find("\\w+\\s+\\d+")}
      
 ### Regex Examples eg.
 1)  **\\w+**    : All alphanumeric values
@@ -41,3 +40,4 @@ eg. Order_No = PO 12345
 4)  **\\D**     : A non-digit: [^0-9]
 
 5)  **\\s**     : A whitespace character
+
