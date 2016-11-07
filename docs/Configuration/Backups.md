@@ -1,15 +1,14 @@
-Backups
-=======
+# Backups
 
 What needs to be backed up?
 ---------------------------
 
--   **Database** and transaction logs
--   **File Repository** (Everything under PT\_Repo)
--   **SSL Certificate** e.g. conf/keystore (If configured)
--   **Encryption Keys** e.g. conf/keys.\* If File store encryption is
+-   Database and transaction logs
+-   File Repository (Everything under PT\_Repo)
+-   SSL Certificate : conf/keystore (If configured)
+-   Encryption Keys : e.g. conf/keys.\* If File store encryption is
     configured
--   **Indexes** Only for very large installations where an index rebuild
+-   Indexes : Only for very large installations where an index rebuild
     is too time-consuming
 
 

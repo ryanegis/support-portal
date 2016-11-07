@@ -1,4 +1,4 @@
-Health checks should be conduced after evyer new installation, upgrade, custom deployment or major config change
+Health checks should be conduced after every new installation, upgrade, custom deployment or major configuration change
 
 ## Conducting Health Checks
 1. Monitor the log files under  (`logs`) for any startup or migration errors

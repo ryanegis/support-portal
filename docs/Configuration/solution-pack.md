@@ -1,10 +1,10 @@
 ## Solution Packs
 
-Solution packs provide a simplemechanism to export the configuration and deployment from one server to another
+Solution packs provide a simple mechanism to export the configuration and deployment from one server to another.
 
 ### Exporting
 
-To export a solution pack browse to **/solutions/export/** while logged on as an adminstrator - A solution pack (.zip) file will be downloaded with the following contents:
+To export a solution pack browse to **/solutions/export/** while logged in as an administrator - A solution pack (.zip) file will be downloaded with the following contents:
 
 * Node Structure
 * Templates

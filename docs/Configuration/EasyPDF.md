@@ -1,91 +1,59 @@
-**EasyPDF deployment and configuration** ========================================
+# EasyPDF deployment and configuration
 
-The following combination of software will need to be installed on the EasyPDF server 
-=======================================================================================
+## Software Requirements
 
-·       Windows Server 2008 32/64 bit.
-
-·       PaperTrail 32 bit (latest release available).
-
-·       EasyPDF version 6/7 32 bit.
-
-·       EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453
-and EasyPDF 7 requires Addon r8738).
-
-·       Microsoft Office 2010.
-
-·       Any other native applications that may need to be converted to
-PDF by EasyPDF (i.e. AutoCAD).
-
- 
+The following software will have to be installed on the EasyPDF server :   
+1.  Windows Server 2008 32/64 bit.  
+2.  PaperTrail 32 bit (latest release available).  
+3.  EasyPDF version 6/7 32 bit.  
+4.  EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453
+and EasyPDF 7 requires Addon r8738).  
+5.  Microsoft Office 2010.  
+6.  Any other native applications that may need to be converted to
+PDF by EasyPDF (i.e. AutoCAD).  
 
 **Note : UAC should be disabled on the machine before any software is
 installed.**
 
-**Local installation** (Both PaperTrail and EasyPDF running on same
-host) :
+## Local Installation
+(Both PaperTrail and EasyPDF running on same host) :
 
-1.     Install EasyPDF application.
-
-2.     Install PaperTrail release.
-
-3.     Install EasyPDF PaperTrail Addon.
-
-4.     Set the “BCL easyPDF SDK 7 Loader” and “Papertrail” services to
+*  Install EasyPDF application.
+*  Install PaperTrail release.
+*  Install EasyPDF PaperTrail Addon.
+*  Set the “BCL easyPDF SDK 7 Loader” and “Papertrail” services to
 run as the same account which should be granted administrative
 permissions.
-
-5.     Start PaperTrail and confirm that installation was successful.
-
-6.     Add the following line to the easypdf.properties file and restart
+*  Start PaperTrail and confirm that installation was successful.
+*  Add the following line to the easypdf.properties file and restart
 PaperTrail thereafter :
 
+```javascript
 easypdf.word.nativeOfficePDF=true
-
-7.     Import test documents to confirm that all is set up correctly.
-
-** **
-
-**Remote installation** (PaperTrail and EasyPDF running on separate
-hosts) :
-
-·       **EasyPDF server** :
-
-1.     Install EasyPDF application.
-
-2.     Install PaperTrail release.
-
-3.     Install EasyPDF PaperTrail Addon.
-
-4.     Set the “BCL easyPDF SDK 7 Loader” and “Papertrail” services to
-run as the same account which should be granted administrative
-permissions.
-
-5.     Start PaperTrail and confirm that installation was successful.
-
-6.     Add the following line to the easypdf.properties file and restart
-PaperTrail thereafter :
-
-                 easypdf.word.nativeOfficePDF=true
-
-7.     Import test documents locally to confirm that all is set up
-correctly.
-
- 
-
-·       **PaperTrail application server** :
-
-1.     Once PaperTrail is up and running, set the below properties in
-the papertrail.properties file to enable remote conversions :
 ```
+
+* Import test documents to confirm that all is set up correctly.
+
+## Remote Installation 
+(Both PaperTrail and EasyPDF running on separate hosts) :
+
+**EasyPDF server**
+
+Same as [Local Installation](#local-installation)
+
+ **PaperTrail application server** :
+
+1. Once PaperTrail is up and running, set the below properties in
+the papertrail.properties file to enable remote conversions :
+```html
 conversion.filetype.\*=remote
 conversion.filetype.pdf=pdf
 conversion.remote.host=http://host1:8080
 ```
-2.     Import test documents on application server to confirm that all
+2. Import test documents on application server to confirm that all
 is set up correctly.
 
-**Troubleshooting**
+## Troubleshooting
 
 If any conversion issue are being experienced, create a .vbs
 file which can be run to test conversions outside of PaperTrail. The
@@ -106,8 +74,7 @@ to convert and specify the output path of the PDF.
 
  
 
-For any more information, the user manual can be accessed at
-<http://www.pdfonline.com/easypdf/sdk/usermanual/>
+For any more information, the user manual can be accessed [here](http://www.pdfonline.com/easypdf/sdk/usermanual/)
 
  
 

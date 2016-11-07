@@ -48,6 +48,6 @@ The last line has a syntax of `{CN} {Expiry} {Key Type}`
 2. Create a new a JKS file called `truststore` containing the trusted CA's
 3. Check Require Client Certificates (`http.ssl.client.require`)
 
-Configuring client certificates requires that **all** clients supply a trusted certificate
+Configuring client certificates requires that **all** clients supply a trusted certificate.
 
-The Common Name (`CN`) of the certificate will be used to map the a certificate to a user via the login field
+The Common Name (`CN`) of the certificate will be used to map the a certificate to a user via the login field.

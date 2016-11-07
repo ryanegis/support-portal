@@ -1,5 +1,4 @@
-Database Performance Tuning
-===========================
+# Database Performance Tuning
 
 -   Use READ COMMITTED default tx isolation level.
 -   Use a transaction logging mode that allows point in time recovery
