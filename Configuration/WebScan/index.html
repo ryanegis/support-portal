@@ -264,7 +264,7 @@
 <h3 id="separation">separation</h3>
 <p>type - <em>string</em></p>
 <p>Possible values:</p>
-<ol>
+<ul>
 <li>
 <p><strong>None</strong> - combine all images to single PDF file;</p>
 </li>
@@ -274,18 +274,18 @@
 <li>
 <p><strong>Blank</strong> - create new PDF when blank image appeared. For instance, there is images sequence:</p>
 </li>
-</ol>
+</ul>
 <p><code>image1, image2, blank image, image3, image4, image5, blank image, image6</code></p>
 <p>As a result of <strong>Blank</strong> separation, scan addon will return 3 PDF files: 2 pages (image1, image2), 3 pages (image3, image4, image5) and 1 page (image6).</p>
-<ol>
+<ul>
 <li><strong>Barcode</strong> - create new PDF when image with unique barcode appeared. For instance, there is images sequence:</li>
-</ol>
+</ul>
 <p><code>image1, image with barcode1, image2, image3, image with barcode3</code></p>
 <p>As a result of <strong>Blank</strong> separation, scan addon will return 3 PDF files: 1 page (image1), 3 pages (image with barcode1, image2, image3) and 1 page (image with barcode3).</p>
 <h3 id="resolution">resolution</h3>
 <p>type - <em>object</em></p>
 <p>Fields:</p>
-<ol>
+<ul>
 <li>
 <p><strong>x</strong> - integer, <em>x</em> value of resolution. Common possible values: 100 - 600</p>
 </li>
@@ -293,55 +293,37 @@
 <p><strong>y</strong> - integer, <em>y</em> value of resolution. Common possible values: 100 - 600</p>
 </li>
 <li>
-<p><em>units</em> - string, measure units for <em>x</em> and <em>y</em>. Possible values:</p>
+<p><em>units</em> - string, measure units for <em>x</em> and <em>y</em>. Possible values:  </p>
+<ul>
+<li>Inches  </li>
+<li>Centimeters  </li>
+<li>Points  </li>
+<li>Pixels  </li>
+</ul>
 </li>
-<li>
-<p>Inches</p>
-</li>
-<li>
-<p>Centimeters</p>
-</li>
-<li>
-<p>Points</p>
-</li>
-<li>
-<p>Pixels</p>
-</li>
-</ol>
+</ul>
 <p><strong>Important note:</strong> list of supported values for <em>resolution</em> may vary depending on scanner model</p>
 <h3 id="compressionmode">compressionMode</h3>
 <p>type - <em>string</em></p>
 <p>Common values:</p>
-<ol>
-<li>
-<p><strong>None</strong> - don't use any compression mode;</p>
-</li>
-<li>
-<p><strong>Jpeg</strong> - intended for the compression of color photographs</p>
-</li>
-<li>
-<p><strong>Lzw</strong> - a compression licensed by UNISYS</p>
-</li>
-<li>
-<p><strong>Jbig</strong> - intended for bi-tonal and grayscale document images</p>
-</li>
-<li>
-<p><strong>Png</strong> - Portable Network Graphic</p>
-</li>
-<li>
-<p><strong>Group4</strong> - CCITT Group 4 fax encoding, intended for document images</p>
-</li>
-</ol>
+<ul>
+<li><strong>None</strong> - don't use any compression mode;</li>
+<li><strong>Jpeg</strong> - intended for the compression of color photographs</li>
+<li><strong>Lzw</strong> - a compression licensed by UNISYS</li>
+<li><strong>Jbig</strong> - intended for bi-tonal and grayscale document images</li>
+<li><strong>Png</strong> - Portable Network Graphic</li>
+<li><strong>Group4</strong> - CCITT Group 4 fax encoding, intended for document images</li>
+</ul>
 <p><strong>Important note:</strong> list of supported values for <em>compressionMode</em> may vary depending on scanner model</p>
 <h3 id="pdfdecoder">pdfDecoder</h3>
 <p>type - <em>object</em></p>
 <p>Fields:</p>
-<ol>
+<ul>
 <li><strong>resolution</strong> - integer, resolution at which to render a PDF page. Minimum - 1, maximum - 3600.</li>
-</ol>
+</ul>
 <h3 id="barcodesettings">barcodeSettings</h3>
 <p>type - <em>object</em></p>
-<p>See (Barcode Configuration)[http://support.papertrail.co.za/Configuration/Barcode/] for list of supported properties</p>
+<p>See <a href="../Barcode">Barcode Configuration</a> for list of supported properties</p>
 <h2 id="examples">Examples</h2>
 <p>Split images into PDF files by barcode and use 300x300px scan resolution</p>
 <pre><code>{

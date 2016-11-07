@@ -256,7 +256,6 @@
             <li><a href="#updating-the-log-settings">Updating the log settings</a></li>
             <li><a href="#log-file-retention">Log file Retention</a></li>
             <li><a href="#logging-to-syslog-host">Logging to Syslog Host</a></li>
-            <li><a href="#logging-to-a-gelf-host">Logging to a GELF Host</a></li>
             <li><a href="#logging-to-individual-files-per-logger">Logging to individual files per logger</a></li>
     </ul>
 </div></div>
@@ -264,15 +263,17 @@
 
 <h1 id="logging">Logging</h1>
 <h2 id="updating-the-log-settings">Updating the log settings</h2>
-<p>All log settings are stored in the <code>conf/logback.groovy</code> file 
- The Admin -> Services -> Logging  page will make changes to this file
-if the After Restart  option is selected</p>
+<ul>
+<li>All log settings are stored in the <code>conf/logback.groovy</code> file </li>
+<li>The <em>Admin -> Services -> Logging</em>  page will make changes to this file
+if the After Restart  option is selected</li>
+</ul>
 <h2 id="log-file-retention">Log file Retention</h2>
-<ol>
+<ul>
 <li>To configure the number of days to keep Papertrail logs, locate and
     edit the following document: <code>PaperTrail/conf/logback.groovy</code>
 e.g. keeps the logs for a period of 14 days:</li>
-</ol>
+</ul>
 <pre><code class="groovy">appender(&quot;FILE&quot;, RollingFileAppender) {             
     file = &quot;logs/server.log&quot;             
     append = true             
@@ -283,28 +284,30 @@ e.g. keeps the logs for a period of 14 days:</li>
 }
 </code></pre>
 
-<ol>
+<ul>
 <li>Locate the section <code>maxHistory = 14</code>  modify the 14 with
     the amount of days to keep logs.</li>
 <li>Restart PaperTrail for the settings to take effect.</li>
-</ol>
+</ul>
 <h2 id="logging-to-syslog-host">Logging to Syslog Host</h2>
-<pre><code>import com.egis.utils.apm.*; 
-import org.productivity.java.syslog4j.impl.net.tcp.*; 
-
- appender(&quot;SYSLOG&quot;, SyslogAppender) {  
-    layout(LogglyLayout) {     apiToken = &quot;XXXXX&quot;     }    
+<p>``java
+import com.egis.utils.apm.<em>; 
+import org.productivity.java.syslog4j.impl.net.tcp.</em>; </p>
+<p>appender("SYSLOG", SyslogAppender) {  
+    layout(LogglyLayout) {     apiToken = "XXXXX"     }    
     syslogConfig(TCPNetSyslogConfig) {     
-        host =  &quot;logs-01.loggly.com&quot;
+        host =  "logs-01.loggly.com"
         port = 514
-        ident = &quot;papertrail&quot;
+        ident = "papertrail"
     } 
-}
-</code></pre>
+}</p>
+<pre><code>
+## Logging to a GELF Host 
 
-<h2 id="logging-to-a-gelf-host">Logging to a GELF Host</h2>
-<p>Replace //gelf in the logback.groovy with:</p>
-<pre><code class="groovy">appender(&quot;GELF&quot;, GelfAppender) {     
+Replace //gelf in the logback.groovy with:
+
+```groovy
+appender(&quot;GELF&quot;, GelfAppender) {     
     host = &quot;${gelfHost}&quot;    
     filter(ThresholdFilter) {       
         level = ${gelfLevel}   
