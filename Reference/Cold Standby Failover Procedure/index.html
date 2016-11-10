@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Ldap ad - Support Portal</title>
+        <title>Cold Standby Failover Procedure - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -143,73 +143,73 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Database/">Database</a>
+    <a href="../../Integration/Database/">Database</a>
 </li>
                             
 <li >
-    <a href="../data-sources/">Data sources</a>
+    <a href="../../Integration/data-sources/">Data sources</a>
 </li>
                             
 <li >
-    <a href="../db-lookup/">Db lookup</a>
+    <a href="../../Integration/db-lookup/">Db lookup</a>
 </li>
                             
 <li >
-    <a href="../folder-watch/">Folder watch</a>
+    <a href="../../Integration/folder-watch/">Folder watch</a>
 </li>
                             
-<li class="active">
-    <a href="./">Ldap ad</a>
+<li >
+    <a href="../../Integration/ldap-ad/">Ldap ad</a>
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="../../Reference/Cold Standby Failover Procedure/">Cold Standby Failover Procedure</a>
+<li class="active">
+    <a href="./">Cold Standby Failover Procedure</a>
 </li>
                             
 <li >
-    <a href="../../Reference/Document Properties/">Document Properties</a>
+    <a href="../Document Properties/">Document Properties</a>
 </li>
                             
 <li >
-    <a href="../../Reference/Linking/">Linking</a>
+    <a href="../Linking/">Linking</a>
 </li>
                             
 <li >
-    <a href="../../Reference/health/">Health</a>
+    <a href="../health/">Health</a>
 </li>
                             
 <li >
-    <a href="../../Reference/licensing/">Licensing</a>
+    <a href="../licensing/">Licensing</a>
 </li>
                             
 <li >
-    <a href="../../Reference/linking_syntax/">Linking syntax</a>
+    <a href="../linking_syntax/">Linking syntax</a>
 </li>
                             
 <li >
-    <a href="../../Reference/maintenance/">Maintenance</a>
+    <a href="../maintenance/">Maintenance</a>
 </li>
                             
 <li >
-    <a href="../../Reference/pql/">Pql</a>
+    <a href="../pql/">Pql</a>
 </li>
                             
 <li >
-    <a href="../../Reference/regex/">Regex</a>
+    <a href="../regex/">Regex</a>
 </li>
                             
 <li >
-    <a href="../../Reference/standard_expression/">Standard expression</a>
+    <a href="../standard_expression/">Standard expression</a>
 </li>
                         </ul>
                     </li>
@@ -247,12 +247,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../folder-watch/">
+                        <a rel="next" href="../../Integration/ldap-ad/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../Reference/Cold Standby Failover Procedure/">
+                        <a rel="prev" href="../Document Properties/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -264,57 +264,39 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#ldap-configuration">LDAP Configuration</a></li>
-            <li><a href="#openldap">OpenLDAP</a></li>
-            <li><a href="#multiple-ldap-servers">Multiple LDAP Servers</a></li>
-        <li class="main "><a href="#synchronizing-with-ldap-active-directory">Synchronizing With LDAP / Active Directory</a></li>
-        <li class="main "><a href="#troubleshooting">Troubleshooting</a></li>
+        <li class="main active"><a href="#cold-standby-failover-procedure">Cold Standby Failover Procedure</a></li>
+            <li><a href="#failover-verification-procedure">Failover Verification Procedure</a></li>
+            <li><a href="#client-imports-failover-procedure">Client / Imports Failover Procedure</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="ldap-configuration">LDAP Configuration</h2>
-<h3 id="openldap">OpenLDAP</h3>
-<p>Configure User format = uid=${user},o=Directory</p>
-<p>Note: Active directory will return less results and attributes when using port 3268 vs 389</p>
-<h3 id="multiple-ldap-servers">Multiple LDAP Servers</h3>
-<p>Configured by addition a set of properties per domain:</p>
-<pre><code class="javascript">ldap.extra.**_domain1-corp.local_**.host=  
-ldap.extra.domain1-corp.local.user=  
-ldap.extra.domain1-corp.local.pass=  
-ldap.extra._**domain2-corp.local**_.host=  
-ldap.extra.domain2-corp.local.user=  
-ldap.extra.domain2-corp.local.pass=  
-</code></pre>
-
-<h2 id="synchronizing-with-ldap-active-directory">Synchronizing With LDAP / Active Directory</h2>
+<h1 id="cold-standby-failover-procedure">Cold Standby Failover Procedure</h1>
 <ul>
-<li>Check LDAP -&gt; Auto Create users  to create new users from LDAP when they login  </li>
-<li>Check LDAP -&gt; Auto Sync Groups  to synchronize group membership, this will sync on user create and on the interval specified under Authentication -&gt; Group Sync Interval</li>
+<li>Ensure the master server is actually down and not immediately recoverable.  </li>
+<li>Kill the master server i.e. ensure that the primary server does not continue to operate (service requests) as it could cause missing data or conflicts down the line - If necessary, physically remove network cables.  </li>
+<li>Run the <code>C:\failover.bat</code> script which automates the following actions:<br />
+        -  Stop PaperTrail.<br />
+        -  Delete the existing properties file: <code>C:\Program Files\Papertrail\conf\papertrail.properties</code>.<br />
+        - Copy and rename the <code>C:\failover.properties</code> to: <code>C:\Program Files\Papertrail\conf\papertrail.properties</code>.<br />
+        - Start PaperTrail.<br />
+        - Repair the indexes.  </li>
 </ul>
-<p>You can also specify a datasource under <strong>Authentication -&gt; Group Sync Provider</strong> e.g. ds:groups </p>
-<p><code>SELECT memberOf as groups FROM '@ldap/objectClass=user&amp;SAMAccountName=${filter}</code></p>
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="failover-verification-procedure">Failover Verification Procedure</h2>
 <ul>
-<li>
-<p>Get the LDAP queries that PaperTrail is executing by increasing the log level:  <code>com.egis.utils.ldap</code> in &lt; 8.8.4 or <code>com.egis.security.ldap</code> in 8.8.4+</p>
-</li>
-<li>
-<p>DEBUG to see the results of queries  </p>
-</li>
-<li>TRACE to see the actual query being run and authentication requests  </li>
-<li>Use an off the shelf tool to check what options work when connecting:</li>
+<li>Confirm new documents can be imported.  </li>
+<li>Confirm old documents can be viewed.  </li>
+<li>Confirm documents are searchable by running an index repair.  </li>
+<li>Confirm all file and email imports functioning (if applicable).  </li>
+<li>Confirm file store integrity by running file store repair.  </li>
 </ul>
-<p>GUI:  </p>
-<p><a href="http://jxplorer.org/">http://jxplorer.org/</a><br />
-<a href="http://www.ldapsoft.com/ldapbrowser/ldapadmintool.html">http://www.ldapsoft.com/ldapbrowser/ldapadmintool.html</a>  </p>
-<p>CLI:  </p>
-<pre><code>ldapsearch -h 172.16.237.131 -D &quot;administrator@corp.egis-software.com&quot; -w password -b &quot;cn=users,dc=corp,dc=egis-software,dc=com&quot; -s sub &quot;(&amp;(objectClass=user)(mail=*))&quot; '*'
-</code></pre>
-
-<p>Use tcpdump or wireshark to capture ldap queries and results at the protocol level.  </p>
+<h2 id="client-imports-failover-procedure">Client / Imports Failover Procedure</h2>
+<p>Note :  <strong>DO NOT COMPLETE THE FOLLOWING STEPS DURING DR TEST.</strong></p>
 <ul>
-<li>Adjust the LDAP query string in <em>Services -&gt; Properties -&gt; LDAP</em> as appropriate</li>
+<li>Move or change the IP / hostname from the master to the slave so that users can connect to PT as normal.  </li>
+<li>Rename the server for all file and email imports.
+e.g. <code>UPDATE import_setting SET serverId = &lt;id of slave server&gt;</code></li>
+<li>Restart email and import file services.</li>
 </ul></div>
         </div>
 

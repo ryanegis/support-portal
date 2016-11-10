@@ -741,6 +741,26 @@
             "title": "Troubleshooting"
         }, 
         {
+            "location": "/Reference/Cold Standby Failover Procedure/", 
+            "text": "Cold Standby Failover Procedure\n\n\n\n\nEnsure the master server is actually down and not immediately recoverable.  \n\n\nKill the master server i.e. ensure that the primary server does not continue to operate (service requests) as it could cause missing data or conflicts down the line - If necessary, physically remove network cables.  \n\n\nRun the \nC:\\failover.bat\n script which automates the following actions:\n\n        -  Stop PaperTrail.\n\n        -  Delete the existing properties file: \nC:\\Program Files\\Papertrail\\conf\\papertrail.properties\n.\n\n        - Copy and rename the \nC:\\failover.properties\n to: \nC:\\Program Files\\Papertrail\\conf\\papertrail.properties\n.\n\n        - Start PaperTrail.\n\n        - Repair the indexes.  \n\n\n\n\nFailover Verification Procedure\n\n\n\n\nConfirm new documents can be imported.  \n\n\nConfirm old documents can be viewed.  \n\n\nConfirm documents are searchable by running an index repair.  \n\n\nConfirm all file and email imports functioning (if applicable).  \n\n\nConfirm file store integrity by running file store repair.  \n\n\n\n\nClient / Imports Failover Procedure\n\n\nNote :  \nDO NOT COMPLETE THE FOLLOWING STEPS DURING DR TEST.\n\n\n\n\nMove or change the IP / hostname from the master to the slave so that users can connect to PT as normal.  \n\n\nRename the server for all file and email imports.\ne.g. \nUPDATE import_setting SET serverId = \nid of slave server\n\n\nRestart email and import file services.", 
+            "title": "Cold Standby Failover Procedure"
+        }, 
+        {
+            "location": "/Reference/Cold Standby Failover Procedure/#cold-standby-failover-procedure", 
+            "text": "Ensure the master server is actually down and not immediately recoverable.    Kill the master server i.e. ensure that the primary server does not continue to operate (service requests) as it could cause missing data or conflicts down the line - If necessary, physically remove network cables.    Run the  C:\\failover.bat  script which automates the following actions: \n        -  Stop PaperTrail. \n        -  Delete the existing properties file:  C:\\Program Files\\Papertrail\\conf\\papertrail.properties . \n        - Copy and rename the  C:\\failover.properties  to:  C:\\Program Files\\Papertrail\\conf\\papertrail.properties . \n        - Start PaperTrail. \n        - Repair the indexes.", 
+            "title": "Cold Standby Failover Procedure"
+        }, 
+        {
+            "location": "/Reference/Cold Standby Failover Procedure/#failover-verification-procedure", 
+            "text": "Confirm new documents can be imported.    Confirm old documents can be viewed.    Confirm documents are searchable by running an index repair.    Confirm all file and email imports functioning (if applicable).    Confirm file store integrity by running file store repair.", 
+            "title": "Failover Verification Procedure"
+        }, 
+        {
+            "location": "/Reference/Cold Standby Failover Procedure/#client-imports-failover-procedure", 
+            "text": "Note :   DO NOT COMPLETE THE FOLLOWING STEPS DURING DR TEST.   Move or change the IP / hostname from the master to the slave so that users can connect to PT as normal.    Rename the server for all file and email imports.\ne.g.  UPDATE import_setting SET serverId =  id of slave server  Restart email and import file services.", 
+            "title": "Client / Imports Failover Procedure"
+        }, 
+        {
             "location": "/Reference/Document Properties/", 
             "text": "Document Properties\n\n\nDocument properties are available to use in:\n\n\n\n\nNode rule filters\n\n\nWorkflow filters\n\n\nStandard Expressions e.g. the body field in a sendEmail rule\n\n\n\n\n\n\n\n\n\n\nDocument Property\n\n\nGroovy Description\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndocId\n\n\nString\n\n\nThe document unique identifier. Formatted as a PaperTrail document ID.\n\n\n\n\n\n\ncreatedDate\n\n\nDate\n\n\nThe date that the document was created.\n\n\n\n\n\n\nfilename\n\n\nString\n\n\nThe filename of the document including the extension.\n\n\n\n\n\n\nlastModified\n\n\nDate\n\n\nThe date that the document was last modified. Can be empty.\n\n\n\n\n\n\ncreatedBy\n\n\nString\n\n\nThe name of the user who created the document.\n\n\n\n\n\n\ndispatchedBy\n\n\nString\n\n\nFor asynchronous rules, the user whose action triggered the event. Refer also to sessionUser.\n\n\n\n\n\n\next\n\n\nString\n\n\nA document extension suffix supported by PaperTrail. Does not contain the leading dot.\n\n\n\n\n\n\nip\n\n\nString\n\n\nThe IP address of the user who performed the action that triggered the event.\n\n\n\n\n\n\nname\n\n\nString\n\n\nThe filename of the document excluding the extension.\n\n\n\n\n\n\nsize\n\n\nLong\n\n\nThe size in bytes. Use this for a numeric comparison, for example: size \n 100000.\n\n\n\n\n\n\nsessionUser\n\n\nString\n\n\nFor synchronous rules, the current user. For asynchronous rules, System. Refer also to dispatchedBy.\n\n\n\n\n\n\nstatus\n\n\nString\n\n\nThe status of the document. Possible values are Filed, Current, Diarized, and Out.\n\n\n\n\n\n\nsizeFormatted\n\n\nString\n\n\nFormatted as bytes. For example, 1 KB, 5 MB, 1 GB\ufffcinstead of an integer such as 14328490234..\n\n\n\n\n\n\nvisibility\n\n\nString\n\n\nSets who is permitted to see the document. Valid values are Public, Private and Confidential..\n\n\n\n\n\n\ntitle\n\n\nString\n\n\nTitle.\n\n\n\n\n\n\nsubject\n\n\nString\n\n\nSubject.\n\n\n\n\n\n\nversion\n\n\nString\n\n\nA document version number, for example, 2.1. Can be empty.\n\n\n\n\n\n\n???\n\n\nString\n\n\nAn index that is added under Node Management \n Node \n Index.\n\n\n\n\n\n\n\n\nWritable Properties\n\n\nSome document properties are also editable, but most are read only.\n\n\n\n\nfilename\n\n\nvisibility\n\n\ntitle\n\n\nsubject\n\n\n{custom_index}\n\n\n\n\nto set a writeable property you can use a script:  \n\n\ndoc.metadata().set(\"title\", \"a new title\")\n\n\nOr a updateIndex rule  \n\n\ntitle=new title\n  \n\n\nor using the HTTP API:  \n\n\ncurl -x POST http://host/public/indexes/\ndocId\n/?title= a new title\n  \n\n\nDocument properties can also be updated via other mechanism for updating indexes including:\n\n\n\n\nImport and Sync\n\n\n.TXT files\n\n\n.XML indexes\n\n\n\n\nSpecial properties\n\n\nDue to the large number of places, indexes/properties can be updated. It being the single most common point of integration between systems, there are a few special properties that trigger actions. They are prefixed with \n_\n and not to be confused with normal properties that relate to metadata only.  \n\n\n\n\n\n\n\n\nDocument Property\n\n\nGroovy Description\n\n\n\n\n\n\n\n\n\n\n_audit\n\n\nCreates a new audit history event on the document\n\n\n\n\n\n\n_status\n\n\n_status=Filed will remove all current users of a document _status=Archive will archive the document\n\n\n\n\n\n\n_event\n\n\nDispatches a new Document event\n\n\n\n\n\n\nuser\n\n\nAllocates an user to the document\n\n\n\n\n\n\nowner\n\n\nAssigns ownership to the user\n\n\n\n\n\n\nnode\n\n\nMoves the document to the specified node\n\n\n\n\n\n\nvisibility\n\n\nChanges the visibility of the document\n\n\n\n\n\n\n\n\nArithmetic Operations\n\n\nMost properties and all custom index values are in String format. In order to use arithmetic in filters etc, you need to first convert them to a Number type. e.g.\n\n\ncustomNumberIndex.asInt() \n 10000\n  \n\n\nSee \nGroovy GDK String.asType()\n\n\nRounding\n\n\nIndexName=${(Double.valueOf(IndexName) * 1.14).round(2)}\n\n\nDates\n\n\nFor information about how to format dates, refer to \u00a0\nSimpleDateFormat", 
             "title": "Document Properties"
@@ -1059,6 +1079,46 @@
             "location": "/Troubleshooting/Performance/#check-underlying-system", 
             "text": "Is there enough memory? \u00a0There should always be at least 1 - 2GB\n    free memory in production to avoid using swap space  Is CPU Usage high? Then check the\u00a0 CPU Usage guide  Check network performance via ICMP ping and Browser developer tools\n    network tab - Response times of   250ms are good and   1s are\n    acceptable.  Check the following resources for identifying lower level\n    bottlenecks. \n        -    http://www.brendangregg.com/usemethod.html \n        -    http://www.brendangregg.com/linuxperf.html \n        -    http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html", 
             "title": "Check underlying system"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Client/", 
+            "text": "Troubleshooting Server\n\n\nIsolate the Problem\n\n\n\n\nSolve the Problem\n\n\nTo solve the problem, we will need to collect the following.\n\n\n\n\nIsolate the cause : Browser version, release, etc.  \n\n\nReproducible environment . \n\n\nVersions of Browser, server etc.\n\n\nScreenshots of the issue.\n\n\nFiddler Logs.\n\n\nBrowser error logs.", 
+            "title": "Troubleshooting Client"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Client/#troubleshooting-server", 
+            "text": "", 
+            "title": "Troubleshooting Server"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Client/#isolate-the-problem", 
+            "text": "", 
+            "title": "Isolate the Problem"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Client/#solve-the-problem", 
+            "text": "To solve the problem, we will need to collect the following.   Isolate the cause : Browser version, release, etc.    Reproducible environment .   Versions of Browser, server etc.  Screenshots of the issue.  Fiddler Logs.  Browser error logs.", 
+            "title": "Solve the Problem"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Server/", 
+            "text": "Troubleshooting Server\n\n\nIsolate the Problem\n\n\n\n\nSolve the Problem\n\n\n\n\nStart with the client and release.  \n\n\nEnsure that all the steps are followed.  \n\n\nInclude any information used in troubleshooting logs, release testing etc that may help identifying the issue.  \n\n\nAny error must be accompanied by the corresponding log entry.  \n\n\nCheck the knowledge base first.  \n\n\nAsk for help in the Support Room only.  \n\n\nAdd knowledge base article.", 
+            "title": "Troubleshooting Server"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Server/#troubleshooting-server", 
+            "text": "", 
+            "title": "Troubleshooting Server"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Server/#isolate-the-problem", 
+            "text": "", 
+            "title": "Isolate the Problem"
+        }, 
+        {
+            "location": "/Troubleshooting/Troubleshooting Server/#solve-the-problem", 
+            "text": "Start with the client and release.    Ensure that all the steps are followed.    Include any information used in troubleshooting logs, release testing etc that may help identifying the issue.    Any error must be accompanied by the corresponding log entry.    Check the knowledge base first.    Ask for help in the Support Room only.    Add knowledge base article.", 
+            "title": "Solve the Problem"
         }, 
         {
             "location": "/Troubleshooting/cpu-usage/", 
