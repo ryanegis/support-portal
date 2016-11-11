@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Sizing - Support Portal</title>
+        <title>Db tuning - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -106,44 +106,44 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Replication/">Replication</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Sizing</a>
+    <a href="../../Installation/Replication/">Replication</a>
 </li>
                             
 <li >
-    <a href="../Ubuntu-Linux/">Ubuntu Linux</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
                             
 <li >
-    <a href="../Windows/">Windows</a>
+    <a href="../../Installation/Ubuntu-Linux/">Ubuntu Linux</a>
 </li>
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
                             
 <li >
-    <a href="../macosx/">Macosx</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/macosx/">Macosx</a>
 </li>
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
                         </ul>
                     </li>
@@ -229,32 +229,32 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Troubleshooting <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../Troubleshooting/Performance/">Performance</a>
+    <a href="../Performance/">Performance</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/Troubleshooting Client/">Troubleshooting Client</a>
+    <a href="../Troubleshooting Client/">Troubleshooting Client</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/Troubleshooting Server/">Troubleshooting Server</a>
+    <a href="../Troubleshooting Server/">Troubleshooting Server</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/cpu-usage/">Cpu usage</a>
+    <a href="../cpu-usage/">Cpu usage</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Db tuning</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/db-tuning/">Db tuning</a>
-</li>
-                            
-<li >
-    <a href="../../Troubleshooting/exceptions/">Exceptions</a>
+    <a href="../exceptions/">Exceptions</a>
 </li>
                         </ul>
                     </li>
@@ -267,12 +267,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Replication/">
+                        <a rel="next" href="../cpu-usage/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../Ubuntu-Linux/">
+                        <a rel="prev" href="../exceptions/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -284,48 +284,55 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#papertrail-server-requirements">PaperTrail Server Requirements</a></li>
-            <li><a href="#database">Database</a></li>
-            <li><a href="#index-directory">Index Directory</a></li>
-            <li><a href="#file-repository">File Repository</a></li>
+        <li class="main active"><a href="#database-performance-tuning">Database Performance Tuning</a></li>
+            <li><a href="#recommended-postgresql-settings">Recommended PostgreSQL Settings</a></li>
+            <li><a href="#recommended-mysql-settings">Recommended MySQL Settings</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="papertrail-server-requirements">PaperTrail Server Requirements</h2>
+<h1 id="database-performance-tuning">Database Performance Tuning</h1>
 <ul>
-<li>2 - 4GB RAM</li>
-<li>2 Modern CPU Cores</li>
-<li>20GB + free disk space</li>
+<li>Use READ COMMITTED default tx isolation level.</li>
+<li>Use a transaction logging mode that allows point in time recovery
+    (PITR) if possible</li>
 </ul>
-<h3 id="database">Database</h3>
-<ul>
-<li>The database should be kept entirely in RAM on fast disks (SSD, RAID 1
-with cache etc). A rough guideline is to use 1GB of RAM per 1 million docs.  </li>
-<li>A centralized database can be used, however it can introduce latency.  </li>
-</ul>
-<h3 id="index-directory">Index Directory</h3>
-<ul>
-<li>The index directory is where Lucene stores all indexes for searching. As
-a rule of thumb is it's around 1 - 2 GB per million docs, more if full
-text searching is enabled.  </li>
-<li>The index directory needs to be on fast disks (RAID 0, SSD) and does
-not need to backed up as it can be easily and quickly (with full text
-disabled) rebuilt.  </li>
-</ul>
-<h3 id="file-repository">File Repository</h3>
-<ul>
-<li>The file repository has lots of small file based IO where each file is stored
-by name as checksum. So once a file is written, it is never updated - only
-deleted.</li>
-<li>It can safely be backed up and then archived.</li>
-<li>RAID 6+ is sufficient.</li>
-<li>Files can also be stored on a object storage platform like Amazon S3,
-Caringo CAStore reducing the need for backups.</li>
-<li>Replication can also be configured between 2 PaperTrail instances using
-file stores.
-  </li>
-</ul></div>
+<h3 id="recommended-postgresql-settings">Recommended PostgreSQL Settings</h3>
+<pre><code>max_connections = 300 shared_buffers = 1GB                # increase based on db and RAM size 
+temp_buffers = 1GB  # increase based on db and RAM size 
+max_prepared_transactions = 0 
+work_mem = 4MB 
+maintenance_work_mem = 512MB
+effective_io_concurrency = 4     
+wal_level = archive    # allows PITR and restore 
+fsync = on   # setting it to off can boost performance at the risk of full db corruption
+synchronous_commit = on  # can be safely set to off full_page_writes = on
+</code></pre>
+
+<h3 id="recommended-mysql-settings">Recommended MySQL Settings</h3>
+<pre><code>character-set-server=utf8
+default-character-set=utf8
+default-storage-engine=INNODB
+max_connections=800
+
+# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 
+innodb_flush_log_at_trx_commit=1  
+sync_binlog=1  
+
+# increase based on db size and RAM 
+innodb_buffer_pool_size=1G 
+tx_isolation=READ-COMMITTED
+binlog-format=ROW  
+tmp_table_size=64M 
+innodb_log_file_size=500M 
+max_allowed_packet=4M  
+innodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 
+
+# disable query cache 
+query_cache_size=0 
+query_cache_type=0 
+thread_cache_size=10
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">

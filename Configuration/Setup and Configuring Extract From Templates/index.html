@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Sizing - Support Portal</title>
+        <title>Setup and Configuring Extract From Templates - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -49,101 +49,101 @@
                     <li >
                         <a href="../..">Home</a>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../Configuration/Backups/">Backups</a>
+    <a href="../Backups/">Backups</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Barcode/">Barcode</a>
+    <a href="../Barcode/">Barcode</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Branding/">Branding</a>
+    <a href="../Branding/">Branding</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Extract from Templates/">Extract from Templates</a>
+    <a href="../Extract from Templates/">Extract from Templates</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/LDAP/">LDAP</a>
+    <a href="../LDAP/">LDAP</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Logging/">Logging</a>
+    <a href="../Logging/">Logging</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Setup and Configuring Extract From Templates</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Setup and Configuring Extract From Templates/">Setup and Configuring Extract From Templates</a>
+    <a href="../WebScan/">WebScan</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/WebScan/">WebScan</a>
+    <a href="../Yaml Config/">Yaml Config</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Yaml Config/">Yaml Config</a>
+    <a href="../basic/">Basic</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/basic/">Basic</a>
+    <a href="../security/">Security</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/security/">Security</a>
+    <a href="../solution-pack/">Solution pack</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/solution-pack/">Solution pack</a>
-</li>
-                            
-<li >
-    <a href="../../Configuration/ssl/">Ssl</a>
+    <a href="../ssl/">Ssl</a>
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Replication/">Replication</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Sizing</a>
+    <a href="../../Installation/Replication/">Replication</a>
 </li>
                             
 <li >
-    <a href="../Ubuntu-Linux/">Ubuntu Linux</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
                             
 <li >
-    <a href="../Windows/">Windows</a>
+    <a href="../../Installation/Ubuntu-Linux/">Ubuntu Linux</a>
 </li>
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
                             
 <li >
-    <a href="../macosx/">Macosx</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/macosx/">Macosx</a>
 </li>
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
                         </ul>
                     </li>
@@ -267,12 +267,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Replication/">
+                        <a rel="next" href="../Logging/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../Ubuntu-Linux/">
+                        <a rel="prev" href="../WebScan/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -284,47 +284,31 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#papertrail-server-requirements">PaperTrail Server Requirements</a></li>
-            <li><a href="#database">Database</a></li>
-            <li><a href="#index-directory">Index Directory</a></li>
-            <li><a href="#file-repository">File Repository</a></li>
+        <li class="main active"><a href="#setting-up-and-configuring-extract-from-template-rules">Setting up and Configuring Extract from Template rules</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="papertrail-server-requirements">PaperTrail Server Requirements</h2>
+<h1 id="setting-up-and-configuring-extract-from-template-rules">Setting up and Configuring Extract from Template rules</h1>
 <ul>
-<li>2 - 4GB RAM</li>
-<li>2 Modern CPU Cores</li>
-<li>20GB + free disk space</li>
-</ul>
-<h3 id="database">Database</h3>
-<ul>
-<li>The database should be kept entirely in RAM on fast disks (SSD, RAID 1
-with cache etc). A rough guideline is to use 1GB of RAM per 1 million docs.  </li>
-<li>A centralized database can be used, however it can introduce latency.  </li>
-</ul>
-<h3 id="index-directory">Index Directory</h3>
-<ul>
-<li>The index directory is where Lucene stores all indexes for searching. As
-a rule of thumb is it's around 1 - 2 GB per million docs, more if full
-text searching is enabled.  </li>
-<li>The index directory needs to be on fast disks (RAID 0, SSD) and does
-not need to backed up as it can be easily and quickly (with full text
-disabled) rebuilt.  </li>
-</ul>
-<h3 id="file-repository">File Repository</h3>
-<ul>
-<li>The file repository has lots of small file based IO where each file is stored
-by name as checksum. So once a file is written, it is never updated - only
-deleted.</li>
-<li>It can safely be backed up and then archived.</li>
-<li>RAID 6+ is sufficient.</li>
-<li>Files can also be stored on a object storage platform like Amazon S3,
-Caringo CAStore reducing the need for backups.</li>
-<li>Replication can also be configured between 2 PaperTrail instances using
-file stores.
-  </li>
+<li>Add new extraction templates node under System as follow<br />
+<img alt="setup-1" src="../../images/setup-1.png" /> </li>
+<li>Import or copy documents ( PDF based ) to the extraction templates node, that you will be setting up as a template.  </li>
+<li>Setup new extractFromTemplates rule on the node where the documents will be importing. <br />
+<img alt="setup-2" src="../../images/setup-2.png" /> </li>
+<li>Select the Template Editor for the Template editor to open in a new window.   </li>
+<li>Select one of the documents that have been copied to your extraction templates node from the drop down
+<img alt="setup-3" src="../../images/setup-3.png" />  </li>
+<li>Add a new Static Field ( This field will be used to recognize the document to use with this template ) 
+<img alt="setup-4" src="../../images/setup-4.png" />   </li>
+<li>Ensure you add your default value for the documents to be recognized 
+<img alt="setup-5" src="../../images/setup-5.png" />   </li>
+<li>Add the new Zone Fields ( This will be configure for the Indexes ) 
+Change the field ID to match your index name. 
+<img alt="setup-6" src="../../images/setup-6.png" />   </li>
+<li>Position the field on the document where you want the information to read from the document. 
+<img alt="setup-7" src="../../images/setup-7.png" /></li>
+<li>Once completed hit the save and Redeploy button to save your work to start testing.  </li>
 </ul></div>
         </div>
 

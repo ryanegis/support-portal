@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Sizing - Support Portal</title>
+        <title>Folder Export - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -106,77 +106,77 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Replication/">Replication</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Sizing</a>
+    <a href="../../Installation/Replication/">Replication</a>
 </li>
                             
 <li >
-    <a href="../Ubuntu-Linux/">Ubuntu Linux</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
                             
 <li >
-    <a href="../Windows/">Windows</a>
+    <a href="../../Installation/Ubuntu-Linux/">Ubuntu Linux</a>
 </li>
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
                             
 <li >
-    <a href="../macosx/">Macosx</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/macosx/">Macosx</a>
 </li>
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/service/">Service</a>
+</li>
+                            
+<li >
+    <a href="../../Installation/solution/">Solution</a>
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Integration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../Integration/Database/">Database</a>
+    <a href="../Database/">Database</a>
 </li>
                             
 <li >
-    <a href="../../Integration/EasyPDF/">EasyPDF</a>
+    <a href="../EasyPDF/">EasyPDF</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Folder Export</a>
 </li>
                             
 <li >
-    <a href="../../Integration/Folder Export/">Folder Export</a>
+    <a href="../data-sources/">Data sources</a>
 </li>
                             
 <li >
-    <a href="../../Integration/data-sources/">Data sources</a>
+    <a href="../db-lookup/">Db lookup</a>
 </li>
                             
 <li >
-    <a href="../../Integration/db-lookup/">Db lookup</a>
+    <a href="../folder-watch/">Folder watch</a>
 </li>
                             
 <li >
-    <a href="../../Integration/folder-watch/">Folder watch</a>
-</li>
-                            
-<li >
-    <a href="../../Integration/ldap-ad/">Ldap ad</a>
+    <a href="../ldap-ad/">Ldap ad</a>
 </li>
                         </ul>
                     </li>
@@ -267,12 +267,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Replication/">
+                        <a rel="next" href="../EasyPDF/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../Ubuntu-Linux/">
+                        <a rel="prev" href="../data-sources/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -284,47 +284,69 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#papertrail-server-requirements">PaperTrail Server Requirements</a></li>
-            <li><a href="#database">Database</a></li>
-            <li><a href="#index-directory">Index Directory</a></li>
-            <li><a href="#file-repository">File Repository</a></li>
+        <li class="main active"><a href="#document-export">Document Export</a></li>
+            <li><a href="#folder">Folder</a></li>
+            <li><a href="#email">Email</a></li>
+            <li><a href="#export-format">Export Format</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="papertrail-server-requirements">PaperTrail Server Requirements</h2>
+<h1 id="document-export">Document Export</h1>
+<p>The autoExport rule can export documents via 3 different mechanisms:</p>
+<h2 id="folder">Folder</h2>
+<p>Folder supports multiple folder types:</p>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/folder/path</td>
+<td>Linux Format</td>
+</tr>
+<tr>
+<td>C:\folder\path</td>
+<td>Windows Format</td>
+</tr>
+<tr>
+<td>\server1\path</td>
+<td>Windows Only UNC style path - Note: Mapped drives are not supported</td>
+</tr>
+<tr>
+<td>smb://server1/path</td>
+<td>SMB/CIFS format supported on both Linux and Windows - Integrated Authentication is not supported</td>
+</tr>
+<tr>
+<td>ftp://server1/path</td>
+<td>FTP server supported on both Windows + Linux</td>
+</tr>
+</tbody>
+</table>
+<h2 id="email">Email</h2>
+<p>Papertrail -&gt; Papertrail (REST HTTP): Uploads the document via HTTP post to the specified host,</p>
+<p>If the URL does not contain a path then the following default is used:  </p>
+<p><code>/public/file/${_httpNodePath}/${_httpFilename}</code></p>
+<p><strong>${_httpFilename}</strong> corresponds to  the URL encoded filename of the document<br />
+<strong>${_httpNodePath}</strong> corresponds to the URL encoded node path  </p>
+<p>This corresponds to the public API available for importing documents into PaperTrail.</p>
+<p>To specify a different node path you would use:
+<code>/public/file/Division/Cabinet/${_httpFilename}</code></p>
+<p>To append indexes you would use:
+<code>/public/file/${_httpNodePath}/${_httpFilename}?index1=staticValue1&amp;index2=${docId}</code></p>
+<p>And to append all indexes:
+<code>/public/file/${_httpNodePath}/${_httpFilename}?${_httpIndexes}</code></p>
+<h2 id="export-format">Export Format</h2>
 <ul>
-<li>2 - 4GB RAM</li>
-<li>2 Modern CPU Cores</li>
-<li>20GB + free disk space</li>
-</ul>
-<h3 id="database">Database</h3>
-<ul>
-<li>The database should be kept entirely in RAM on fast disks (SSD, RAID 1
-with cache etc). A rough guideline is to use 1GB of RAM per 1 million docs.  </li>
-<li>A centralized database can be used, however it can introduce latency.  </li>
-</ul>
-<h3 id="index-directory">Index Directory</h3>
-<ul>
-<li>The index directory is where Lucene stores all indexes for searching. As
-a rule of thumb is it's around 1 - 2 GB per million docs, more if full
-text searching is enabled.  </li>
-<li>The index directory needs to be on fast disks (RAID 0, SSD) and does
-not need to backed up as it can be easily and quickly (with full text
-disabled) rebuilt.  </li>
-</ul>
-<h3 id="file-repository">File Repository</h3>
-<ul>
-<li>The file repository has lots of small file based IO where each file is stored
-by name as checksum. So once a file is written, it is never updated - only
-deleted.</li>
-<li>It can safely be backed up and then archived.</li>
-<li>RAID 6+ is sufficient.</li>
-<li>Files can also be stored on a object storage platform like Amazon S3,
-Caringo CAStore reducing the need for backups.</li>
-<li>Replication can also be configured between 2 PaperTrail instances using
-file stores.
-  </li>
+<li>Source - The original document  </li>
+<li>PDF - The PDF rendition or the original document  </li>
+<li>PDF Printout  - A PDF rendition that simulates a print to PDF event  </li>
+<li>Document Archive - A ZIP file including all metadata and files  </li>
+<li>XML - An XML file including all metadata  </li>
+<li>Scripted - Allows the use of script to create FileObject from the a DocumentModel</li>
 </ul></div>
         </div>
 

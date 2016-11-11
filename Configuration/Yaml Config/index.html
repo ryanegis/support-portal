@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>EasyPDF - Support Portal</title>
+        <title>Yaml Config - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -65,8 +65,8 @@
     <a href="../Branding/">Branding</a>
 </li>
                             
-<li class="active">
-    <a href="./">EasyPDF</a>
+<li >
+    <a href="../Extract from Templates/">Extract from Templates</a>
 </li>
                             
 <li >
@@ -78,7 +78,15 @@
 </li>
                             
 <li >
+    <a href="../Setup and Configuring Extract From Templates/">Setup and Configuring Extract From Templates</a>
+</li>
+                            
+<li >
     <a href="../WebScan/">WebScan</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Yaml Config</a>
 </li>
                             
 <li >
@@ -119,10 +127,6 @@
 </li>
                             
 <li >
-    <a href="../../Installation/db-tuning/">Db tuning</a>
-</li>
-                            
-<li >
     <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
                             
@@ -149,6 +153,14 @@
                             
 <li >
     <a href="../../Integration/Database/">Database</a>
+</li>
+                            
+<li >
+    <a href="../../Integration/EasyPDF/">EasyPDF</a>
+</li>
+                            
+<li >
+    <a href="../../Integration/Folder Export/">Folder Export</a>
 </li>
                             
 <li >
@@ -182,6 +194,10 @@
                             
 <li >
     <a href="../../Reference/Linking/">Linking</a>
+</li>
+                            
+<li >
+    <a href="../../Reference/Logging/">Logging</a>
 </li>
                             
 <li >
@@ -234,6 +250,10 @@
 </li>
                             
 <li >
+    <a href="../../Troubleshooting/db-tuning/">Db tuning</a>
+</li>
+                            
+<li >
     <a href="../../Troubleshooting/exceptions/">Exceptions</a>
 </li>
                         </ul>
@@ -247,12 +267,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Branding/">
+                        <a rel="next" href="../WebScan/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../LDAP/">
+                        <a rel="prev" href="../basic/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -264,77 +284,43 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#easypdf-deployment-and-configuration">EasyPDF deployment and configuration</a></li>
-            <li><a href="#software-requirements">Software Requirements</a></li>
-            <li><a href="#local-installation">Local Installation</a></li>
-            <li><a href="#remote-installation">Remote Installation</a></li>
-            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li class="main active"><a href="#yaml-import-and-export">YAML Import and Export</a></li>
+            <li><a href="#examples">Examples</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="easypdf-deployment-and-configuration">EasyPDF deployment and configuration</h1>
-<h2 id="software-requirements">Software Requirements</h2>
-<p>The following software will have to be installed on the EasyPDF server : <br />
-1.  Windows Server 2008 32/64 bit.<br />
-2.  PaperTrail 32 bit (latest release available).<br />
-3.  EasyPDF version 6/7 32 bit.<br />
-4.  EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453
-and EasyPDF 7 requires Addon r8738).<br />
-5.  Microsoft Office 2010.<br />
-6.  Any other native applications that may need to be converted to
-PDF by EasyPDF (i.e. AutoCAD).  </p>
-<p><strong>Note : UAC should be disabled on the machine before any software is
-installed.</strong></p>
-<h2 id="local-installation">Local Installation</h2>
-<p>(Both PaperTrail and EasyPDF running on same host) :</p>
+<h1 id="yaml-import-and-export">YAML Import and Export</h1>
+<p>In addition to the various CSV and XML based exports available, a generic export/import interface is available via:
+[via?]
+Imports can be imported multiple times without creating duplicates, this can be used for updating configuration.</p>
+<h2 id="examples">Examples</h2>
+<p>To import one or more entities:</p>
+<pre><code class="javascript">POST: / dao /import/yml
+</code></pre>
+
+<p>To export all instances of an entity: </p>
+<pre><code class="javascript">/dao/export/yml/{Entity}
+</code></pre>
+
+<p>To export a specific entity:</p>
+<pre><code class="javascript">/dao/export/yml/{Entity}?id={name}
+</code></pre>
+
+<p>Where {Entity} is one of:  </p>
 <ul>
-<li>Install EasyPDF application.</li>
-<li>Install PaperTrail release.</li>
-<li>Install EasyPDF PaperTrail Addon.</li>
-<li>Set the “BCL easyPDF SDK 7 Loader” and “Papertrail” services to
-run as the same account which should be granted administrative
-permissions.</li>
-<li>Start PaperTrail and confirm that installation was successful.</li>
-<li>Add the following line to the easypdf.properties file and restart
-PaperTrail thereafter :</li>
+<li>User - All permissions and group memberships will be retained.  </li>
+<li>Node - All child nodes, indexes, permissions and rules will be retained.  </li>
+<li>ListIndex - All values will be retained.  </li>
+<li>DataSource  </li>
+<li>RuleApplication  </li>
+<li>Form  </li>
+<li>Template  </li>
+<li>All entities will export something - but the output may or may not import back in.  </li>
 </ul>
-<pre><code class="javascript">easypdf.word.nativeOfficePDF=true
-</code></pre>
-
-<ul>
-<li>Import test documents to confirm that all is set up correctly.</li>
-</ul>
-<h2 id="remote-installation">Remote Installation</h2>
-<p>(Both PaperTrail and EasyPDF running on separate hosts) :</p>
-<p><strong>EasyPDF server</strong></p>
-<p>Same as <a href="#local-installation">Local Installation</a></p>
-<p><strong>PaperTrail application server</strong> :</p>
-<p>1. Once PaperTrail is up and running, set the below properties in
-the papertrail.properties file to enable remote conversions :</p>
-<pre><code class="html">conversion.filetype.\*=remote
-conversion.filetype.pdf=pdf
-conversion.remote.host=http://host1:8080
-</code></pre>
-
-<p>2. Import test documents on application server to confirm that all
-is set up correctly.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If any conversion issue are being experienced, create a .vbs
-file which can be run to test conversions outside of PaperTrail. The
-paths in the properties are input and output files, and should be
-configured accordingly :</p>
-<pre><code class="vbscript">Set oPrinter = CreateObject(&quot;easyPDF.Printer.7&quot;)
-Set oPrintJob = oPrinter.PrintJob
-oPrintJob.PrintOut &quot;C:\\test.txt&quot;, &quot;C:\\output.pdf&quot;
-</code></pre>
-
-<p>Another way to test the conversions is to navigate to
-<em>C:\Users\Public\Documents\BCL Technologies\easyPDF SDK
-7\Samples\Visual C#\EasyPDFPrinterTest</em> and then running
-EasyPDFPrinterTest.exe. This will allow you to select an input document
-to convert and specify the output path of the PDF.</p>
-<p>For any more information, the user manual can be accessed <a href="http://www.pdfonline.com/easypdf/sdk/usermanual/">here</a></p></div>
+<p>Using <a href="https://github.com/jkbrzt/httpie">httpie</a>:  </p>
+<pre><code class="javascript">http --auth admin:test POST &quot;http://localhost:8080/dao/import/yml&quot; &quot;Accept:*&quot; &lt; ~/test.yml
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">

@@ -121,34 +121,14 @@
             "title": "egis.png (75x25)"
         }, 
         {
-            "location": "/Configuration/EasyPDF/", 
-            "text": "EasyPDF deployment and configuration\n\n\nSoftware Requirements\n\n\nThe following software will have to be installed on the EasyPDF server : \n\n1.  Windows Server 2008 32/64 bit.\n\n2.  PaperTrail 32 bit (latest release available).\n\n3.  EasyPDF version 6/7 32 bit.\n\n4.  EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453\nand\u00a0EasyPDF 7 requires Addon r8738).\n\n5.  Microsoft Office 2010.\n\n6.  Any other native applications that may need to be converted to\nPDF by EasyPDF (i.e. AutoCAD).  \n\n\nNote : UAC should be disabled on the machine before any software is\ninstalled.\n\n\nLocal Installation\n\n\n(Both PaperTrail and EasyPDF running on same host) :\n\n\n\n\nInstall EasyPDF application.\n\n\nInstall PaperTrail release.\n\n\nInstall EasyPDF PaperTrail Addon.\n\n\nSet the \u201cBCL easyPDF SDK 7 Loader\u201d and \u201cPapertrail\u201d services to\nrun as the same account which should be granted administrative\npermissions.\n\n\nStart PaperTrail and confirm that installation was successful.\n\n\nAdd the following line to the easypdf.properties file and restart\nPaperTrail thereafter :\n\n\n\n\neasypdf.word.nativeOfficePDF=true\n\n\n\n\n\n\nImport test documents to confirm that all is set up correctly.\n\n\n\n\nRemote Installation\n\n\n(Both PaperTrail and EasyPDF running on separate hosts) :\n\n\nEasyPDF server\n\n\nSame as \nLocal Installation\n\n\nPaperTrail application server\n :\n\n\n1.\u00a0Once PaperTrail is up and running, set the below properties in\nthe papertrail.properties file to enable remote conversions :\n\n\nconversion.filetype.\\*=remote\nconversion.filetype.pdf=pdf\nconversion.remote.host=http://host1:8080\n\n\n\n\n2.\u00a0Import test documents on application server to confirm that all\nis set up correctly.\n\n\nTroubleshooting\n\n\nIf any conversion issue are being experienced, create a .vbs\nfile which can be run to test conversions outside of PaperTrail. The\npaths in the properties are input and output files, and should be\nconfigured accordingly :\n\n\nSet oPrinter = CreateObject(\neasyPDF.Printer.7\n)\nSet oPrintJob = oPrinter.PrintJob\noPrintJob.PrintOut \nC:\\\\test.txt\n, \nC:\\\\output.pdf\n\n\n\n\n\nAnother way to test the conversions is to navigate to\n\nC:\\Users\\Public\\Documents\\BCL Technologies\\easyPDF SDK\n7\\Samples\\Visual C#\\EasyPDFPrinterTest\n and then running\nEasyPDFPrinterTest.exe. This will allow you to select an input document\nto convert and specify the output path of the PDF.\n\n\nFor any more information, the user manual can be accessed \nhere", 
-            "title": "EasyPDF"
+            "location": "/Configuration/Extract from Templates/", 
+            "text": "Extract from Templates\n\n\n\n\nSetup a folder called \n'extraction templates'\n\n\nExtract templates from cloud client who has this setup.\n\n\nBulk Export to obtain the extraction zones.\n\n\nImport the templates in the admin section from Tasks-\nDocuments Archive.\n\n\nAdd extract from template rules to those nodes that need to be setup.", 
+            "title": "Extract from Templates"
         }, 
         {
-            "location": "/Configuration/EasyPDF/#easypdf-deployment-and-configuration", 
-            "text": "", 
-            "title": "EasyPDF deployment and configuration"
-        }, 
-        {
-            "location": "/Configuration/EasyPDF/#software-requirements", 
-            "text": "The following software will have to be installed on the EasyPDF server :  \n1.  Windows Server 2008 32/64 bit. \n2.  PaperTrail 32 bit (latest release available). \n3.  EasyPDF version 6/7 32 bit. \n4.  EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453\nand\u00a0EasyPDF 7 requires Addon r8738). \n5.  Microsoft Office 2010. \n6.  Any other native applications that may need to be converted to\nPDF by EasyPDF (i.e. AutoCAD).    Note : UAC should be disabled on the machine before any software is\ninstalled.", 
-            "title": "Software Requirements"
-        }, 
-        {
-            "location": "/Configuration/EasyPDF/#local-installation", 
-            "text": "(Both PaperTrail and EasyPDF running on same host) :   Install EasyPDF application.  Install PaperTrail release.  Install EasyPDF PaperTrail Addon.  Set the \u201cBCL easyPDF SDK 7 Loader\u201d and \u201cPapertrail\u201d services to\nrun as the same account which should be granted administrative\npermissions.  Start PaperTrail and confirm that installation was successful.  Add the following line to the easypdf.properties file and restart\nPaperTrail thereafter :   easypdf.word.nativeOfficePDF=true   Import test documents to confirm that all is set up correctly.", 
-            "title": "Local Installation"
-        }, 
-        {
-            "location": "/Configuration/EasyPDF/#remote-installation", 
-            "text": "(Both PaperTrail and EasyPDF running on separate hosts) :  EasyPDF server  Same as  Local Installation  PaperTrail application server  :  1.\u00a0Once PaperTrail is up and running, set the below properties in\nthe papertrail.properties file to enable remote conversions :  conversion.filetype.\\*=remote\nconversion.filetype.pdf=pdf\nconversion.remote.host=http://host1:8080  2.\u00a0Import test documents on application server to confirm that all\nis set up correctly.", 
-            "title": "Remote Installation"
-        }, 
-        {
-            "location": "/Configuration/EasyPDF/#troubleshooting", 
-            "text": "If any conversion issue are being experienced, create a .vbs\nfile which can be run to test conversions outside of PaperTrail. The\npaths in the properties are input and output files, and should be\nconfigured accordingly :  Set oPrinter = CreateObject( easyPDF.Printer.7 )\nSet oPrintJob = oPrinter.PrintJob\noPrintJob.PrintOut  C:\\\\test.txt ,  C:\\\\output.pdf   Another way to test the conversions is to navigate to C:\\Users\\Public\\Documents\\BCL Technologies\\easyPDF SDK\n7\\Samples\\Visual C#\\EasyPDFPrinterTest  and then running\nEasyPDFPrinterTest.exe. This will allow you to select an input document\nto convert and specify the output path of the PDF.  For any more information, the user manual can be accessed  here", 
-            "title": "Troubleshooting"
+            "location": "/Configuration/Extract from Templates/#extract-from-templates", 
+            "text": "Setup a folder called  'extraction templates'  Extract templates from cloud client who has this setup.  Bulk Export to obtain the extraction zones.  Import the templates in the admin section from Tasks- Documents Archive.  Add extract from template rules to those nodes that need to be setup.", 
+            "title": "Extract from Templates"
         }, 
         {
             "location": "/Configuration/LDAP/", 
@@ -211,6 +191,16 @@
             "title": "Logging to individual files per logger"
         }, 
         {
+            "location": "/Configuration/Setup and Configuring Extract From Templates/", 
+            "text": "Setting up and Configuring Extract from Template rules\n\n\n\n\nAdd new extraction templates node under System as follow\n\n\n \n\n\nImport or copy documents ( PDF based ) to the extraction templates node, that you will be setting up as a template.  \n\n\nSetup new extractFromTemplates rule on the node where the documents will be importing. \n\n\n \n\n\nSelect the Template Editor for the Template editor to open in a new window.   \n\n\nSelect one of the documents that have been copied to your extraction templates node from the drop down\n\n  \n\n\nAdd a new Static Field ( This field will be used to recognize the document to use with this template ) \n\n   \n\n\nEnsure you add your default value for the documents to be recognized \n\n   \n\n\nAdd the new Zone Fields ( This will be configure for the Indexes ) \nChange the field ID to match your index name. \n\n   \n\n\nPosition the field on the document where you want the information to read from the document. \n\n\n\nOnce completed hit the save and Redeploy button to save your work to start testing.", 
+            "title": "Setup and Configuring Extract From Templates"
+        }, 
+        {
+            "location": "/Configuration/Setup and Configuring Extract From Templates/#setting-up-and-configuring-extract-from-template-rules", 
+            "text": "Add new extraction templates node under System as follow     Import or copy documents ( PDF based ) to the extraction templates node, that you will be setting up as a template.    Setup new extractFromTemplates rule on the node where the documents will be importing.      Select the Template Editor for the Template editor to open in a new window.     Select one of the documents that have been copied to your extraction templates node from the drop down     Add a new Static Field ( This field will be used to recognize the document to use with this template )       Ensure you add your default value for the documents to be recognized       Add the new Zone Fields ( This will be configure for the Indexes ) \nChange the field ID to match your index name.       Position the field on the document where you want the information to read from the document.   Once completed hit the save and Redeploy button to save your work to start testing.", 
+            "title": "Setting up and Configuring Extract from Template rules"
+        }, 
+        {
             "location": "/Configuration/WebScan/", 
             "text": "Web Scan\n\n\nWeb Scan Profile Settings\n\n\nseparation\n\n\ntype - \nstring\n\n\nPossible values:\n\n\n\n\n\n\nNone\n - combine all images to single PDF file;\n\n\n\n\n\n\nPage\n - put each image to new PDF file, so each PDF file will contain single page;\n\n\n\n\n\n\nBlank\n - create new PDF when blank image appeared. For instance, there is images sequence:\n\n\n\n\n\n\nimage1, image2, blank image, image3, image4, image5, blank image, image6\n\n\nAs a result of \nBlank\n separation, scan addon will return 3 PDF files: 2 pages (image1, image2), 3 pages (image3, image4, image5) and 1 page (image6).\n\n\n\n\nBarcode\n - create new PDF when image with unique barcode appeared. For instance, there is images sequence:\n\n\n\n\nimage1, image with barcode1, image2, image3, image with barcode3\n\n\nAs a result of \nBlank\n separation, scan addon will return 3 PDF files: 1 page (image1), 3 pages (image with barcode1, image2, image3) and 1 page (image with barcode3).\n\n\nresolution\n\n\ntype - \nobject\n\n\nFields:\n\n\n\n\n\n\nx\n - integer, \nx\n value of resolution. Common possible values: 100 - 600\n\n\n\n\n\n\ny\n - integer, \ny\n value of resolution. Common possible values: 100 - 600\n\n\n\n\n\n\nunits\n - string, measure units for \nx\n and \ny\n. Possible values:  \n\n\n\n\nInches  \n\n\nCentimeters  \n\n\nPoints  \n\n\nPixels  \n\n\n\n\n\n\n\n\nImportant note:\n list of supported values for \nresolution\n may vary depending on scanner model\n\n\ncompressionMode\n\n\ntype - \nstring\n\n\nCommon values:\n\n\n\n\nNone\n - don't use any compression mode;\n\n\nJpeg\n - intended for the compression of color photographs\n\n\nLzw\n - a compression licensed by UNISYS\n\n\nJbig\n - intended for bi-tonal and grayscale document images\n\n\nPng\n - Portable Network Graphic\n\n\nGroup4\n - CCITT Group 4 fax encoding, intended for document images\n\n\n\n\nImportant note:\n list of supported values for \ncompressionMode\n may vary depending on scanner model\n\n\npdfDecoder\n\n\ntype - \nobject\n\n\nFields:\n\n\n\n\nresolution\n - integer, resolution at which to render a PDF page. Minimum - 1, maximum - 3600.\n\n\n\n\nbarcodeSettings\n\n\ntype - \nobject\n\n\nSee \nBarcode Configuration\n for list of supported properties\n\n\nExamples\n\n\nSplit images into PDF files by barcode and use 300x300px scan resolution\n\n\n{\n  \nseparation\n: \nBarcode\n,\n  \nresolution\n: {\n    \nx\n: 300,\n    \ny\n: 300,\n    \nunits\n: \nPixels\n\n  }\n}\n\n\n\n\nCreate single PDF file from scanned images and render it with 80 resolution\n\n\n{\n  \nseparation\n: \nNone\n,\n  \npdfDecoder\n: {\n    \nresolution\n: 80\n  }\n}", 
             "title": "WebScan"
@@ -253,6 +243,21 @@
         {
             "location": "/Configuration/WebScan/#examples", 
             "text": "Split images into PDF files by barcode and use 300x300px scan resolution  {\n   separation :  Barcode ,\n   resolution : {\n     x : 300,\n     y : 300,\n     units :  Pixels \n  }\n}  Create single PDF file from scanned images and render it with 80 resolution  {\n   separation :  None ,\n   pdfDecoder : {\n     resolution : 80\n  }\n}", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/Configuration/Yaml Config/", 
+            "text": "YAML Import and Export\n\n\nIn addition to the various CSV and XML based exports available, a generic export/import interface is available via:\n[via?]\nImports can be imported multiple times without creating duplicates, this can be used for updating configuration.\n\n\nExamples\n\n\nTo import one or more entities:\n\n\nPOST: / dao /import/yml\n\n\n\n\nTo export all instances of an entity: \n\n\n/dao/export/yml/{Entity}\n\n\n\n\nTo export a specific entity:\n\n\n/dao/export/yml/{Entity}?id={name}\n\n\n\n\nWhere {Entity} is one of:  \n\n\n\n\nUser - All permissions and group memberships will be retained.  \n\n\nNode - All child nodes, indexes, permissions and rules will be retained.  \n\n\nListIndex - All values will be retained.  \n\n\nDataSource  \n\n\nRuleApplication  \n\n\nForm  \n\n\nTemplate  \n\n\nAll entities will export something - but the output may or may not import back in.  \n\n\n\n\nUsing \nhttpie\n:  \n\n\nhttp --auth admin:test POST \nhttp://localhost:8080/dao/import/yml\n \nAccept:*\n \n ~/test.yml", 
+            "title": "Yaml Config"
+        }, 
+        {
+            "location": "/Configuration/Yaml Config/#yaml-import-and-export", 
+            "text": "In addition to the various CSV and XML based exports available, a generic export/import interface is available via:\n[via?]\nImports can be imported multiple times without creating duplicates, this can be used for updating configuration.", 
+            "title": "YAML Import and Export"
+        }, 
+        {
+            "location": "/Configuration/Yaml Config/#examples", 
+            "text": "To import one or more entities:  POST: / dao /import/yml  To export all instances of an entity:   /dao/export/yml/{Entity}  To export a specific entity:  /dao/export/yml/{Entity}?id={name}  Where {Entity} is one of:     User - All permissions and group memberships will be retained.    Node - All child nodes, indexes, permissions and rules will be retained.    ListIndex - All values will be retained.    DataSource    RuleApplication    Form    Template    All entities will export something - but the output may or may not import back in.     Using  httpie :    http --auth admin:test POST  http://localhost:8080/dao/import/yml   Accept:*    ~/test.yml", 
             "title": "Examples"
         }, 
         {
@@ -456,26 +461,6 @@
             "title": "SQL Server Windows Authentication"
         }, 
         {
-            "location": "/Installation/db-tuning/", 
-            "text": "Database Performance Tuning\n\n\n\n\nUse READ COMMITTED default tx isolation level.\n\n\nUse a transaction logging mode that allows point in time recovery\n    (PITR) if possible\n\n\n\n\nRecommended PostgreSQL Settings\n\n\nmax_connections = 300 shared_buffers =\u00a01GB\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0# increase based on db and RAM size \ntemp_buffers = 1GB\u00a0\u00a0# increase based on db and RAM size \nmax_prepared_transactions = 0 \nwork_mem = 4MB \nmaintenance_work_mem = 512MB\neffective_io_concurrency = 4\u00a0\u00a0 \u00a0 \nwal_level = archive\u00a0\u00a0 \u00a0# allows PITR and restore \nfsync = on\u00a0\u00a0 # setting it to off can boost performance at the risk of full db corruption\nsynchronous_commit = on \u00a0# can be safely set to off full_page_writes = on\n\n\n\n\nRecommended MySQL Settings\n\n\ncharacter-set-server=utf8\ndefault-character-set=utf8\ndefault-storage-engine=INNODB\nmax_connections=800\n\n# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 \ninnodb_flush_log_at_trx_commit=1\u00a0 \nsync_binlog=1  \n\n# increase based on db size and RAM \ninnodb_buffer_pool_size=1G \ntx_isolation=READ-COMMITTED\nbinlog-format=ROW  \ntmp_table_size=64M \ninnodb_log_file_size=500M \nmax_allowed_packet=4M  \ninnodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 \n\n# disable query cache \nquery_cache_size=0 \nquery_cache_type=0 \nthread_cache_size=10", 
-            "title": "Db tuning"
-        }, 
-        {
-            "location": "/Installation/db-tuning/#database-performance-tuning", 
-            "text": "Use READ COMMITTED default tx isolation level.  Use a transaction logging mode that allows point in time recovery\n    (PITR) if possible", 
-            "title": "Database Performance Tuning"
-        }, 
-        {
-            "location": "/Installation/db-tuning/#recommended-postgresql-settings", 
-            "text": "max_connections = 300 shared_buffers =\u00a01GB\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0# increase based on db and RAM size \ntemp_buffers = 1GB\u00a0\u00a0# increase based on db and RAM size \nmax_prepared_transactions = 0 \nwork_mem = 4MB \nmaintenance_work_mem = 512MB\neffective_io_concurrency = 4\u00a0\u00a0 \u00a0 \nwal_level = archive\u00a0\u00a0 \u00a0# allows PITR and restore \nfsync = on\u00a0\u00a0 # setting it to off can boost performance at the risk of full db corruption\nsynchronous_commit = on \u00a0# can be safely set to off full_page_writes = on", 
-            "title": "Recommended PostgreSQL Settings"
-        }, 
-        {
-            "location": "/Installation/db-tuning/#recommended-mysql-settings", 
-            "text": "character-set-server=utf8\ndefault-character-set=utf8\ndefault-storage-engine=INNODB\nmax_connections=800\n\n# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 \ninnodb_flush_log_at_trx_commit=1\u00a0 \nsync_binlog=1  \n\n# increase based on db size and RAM \ninnodb_buffer_pool_size=1G \ntx_isolation=READ-COMMITTED\nbinlog-format=ROW  \ntmp_table_size=64M \ninnodb_log_file_size=500M \nmax_allowed_packet=4M  \ninnodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 \n\n# disable query cache \nquery_cache_size=0 \nquery_cache_type=0 \nthread_cache_size=10", 
-            "title": "Recommended MySQL Settings"
-        }, 
-        {
             "location": "/Installation/end-user-installation/", 
             "text": "Installation and Configuration\n\n\nSystem Requirements\n\n\nThe minimum requirements that are advised for Workstations are as follows:\n\n\n\n\n2-4 GB RAM  \n\n\nDual Core i3/i5 CPU  \n\n\nInternet Explorer 11/Edge OR  \n\n\nChrome (latest stable release) OR  \n\n\nFirefox (latest stable release)  \n\n\n\n\nAdvanced Plugin\n\n\n\n\nClick on Help / Cog -\n Check Installation and then follow the instructions that will guide you through the installation process\n\n\n\n\nSee \nWindows\n\n\nFor silent installation use following command:\n\n\nPaperTrailSetup.exe /S\n\n\n\n\nDesktop Agent\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n and \nLinux\n\n\nOffice Addin\n\n\nDownload and run the installer from \nhttp://downloads.papertrail.co.za\n\n\nSee \nWindows\n\n\nWeb Scan\n\n\nWeb scan is distributed as an addon to the Advanced Plugin:\n\n\n\n\nInstall the Advanced Plugin\n\n\nDownload and Install the Web Scan Addon from \nDownloads\n\n\nConfigure scan profiles under System -\n Scanning", 
             "title": "End user installation"
@@ -599,6 +584,61 @@
             "location": "/Integration/Database/#direct-access", 
             "text": "You can also use direct JDBC or the SQLUtils library to access external databases via a runScript rule - Ensure that you follow the pattern below  import com.egis.datasource.JdbcDataSourceCache\nimport com.egis.kernel.Kernel\nimport com.egis.utils.SQLUtils\nimport javax.sql.DataSource\n\nString url = System.getProperty( lob.db.url );\nString username = System.getProperty( lob.db.username );\nString password  = System.getProperty( lob.db.password );\nDataSource ds = Kernel.get(JdbcDataSourceCache.class).get(url, username, password)\n\nSQLUtils.executeStatement(ds,  EXEC sp.StoreProc(?,?,?) ,  param1 ,  param2 ,  param3 )   Note that a  Connection  or  DataSource  is not created directly but delegated to  JdbcDataSourceCache  so that connection pooling can occur", 
             "title": "Direct Access"
+        }, 
+        {
+            "location": "/Integration/EasyPDF/", 
+            "text": "EasyPDF deployment and configuration\n\n\nSoftware Requirements\n\n\nThe following software will have to be installed on the EasyPDF server : \n\n1.  Windows Server 2008 32/64 bit.\n\n2.  PaperTrail 32 bit (latest release available).\n\n3.  EasyPDF version 6/7 32 bit.\n\n4.  EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453\nand\u00a0EasyPDF 7 requires Addon r8738).\n\n5.  Microsoft Office 2010.\n\n6.  Any other native applications that may need to be converted to\nPDF by EasyPDF (i.e. AutoCAD).  \n\n\nNote : UAC should be disabled on the machine before any software is\ninstalled.\n\n\nLocal Installation\n\n\n(Both PaperTrail and EasyPDF running on same host) :\n\n\n\n\nInstall EasyPDF application.\n\n\nInstall PaperTrail release.\n\n\nInstall EasyPDF PaperTrail Addon.\n\n\nSet the \u201cBCL easyPDF SDK 7 Loader\u201d and \u201cPapertrail\u201d services to\nrun as the same account which should be granted administrative\npermissions.\n\n\nStart PaperTrail and confirm that installation was successful.\n\n\nAdd the following line to the easypdf.properties file and restart\nPaperTrail thereafter :\n\n\n\n\neasypdf.word.nativeOfficePDF=true\n\n\n\n\n\n\nImport test documents to confirm that all is set up correctly.\n\n\n\n\nRemote Installation\n\n\n(Both PaperTrail and EasyPDF running on separate hosts) :\n\n\nEasyPDF server\n\n\nSame as \nLocal Installation\n\n\nPaperTrail application server\n :\n\n\n1.\u00a0Once PaperTrail is up and running, set the below properties in\nthe papertrail.properties file to enable remote conversions :\n\n\nconversion.filetype.\\*=remote\nconversion.filetype.pdf=pdf\nconversion.remote.host=http://host1:8080\n\n\n\n\n2.\u00a0Import test documents on application server to confirm that all\nis set up correctly.\n\n\nTroubleshooting\n\n\nIf any conversion issue are being experienced, create a .vbs\nfile which can be run to test conversions outside of PaperTrail. The\npaths in the properties are input and output files, and should be\nconfigured accordingly :\n\n\nSet oPrinter = CreateObject(\neasyPDF.Printer.7\n)\nSet oPrintJob = oPrinter.PrintJob\noPrintJob.PrintOut \nC:\\\\test.txt\n, \nC:\\\\output.pdf\n\n\n\n\n\nAnother way to test the conversions is to navigate to\n\nC:\\Users\\Public\\Documents\\BCL Technologies\\easyPDF SDK\n7\\Samples\\Visual C#\\EasyPDFPrinterTest\n and then running\nEasyPDFPrinterTest.exe. This will allow you to select an input document\nto convert and specify the output path of the PDF.\n\n\nFor any more information, the user manual can be accessed \nhere", 
+            "title": "EasyPDF"
+        }, 
+        {
+            "location": "/Integration/EasyPDF/#easypdf-deployment-and-configuration", 
+            "text": "", 
+            "title": "EasyPDF deployment and configuration"
+        }, 
+        {
+            "location": "/Integration/EasyPDF/#software-requirements", 
+            "text": "The following software will have to be installed on the EasyPDF server :  \n1.  Windows Server 2008 32/64 bit. \n2.  PaperTrail 32 bit (latest release available). \n3.  EasyPDF version 6/7 32 bit. \n4.  EasyPDF PaperTrail Addon 32 bit (EasyPDF 6 requires Addon r5453\nand\u00a0EasyPDF 7 requires Addon r8738). \n5.  Microsoft Office 2010. \n6.  Any other native applications that may need to be converted to\nPDF by EasyPDF (i.e. AutoCAD).    Note : UAC should be disabled on the machine before any software is\ninstalled.", 
+            "title": "Software Requirements"
+        }, 
+        {
+            "location": "/Integration/EasyPDF/#local-installation", 
+            "text": "(Both PaperTrail and EasyPDF running on same host) :   Install EasyPDF application.  Install PaperTrail release.  Install EasyPDF PaperTrail Addon.  Set the \u201cBCL easyPDF SDK 7 Loader\u201d and \u201cPapertrail\u201d services to\nrun as the same account which should be granted administrative\npermissions.  Start PaperTrail and confirm that installation was successful.  Add the following line to the easypdf.properties file and restart\nPaperTrail thereafter :   easypdf.word.nativeOfficePDF=true   Import test documents to confirm that all is set up correctly.", 
+            "title": "Local Installation"
+        }, 
+        {
+            "location": "/Integration/EasyPDF/#remote-installation", 
+            "text": "(Both PaperTrail and EasyPDF running on separate hosts) :  EasyPDF server  Same as  Local Installation  PaperTrail application server  :  1.\u00a0Once PaperTrail is up and running, set the below properties in\nthe papertrail.properties file to enable remote conversions :  conversion.filetype.\\*=remote\nconversion.filetype.pdf=pdf\nconversion.remote.host=http://host1:8080  2.\u00a0Import test documents on application server to confirm that all\nis set up correctly.", 
+            "title": "Remote Installation"
+        }, 
+        {
+            "location": "/Integration/EasyPDF/#troubleshooting", 
+            "text": "If any conversion issue are being experienced, create a .vbs\nfile which can be run to test conversions outside of PaperTrail. The\npaths in the properties are input and output files, and should be\nconfigured accordingly :  Set oPrinter = CreateObject( easyPDF.Printer.7 )\nSet oPrintJob = oPrinter.PrintJob\noPrintJob.PrintOut  C:\\\\test.txt ,  C:\\\\output.pdf   Another way to test the conversions is to navigate to C:\\Users\\Public\\Documents\\BCL Technologies\\easyPDF SDK\n7\\Samples\\Visual C#\\EasyPDFPrinterTest  and then running\nEasyPDFPrinterTest.exe. This will allow you to select an input document\nto convert and specify the output path of the PDF.  For any more information, the user manual can be accessed  here", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/Integration/Folder Export/", 
+            "text": "Document Export\n\n\nThe autoExport rule can export documents via 3 different mechanisms:\n\n\nFolder\n\n\nFolder supports multiple folder types:\n\n\n\n\n\n\n\n\nSyntax\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n/folder/path\n\n\nLinux Format\n\n\n\n\n\n\nC:\\folder\\path\n\n\nWindows Format\n\n\n\n\n\n\n\\server1\\path\n\n\nWindows Only UNC style path - Note: Mapped drives are not supported\n\n\n\n\n\n\nsmb://server1/path\n\n\nSMB/CIFS format supported on both Linux and Windows - Integrated Authentication is not supported\n\n\n\n\n\n\nftp://server1/path\n\n\nFTP server supported on both Windows + Linux\n\n\n\n\n\n\n\n\nEmail\n\n\nPapertrail -\n Papertrail (REST HTTP): Uploads the document via HTTP post to the specified host,\n\n\nIf the URL does not contain a path then the following default is used:  \n\n\n/public/file/${_httpNodePath}/${_httpFilename}\n\n\n${_httpFilename}\n corresponds to  the URL encoded filename of the document\n\n\n${_httpNodePath}\n corresponds to the URL encoded node path  \n\n\nThis corresponds to the public API available for importing documents into PaperTrail.\n\n\nTo specify a different node path you would use:\n\n/public/file/Division/Cabinet/${_httpFilename}\n\n\nTo append indexes you would use:\n\n/public/file/${_httpNodePath}/${_httpFilename}?index1=staticValue1\nindex2=${docId}\n\n\nAnd to append all indexes:\n\n/public/file/${_httpNodePath}/${_httpFilename}?${_httpIndexes}\n\n\nExport Format\n\n\n\n\nSource - The original document  \n\n\nPDF - The PDF rendition or the original document  \n\n\nPDF Printout  - A PDF rendition that simulates a print to PDF event  \n\n\nDocument Archive - A ZIP file including all metadata and files  \n\n\nXML - An XML file including all metadata  \n\n\nScripted - Allows the use of script to create FileObject from the a DocumentModel", 
+            "title": "Folder Export"
+        }, 
+        {
+            "location": "/Integration/Folder Export/#document-export", 
+            "text": "The autoExport rule can export documents via 3 different mechanisms:", 
+            "title": "Document Export"
+        }, 
+        {
+            "location": "/Integration/Folder Export/#folder", 
+            "text": "Folder supports multiple folder types:     Syntax  Description      /folder/path  Linux Format    C:\\folder\\path  Windows Format    \\server1\\path  Windows Only UNC style path - Note: Mapped drives are not supported    smb://server1/path  SMB/CIFS format supported on both Linux and Windows - Integrated Authentication is not supported    ftp://server1/path  FTP server supported on both Windows + Linux", 
+            "title": "Folder"
+        }, 
+        {
+            "location": "/Integration/Folder Export/#email", 
+            "text": "Papertrail -  Papertrail (REST HTTP): Uploads the document via HTTP post to the specified host,  If the URL does not contain a path then the following default is used:    /public/file/${_httpNodePath}/${_httpFilename}  ${_httpFilename}  corresponds to  the URL encoded filename of the document  ${_httpNodePath}  corresponds to the URL encoded node path    This corresponds to the public API available for importing documents into PaperTrail.  To specify a different node path you would use: /public/file/Division/Cabinet/${_httpFilename}  To append indexes you would use: /public/file/${_httpNodePath}/${_httpFilename}?index1=staticValue1 index2=${docId}  And to append all indexes: /public/file/${_httpNodePath}/${_httpFilename}?${_httpIndexes}", 
+            "title": "Email"
+        }, 
+        {
+            "location": "/Integration/Folder Export/#export-format", 
+            "text": "Source - The original document    PDF - The PDF rendition or the original document    PDF Printout  - A PDF rendition that simulates a print to PDF event    Document Archive - A ZIP file including all metadata and files    XML - An XML file including all metadata    Scripted - Allows the use of script to create FileObject from the a DocumentModel", 
+            "title": "Export Format"
         }, 
         {
             "location": "/Integration/data-sources/", 
@@ -829,6 +869,41 @@
             "location": "/Reference/Linking/#regex-examples-eg", 
             "text": "1)   \\w+     : All alphanumeric values  2)   \\W      : A non-word character: [^\\w]  3)   \\d+     : All numeric values  4)   \\D      : A non-digit: [^0-9]  5)   \\s      : A whitespace character", 
             "title": "Regex Examples eg."
+        }, 
+        {
+            "location": "/Reference/Logging/", 
+            "text": "Logging\n\n\nUpdating the log settings\n\n\n\n\nAll log settings are stored in the \nconf/logback.groovy\n file.  \n\n\nThe \nAdmin -\n Services -\n Logging\n  page will make changes to this file if the After Restart option is selected.\n\n\n\n\nLoggers\n\n\n\n\n\n\n\n\nLogger\n\n\nDescription\n\n\nVerbosity\n\n\n\n\n\n\n\n\n\n\ncom.egis.index\n\n\nInfo about updates to the search index\n\n\n10+ lines per doc update\n\n\n\n\n\n\ncom.egis.index.query\n\n\nSQL and Search index queries\n\n\n10+ lines per search\n\n\n\n\n\n\ncom.egis.storage\n\n\nFile operations\n\n\n1+ lines per file read/write\n\n\n\n\n\n\ncom.egis.kernel.messaging\n\n\nAll messages \u2013 useful to see what is occurring as a whole\n\n\n10+ lines per transaction and/or event\n\n\n\n\n\n\ncom.egis.web.WebErrorHandlerImpl\n\n\nShow full validation and access denied errors\n\n\nFull stack on validation or access denied exception\n\n\n\n\n\n\ncom.egis.conversion\n\n\nIssues with converting files to PDF and Flash\n\n\nUp to 20+ lines per conversion\n\n\n\n\n\n\ncom.egis.web.ActionResource\n\n\nAll user actions initiated via the UI with params, very verbose\n\n\n1 long log line for every user action\n\n\n\n\n\n\ncom.egis.DocumentLogger\n\n\nAll actions on documents, somewhat verbose\n\n\nUp to 5 - 10 lines per document operation\n\n\n\n\n\n\ncom.egis.requests\n\n\nAll HTTP requests, very verbose\n\n\n1 line per HTTP request\n\n\n\n\n\n\ncom.egis.workflow\n\n\nAll Workflow rules fired up until a stationary rule is reached (Human Task, Unassigned Task)\n\n\n10+ lines depending on amount of rules\n\n\n\n\n\n\n\n\nLog file Retention\n\n\n\n\nTo configure the number of days to keep Papertrail logs, locate and edit the following document: \nPaperTrail/conf/logback.groovy\n\n\nThe example below keeps the logs for a period of 14 days:\n\n\n\n\nappender(\nFILE\n, RollingFileAppender) { \nfile = \nlogs/server.log\n     \nappend = true     \nrollingPolicy(TimeBasedRollingPolicy) {  \nmaxHistory = 14  \nFileNamePattern = \nlogs/server-%d{yyyy-MM-dd}.log\n\n}}\n\n\n\n\n\n\nLocate the section \nmaxHistory = 14\n. Please modify the 14 with the amount of days to keep logs.  \n\n\nRestart PaperTrail for the settings to take effect.  \n\n\n\n\nLogging to Syslog Host\n\n\nimport com.egis.utils.apm.*; \nimport org.productivity.java.syslog4j.impl.net.tcp.*; \nappender(\nSYSLOG\n, SyslogAppender) {  \nlayout(LogglyLayout) {        \napiToken = \nXXXXX\n     \n}     \nsyslogConfig(TCPNetSyslogConfig) { \nhost =  \nlogs-01.loggly.com\n\nport = 514\nident = \npapertrail\n     \n} \n}\n\n\n\n\nLogging to a GELF Host\n\n\nReplace //gelf in the logback.groovy with:\n\n\nappender(\nGELF\n, GelfAppender) { \nhost = \n${gelfHost}\n\nfilter(ThresholdFilter) { \nlevel = ${gelfLevel} \n} \nport = 12201 \nadditionalFields =  '{\nthreadName\n: \nthreadName\n, \nexception\n: \nexception\n, \nloggerName\n: \nloggerName\n, \nip\n:\nip\n,\nuser\n:\nuser\n,\ndoc\n:\ndoc\n}' \n}\n\n\n\n\nThe following properties will automate this setup: \ngelf.host\n and \ngelf.level", 
+            "title": "Logging"
+        }, 
+        {
+            "location": "/Reference/Logging/#logging", 
+            "text": "", 
+            "title": "Logging"
+        }, 
+        {
+            "location": "/Reference/Logging/#updating-the-log-settings", 
+            "text": "All log settings are stored in the  conf/logback.groovy  file.    The  Admin -  Services -  Logging   page will make changes to this file if the After Restart option is selected.", 
+            "title": "Updating the log settings"
+        }, 
+        {
+            "location": "/Reference/Logging/#loggers", 
+            "text": "Logger  Description  Verbosity      com.egis.index  Info about updates to the search index  10+ lines per doc update    com.egis.index.query  SQL and Search index queries  10+ lines per search    com.egis.storage  File operations  1+ lines per file read/write    com.egis.kernel.messaging  All messages \u2013 useful to see what is occurring as a whole  10+ lines per transaction and/or event    com.egis.web.WebErrorHandlerImpl  Show full validation and access denied errors  Full stack on validation or access denied exception    com.egis.conversion  Issues with converting files to PDF and Flash  Up to 20+ lines per conversion    com.egis.web.ActionResource  All user actions initiated via the UI with params, very verbose  1 long log line for every user action    com.egis.DocumentLogger  All actions on documents, somewhat verbose  Up to 5 - 10 lines per document operation    com.egis.requests  All HTTP requests, very verbose  1 line per HTTP request    com.egis.workflow  All Workflow rules fired up until a stationary rule is reached (Human Task, Unassigned Task)  10+ lines depending on amount of rules", 
+            "title": "Loggers"
+        }, 
+        {
+            "location": "/Reference/Logging/#log-file-retention", 
+            "text": "To configure the number of days to keep Papertrail logs, locate and edit the following document:  PaperTrail/conf/logback.groovy  The example below keeps the logs for a period of 14 days:   appender( FILE , RollingFileAppender) { \nfile =  logs/server.log      \nappend = true     \nrollingPolicy(TimeBasedRollingPolicy) {  \nmaxHistory = 14  \nFileNamePattern =  logs/server-%d{yyyy-MM-dd}.log \n}}   Locate the section  maxHistory = 14 . Please modify the 14 with the amount of days to keep logs.    Restart PaperTrail for the settings to take effect.", 
+            "title": "Log file Retention"
+        }, 
+        {
+            "location": "/Reference/Logging/#logging-to-syslog-host", 
+            "text": "import com.egis.utils.apm.*; \nimport org.productivity.java.syslog4j.impl.net.tcp.*; \nappender( SYSLOG , SyslogAppender) {  \nlayout(LogglyLayout) {        \napiToken =  XXXXX      \n}     \nsyslogConfig(TCPNetSyslogConfig) { \nhost =   logs-01.loggly.com \nport = 514\nident =  papertrail      \n} \n}", 
+            "title": "Logging to Syslog Host"
+        }, 
+        {
+            "location": "/Reference/Logging/#logging-to-a-gelf-host", 
+            "text": "Replace //gelf in the logback.groovy with:  appender( GELF , GelfAppender) { \nhost =  ${gelfHost} \nfilter(ThresholdFilter) { \nlevel = ${gelfLevel} \n} \nport = 12201 \nadditionalFields =  '{ threadName :  threadName ,  exception :  exception ,  loggerName :  loggerName ,  ip : ip , user : user , doc : doc }' \n}  The following properties will automate this setup:  gelf.host  and  gelf.level", 
+            "title": "Logging to a GELF Host"
         }, 
         {
             "location": "/Reference/health/", 
@@ -1144,6 +1219,26 @@
             "location": "/Troubleshooting/cpu-usage/#analyzing-a-thread-dump", 
             "text": "Analyzing a thread dump involves looking through all the threads on the\nrunning system to identify a pattern.    Any thread in a  TIMED_WAITING  or  WAITING  state can be safely ignored\nas these threads are sleeping waiting for something else to occur.    Jetty threads in the\u00a0 java.net.SocketInputStream.socketRead RUNNING state can also be ignored as they are waiting for a client to make a TCP/IP connection", 
             "title": "Analyzing a Thread Dump"
+        }, 
+        {
+            "location": "/Troubleshooting/db-tuning/", 
+            "text": "Database Performance Tuning\n\n\n\n\nUse READ COMMITTED default tx isolation level.\n\n\nUse a transaction logging mode that allows point in time recovery\n    (PITR) if possible\n\n\n\n\nRecommended PostgreSQL Settings\n\n\nmax_connections = 300 shared_buffers =\u00a01GB\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0# increase based on db and RAM size \ntemp_buffers = 1GB\u00a0\u00a0# increase based on db and RAM size \nmax_prepared_transactions = 0 \nwork_mem = 4MB \nmaintenance_work_mem = 512MB\neffective_io_concurrency = 4\u00a0\u00a0 \u00a0 \nwal_level = archive\u00a0\u00a0 \u00a0# allows PITR and restore \nfsync = on\u00a0\u00a0 # setting it to off can boost performance at the risk of full db corruption\nsynchronous_commit = on \u00a0# can be safely set to off full_page_writes = on\n\n\n\n\nRecommended MySQL Settings\n\n\ncharacter-set-server=utf8\ndefault-character-set=utf8\ndefault-storage-engine=INNODB\nmax_connections=800\n\n# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 \ninnodb_flush_log_at_trx_commit=1\u00a0 \nsync_binlog=1  \n\n# increase based on db size and RAM \ninnodb_buffer_pool_size=1G \ntx_isolation=READ-COMMITTED\nbinlog-format=ROW  \ntmp_table_size=64M \ninnodb_log_file_size=500M \nmax_allowed_packet=4M  \ninnodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 \n\n# disable query cache \nquery_cache_size=0 \nquery_cache_type=0 \nthread_cache_size=10", 
+            "title": "Db tuning"
+        }, 
+        {
+            "location": "/Troubleshooting/db-tuning/#database-performance-tuning", 
+            "text": "Use READ COMMITTED default tx isolation level.  Use a transaction logging mode that allows point in time recovery\n    (PITR) if possible", 
+            "title": "Database Performance Tuning"
+        }, 
+        {
+            "location": "/Troubleshooting/db-tuning/#recommended-postgresql-settings", 
+            "text": "max_connections = 300 shared_buffers =\u00a01GB\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0# increase based on db and RAM size \ntemp_buffers = 1GB\u00a0\u00a0# increase based on db and RAM size \nmax_prepared_transactions = 0 \nwork_mem = 4MB \nmaintenance_work_mem = 512MB\neffective_io_concurrency = 4\u00a0\u00a0 \u00a0 \nwal_level = archive\u00a0\u00a0 \u00a0# allows PITR and restore \nfsync = on\u00a0\u00a0 # setting it to off can boost performance at the risk of full db corruption\nsynchronous_commit = on \u00a0# can be safely set to off full_page_writes = on", 
+            "title": "Recommended PostgreSQL Settings"
+        }, 
+        {
+            "location": "/Troubleshooting/db-tuning/#recommended-mysql-settings", 
+            "text": "character-set-server=utf8\ndefault-character-set=utf8\ndefault-storage-engine=INNODB\nmax_connections=800\n\n# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 \ninnodb_flush_log_at_trx_commit=1\u00a0 \nsync_binlog=1  \n\n# increase based on db size and RAM \ninnodb_buffer_pool_size=1G \ntx_isolation=READ-COMMITTED\nbinlog-format=ROW  \ntmp_table_size=64M \ninnodb_log_file_size=500M \nmax_allowed_packet=4M  \ninnodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 \n\n# disable query cache \nquery_cache_size=0 \nquery_cache_type=0 \nthread_cache_size=10", 
+            "title": "Recommended MySQL Settings"
         }, 
         {
             "location": "/Troubleshooting/exceptions/", 

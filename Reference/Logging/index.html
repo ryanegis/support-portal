@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Db tuning - Support Portal</title>
+        <title>Logging - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 </li>
                             
 <li >
-    <a href="../../Configuration/EasyPDF/">EasyPDF</a>
+    <a href="../../Configuration/Extract from Templates/">Extract from Templates</a>
 </li>
                             
 <li >
@@ -78,7 +78,15 @@
 </li>
                             
 <li >
+    <a href="../../Configuration/Setup and Configuring Extract From Templates/">Setup and Configuring Extract From Templates</a>
+</li>
+                            
+<li >
     <a href="../../Configuration/WebScan/">WebScan</a>
+</li>
+                            
+<li >
+    <a href="../../Configuration/Yaml Config/">Yaml Config</a>
 </li>
                             
 <li >
@@ -98,48 +106,44 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Replication/">Replication</a>
+    <a href="../../Installation/Replication/">Replication</a>
 </li>
                             
 <li >
-    <a href="../Sizing/">Sizing</a>
+    <a href="../../Installation/Sizing/">Sizing</a>
 </li>
                             
 <li >
-    <a href="../Ubuntu-Linux/">Ubuntu Linux</a>
+    <a href="../../Installation/Ubuntu-Linux/">Ubuntu Linux</a>
 </li>
                             
 <li >
-    <a href="../Windows/">Windows</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Db tuning</a>
+    <a href="../../Installation/Windows/">Windows</a>
 </li>
                             
 <li >
-    <a href="../end-user-installation/">End user installation</a>
+    <a href="../../Installation/end-user-installation/">End user installation</a>
 </li>
                             
 <li >
-    <a href="../macosx/">Macosx</a>
+    <a href="../../Installation/macosx/">Macosx</a>
 </li>
                             
 <li >
-    <a href="../server-installation/">Server installation</a>
+    <a href="../../Installation/server-installation/">Server installation</a>
 </li>
                             
 <li >
-    <a href="../service/">Service</a>
+    <a href="../../Installation/service/">Service</a>
 </li>
                             
 <li >
-    <a href="../solution/">Solution</a>
+    <a href="../../Installation/solution/">Solution</a>
 </li>
                         </ul>
                     </li>
@@ -149,6 +153,14 @@
                             
 <li >
     <a href="../../Integration/Database/">Database</a>
+</li>
+                            
+<li >
+    <a href="../../Integration/EasyPDF/">EasyPDF</a>
+</li>
+                            
+<li >
+    <a href="../../Integration/Folder Export/">Folder Export</a>
 </li>
                             
 <li >
@@ -168,48 +180,52 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../Reference/Cold Standby Failover Procedure/">Cold Standby Failover Procedure</a>
+    <a href="../Cold Standby Failover Procedure/">Cold Standby Failover Procedure</a>
 </li>
                             
 <li >
-    <a href="../../Reference/Document Properties/">Document Properties</a>
+    <a href="../Document Properties/">Document Properties</a>
 </li>
                             
 <li >
-    <a href="../../Reference/Linking/">Linking</a>
+    <a href="../Linking/">Linking</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Logging</a>
 </li>
                             
 <li >
-    <a href="../../Reference/health/">Health</a>
+    <a href="../health/">Health</a>
 </li>
                             
 <li >
-    <a href="../../Reference/licensing/">Licensing</a>
+    <a href="../licensing/">Licensing</a>
 </li>
                             
 <li >
-    <a href="../../Reference/linking_syntax/">Linking syntax</a>
+    <a href="../linking_syntax/">Linking syntax</a>
 </li>
                             
 <li >
-    <a href="../../Reference/maintenance/">Maintenance</a>
+    <a href="../maintenance/">Maintenance</a>
 </li>
                             
 <li >
-    <a href="../../Reference/pql/">Pql</a>
+    <a href="../pql/">Pql</a>
 </li>
                             
 <li >
-    <a href="../../Reference/regex/">Regex</a>
+    <a href="../regex/">Regex</a>
 </li>
                             
 <li >
-    <a href="../../Reference/standard_expression/">Standard expression</a>
+    <a href="../standard_expression/">Standard expression</a>
 </li>
                         </ul>
                     </li>
@@ -234,6 +250,10 @@
 </li>
                             
 <li >
+    <a href="../../Troubleshooting/db-tuning/">Db tuning</a>
+</li>
+                            
+<li >
     <a href="../../Troubleshooting/exceptions/">Exceptions</a>
 </li>
                         </ul>
@@ -247,12 +267,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Windows/">
+                        <a rel="next" href="../Linking/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../end-user-installation/">
+                        <a rel="prev" href="../health/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -264,55 +284,130 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#database-performance-tuning">Database Performance Tuning</a></li>
-            <li><a href="#recommended-postgresql-settings">Recommended PostgreSQL Settings</a></li>
-            <li><a href="#recommended-mysql-settings">Recommended MySQL Settings</a></li>
+        <li class="main active"><a href="#logging">Logging</a></li>
+            <li><a href="#updating-the-log-settings">Updating the log settings</a></li>
+            <li><a href="#loggers">Loggers</a></li>
+            <li><a href="#log-file-retention">Log file Retention</a></li>
+            <li><a href="#logging-to-syslog-host">Logging to Syslog Host</a></li>
+            <li><a href="#logging-to-a-gelf-host">Logging to a GELF Host</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="database-performance-tuning">Database Performance Tuning</h1>
+<h1 id="logging">Logging</h1>
+<h2 id="updating-the-log-settings">Updating the log settings</h2>
 <ul>
-<li>Use READ COMMITTED default tx isolation level.</li>
-<li>Use a transaction logging mode that allows point in time recovery
-    (PITR) if possible</li>
+<li>All log settings are stored in the <code>conf/logback.groovy</code> file.  </li>
+<li>The <em>Admin -&gt; Services -&gt; Logging</em>  page will make changes to this file if the After Restart option is selected.</li>
 </ul>
-<h3 id="recommended-postgresql-settings">Recommended PostgreSQL Settings</h3>
-<pre><code>max_connections = 300 shared_buffers = 1GB                # increase based on db and RAM size 
-temp_buffers = 1GB  # increase based on db and RAM size 
-max_prepared_transactions = 0 
-work_mem = 4MB 
-maintenance_work_mem = 512MB
-effective_io_concurrency = 4     
-wal_level = archive    # allows PITR and restore 
-fsync = on   # setting it to off can boost performance at the risk of full db corruption
-synchronous_commit = on  # can be safely set to off full_page_writes = on
+<h2 id="loggers">Loggers</h2>
+<table>
+<thead>
+<tr>
+<th>Logger</th>
+<th>Description</th>
+<th>Verbosity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>com.egis.index</td>
+<td>Info about updates to the search index</td>
+<td>10+ lines per doc update</td>
+</tr>
+<tr>
+<td>com.egis.index.query</td>
+<td>SQL and Search index queries</td>
+<td>10+ lines per search</td>
+</tr>
+<tr>
+<td>com.egis.storage</td>
+<td>File operations</td>
+<td>1+ lines per file read/write</td>
+</tr>
+<tr>
+<td>com.egis.kernel.messaging</td>
+<td>All messages – useful to see what is occurring as a whole</td>
+<td>10+ lines per transaction and/or event</td>
+</tr>
+<tr>
+<td>com.egis.web.WebErrorHandlerImpl</td>
+<td>Show full validation and access denied errors</td>
+<td>Full stack on validation or access denied exception</td>
+</tr>
+<tr>
+<td>com.egis.conversion</td>
+<td>Issues with converting files to PDF and Flash</td>
+<td>Up to 20+ lines per conversion</td>
+</tr>
+<tr>
+<td>com.egis.web.ActionResource</td>
+<td>All user actions initiated via the UI with params, very verbose</td>
+<td>1 long log line for every user action</td>
+</tr>
+<tr>
+<td>com.egis.DocumentLogger</td>
+<td>All actions on documents, somewhat verbose</td>
+<td>Up to 5 - 10 lines per document operation</td>
+</tr>
+<tr>
+<td>com.egis.requests</td>
+<td>All HTTP requests, very verbose</td>
+<td>1 line per HTTP request</td>
+</tr>
+<tr>
+<td>com.egis.workflow</td>
+<td>All Workflow rules fired up until a stationary rule is reached (Human Task, Unassigned Task)</td>
+<td>10+ lines depending on amount of rules</td>
+</tr>
+</tbody>
+</table>
+<h2 id="log-file-retention">Log file Retention</h2>
+<ul>
+<li>To configure the number of days to keep Papertrail logs, locate and edit the following document: <code>PaperTrail/conf/logback.groovy</code></li>
+<li>The example below keeps the logs for a period of 14 days:</li>
+</ul>
+<pre><code class="javascript">appender(&quot;FILE&quot;, RollingFileAppender) { 
+file = &quot;logs/server.log&quot;     
+append = true     
+rollingPolicy(TimeBasedRollingPolicy) {  
+maxHistory = 14  
+FileNamePattern = &quot;logs/server-%d{yyyy-MM-dd}.log&quot;
+}}
 </code></pre>
 
-<h3 id="recommended-mysql-settings">Recommended MySQL Settings</h3>
-<pre><code>character-set-server=utf8
-default-character-set=utf8
-default-storage-engine=INNODB
-max_connections=800
+<ul>
+<li>Locate the section <code>maxHistory = 14</code>. Please modify the 14 with the amount of days to keep logs.  </li>
+<li>Restart PaperTrail for the settings to take effect.  </li>
+</ul>
+<h2 id="logging-to-syslog-host">Logging to Syslog Host</h2>
+<pre><code class="javascript">import com.egis.utils.apm.*; 
+import org.productivity.java.syslog4j.impl.net.tcp.*; 
+appender(&quot;SYSLOG&quot;, SyslogAppender) {  
+layout(LogglyLayout) {        
+apiToken = &quot;XXXXX&quot;     
+}     
+syslogConfig(TCPNetSyslogConfig) { 
+host =  &quot;logs-01.loggly.com&quot;
+port = 514
+ident = &quot;papertrail&quot;     
+} 
+}
+</code></pre>
 
-# 0 = log and flush once per second, set sync_binlog=2 # 2 = log on commit and flush once per second, set sync_binlog=2 
-innodb_flush_log_at_trx_commit=1  
-sync_binlog=1  
+<h2 id="logging-to-a-gelf-host">Logging to a GELF Host</h2>
+<p>Replace //gelf in the logback.groovy with:</p>
+<pre><code class="javascript">appender(&quot;GELF&quot;, GelfAppender) { 
+host = &quot;${gelfHost}&quot;
+filter(ThresholdFilter) { 
+level = ${gelfLevel} 
+} 
+port = 12201 
+additionalFields =  '{&quot;threadName&quot;: &quot;threadName&quot;, &quot;exception&quot;: &quot;exception&quot;, &quot;loggerName&quot;: &quot;loggerName&quot;, &quot;ip&quot;:&quot;ip&quot;,&quot;user&quot;:&quot;user&quot;,&quot;doc&quot;:&quot;doc&quot;}' 
+}
+</code></pre>
 
-# increase based on db size and RAM 
-innodb_buffer_pool_size=1G 
-tx_isolation=READ-COMMITTED
-binlog-format=ROW  
-tmp_table_size=64M 
-innodb_log_file_size=500M 
-max_allowed_packet=4M  
-innodb_thread_concurrency=10 # make buffer pool instances roughly equal the size of the pool in GB's e.g. for an 8GB pool use: #innodb_buffer_pool_instances=8 
-
-# disable query cache 
-query_cache_size=0 
-query_cache_type=0 
-thread_cache_size=10
-</code></pre></div>
+<p>The following properties will automate this setup: <code>gelf.host</code> and <code>gelf.level</code></p></div>
         </div>
 
         <footer class="col-md-12">
