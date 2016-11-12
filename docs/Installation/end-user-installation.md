@@ -12,7 +12,7 @@ The minimum requirements that are advised for Workstations are as follows:
 ### Advanced Plugin
 1. Click on Help / Cog -> Check Installation and then follow the instructions that will guide you through the installation process
 
-See [Windows](Windows)
+See [Windows](Desktop Agent)
 
 For silent installation use following command:
 ```
@@ -23,12 +23,12 @@ PaperTrailSetup.exe /S
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
 
-See [Windows](Windows) and [Linux](http://docs.papertrail.co.za/Installation/desktop-agent-linux)
+See [Windows](Desktop Agent) and [Linux](http://docs.papertrail.co.za/Installation/desktop-agent-linux)
 ### Office Addin
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
 
-See [Windows](Windows)
+See [Windows](Desktop Agent)
 ### Web Scan
 
 Web scan is distributed as an addon to the Advanced Plugin:
