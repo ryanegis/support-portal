@@ -131,36 +131,6 @@
             "title": "Extract from Templates"
         }, 
         {
-            "location": "/Configuration/LDAP/", 
-            "text": "LDAP Configuration\n\n\nOpenLDAP\n\n\nConfigure User format = uid=${user},o=Directory\n\n\n\nNote:\n Active directory will return less results and attributes when\nusing port 3268 vs 389\n\n\nMultiple LDAP Servers\n\n\nConfigured by addition a set of properties per domain:\n\n\nldap.extra.domain1-corp.local.host=\nldap.extra.domain1-corp.local.user=\nldap.extra.domain1-corp.local.pass=\n\nldap.extra.domain2-corp.local.host=\nldap.extra.domain2-corp.local.user=\nldap.extra.domain2-corp.local.pass=\n\n\n\n\nSynchronizing With LDAP / Active Directory\n\n\n\n\nCheck LDAP -> Auto Create users to create new users from LDAP when\nthey login\\  \n\n\nCheck LDAP -> Auto Sync Groups \u00a0to synchronize group membership, this\nwill sync on user create and on the interval specified under\nAuthentication -> Group Sync Interval\n\n\n\n\nTroubleshooting\n\n\nGet the LDAP queries that PaperTrail is executing by increasing the\n    log level: \u00a0\ncom.egis.utils.ldap\n\u00a0in\u00a0\n 8.8.4 or\n    \ncom.egis.security.ldap\n\u00a0in 8.8.4+\n\n\nDEBUG to see the results of queries\\\n TRACE to see the actual query being run and authentication requests\n\n\n\n\nUse an off the shelf tool to check what options work when\n    connecting:\n\n\n\n\nGUI:\n\n\nhttp://jxplorer.org/\n\n\nhttp://www.ldapsoft.com/ldapbrowser/ldapadmintool.html\n\n\nCLI:\n\n\nldapsearch -h 172.16.237.131 -D \nadministrator@corp.egis-software.com\n -w \npassword -b \ncn=users,dc=corp,dc=egis-software,dc=com\n -s sub \n(\n(objectClass=user)(mail=*))\n '*'\n\n\n\n\n\n\nUse tcpdump\u00a0or wireshark to capture ldap\u00a0queries and results at the\nprotocol level.\\\n\n\nAdjust the LDAP query string in Services -> Properties -> LDAP as\n    appropriate", 
-            "title": "LDAP"
-        }, 
-        {
-            "location": "/Configuration/LDAP/#ldap-configuration", 
-            "text": "", 
-            "title": "LDAP Configuration"
-        }, 
-        {
-            "location": "/Configuration/LDAP/#openldap", 
-            "text": "Configure User format = uid=${user},o=Directory  Note:  Active directory will return less results and attributes when\nusing port 3268 vs 389", 
-            "title": "OpenLDAP"
-        }, 
-        {
-            "location": "/Configuration/LDAP/#multiple-ldap-servers", 
-            "text": "Configured by addition a set of properties per domain:  ldap.extra.domain1-corp.local.host=\nldap.extra.domain1-corp.local.user=\nldap.extra.domain1-corp.local.pass=\n\nldap.extra.domain2-corp.local.host=\nldap.extra.domain2-corp.local.user=\nldap.extra.domain2-corp.local.pass=", 
-            "title": "Multiple LDAP Servers"
-        }, 
-        {
-            "location": "/Configuration/LDAP/#synchronizing-with-ldap-active-directory", 
-            "text": "Check LDAP -> Auto Create users to create new users from LDAP when\nthey login\\    Check LDAP -> Auto Sync Groups \u00a0to synchronize group membership, this\nwill sync on user create and on the interval specified under\nAuthentication -> Group Sync Interval", 
-            "title": "Synchronizing With LDAP / Active Directory"
-        }, 
-        {
-            "location": "/Configuration/LDAP/#troubleshooting", 
-            "text": "Get the LDAP queries that PaperTrail is executing by increasing the\n    log level: \u00a0 com.egis.utils.ldap \u00a0in\u00a0  8.8.4 or\n     com.egis.security.ldap \u00a0in 8.8.4+  DEBUG to see the results of queries\\\n TRACE to see the actual query being run and authentication requests   Use an off the shelf tool to check what options work when\n    connecting:   GUI:  http://jxplorer.org/  http://www.ldapsoft.com/ldapbrowser/ldapadmintool.html  CLI:  ldapsearch -h 172.16.237.131 -D  administrator@corp.egis-software.com  -w \npassword -b  cn=users,dc=corp,dc=egis-software,dc=com  -s sub  ( (objectClass=user)(mail=*))  '*'   Use tcpdump\u00a0or wireshark to capture ldap\u00a0queries and results at the\nprotocol level.\\  Adjust the LDAP query string in Services -> Properties -> LDAP as\n    appropriate", 
-            "title": "Troubleshooting"
-        }, 
-        {
             "location": "/Configuration/Logging/", 
             "text": "Logging\n\n\nUpdating the log settings\n\n\n\n\nAll log settings are stored in the \nconf/logback.groovy\n file\u00a0\n\n\nThe \nAdmin -> Services -> Logging\n \u00a0page will make changes to this file\nif the After Restart \u00a0option is selected\n\n\n\n\nLog file Retention\n\n\n\n\nTo configure the number of days to keep Papertrail logs, locate and\n    edit the following document:\u00a0\nPaperTrail/conf/logback.groovy\n\ne.g. keeps the logs for a period of 14 days:\n\n\n\n\nappender(\nFILE\n, RollingFileAppender) {         \u00a0\u00a0\u00a0\u00a0\n    file\u00a0=\u00a0\nlogs/server.log\n         \u00a0\u00a0\u00a0\u00a0\n    append\u00a0=\u00a0true         \u00a0\u00a0\u00a0\u00a0\n    rollingPolicy(TimeBasedRollingPolicy) {         \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\n        maxHistory\u00a0=\u00a014         \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \n        FileNamePattern\u00a0=\u00a0\nlogs/server-%d{yyyy-MM-dd}.log\n         \u00a0\u00a0\u00a0 \n    }         \n}\n\n\n\n\n\n\nLocate the section\u00a0\nmaxHistory = 14\n\u00a0 modify the 14 with\n    the amount of days to keep logs.\n\n\nRestart PaperTrail for the settings to take effect.\n\n\n\n\nLogging to Syslog Host\n\n\n``java\nimport com.egis.utils.apm.\n; \nimport org.productivity.java.syslog4j.impl.net.tcp.\n; \n\n\nappender(\"SYSLOG\", SyslogAppender) { \u00a0\n  \u00a0 layout(LogglyLayout) { \u00a0\u00a0 \u00a0apiToken = \"XXXXX\" \u00a0 \u00a0 } \u00a0 \u00a0\n  \u00a0 syslogConfig(TCPNetSyslogConfig) { \u00a0 \u00a0 \n  \u00a0     host = \u00a0\"logs-01.loggly.com\"\n        port = 514\n        ident = \"papertrail\"\n  \u00a0\u00a0} \n}\n\n\n\n## Logging to a GELF Host \n\nReplace //gelf in the logback.groovy with:\n\n```groovy\nappender(\nGELF\n, GelfAppender) { \u00a0 \u00a0 \n    host = \n${gelfHost}\n \u00a0 \u00a0\n    filter(ThresholdFilter) { \u00a0 \u00a0 \u00a0 \n \u00a0      level = ${gelfLevel} \u00a0 \n \u00a0 } \u00a0 \u00a0\n \u00a0 port = 12201 \u00a0\n \u00a0 additionalFields = \u00a0'{\nthreadName\n: \nthreadName\n, \nexception\n: \nexception\n, \nloggerName\n: \nloggerName\n, \nip\n:\nip\n,\nuser\n:\nuser\n,\ndoc\n:\ndoc\n}' \n}\n\n\n\n\nThe following properties will automate this\nsetup:\u00a0\ngelf.host\n\u00a0and\u00a0\ngelf.level\n\n\nLogging to individual files per logger\n\n\ne.g. to append file access logs to a standalone \nstorage.log\n file:\n\n\nappender(\nSTORAGE\n, RollingFileAppender) {\n    file = \nlogs/storage.log\n\n    append = true\n    rollingPolicy(TimeBasedRollingPolicy) {\n        maxHistory = 14\n        FileNamePattern = \nlogs/storahe-%d{yyyy-MM-dd}.log\n\n    }\n    encoder(PatternLayoutEncoder) {\n        pattern = \n%d{HH:mm:ss.SSS} %level %logger{0} [%X{user}%X{doc}:%X{ip}] %msg%n\n\n    }\n}\n\n\nlogger('com.egis.storage', INFO)\nlogger(\ncom.egis.storage\n, DEBUG, ['STORAGE'], false)", 
             "title": "Logging"
@@ -364,6 +334,16 @@
             "location": "/Configuration/ssl/#configuring-client-authentication-mutual-ssl", 
             "text": "Configure server side SSL as above  Create a new a JKS file called  truststore  containing the trusted CA's  Check Require Client Certificates ( http.ssl.client.require )   Configuring client certificates requires that  all  clients supply a trusted certificate.  The Common Name ( CN ) of the certificate will be used to map the a certificate to a user via the login field.", 
             "title": "Configuring Client Authentication (Mutual SSL)"
+        }, 
+        {
+            "location": "/Installation/Desktop Agent/", 
+            "text": "Desktop Agent\n\n\n\n\nClick Next to proceed with installation.\n\n\n\n\nAfter selecting destination directory, click Next. \n\n\n\n\nEnable the Create a Start Menu Folder and click Next.\n\n\n\n\nPlease wait while PaperTrail Desktop Agent is installed.\n\n\n\n\nSelect Additional Tasks and click Next.\n\n\n\n\nClick Finish.\n\n\n\n\nAfter the installation, select a Setup Type and click Next.\n\n\n\n\nYou can enter your PaperTrail server details and click Next.\n\n\n\n\nYou can select your Watched Folders location as displayed and click Next.\n\n\n\n\nSelect a Document Type and click Next.\n\n\n\n\nClick Finish to complete the setup process.\n\n\n\n\nYou can go to the following link to access the desktop agent: \nhttp://localhost:8884\n.", 
+            "title": "Desktop Agent"
+        }, 
+        {
+            "location": "/Installation/Desktop Agent/#desktop-agent", 
+            "text": "Click Next to proceed with installation.   After selecting destination directory, click Next.    Enable the Create a Start Menu Folder and click Next.   Please wait while PaperTrail Desktop Agent is installed.   Select Additional Tasks and click Next.   Click Finish.   After the installation, select a Setup Type and click Next.   You can enter your PaperTrail server details and click Next.   You can select your Watched Folders location as displayed and click Next.   Select a Document Type and click Next.   Click Finish to complete the setup process.   You can go to the following link to access the desktop agent:  http://localhost:8884 .", 
+            "title": "Desktop Agent"
         }, 
         {
             "location": "/Installation/Replication/", 
