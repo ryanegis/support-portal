@@ -4,7 +4,10 @@
 
 *  Install Oracle Java 8 SDK:
 ```javascript
-add-apt-repository ppa:webupd8team/java --yes apt-get update echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true |  /usr/bin/debconf-set-selections apt-get install oracle-java8-installer update-java-alternatives -s java-8-oracle
+add-apt-repository ppa:webupd8team/java --yes   
+apt-get update   
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+apt-get install oracle-java8-installer update-java-alternatives -s java-8-oracle  
 ```
 
 *  Install JCE Unlimited strength policy files for some AES-256 encryption operations (optional).
@@ -29,9 +32,13 @@ apt-get install postgresql-9.3
 *  Create database and postgres Papertrail user:
 
 ```javascript
-PSQL_VERSION=9.3 sudo -u postgres psql -c "CREATE ROLE papertrail PASSWORD 'papertrail' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" 
-sudo -u postgres psql -c 'create database papertrail with owner papertrail;' 
-echo host papertrail                                                                      papertrail  127.0.0.1/32                                                                    md5 >> /etc/postgresql/$PSQL_VERSION/main/pg_hba.conf /etc/init.d/postgresql restart
+PSQL_VERSION=9.3 sudo -u postgres psql -c 
+"CREATE ROLE papertrail PASSWORD 'papertrail' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"   
+sudo -u postgres psql -c 'create database papertrail with owner papertrail;'  
+echo host  
+papertrail  
+papertrail  127.0.0.1/32              
+md5 >> /etc/postgresql/$PSQL_VERSION/main/pg_hba.conf /etc/init.d/postgresql restart
 ```
 
 ## Conversion
