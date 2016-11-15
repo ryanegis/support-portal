@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Extract from Templates - Support Portal</title>
+        <title>Template Extraction - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -65,16 +65,12 @@
     <a href="../Branding/">Branding</a>
 </li>
                             
-<li class="active">
-    <a href="./">Extract from Templates</a>
-</li>
-                            
 <li >
     <a href="../Logging/">Logging</a>
 </li>
                             
-<li >
-    <a href="../Setup and Configuring Extract From Templates/">Setup and Configuring Extract From Templates</a>
+<li class="active">
+    <a href="./">Template Extraction</a>
 </li>
                             
 <li >
@@ -267,12 +263,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Branding/">
+                        <a rel="next" href="../Logging/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../Logging/">
+                        <a rel="prev" href="../WebScan/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -284,19 +280,43 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#extract-from-templates">Extract from Templates</a></li>
+        <li class="main active"><a href="#template-extraction">Template Extraction</a></li>
+            <li><a href="#extract-from-templates">Extract from Templates</a></li>
+            <li><a href="#setting-up-and-configuring-extract-from-template-rules">Setting up and Configuring Extract from Template rules</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="extract-from-templates">Extract from Templates</h1>
+<h1 id="template-extraction">Template Extraction</h1>
+<h2 id="extract-from-templates">Extract from Templates</h2>
 <ol>
 <li>Setup a folder called <strong>'extraction templates'</strong></li>
 <li>Extract templates from cloud client who has this setup.</li>
 <li>Bulk Export to obtain the extraction zones.</li>
 <li>Import the templates in the admin section from Tasks-&gt;Documents Archive.</li>
 <li>Add extract from template rules to those nodes that need to be setup.</li>
-</ol></div>
+</ol>
+<h2 id="setting-up-and-configuring-extract-from-template-rules">Setting up and Configuring Extract from Template rules</h2>
+<ul>
+<li>Add new extraction templates node under System as follow<br />
+<img alt="setup-1" src="../../images/setup-1.png" /> </li>
+<li>Import or copy documents ( PDF based ) to the extraction templates node, that you will be setting up as a template.  </li>
+<li>Setup new extractFromTemplates rule on the node where the documents will be importing. <br />
+<img alt="setup-2" src="../../images/setup-2.png" /> </li>
+<li>Select the Template Editor for the Template editor to open in a new window.   </li>
+<li>Select one of the documents that have been copied to your extraction templates node from the drop down
+<img alt="setup-3" src="../../images/setup-3.png" />  </li>
+<li>Add a new Static Field ( This field will be used to recognize the document to use with this template ) 
+<img alt="setup-4" src="../../images/setup-4.png" />   </li>
+<li>Ensure you add your default value for the documents to be recognized 
+<img alt="setup-5" src="../../images/setup-5.png" />   </li>
+<li>Add the new Zone Fields ( This will be configure for the Indexes ) 
+Change the field ID to match your index name. 
+<img alt="setup-6" src="../../images/setup-6.png" />   </li>
+<li>Position the field on the document where you want the information to read from the document. 
+<img alt="setup-7" src="../../images/setup-7.png" /></li>
+<li>Once completed hit the save and Redeploy button to save your work to start testing.  </li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
