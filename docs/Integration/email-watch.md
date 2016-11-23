@@ -1,4 +1,4 @@
-# Email
+# Email Watch
 
 ## Import emails from a specific email account
 1.  Add a new **Import Management -> Email Account**.  
