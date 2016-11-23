@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Branding - Support Portal</title>
+        <title>Advanced Permissions - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -53,8 +53,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="../Advanced Permissions/">Advanced Permissions</a>
+<li class="active">
+    <a href="./">Advanced Permissions</a>
 </li>
                             
 <li >
@@ -65,8 +65,8 @@
     <a href="../Barcode/">Barcode</a>
 </li>
                             
-<li class="active">
-    <a href="./">Branding</a>
+<li >
+    <a href="../Branding/">Branding</a>
 </li>
                             
 <li >
@@ -267,12 +267,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Barcode/">
+                        <a rel="next" href="../..">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../Logging/">
+                        <a rel="prev" href="../Backups/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -284,35 +284,145 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#branding-papertrail">Branding PaperTrail</a></li>
-            <li><a href="#login95backgroundpng-320x365">login_background.png (320x365)</a></li>
-            <li><a href="#papertrailpng-110x26">papertrail.png (110x26)</a></li>
-            <li><a href="#logopng-320x50">logo.png (320x50)</a></li>
-            <li><a href="#egispng-75x25">egis.png (75x25)</a></li>
+        <li class="main active"><a href="#advanced-permissions">Advanced Permissions</a></li>
+            <li><a href="#permissions-context">Permissions Context</a></li>
+        <li class="main "><a href="#permission-assignment">Permission Assignment</a></li>
+            <li><a href="#creating-a-role">Creating a role</a></li>
+            <li><a href="#creating-a-new-document-visibility-level">Creating a new document visibility level</a></li>
+            <li><a href="#applying-permissions-globally">Applying permissions globally</a></li>
+            <li><a href="#creating-administrator-level-permissions">Creating administrator level permissions</a></li>
+            <li><a href="#denying-users-out-of-a-group-permissions-on-a-node">Denying users out of a group permissions on a node</a></li>
+            <li><a href="#assigning-creators-additional-permissions">Assigning creators additional permissions</a></li>
+            <li><a href="#assigning-owners-additional-permissions">Assigning owners additional permissions</a></li>
+            <li><a href="#assigning-userscollaborators-additional-permissions">Assigning users/collaborators additional permissions</a></li>
+            <li><a href="#denying-administrators-access-to-specific-node">Denying administrators access to specific node</a></li>
+            <li><a href="#applying-index-level-permissions">Applying Index Level Permissions</a></li>
+            <li><a href="#make-a-user-a-site-wide-administrator">Make a User a Site-Wide Administrator</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="branding-papertrail">Branding PaperTrail</h1>
-<ul>
-<li>Images are placed in the System/images node.</li>
-<li>Images must end in .png (if they are a .jpeg or .gif they can be
-    safely renamed).</li>
-<li>Images should be the correct size, if the image is bigger or smaller
-    it should be manually resized before importing into System/images.</li>
-<li>To prevent the images from being overwritten after upgrades, they
-    should be permanently checked out.</li>
-</ul>
-<h2 id="login95backgroundpng-320x365">login_background.png (320x365)</h2>
-<p>The honeycomb that sits behind the login and password boxes.</p>
-<h2 id="papertrailpng-110x26">papertrail.png (110x26)</h2>
-<p>The logo that sits in the top left of the main application screen.<br />
-The background should be transparent.</p>
-<h2 id="logopng-320x50">logo.png (320x50)</h2>
-<p>The logo that sits above the honeycomb.<br />
-Add white space to the left of image to center it above the honeycomb.</p>
-<h2 id="egispng-75x25">egis.png (75x25)</h2>
-<p>The egis logo on the bottom right of the screen.</p></div>
+<h1 id="advanced-permissions">Advanced Permissions</h1>
+<p>Once you’ve added a user, you need to specify what features that user can access. PaperTrail offers an extensible permissions system that makes it easy both to assign basic permissions to a large number of users.</p>
+<p>PaperTrail simplifies assigning permissions to users through two constructs: groups and roles. A group is a collection of users, while a role is a collection of permissions.</p>
+<p>Note: While it is possible to assign permissions to individual users, we recommend as a rule that administrators assign permissions to groups and roles, and then associate these groups and roles with users, as maintaining individual permissions becomes more complex as one’s user base increases.</p>
+<p>When defining a permission for a group, role, or user, an administrator can specify one of three dispositions for that permission:<br />
+-  <strong>Permit</strong> : Grants the permission to the specified entity.<br />
+-  <strong>Deny</strong>: Forbids the specified entity from performing the defined action.<br />
+-  <strong>Important</strong>: overrides a Deny permissions.  </p>
+<h2 id="permissions-context">Permissions Context</h2>
+<p>Here is an overview of the different contexts in which permissions apply</p>
+<table>
+<thead>
+<tr>
+<th>Permissions</th>
+<th>Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All</td>
+<td>Always Applies</td>
+</tr>
+<tr>
+<td>Creator</td>
+<td>Applies to the user who created a document. (Note: In order to import a document in a node Permission=Import Context=All is required even though the Creator permissions will apply after import.)</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>Applies to the user or group currently set as owner of the document.</td>
+</tr>
+<tr>
+<td>User</td>
+<td>Applies to all the currently allocated users.</td>
+</tr>
+<tr>
+<td>Past User</td>
+<td>Applies to all previous users of a document.</td>
+</tr>
+<tr>
+<td>Record</td>
+<td>Applies only to documents that have been declared a record.</td>
+</tr>
+</tbody>
+</table>
+<p>Note: In order to a see a folder in the node tree <code>Permission=SEE Context=ALL</code> permissions are required as only the All context applies to nodes</p>
+<h1 id="permission-assignment">Permission Assignment</h1>
+<h2 id="creating-a-role">Creating a role</h2>
+<p>A set of permissions can be assigned to a role, and that role assigned to one or more users. Roles should be used when permissions need to be doled out to individuals not based on their membership in a particular group or team, but based on their responsibilities within a company. </p>
+<ol>
+<li>From within the Administration interface, select User Management and then Role from the Navigation Menu.  </li>
+<li>Select Add from the Command Bar.</li>
+<li>On the Add Role dialog, enter a unique name for the role in the Name field. This name cannot be the same name as an existing user, group, route, or role. </li>
+<li>Select the permissions to assign to this role from the Available listbox, and then select the right arrow to add these permissions to the Selected listbox.</li>
+<li>Select Add to add the new role to the system.</li>
+</ol>
+<h2 id="creating-a-new-document-visibility-level">Creating a new document visibility level</h2>
+<ol>
+<li>Under General → Visibility</li>
+<li>Click Add</li>
+<li>Level: Enter a unique numeric value e.g. 4</li>
+<li>Description: Enter a description for the visibility level e.g. Very High</li>
+</ol>
+<h2 id="applying-permissions-globally">Applying permissions globally</h2>
+<ol>
+<li>Under User Management -&gt; Global Permissions – Add any permissions required.</li>
+<li>Creating administrator level permissions</li>
+<li>Global Administrators are defined as users with Admin on the Global Level</li>
+<li>Administrators are anyone with an Admin permission</li>
+</ol>
+<h2 id="creating-administrator-level-permissions">Creating administrator level permissions</h2>
+<ol>
+<li>Global Administrators are defined as users with Admin on the Global Level.  </li>
+<li>Administrators are anyone with an Admin permission.  </li>
+</ol>
+<h2 id="denying-users-out-of-a-group-permissions-on-a-node">Denying users out of a group permissions on a node</h2>
+<ol>
+<li>Give the group permissions on the node with Type = Permit  </li>
+<li>Deny the user permissions by using Type = Deny  </li>
+</ol>
+<h2 id="assigning-creators-additional-permissions">Assigning creators additional permissions</h2>
+<ol>
+<li>Apply permissions in the CREATOR context</li>
+</ol>
+<h2 id="assigning-owners-additional-permissions">Assigning owners additional permissions</h2>
+<ol>
+<li>Apply permissions in the OWNER  context</li>
+</ol>
+<h2 id="assigning-userscollaborators-additional-permissions">Assigning users/collaborators additional permissions</h2>
+<ol>
+<li>Apply permissions in the USER  context </li>
+</ol>
+<h2 id="denying-administrators-access-to-specific-node">Denying administrators access to specific node</h2>
+<ol>
+<li>Give a user (e.g. HR Manager) IMPORTANT Permission Admin on the node 
+IMPORTANT: This step must be completed first and verified or there is risk of being locked out of the node</li>
+<li>Apply DENY Permission Admin to Everyone.  </li>
+<li>Once applied only the user specified in step 1 will be able to add or remove permissions.  </li>
+<li>Apply any other DENY permission required e.g. (Deny Role All to Everyone)  </li>
+<li>Apply IMPORTANT permissions to give  access e.g. (IMPORTANT READ to HR Group)  </li>
+</ol>
+<h2 id="applying-index-level-permissions">Applying Index Level Permissions</h2>
+<p>Permissions in PaperTrail are highly granular, and can even be applied to individual indexes.</p>
+<ol>
+<li>Within the Nodes interface, select a node.   </li>
+<li>In the Object Browser, select an existing index for that node  </li>
+<li>From the Command Bar on top of the Object Browser, select Permissions.  </li>
+<li>Only two permissions can be set on a node “Read Metadata” and “Write Metadata”.   5.  Select one of these permissions from the Permission drop-down.  </li>
+<li>Select whether this permission to either Permit, Deny, or Important. For more information on permission dispositions.  </li>
+<li>Specify the User or Group to whom this permission applies. As you type a value in this box, PaperTrail will display an auto-completion list of matching users and groups.  </li>
+<li>Select the Add button to add the specified permission to the index.  </li>
+<li>Repeat this process to add as many permissions to this index as needed. When you are done adding permissions, select the Close button.  </li>
+</ol>
+<h2 id="make-a-user-a-site-wide-administrator">Make a User a Site-Wide Administrator</h2>
+<p>WARNING: This permission grant gives a user “superuser” access to your PaperTrail installation; it should only be granted rarely, and only to trusted individuals within your organization. Before granting site-wide administrator permissions, consider granting a more limited set of permissions for a specific purpose, such as 
+List Admin or Node Admin.</p>
+<p>To make another user a site-wide administrator, an existing administrator can grant an existing user the ALL role. <br />
+1.  From within the Administration interface, select User Management and then Global Permissions from the Navigation Menu.<br />
+2.  Click Add on the Command Bar.<br />
+3.  Leave the Permission field blank.<br />
+4.  From the Role drop-down, select All.<br />
+5.  Leaving all other fields as is, select the Add button. The specified user will now have access to all administrative features of the site.  </p></div>
         </div>
 
         <footer class="col-md-12">

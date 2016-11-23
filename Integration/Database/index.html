@@ -54,6 +54,10 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="../../Configuration/Advanced Permissions/">Advanced Permissions</a>
+</li>
+                            
+<li >
     <a href="../../Configuration/Backups/">Backups</a>
 </li>
                             
@@ -164,7 +168,7 @@
 </li>
                             
 <li >
-    <a href="../db-lookup/">Db lookup</a>
+    <a href="../email-watch/">Email watch</a>
 </li>
                             
 <li >
@@ -282,6 +286,13 @@
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#data-sources">Data Sources</a></li>
         <li class="main "><a href="#direct-access">Direct Access</a></li>
+        <li class="main "><a href="#database-jdbc-configs">Database JDBC Configs</a></li>
+            <li><a href="#microsoft-sql-server">Microsoft SQL Server​</a></li>
+            <li><a href="#mysql">MYSQL ​</a></li>
+            <li><a href="#postgresql">PostgreSQL</a></li>
+            <li><a href="#sql">SQL</a></li>
+            <li><a href="#rules-for-sql-statements">Rules for SQL statements</a></li>
+            <li><a href="#event">Event</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -322,7 +333,56 @@ SQLUtils.executeStatement(ds, &quot;EXEC sp.StoreProc(?,?,?)&quot;, &quot;param1
 
 <blockquote>
 <p>Note that a <code>Connection</code> or <code>DataSource</code> is not created directly but delegated to <code>JdbcDataSourceCache</code> so that connection pooling can occur</p>
-</blockquote></div>
+</blockquote>
+<h1 id="database-jdbc-configs">Database JDBC Configs</h1>
+<h3 id="microsoft-sql-server">Microsoft SQL Server​</h3>
+<p><code>jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=&lt;databaseName&gt;[;property=value[;property=value]]</code></p>
+<p><code>jdbc:sqlserver://host;databaseName=test123</code></p>
+<h3 id="mysql">MYSQL ​</h3>
+<p><code>jdbc:mysql://&lt;database server&gt;:&lt;ports&gt;/&lt;database names&gt;</code></p>
+<h3 id="postgresql">PostgreSQL</h3>
+<p><code>jdbc:postgresql://&lt;database server&gt;:&lt;port&gt;/&lt;databaseName&gt;</code></p>
+<h2 id="sql">SQL</h2>
+<p>SELECT Statement : To Fetch records from an external database to PaperTrail records.  </p>
+<p>Format : </p>
+<pre><code class="javascript">   **SELECT \&lt;COLUMNS\&gt; FROM \&lt;TABLENAME\&gt; WHERE
+   \&lt;DATABASE INDEX\&gt; = \${\&lt;PAPERTRAIL INDEX\&gt;}**
+</code></pre>
+
+<pre><code class="javascript">   SELECT No_ AS Invoice_No, 
+     LEFT(CONVERT(date, &quot;Posting Date&quot;),10) 
+     AS Invoice_Date,&quot;Order No_&quot; 
+     AS Internal_Order, &quot;Sell-to Customer No_&quot; 
+     AS Customer_No,&quot;External Document No_&quot; 
+     AS Customer_Order_No, &quot;Shipment Method Code&quot; 
+     AS Delivery_Method 
+   FROM &quot;SAFINTRA JHB$Sales Invoice Header&quot; 
+   WHERE No_ = '${invoice_no}
+</code></pre>
+
+<p>UPDATE Statement : To Update records from an external database to PaperTrail records.  </p>
+<pre><code class="javascript">**FORMAT**: **UPDATE \&lt;TABLE NAME\&gt; SET \&lt;DATABASE INDEX\&gt; =
+'\&lt;VALUE\&gt;' WHERE \&lt;DATABASE INDEX\&gt; = \${\&lt;PAPERTRAIL
+INDEX\&gt;}**
+</code></pre>
+
+<pre><code class="javascript">UPDATE test 
+SET Index1 = 'asdf' 
+WHERE Invoice_Number = ${Invoice_Number}
+</code></pre>
+
+<h2 id="rules-for-sql-statements">Rules for SQL statements</h2>
+<ul>
+<li>Column headers and index values must match index values in
+    PaperTrail, otherwise give columns aliases by using the “AS”
+    function.</li>
+<li>All native SQL commands and functions can be used in the statement.</li>
+<li>Separate columns in SELECT statements by commas.</li>
+<li>If column names contain spaces, double quotes (“ “) should be used
+    to surround the name in order to concatenate the name.</li>
+</ul>
+<h2 id="event">Event</h2>
+<p>When to run the SQL Lookup or Update.</p></div>
         </div>
 
         <footer class="col-md-12">
