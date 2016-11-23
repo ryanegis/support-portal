@@ -20,6 +20,7 @@
 | com.egis.DocumentLogger  | All actions on documents, somewhat verbose | Up to 5 - 10 lines per document operation
 | com.egis.requests  | All HTTP requests, very verbose | 1 line per HTTP request
 | com.egis.workflow  | All Workflow rules fired up until a stationary rule is reached (Human Task, Unassigned Task) | 10+ lines depending on amount of rules
+| com.egis.allocation.QueueService | queue fill events | 
 
 ## Log file Retention
 
