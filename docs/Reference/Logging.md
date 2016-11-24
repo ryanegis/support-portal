@@ -55,6 +55,31 @@ ident = "papertrail"
 }
 ```
 
+## Filtering logs
+
+e.g  To filter out all sql SELECT statemetns with `db.debug=true`: 
+
+```groovy
+import ch.qos.logback.core.filter.*
+import ch.qos.logback.classic.boolex.*
+import static ch.qos.logback.core.spi.FilterReply.*
+
+appender("STDOUT", ConsoleAppender) {
+    filter(EvaluatorFilter) {
+      evaluator(GEventEvaluator) {
+        expression = 'e.message.toLowerCase().startsWith("select")'
+      }
+      onMismatch = NEUTRAL
+      onMatch = DENY 
+    }
+    
+    // encoder(PatternLayoutEncoder)...
+
+}
+
+
+```
+
 ## Logging to a GELF Host
 
 Replace //gelf in the logback.groovy with:
