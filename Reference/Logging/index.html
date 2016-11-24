@@ -289,6 +289,7 @@
             <li><a href="#loggers">Loggers</a></li>
             <li><a href="#log-file-retention">Log file Retention</a></li>
             <li><a href="#logging-to-syslog-host">Logging to Syslog Host</a></li>
+            <li><a href="#filtering-logs">Filtering logs</a></li>
             <li><a href="#logging-to-a-gelf-host">Logging to a GELF Host</a></li>
     </ul>
 </div></div>
@@ -398,6 +399,28 @@ port = 514
 ident = &quot;papertrail&quot;     
 } 
 }
+</code></pre>
+
+<h2 id="filtering-logs">Filtering logs</h2>
+<p>e.g  To filter out all sql SELECT statemetns with <code>db.debug=true</code>: </p>
+<pre><code class="groovy">import ch.qos.logback.core.filter.*
+import ch.qos.logback.classic.boolex.*
+import static ch.qos.logback.core.spi.FilterReply.*
+
+appender(&quot;STDOUT&quot;, ConsoleAppender) {
+    filter(EvaluatorFilter) {
+      evaluator(GEventEvaluator) {
+        expression = 'e.message.toLowerCase().startsWith(&quot;select&quot;)'
+      }
+      onMismatch = NEUTRAL
+      onMatch = DENY 
+    }
+
+    // encoder(PatternLayoutEncoder)...
+
+}
+
+
 </code></pre>
 
 <h2 id="logging-to-a-gelf-host">Logging to a GELF Host</h2>
