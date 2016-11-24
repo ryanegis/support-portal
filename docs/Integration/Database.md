@@ -1,14 +1,16 @@
 ## Data Sources
 
-A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the frontend via the `/data/{datasource name}/`. The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..
+A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the front-end using `/data/{datasource name}/`. 
 
--   Database connections are pooled based on connection string and username
+The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..
+
+-   Database connections are pooled based on connection string and username.
 -   Column headers and index values must match index values in
-    PaperTrail, otherwise give columns aliases by using the “AS” function
--   All native SQL commands and functions can be used in the statement
--   Separate columns in SELECT statements by commas
+    PaperTrail, otherwise give columns aliases by using the “AS” function.
+-   All native SQL commands and functions can be used in the statement.
+-   Separate columns in SELECT statements by commas.
 -   If column names contain spaces, double quotes (“ “) should be used
-    to surround the name in order to concatenate the name
+    to surround the name in order to concatenate the name.
 
  
 > It is recommended to use system properties to specify the URL, Username and Password so that they can be externalized and reused across multiple rules. e.g. `${lob.db.url}`
@@ -44,20 +46,11 @@ SQLUtils.executeStatement(ds, "EXEC sp.StoreProc(?,?,?)", "param1", "param2", "p
 
 # Database JDBC Configs
 
-
-### Microsoft SQL Server​
-
-`jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=<databaseName>[;property=value[;property=value]] `
-
-`jdbc:sqlserver://host;databaseName=test123`
-
-### MYSQL ​
-
-`jdbc:mysql://<database server>:<ports>/<database names>`
-
-### PostgreSQL 
-
-`jdbc:postgresql://<database server>:<port>/<databaseName>`
+| Server | Configuration 
+| ---------- | ---------
+| Microsoft SQL Server | `jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=<databaseName>[;property=value[;property=value]] ` or `jdbc:sqlserver://host;databaseName=test123`
+| MYSQL | `jdbc:mysql://<database server>:<ports>/<database names>`
+| PostgreSQL | `jdbc:postgresql://<database server>:<port>/<databaseName>`
 
 ## SQL
   
@@ -83,6 +76,7 @@ Format :
 
 UPDATE Statement : To Update records from an external database to PaperTrail records.  
 
+Format :
 ```javascript
 **FORMAT**: **UPDATE \<TABLE NAME\> SET \<DATABASE INDEX\> =
 '\<VALUE\>' WHERE \<DATABASE INDEX\> = \${\<PAPERTRAIL
