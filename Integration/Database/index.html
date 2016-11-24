@@ -287,9 +287,6 @@
         <li class="main active"><a href="#data-sources">Data Sources</a></li>
         <li class="main "><a href="#direct-access">Direct Access</a></li>
         <li class="main "><a href="#database-jdbc-configs">Database JDBC Configs</a></li>
-            <li><a href="#microsoft-sql-server">Microsoft SQL Server​</a></li>
-            <li><a href="#mysql">MYSQL ​</a></li>
-            <li><a href="#postgresql">PostgreSQL</a></li>
             <li><a href="#sql">SQL</a></li>
             <li><a href="#rules-for-sql-statements">Rules for SQL statements</a></li>
             <li><a href="#event">Event</a></li>
@@ -298,15 +295,16 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="data-sources">Data Sources</h2>
-<p>A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the frontend via the <code>/data/{datasource name}/</code>. The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..</p>
+<p>A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the front-end using <code>/data/{datasource name}/</code>. </p>
+<p>The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..</p>
 <ul>
-<li>Database connections are pooled based on connection string and username</li>
+<li>Database connections are pooled based on connection string and username.</li>
 <li>Column headers and index values must match index values in
-    PaperTrail, otherwise give columns aliases by using the “AS” function</li>
-<li>All native SQL commands and functions can be used in the statement</li>
-<li>Separate columns in SELECT statements by commas</li>
+    PaperTrail, otherwise give columns aliases by using the “AS” function.</li>
+<li>All native SQL commands and functions can be used in the statement.</li>
+<li>Separate columns in SELECT statements by commas.</li>
 <li>If column names contain spaces, double quotes (“ “) should be used
-    to surround the name in order to concatenate the name</li>
+    to surround the name in order to concatenate the name.</li>
 </ul>
 <blockquote>
 <p>It is recommended to use system properties to specify the URL, Username and Password so that they can be externalized and reused across multiple rules. e.g. <code>${lob.db.url}</code></p>
@@ -335,13 +333,28 @@ SQLUtils.executeStatement(ds, &quot;EXEC sp.StoreProc(?,?,?)&quot;, &quot;param1
 <p>Note that a <code>Connection</code> or <code>DataSource</code> is not created directly but delegated to <code>JdbcDataSourceCache</code> so that connection pooling can occur</p>
 </blockquote>
 <h1 id="database-jdbc-configs">Database JDBC Configs</h1>
-<h3 id="microsoft-sql-server">Microsoft SQL Server​</h3>
-<p><code>jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=&lt;databaseName&gt;[;property=value[;property=value]]</code></p>
-<p><code>jdbc:sqlserver://host;databaseName=test123</code></p>
-<h3 id="mysql">MYSQL ​</h3>
-<p><code>jdbc:mysql://&lt;database server&gt;:&lt;ports&gt;/&lt;database names&gt;</code></p>
-<h3 id="postgresql">PostgreSQL</h3>
-<p><code>jdbc:postgresql://&lt;database server&gt;:&lt;port&gt;/&lt;databaseName&gt;</code></p>
+<table>
+<thead>
+<tr>
+<th>Server</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft SQL Server</td>
+<td><code>jdbc:sqlserver://[serverName[\instanceName][:portNumber]];databaseName=&lt;databaseName&gt;[;property=value[;property=value]]</code> or <code>jdbc:sqlserver://host;databaseName=test123</code></td>
+</tr>
+<tr>
+<td>MYSQL</td>
+<td><code>jdbc:mysql://&lt;database server&gt;:&lt;ports&gt;/&lt;database names&gt;</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>jdbc:postgresql://&lt;database server&gt;:&lt;port&gt;/&lt;databaseName&gt;</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="sql">SQL</h2>
 <p>SELECT Statement : To Fetch records from an external database to PaperTrail records.  </p>
 <p>Format : </p>
@@ -361,6 +374,7 @@ SQLUtils.executeStatement(ds, &quot;EXEC sp.StoreProc(?,?,?)&quot;, &quot;param1
 </code></pre>
 
 <p>UPDATE Statement : To Update records from an external database to PaperTrail records.  </p>
+<p>Format :</p>
 <pre><code class="javascript">**FORMAT**: **UPDATE \&lt;TABLE NAME\&gt; SET \&lt;DATABASE INDEX\&gt; =
 '\&lt;VALUE\&gt;' WHERE \&lt;DATABASE INDEX\&gt; = \${\&lt;PAPERTRAIL
 INDEX\&gt;}**
