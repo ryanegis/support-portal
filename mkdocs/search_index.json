@@ -986,6 +986,36 @@
             "title": "Logging to a GELF Host"
         }, 
         {
+            "location": "/Reference/System-Nodes/", 
+            "text": "The \nSystem\n node has a number of nodes that have special behaviours:\n\n\nSystem/images\n\n\nPaperTrail logo's are located here and can be updated with custom image's if required.  \n\n\n\n\nNote the contents of this folder are publicly accessible and should not be used to store sensitive images\n\n\n\n\nSystem/templates\n\n\nContains all the base document templates and also the email templates used for notification bodies:\n\n\nEmail templates can used layouts by appending the layout name to the filename e.g. \naccount-signup_notitication.html\n will use the the \nSystem/templates/layouts/notification.html\n layout to create pretty HTML emails.\n\n\nSystem/scripts\n\n\nContains groovy files that are run on startup - Often used for creating services\n\n\nSystem/jars\n\n\nContains precompiled JAR files that are loaded at runtime, functionally equivalent tot he local \ndeploy\n filesystem directory but offers simplified management especially due to backup/restores and solution deployment\n\n\nSystem/plugins\n\n\nAny \n.js\n file within subdirectories will be loaded into the browser to allow customization of the UI. Supported folders are:\n\n\n\n\nwebapps\n\n\nadmin\n\n\neSign\n\n\nAdminApp\n\n\nPortalApp\n\n\nBulkCapture\n\n\n\n\ne.g. \nSystem/plugins/PortalApp/plugins.js\n will be loaded for the modern portal UI", 
+            "title": "System Nodes"
+        }, 
+        {
+            "location": "/Reference/System-Nodes/#systemimages", 
+            "text": "PaperTrail logo's are located here and can be updated with custom image's if required.     Note the contents of this folder are publicly accessible and should not be used to store sensitive images", 
+            "title": "System/images"
+        }, 
+        {
+            "location": "/Reference/System-Nodes/#systemtemplates", 
+            "text": "Contains all the base document templates and also the email templates used for notification bodies:  Email templates can used layouts by appending the layout name to the filename e.g.  account-signup_notitication.html  will use the the  System/templates/layouts/notification.html  layout to create pretty HTML emails.", 
+            "title": "System/templates"
+        }, 
+        {
+            "location": "/Reference/System-Nodes/#systemscripts", 
+            "text": "Contains groovy files that are run on startup - Often used for creating services", 
+            "title": "System/scripts"
+        }, 
+        {
+            "location": "/Reference/System-Nodes/#systemjars", 
+            "text": "Contains precompiled JAR files that are loaded at runtime, functionally equivalent tot he local  deploy  filesystem directory but offers simplified management especially due to backup/restores and solution deployment", 
+            "title": "System/jars"
+        }, 
+        {
+            "location": "/Reference/System-Nodes/#systemplugins", 
+            "text": "Any  .js  file within subdirectories will be loaded into the browser to allow customization of the UI. Supported folders are:   webapps  admin  eSign  AdminApp  PortalApp  BulkCapture   e.g.  System/plugins/PortalApp/plugins.js  will be loaded for the modern portal UI", 
+            "title": "System/plugins"
+        }, 
+        {
             "location": "/Reference/health/", 
             "text": "Health checks should be conduced after every new installation, upgrade, custom deployment or major configuration change\n\n\nConducting Health Checks\n\n\n\n\nMonitor the log files under  (\nlogs\n) for any startup or migration errors\n\n\nCheck system health using \n/health\n and ensuring everything is \nGood\n\n\nLog into all applications used (\n/web/webapps\n, \n/web/admin\n,\n/web/portal\n, \n/web/capture\n etc..) and ensure they load and function correctly", 
             "title": "Health"
