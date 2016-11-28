@@ -303,6 +303,8 @@
         <li class="main active"><a href="#troubleshooting-server">Troubleshooting Server</a></li>
             <li><a href="#isolate-the-problem">Isolate the Problem</a></li>
             <li><a href="#solve-the-problem">Solve the Problem</a></li>
+            <li><a href="#server-logs">Server logs</a></li>
+            <li><a href="#rules-debugging">Rules debugging</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -319,7 +321,13 @@
 <li>Check the knowledge base first.  </li>
 <li>Ask for help in the Support Room only.  </li>
 <li>Add knowledge base article.  </li>
-</ul></div>
+</ul>
+<h2 id="server-logs">Server logs</h2>
+<p>There's a web log console at https://my-uat.papertrail.co.za/web/admin/log.html .</p>
+<h2 id="rules-debugging">Rules debugging</h2>
+<p>If you expect some rule to be applied to created/updated/deleted document and it doesn't it's probably because that 
+document doesn't get covered by rule's source conditions. To see if that's the case set <code>com.egis.index.query</code> to DEBUG 
+in <code>Services -&gt; Logging</code> PT admin section - then you'll see the SQL queries and their resultset counts in log console.</p></div>
         </div>
 
         <footer class="col-md-12">
