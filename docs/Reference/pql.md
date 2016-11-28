@@ -50,6 +50,13 @@ As well as arithmetic on Number and Double indexes:
 SELECT '${total + vat}' as GrandTotal FROM 'Sales'
 ```
 
+## Wildcards
+Plain SQL wildcard works as expected - e.g. `SELECT * FROM 'Sun/Clients'` selects all the standard and custom indexes 
+from Sun/Clients node. There's also doublewildcard syntax:
+```
+SELECT ** FROM 'Sun/Clients'
+```
+- this selects only custom indexes. 
 
 ## FROM Clause
 
@@ -123,6 +130,14 @@ SELECT number1 FROM queryTests2 WHERE 99 > ${number1 + pqldouble1}
 * This clause MUST use a single column to order by.
 * All column names referenced in this clause MUST be valid “queryName” or alias (either for an aggregate function result or a column).
 * Only columns in the SELECT clause MAY be in the ORDER BY clause.
+* `ORDER BY docId DESC` doesn't currently work - use `ORDER BY createdDate DESC` instead 
+
+## LIMIT N
+LIMIT N construct is supported - e.g. 
+```
+SELECT * FROM 'MyBank/KYC' WHERE loan_id=5 ORDER BY createdDate DESC LIMIT 1
+```
+will select last doc from MyBank/KYC node with given filter.
 
 ## GROUP BY
 
