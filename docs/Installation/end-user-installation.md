@@ -28,7 +28,7 @@ See [Windows](Desktop Agent) and [Linux](http://docs.papertrail.co.za/Installati
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
 
-See [Windows](Desktop Agent)
+See [MS Office Add-in](MS Office Add-in)
 ### Web Scan
 
 Web scan is distributed as an addon to the Advanced Plugin:
