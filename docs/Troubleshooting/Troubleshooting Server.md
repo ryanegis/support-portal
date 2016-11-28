@@ -12,3 +12,11 @@
 *  Check the knowledge base first.  
 *  Ask for help in the Support Room only.  
 *  Add knowledge base article.  
+
+## Server logs
+There's a web log console at https://my-uat.papertrail.co.za/web/admin/log.html .
+
+## Rules debugging
+If you expect some rule to be applied to created/updated/deleted document and it doesn't it's probably because that 
+document doesn't get covered by rule's source conditions. To see if that's the case set `com.egis.index.query` to DEBUG 
+in `Services -> Logging` PT admin section - then you'll see the SQL queries and their resultset counts in log console.
