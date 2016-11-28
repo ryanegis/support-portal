@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Maintenance - Support Portal</title>
+        <title>High Availability & Clustering - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -200,8 +200,8 @@
     <a href="../Document Properties/">Document Properties</a>
 </li>
                             
-<li >
-    <a href="../High Availability & Clustering/">High Availability & Clustering</a>
+<li class="active">
+    <a href="./">High Availability & Clustering</a>
 </li>
                             
 <li >
@@ -228,8 +228,8 @@
     <a href="../linking_syntax/">Linking syntax</a>
 </li>
                             
-<li class="active">
-    <a href="./">Maintenance</a>
+<li >
+    <a href="../maintenance/">Maintenance</a>
 </li>
                             
 <li >
@@ -283,12 +283,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../linking_syntax/">
+                        <a rel="next" href="../Document Properties/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../pql/">
+                        <a rel="prev" href="../Linking/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -300,32 +300,71 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#maintenance-mode">Maintenance Mode</a></li>
-            <li><a href="#turning-on-maintenance-mode">Turning On Maintenance Mode:</a></li>
-            <li><a href="#turning-off-maintenance">Turning Off Maintenance</a></li>
+        <li class="main active"><a href="#high-availability">High Availability</a></li>
+            <li><a href="#replication-master-master">Replication (Master – Master)</a></li>
+            <li><a href="#replicated-installation">Replicated installation.</a></li>
+            <li><a href="#clustering">Clustering</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="maintenance-mode">Maintenance Mode</h2>
-<blockquote>
-<p>Setting maintenance mode is essential when conducting upgrades as it will ensure that no new documents/emails are imported after the upgrade is completed, as when a rollback is necessary, the imported documents will no longer be available in watched mailbox. </p>
-</blockquote>
-<h3 id="turning-on-maintenance-mode">Turning On Maintenance Mode:</h3>
+<h1 id="high-availability">High Availability</h1>
+<h2 id="replication-master-master">Replication (Master – Master)</h2>
 <ol>
-<li>Configure papertrail to start in maintenance mode by adding the following line to the <code>conf/papertrail.properties</code></li>
+<li>Use the <strong>New Replication Installation</strong> option in the wizard on both the master and slave.  </li>
+<li>Check <strong>Master</strong> on the primary node.  </li>
+<li>The master node is responsible for <strong>triggering timeouts</strong>, running <strong>scheduled rules</strong> etc.  </li>
 </ol>
-<pre><code>mode=Maintenance
+<h2 id="replicated-installation">Replicated installation.</h2>
+<p>To convert a standalone installation to a replicated installation, follow these steps:  </p>
+<ul>
+<li>Stop PaperTrail and create a <strong>database backup</strong>.  </li>
+<li>Configure the following properties in <strong>papertrail.properties</strong> on the master</li>
+</ul>
+<pre><code class="javascript">index.upstream=http://slave:8080
+replication.upstream=http://slave:8080  
+file.replication.upstream=http://host:8080  
+replication.master=true  
+replication.increment=2  
+replication.offset=1  
+db.identity.override=true # for sql server replication only  
 </code></pre>
 
-<ol>
-<li>Restart PaperTrail</li>
-</ol>
-<h3 id="turning-off-maintenance">Turning Off Maintenance</h3>
-<ol>
-<li>Remove or comment out the <strong>mode</strong> property in <code>conf/papertrail.properties</code></li>
-<li>Restart PaperTrail</li>
-</ol></div>
+<ul>
+<li>Configure these properties on the slave:  </li>
+</ul>
+<pre><code class="javascript">index.upstream=http://master:8080  
+replication.upstream=http:// master:8080
+file.replication.upstream=http:// master:8080  
+replication.master=false  
+replication.increment=2  
+replication.offset=2  
+db.identity.override=true # for sql server replication only  
+</code></pre>
+
+<ul>
+<li>Start up the master</li>
+<li>Wait a few minutes and start up the slave</li>
+</ul>
+<h2 id="clustering">Clustering</h2>
+<ul>
+<li>Select the <strong>New Clustering</strong> installation from the wizard:  </li>
+</ul>
+<p>OR</p>
+<ul>
+<li>Add these properties to the <strong>papertrail.properties</strong>  </li>
+</ul>
+<pre><code class="javascript">index.upstream=http://slave:8080   
+cluster.enable=true   
+storage.upstream=http://slave:8080  
+</code></pre>
+
+<ul>
+<li>Restart PaperTrail.</li>
+</ul>
+<blockquote>
+<p>Note: Clustering requires a low latency (&lt;1ms), reliable (preferably dual path redundant network) network connection to function correctly.  Replication can be used in WAN environments.</p>
+</blockquote></div>
         </div>
 
         <footer class="col-md-12">

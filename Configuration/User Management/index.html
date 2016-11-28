@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Maintenance - Support Portal</title>
+        <title>User Management - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -49,60 +49,60 @@
                     <li >
                         <a href="../..">Home</a>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../Configuration/Advanced Permissions/">Advanced Permissions</a>
+    <a href="../Advanced Permissions/">Advanced Permissions</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Backups/">Backups</a>
+    <a href="../Backups/">Backups</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Barcode/">Barcode</a>
+    <a href="../Barcode/">Barcode</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Branding/">Branding</a>
+    <a href="../Branding/">Branding</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Logging/">Logging</a>
+    <a href="../Logging/">Logging</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Template Extraction/">Template Extraction</a>
+    <a href="../Template Extraction/">Template Extraction</a>
+</li>
+                            
+<li class="active">
+    <a href="./">User Management</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/User Management/">User Management</a>
+    <a href="../WebScan/">WebScan</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/WebScan/">WebScan</a>
+    <a href="../Yaml Config/">Yaml Config</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/Yaml Config/">Yaml Config</a>
+    <a href="../basic/">Basic</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/basic/">Basic</a>
+    <a href="../security/">Security</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/security/">Security</a>
+    <a href="../solution-pack/">Solution pack</a>
 </li>
                             
 <li >
-    <a href="../../Configuration/solution-pack/">Solution pack</a>
-</li>
-                            
-<li >
-    <a href="../../Configuration/ssl/">Ssl</a>
+    <a href="../ssl/">Ssl</a>
 </li>
                         </ul>
                     </li>
@@ -188,60 +188,60 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Cold Standby Failover Procedure/">Cold Standby Failover Procedure</a>
+    <a href="../../Reference/Cold Standby Failover Procedure/">Cold Standby Failover Procedure</a>
 </li>
                             
 <li >
-    <a href="../Document Properties/">Document Properties</a>
+    <a href="../../Reference/Document Properties/">Document Properties</a>
 </li>
                             
 <li >
-    <a href="../High Availability & Clustering/">High Availability & Clustering</a>
+    <a href="../../Reference/High Availability & Clustering/">High Availability & Clustering</a>
 </li>
                             
 <li >
-    <a href="../Linking/">Linking</a>
+    <a href="../../Reference/Linking/">Linking</a>
 </li>
                             
 <li >
-    <a href="../Logging/">Logging</a>
+    <a href="../../Reference/Logging/">Logging</a>
 </li>
                             
 <li >
-    <a href="../System-Nodes/">System Nodes</a>
+    <a href="../../Reference/System-Nodes/">System Nodes</a>
 </li>
                             
 <li >
-    <a href="../health/">Health</a>
+    <a href="../../Reference/health/">Health</a>
 </li>
                             
 <li >
-    <a href="../licensing/">Licensing</a>
+    <a href="../../Reference/licensing/">Licensing</a>
 </li>
                             
 <li >
-    <a href="../linking_syntax/">Linking syntax</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Maintenance</a>
+    <a href="../../Reference/linking_syntax/">Linking syntax</a>
 </li>
                             
 <li >
-    <a href="../pql/">Pql</a>
+    <a href="../../Reference/maintenance/">Maintenance</a>
 </li>
                             
 <li >
-    <a href="../regex/">Regex</a>
+    <a href="../../Reference/pql/">Pql</a>
 </li>
                             
 <li >
-    <a href="../standard_expression/">Standard expression</a>
+    <a href="../../Reference/regex/">Regex</a>
+</li>
+                            
+<li >
+    <a href="../../Reference/standard_expression/">Standard expression</a>
 </li>
                         </ul>
                     </li>
@@ -283,12 +283,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../linking_syntax/">
+                        <a rel="next" href="../Template Extraction/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../pql/">
+                        <a rel="prev" href="../WebScan/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -300,32 +300,61 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#maintenance-mode">Maintenance Mode</a></li>
-            <li><a href="#turning-on-maintenance-mode">Turning On Maintenance Mode:</a></li>
-            <li><a href="#turning-off-maintenance">Turning Off Maintenance</a></li>
+        <li class="main active"><a href="#user-management">User Management</a></li>
+            <li><a href="#create-a-new-user">Create a New User</a></li>
+            <li><a href="#reset-a-users-password">Reset a User’s Password</a></li>
+            <li><a href="#create-an-internal-contact-list">Create an Internal Contact List</a></li>
+            <li><a href="#external-ldap-contact-list">External LDAP contact list</a></li>
+            <li><a href="#create-a-group">Create a Group</a></li>
+            <li><a href="#assigning-a-user-to-a-group">Assigning a user to a group</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="maintenance-mode">Maintenance Mode</h2>
-<blockquote>
-<p>Setting maintenance mode is essential when conducting upgrades as it will ensure that no new documents/emails are imported after the upgrade is completed, as when a rollback is necessary, the imported documents will no longer be available in watched mailbox. </p>
-</blockquote>
-<h3 id="turning-on-maintenance-mode">Turning On Maintenance Mode:</h3>
-<ol>
-<li>Configure papertrail to start in maintenance mode by adding the following line to the <code>conf/papertrail.properties</code></li>
-</ol>
-<pre><code>mode=Maintenance
-</code></pre>
-
-<ol>
-<li>Restart PaperTrail</li>
-</ol>
-<h3 id="turning-off-maintenance">Turning Off Maintenance</h3>
-<ol>
-<li>Remove or comment out the <strong>mode</strong> property in <code>conf/papertrail.properties</code></li>
-<li>Restart PaperTrail</li>
-</ol></div>
+<h1 id="user-management">User Management</h1>
+<p>In PaperTrail, a user is an individual who has <strong>permissions to log in to PaperTrail and perform various functions, such as reading and editing documents</strong>. </p>
+<p>A contact is an external user who <strong>does not have a PaperTrail login name and password, but who can be e-mailed documents and reports by other PaperTrail users</strong>.</p>
+<h2 id="create-a-new-user">Create a New User</h2>
+<ul>
+<li>Let’s start by creating a new user called Sally Smith. Sally will have a username of sallysmith.  </li>
+<li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then User from the Navigation menu.  </li>
+<li>On the Command Bar, select <strong>Add</strong>.  </li>
+<li>Specify all of the relevant fields for the new user. The Login field is the username that the user will use to log in. This name must not be currently used by an existing User, Group, Role, or Contact.  </li>
+<li>If you need to synchronize this user’s account with their Active Directory account, click the <strong>Active Directory checkbox</strong>. The value supplied in the Login field must match the user’s Active Directory login (excluding the domain name).  </li>
+<li>Click <strong>Add</strong> to generate the new user account.  </li>
+</ul>
+<h2 id="reset-a-users-password">Reset a User’s Password</h2>
+<ul>
+<li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then <strong>User</strong> from the Navigation Menu.  </li>
+<li>Select the user whose password you need to reset, and click <strong>Reset Password</strong>. The password will be set to a blank password, which the user must then reset on their next login.  </li>
+</ul>
+<h2 id="create-an-internal-contact-list">Create an Internal Contact List</h2>
+<p>The following steps should be followed to create a contact who can receive e-mail notifications from other users.  </p>
+<ul>
+<li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then  <strong>Contact</strong> from the Navigation Menu.  </li>
+<li>Specify a name for the user in the <strong>Name</strong> field. This is the only required field; all other fields are optional.   </li>
+<li>When done specifying information for this user, select the <strong>Add</strong> button.  </li>
+</ul>
+<h2 id="external-ldap-contact-list">External LDAP contact list</h2>
+<ul>
+<li>External LDAP contact lists can be queried in order to populate email addresses for <strong>Actions → Email</strong>.  </li>
+<li>Configure <strong>Active Directory / LDAP settings</strong>.  </li>
+</ul>
+<h2 id="create-a-group">Create a Group</h2>
+<ul>
+<li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then Group from the Navigation Menu.  </li>
+<li>Select <strong>Add</strong> on the Command Bar.  </li>
+<li>Specify a <strong>name</strong> for the new Group, such as Sales Team. This must be a <strong>unique name</strong>; it cannot be the name of another User, Group, Role, or Contact.  </li>
+<li>Select <strong>Add</strong> in the dialog box. The new group will be created.  </li>
+</ul>
+<h2 id="assigning-a-user-to-a-group">Assigning a user to a group</h2>
+<p>To grant the permissions assigned to this group to a user, we simply add the user to this group.</p>
+<ul>
+<li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then <strong>Group</strong> from the Navigation Menu.  </li>
+<li>Select the group you created in the previous step, and then select <strong>Users</strong> from the Command Bar.  </li>
+<li>In the <strong>Users dialog</strong>, begin to enter the name of the user you wish to add to the group. While typing, an autocomplete list of names will appear. Select the desired user to add, and then select the <strong>Add button</strong>.  </li>
+<li>Select the <strong>OK button</strong> on the <strong>Users dialog</strong>.  </li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
