@@ -127,4 +127,9 @@ To make another user a site-wide administrator, an existing administrator can gr
 4.  From the **Role drop-down**, select All.  
 5.  Leaving all other fields as is, select the **Add button**. The specified user will now have access to all administrative features of the site.  
 
+## License Type 
+
+To change the license,
+
+1.  Update **Services -> Properties -> General ->License Code**. 
 
