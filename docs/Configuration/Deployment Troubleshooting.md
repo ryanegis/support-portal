@@ -66,12 +66,10 @@ To clear / restart message queues:
 ## Debug Mode
 
 To start PaperTrail in Debug Mode in Windows:   
-  *  Start the **console_debug.exe** command line app.  
-
- 
+*   Start the __console_debug.exe__ command line app.  
  
 To start PaperTrail in Debug Mode in Linux:   
-  *  Add the following to the **run.sh** just after the java command:   
+*   Add the following to the __run.sh__ just after the java command:   
 
 ```javascript
 -Xdebug  
@@ -100,7 +98,7 @@ If PaperTrail fails to start, follow these steps :
 
 ## Low Performance 
 
-*  Check the **memory usage**. Take a snapshot and review the vminfo.txt file, the total GC time should be below 1% of uptime. If the total GC time is higher, it indicates that the heap space should be increased.  
+*  Check the **memory usage**. Take a snapshot and review the vminfo.txt file, the total GC time should be **below 1% of uptime**. If the total GC time is higher, it indicates that the **heap space should be increased**.  
 *  If running on a **virtualization platform**, ensure the host has enough resources.  
 *  Check to ensure that there is enough **IO capacity for the application**.  
 *  Verify that **3rd party application** is not utilizing CPU, RAM and IO resources.  
