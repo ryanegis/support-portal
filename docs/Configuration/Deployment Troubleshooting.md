@@ -19,7 +19,7 @@ To increase the log levels, navigate to  __Services -> Properties -> Logging__
 
 *  Select the __appropriate log level__ and click __Update__.  
 *  Select the log level: `TRACE = highest amount of information`, `ERROR = Lowest amount of info`.  
-*  Select whether the increased logging level should remain after restart.It is recommended to not keep DEBUG and TRACE levels for extended period.  
+*  Select whether the increased logging level should remain after restart. It is recommended to not keep DEBUG and TRACE levels for extended period.  
 *  Click __Update__.  
 
 Here is a reference for Loggers :   
