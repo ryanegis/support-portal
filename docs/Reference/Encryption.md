@@ -1,6 +1,6 @@
-Encryption 
+# Encryption 
 
-# Encrypting files at rest (AES)
+## Encrypting files at rest (AES)
 
 *  Add the following to the __papertrail.properties__ file before starting PaperTrail for the first time   
 `storage.encrypt=true`
@@ -13,7 +13,7 @@ OR
 *  Enter the __unique key name__ for this store.  
 *  The __encryption key will be automatically generated__ on restart and stored obfuscated in the database.  
 
-# Encrypting files in transit (SSL)
+## Encrypting files in transit (SSL)
 
 *  Create a __Java keystore__.  
 *  Copy the keystore to __conf/keystore__.
