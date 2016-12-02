@@ -20,6 +20,7 @@
 | com.egis.DocumentLogger  | All actions on documents, somewhat verbose | Up to 5 - 10 lines per document operation
 | com.egis.requests  | All HTTP requests, very verbose | 1 line per HTTP request
 | com.egis.workflow  | All Workflow rules fired up until a stationary rule is reached (Human Task, Unassigned Task) | 10+ lines depending on amount of rules
+| com.egis.allocation.QueueService | queue fill events | 
 
 ## Log file Retention
 
@@ -52,6 +53,31 @@ port = 514
 ident = "papertrail"     
 } 
 }
+```
+
+## Filtering logs
+
+e.g  To filter out all sql SELECT statemetns with `db.debug=true`: 
+
+```groovy
+import ch.qos.logback.core.filter.*
+import ch.qos.logback.classic.boolex.*
+import static ch.qos.logback.core.spi.FilterReply.*
+
+appender("STDOUT", ConsoleAppender) {
+    filter(EvaluatorFilter) {
+      evaluator(GEventEvaluator) {
+        expression = 'e.message.toLowerCase().startsWith("select")'
+      }
+      onMismatch = NEUTRAL
+      onMatch = DENY 
+    }
+    
+    // encoder(PatternLayoutEncoder)...
+
+}
+
+
 ```
 
 ## Logging to a GELF Host
