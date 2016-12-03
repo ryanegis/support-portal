@@ -54,6 +54,10 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="../../Configuration/Advanced Login/">Advanced Login</a>
+</li>
+                            
+<li >
     <a href="../../Configuration/Advanced Permissions/">Advanced Permissions</a>
 </li>
                             
@@ -71,6 +75,10 @@
                             
 <li >
     <a href="../../Configuration/Logging/">Logging</a>
+</li>
+                            
+<li >
+    <a href="../../Configuration/SSO/">SSO</a>
 </li>
                             
 <li >
@@ -201,6 +209,10 @@
 </li>
                             
 <li >
+    <a href="../../Reference/Encryption/">Encryption</a>
+</li>
+                            
+<li >
     <a href="../../Reference/High Availability & Clustering/">High Availability & Clustering</a>
 </li>
                             
@@ -303,6 +315,14 @@
         <li class="main active"><a href="#troubleshooting-server">Troubleshooting Server</a></li>
             <li><a href="#isolate-the-problem">Isolate the Problem</a></li>
             <li><a href="#solve-the-problem">Solve the Problem</a></li>
+            <li><a href="#log-levels">Log Levels</a></li>
+            <li><a href="#rebuilding-indexes">Rebuilding Indexes</a></li>
+            <li><a href="#message-queues">Message Queues</a></li>
+            <li><a href="#debug-mode">Debug Mode</a></li>
+            <li><a href="#running-jobs">Running Jobs</a></li>
+            <li><a href="#failure-to-start">Failure to Start</a></li>
+            <li><a href="#low-performance">Low Performance</a></li>
+            <li><a href="#checking-log-files">Checking log files</a></li>
             <li><a href="#server-logs">Server logs</a></li>
             <li><a href="#rules-debugging">Rules debugging</a></li>
     </ul>
@@ -322,12 +342,117 @@
 <li>Ask for help in the Support Room only.  </li>
 <li>Add knowledge base article.  </li>
 </ul>
+<h2 id="log-levels">Log Levels</h2>
+<p>To increase the log levels, navigate to  <strong>Services -&gt; Properties -&gt; Logging</strong>  </p>
+<ul>
+<li>Select the <strong>appropriate log level</strong> and click <strong>Update</strong>.  </li>
+<li>Select the log level: <code>TRACE = highest amount of information</code>, <code>ERROR = Lowest amount of info</code>.  </li>
+<li>Select whether the increased logging level should remain after restart. It is recommended to not keep DEBUG and TRACE levels for extended period.  </li>
+<li>Click <strong>Update</strong>. </li>
+</ul>
+<h2 id="rebuilding-indexes">Rebuilding Indexes</h2>
+<p>To rebuild all indexes, Navigate to <strong>Services -&gt; Tasks -&gt; Indexing</strong>  </p>
+<ul>
+<li>Run a <strong>Repair all indexes</strong> when the indexes are mostly complete and there is only some out of date data.  </li>
+<li>Run a <strong>Rebuild all indexes</strong>, when there is no index data.  </li>
+</ul>
+<h2 id="message-queues">Message Queues</h2>
+<p>To clear / restart message queues:  </p>
+<ul>
+<li>Navigate to <strong>Services-&gt;Messaging</strong>. Select the <strong>message queue</strong> and</li>
+<li>Click <strong>Reprocess Failed/Dead</strong> to reprocess messages.  </li>
+<li>Click <strong>Clear All</strong> to clear any messages out of the queue.  </li>
+</ul>
+<blockquote>
+<p>WARNING: this may produce unexpected results e.g. partial email delivery, failed conversions not being retried etc.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Loggers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IndexUpdate.replicate</td>
+<td>Index replications queue</td>
+</tr>
+<tr>
+<td>IndexUpdater.update</td>
+<td>Updates to the search indexes</td>
+</tr>
+<tr>
+<td>EmailNotifierImpl.sendQueued</td>
+<td>Queued email messages</td>
+</tr>
+<tr>
+<td>Rule.generatePdf</td>
+<td>Office -&gt; PDF and Flash conversions</td>
+</tr>
+<tr>
+<td>Rule.*</td>
+<td>Any asynchronous rule invocation</td>
+</tr>
+<tr>
+<td>replicate</td>
+<td>Data replication</td>
+</tr>
+<tr>
+<td><store>.write</td>
+<td>File replications and online cloud backups</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debug-mode">Debug Mode</h2>
+<p>To start PaperTrail in Debug Mode in Windows: <br />
+*   Start the <strong>console_debug.exe</strong> command line app.  </p>
+<p>To start PaperTrail in Debug Mode in Linux: <br />
+*   Add the following to the <strong>run.sh</strong> just after the java command:   </p>
+<pre><code class="javascript">-Xdebug  
+-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n  
+// Ex : java -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n -Xms512m -Xmx512m -XX:MaxPermSize=196m -classpath $(echo ../build/*.jar ../libs/*.jar . | sed 's/ /:/g'):conf com.egis.Startup
+</code></pre>
+
+<h2 id="running-jobs">Running Jobs</h2>
+<p>Any long running job will be listed under <strong>Services -&gt; Jobs</strong>. These include:  </p>
+<ul>
+<li>Scheduled Rules.  </li>
+<li>Index Repairs / Rebuilds.  </li>
+<li>File Store Repairs.  </li>
+<li>Database Backups / Restores.  </li>
+</ul>
+<h2 id="failure-to-start">Failure to Start</h2>
+<p>If PaperTrail fails to start, follow these steps :  </p>
+<ul>
+<li>Check that <strong>Java is installed</strong> and no other service is listening on the default port.  </li>
+<li>Verify that the <strong>database is up</strong> and <strong>accepting connections from the configured user/password</strong>.  </li>
+<li>Verify that user, service run as user <strong>has appropriate permissions to read and write to all directories</strong> in the installation directory.  </li>
+<li>Review the log files under logs - specifically <strong>error.log, output.log, server.log</strong>.  </li>
+</ul>
+<h2 id="low-performance">Low Performance</h2>
+<ul>
+<li>Check the <strong>memory usage</strong>. Take a snapshot and review the vminfo.txt file, the total GC time should be <strong>below 1% of uptime</strong>. If the total GC time is higher, it indicates that the <strong>heap space should be increased</strong>.  </li>
+<li>If running on a <strong>virtualization platform</strong>, ensure the host has enough resources.  </li>
+<li>Check to ensure that there is enough <strong>IO capacity for the application</strong>.  </li>
+<li>Verify that <strong>3rd party application</strong> is not utilizing CPU, RAM and IO resources.  </li>
+<li>Verify that the Database has <strong>enough RAM and IO capacity</strong>.  </li>
+<li>Verify that <strong>database indexes are created</strong> and statistics are up to date.  </li>
+<li>Review thread dump at <a href="http://host:8080/snapshot/threads">http://host:8080/snapshot/threads</a> for threads with high CPU usage.  </li>
+<li>Verify best practices.  </li>
+</ul>
+<h2 id="checking-log-files">Checking log files</h2>
+<ul>
+<li>Go to <a href="http://host:8080/web/admin/log.html">http://host:8080/web/admin/log.html</a>.  </li>
+<li>Take a snapshot <a href="http://host/snapshot">http://host/snapshot</a>.  </li>
+</ul>
 <h2 id="server-logs">Server logs</h2>
-<p>There's a web log console at https://my-uat.papertrail.co.za/web/admin/log.html .</p>
+<p>To access the server logs, access the web log console at https://my-uat.papertrail.co.za/web/admin/log.html .</p>
 <h2 id="rules-debugging">Rules debugging</h2>
 <p>If you expect some rule to be applied to created/updated/deleted document and it doesn't it's probably because that 
-document doesn't get covered by rule's source conditions. To see if that's the case set <code>com.egis.index.query</code> to DEBUG 
-in <code>Services -&gt; Logging</code> PT admin section - then you'll see the SQL queries and their resultset counts in log console.</p></div>
+document doesn't get covered by rule's source conditions. </p>
+<p>To see if that's the case, set <code>com.egis.index.query</code> to DEBUG 
+in <strong>Services -&gt; Logging</strong> admin section. And then you'll see the SQL queries and their result set counts in log console.</p></div>
         </div>
 
         <footer class="col-md-12">
