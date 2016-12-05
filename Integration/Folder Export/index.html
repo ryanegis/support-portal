@@ -313,16 +313,30 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#document-export">Document Export</a></li>
-            <li><a href="#folder">Folder</a></li>
-            <li><a href="#email">Email</a></li>
+            <li><a href="#command-line-process">Command Line Process</a></li>
+            <li><a href="#node-replication">Node Replication</a></li>
+            <li><a href="#auto-export">Auto Export</a></li>
             <li><a href="#export-format">Export Format</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="document-export">Document Export</h1>
+<h2 id="command-line-process">Command Line Process</h2>
+<p>Execute a command line process on a document. To do this, separate the command (script) and the file with: ||.   </p>
+<p>If the path is not specified in the PATH environment variable, then specify the path. 
+Examples:  </p>
+<pre><code class="javascript">autoPrint.vbs||${file}
+C:\autoPrint.vbs||${file}
+</code></pre>
+
+<h2 id="node-replication">Node Replication</h2>
+<p>HTTP Path: The path to the PaperTrail server that will contain the replicated node.  </p>
+<p>By default, a server can replicate to any other server. To prevent this behavior, refer to Trusted Servers, page.  </p>
+<p>To see information about replication, to replicate documents again, and to clear replication queues, use the Rule.replicate message queue in <strong>Services&gt;Messages</strong>.  </p>
+<h2 id="auto-export">Auto Export</h2>
 <p>The autoExport rule can export documents via 3 different mechanisms:</p>
-<h2 id="folder">Folder</h2>
+<h3 id="folder">Folder</h3>
 <p>Folder supports multiple folder types:</p>
 <table>
 <thead>
@@ -354,19 +368,27 @@
 </tr>
 </tbody>
 </table>
-<h2 id="email">Email</h2>
-<p>Papertrail -&gt; Papertrail (REST HTTP): Uploads the document via HTTP post to the specified host,</p>
-<p>If the URL does not contain a path then the following default is used:  </p>
+<h3 id="email">Email</h3>
+<p>Uploads the document via HTTP post to the specified host. If the URL does not contain a path then the following default is used:  </p>
 <p><code>/public/file/${_httpNodePath}/${_httpFilename}</code></p>
-<p><strong>${_httpFilename}</strong> corresponds to  the URL encoded filename of the document<br />
-<strong>${_httpNodePath}</strong> corresponds to the URL encoded node path  </p>
+<ul>
+<li><strong>${_httpFilename}</strong> corresponds to  the URL encoded filename of the document  </li>
+<li><strong>${_httpNodePath}</strong> corresponds to the URL encoded node path  </li>
+</ul>
 <p>This corresponds to the public API available for importing documents into PaperTrail.</p>
-<p>To specify a different node path you would use:
-<code>/public/file/Division/Cabinet/${_httpFilename}</code></p>
-<p>To append indexes you would use:
-<code>/public/file/${_httpNodePath}/${_httpFilename}?index1=staticValue1&amp;index2=${docId}</code></p>
-<p>And to append all indexes:
-<code>/public/file/${_httpNodePath}/${_httpFilename}?${_httpIndexes}</code></p>
+<ul>
+<li>To specify a different node path you would use:
+<code>/public/file/Division/Cabinet/${_httpFilename}</code>  </li>
+<li>To append indexes you would use:
+<code>/public/file/${_httpNodePath}/${_httpFilename}?index1=staticValue1&amp;index2=${docId}</code>  </li>
+<li>And to append all indexes:
+<code>/public/file/${_httpNodePath}/${_httpFilename}?${_httpIndexes}</code>  </li>
+</ul>
+<h3 id="papertrail-server">PaperTrail Server</h3>
+<ul>
+<li>HTTP Path: The URL of the PaperTrail server to which the documents will be exported. Example: http://headoffice:8080  </li>
+<li>Include: We recommend Document Archive or Source.  </li>
+</ul>
 <h2 id="export-format">Export Format</h2>
 <ul>
 <li>Source - The original document  </li>
