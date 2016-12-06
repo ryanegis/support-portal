@@ -461,26 +461,6 @@
             "title": "Very High"
         }, 
         {
-            "location": "/Configuration/solution-pack/", 
-            "text": "Solution Packs\n\n\nSolution packs provide a simple mechanism to export the configuration and deployment from one server to another.\n\n\nExporting\n\n\nTo export a solution pack browse to \n/solutions/export/\n while logged in as an administrator - A solution pack (.zip) file will be downloaded with the following contents:\n\n\n\n\nNode Structure\n\n\nTemplates\n\n\nForms\n\n\nSystem/scripts/\n\n\nSystem/templates\n\n\nWorkflows\n\n\n\n\nThe .zip can be manually edited and updated as required.\n\n\nImporting\n\n\nTo import a solution pack drop it into the \nplugins\n folder or import via the CLI:\n\n\npt deploy solution-pack.zip", 
-            "title": "Solution pack"
-        }, 
-        {
-            "location": "/Configuration/solution-pack/#solution-packs", 
-            "text": "Solution packs provide a simple mechanism to export the configuration and deployment from one server to another.", 
-            "title": "Solution Packs"
-        }, 
-        {
-            "location": "/Configuration/solution-pack/#exporting", 
-            "text": "To export a solution pack browse to  /solutions/export/  while logged in as an administrator - A solution pack (.zip) file will be downloaded with the following contents:   Node Structure  Templates  Forms  System/scripts/  System/templates  Workflows   The .zip can be manually edited and updated as required.", 
-            "title": "Exporting"
-        }, 
-        {
-            "location": "/Configuration/solution-pack/#importing", 
-            "text": "To import a solution pack drop it into the  plugins  folder or import via the CLI:  pt deploy solution-pack.zip", 
-            "title": "Importing"
-        }, 
-        {
             "location": "/Configuration/ssl/", 
             "text": "Configuring HTTPS (Server Side Only)\n\n\nTo configure PaperTrail to use HTTPS:\n\n\n\n\nCreate a Java key store (JKS) with a name of \nkeystore\n and place it in the \nconf\n directory\n\n\nSpecify the keystore password via \nhttp.ssl.password\n\n\nCheck Properties -\n HTTPS -\n Enable (\nhttp.ssl\n) to true\n\n\nSet the HTTPS port (\nhttp.ssl.port\n) to 443 or 8443\n\n\nCheck Force SSL (\nhttp.ssl.force\n) to always redirect from HTTP to HTTPS\n\n\n\n\nConverting PKCS#7 to PKCS#12\n\n\nopenssl pkcs12 -export -in server.crt -inkey server.key   -out keystore.p12 -name www\n\n\nConverting PKCS#12 to JKS\n\n\nkeytool -importkeystore -destkeystore keystore -srckeystore keystore.p12 -srcstoretype PKCS12\n               \n\n\nImport Root and Intermediate CA's\n\n\nkeytool -import -trustcacerts -alias root -file root.crt -keystore keystore\n\n\nVerifying\n\n\nTo verify that the keystore is configured correctly:\n\n\nkeytool -list -keystore keystore\n \n\n\nWhich should produce something like:\n\n\n\n\nKeystore type: JKS\nKeystore provider: SUN\n\n\nYour keystore contains 1 entry\n\n\n*.papertrail.co.za, Oct 29, 2015, PrivateKeyEntry, \n\n\n\n\nThe last line has a syntax of \n{CN} {Expiry} {Key Type}\n  \n\n\n{CN}\n should match the URL you would be accessing PaperTrail by\n\n\n{Key Type}\n must be PrivateKeyEntry  \n\n\nConfiguring Client Authentication (Mutual SSL)\n\n\n\n\nConfigure server side SSL as above\n\n\nCreate a new a JKS file called \ntruststore\n containing the trusted CA's\n\n\nCheck Require Client Certificates (\nhttp.ssl.client.require\n)\n\n\n\n\nConfiguring client certificates requires that \nall\n clients supply a trusted certificate.\n\n\nThe Common Name (\nCN\n) of the certificate will be used to map the a certificate to a user via the login field.", 
             "title": "Ssl"

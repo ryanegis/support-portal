@@ -90,12 +90,6 @@
     </url>
         
     <url>
-     <loc>/Configuration/solution-pack/</loc>
-     <lastmod>2016-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/Configuration/ssl/</loc>
      <lastmod>2016-12-06</lastmod>
      <changefreq>daily</changefreq>
