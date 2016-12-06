@@ -78,12 +78,6 @@
     </url>
         
     <url>
-     <loc>/Configuration/basic/</loc>
-     <lastmod>2016-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/Configuration/indexes/</loc>
      <lastmod>2016-12-06</lastmod>
      <changefreq>daily</changefreq>
