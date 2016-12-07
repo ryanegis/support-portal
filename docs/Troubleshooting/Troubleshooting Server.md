@@ -99,10 +99,6 @@ If PaperTrail fails to start, follow these steps :
 *  Go to [http://host:8080/web/admin/log.html](http://host:8080/web/admin/log.html).  
 *  Take a snapshot [http://host/snapshot](http://host/snapshot).  
 
-## Server logs
-
-To access the server logs, access the web log console at https://my-uat.papertrail.co.za/web/admin/log.html .
-
 ## Rules debugging
 
 If you expect some rule to be applied to created/updated/deleted document and it doesn't it's probably because that 
