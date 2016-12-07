@@ -15,7 +15,7 @@
 
 ## Log Levels
 
-To increase the log levels, navigate to  __Services -> Properties -> Logging__  
+To increase the log levels, navigate to  __Services -> Logging__ in PT Admin UI.  
 
 
 *  Select the __appropriate log level__ and click __Update__.  
@@ -99,14 +99,10 @@ If PaperTrail fails to start, follow these steps :
 *  Go to [http://host:8080/web/admin/log.html](http://host:8080/web/admin/log.html).  
 *  Take a snapshot [http://host/snapshot](http://host/snapshot).  
 
-## Server logs
-
-To access the server logs, access the web log console at https://my-uat.papertrail.co.za/web/admin/log.html .
-
 ## Rules debugging
 
 If you expect some rule to be applied to created/updated/deleted document and it doesn't it's probably because that 
 document doesn't get covered by rule's source conditions. 
 
-To see if that's the case, set `com.egis.index.query` to DEBUG 
-in __Services -> Logging__ admin section. And then you'll see the SQL queries and their result set counts in log console.
+To see if that's the case, set `com.egis.index.query` to DEBUG - see how in [Log Levels](#log-levels) section. 
+Then you'll see the SQL queries and their result set counts in log console.
