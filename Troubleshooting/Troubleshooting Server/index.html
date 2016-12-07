@@ -319,7 +319,6 @@
             <li><a href="#failure-to-start">Failure to Start</a></li>
             <li><a href="#low-performance">Low Performance</a></li>
             <li><a href="#checking-log-files">Checking log files</a></li>
-            <li><a href="#server-logs">Server logs</a></li>
             <li><a href="#rules-debugging">Rules debugging</a></li>
     </ul>
 </div></div>
@@ -339,7 +338,7 @@
 <li>Add knowledge base article.  </li>
 </ul>
 <h2 id="log-levels">Log Levels</h2>
-<p>To increase the log levels, navigate to  <strong>Services -&gt; Properties -&gt; Logging</strong>  </p>
+<p>To increase the log levels, navigate to  <strong>Services -&gt; Logging</strong> in PT Admin UI.  </p>
 <ul>
 <li>Select the <strong>appropriate log level</strong> and click <strong>Update</strong>.  </li>
 <li>Select the log level: <code>TRACE = highest amount of information</code>, <code>ERROR = Lowest amount of info</code>.  </li>
@@ -442,13 +441,11 @@
 <li>Go to <a href="http://host:8080/web/admin/log.html">http://host:8080/web/admin/log.html</a>.  </li>
 <li>Take a snapshot <a href="http://host/snapshot">http://host/snapshot</a>.  </li>
 </ul>
-<h2 id="server-logs">Server logs</h2>
-<p>To access the server logs, access the web log console at https://my-uat.papertrail.co.za/web/admin/log.html .</p>
 <h2 id="rules-debugging">Rules debugging</h2>
 <p>If you expect some rule to be applied to created/updated/deleted document and it doesn't it's probably because that 
 document doesn't get covered by rule's source conditions. </p>
-<p>To see if that's the case, set <code>com.egis.index.query</code> to DEBUG 
-in <strong>Services -&gt; Logging</strong> admin section. And then you'll see the SQL queries and their result set counts in log console.</p></div>
+<p>To see if that's the case, set <code>com.egis.index.query</code> to DEBUG - see how in <a href="#log-levels">Log Levels</a> section. 
+Then you'll see the SQL queries and their result set counts in log console.</p></div>
         </div>
 
         <footer class="col-md-12">
