@@ -49,9 +49,7 @@ Note: Backups can only be made of local database
  Configuring cloud backups
 --------------------------
 
-Cloud backups lets you back up the PaperTrail file repository (and
-optionally the PaperTrail database) in near real time to the Amazon S3
-cloud (http://aws.amazon.com/s3/).
+Cloud backups lets you back up the PaperTrail file repository (and optionally the PaperTrail database) in near real time to the [Amazon S3 cloud](http://aws.amazon.com/s3/).
 
  If you set up the Amazon S3 account, use the information from that
 account to configure cloud backups. For Egis managed backups, Egis will
