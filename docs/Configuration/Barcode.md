@@ -3,7 +3,7 @@
 1) Setup an extractFromBarcode rule on the appropriate node  
 2) Install the Softek SDK. You can download the latest version from:  
 [Windows SDK
-v8.1.2](http://http://softeksoftware.co.uk/download/barcode_sdk/windows/softek_barcode_sdk_8_1_2.zip)  
+v8.1.2](http://softeksoftware.co.uk/download/barcode_sdk/windows/softek_barcode_sdk_8_1_2.zip)  
  [Linux SDK v8.1.2](http://bardecode.com/barcode_linux.tar.gz)
 
 Libraries need to be copied to `/usr/lib/java`, `/usr/lib/`,

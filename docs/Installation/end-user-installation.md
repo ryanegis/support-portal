@@ -23,7 +23,7 @@ PaperTrailSetup.exe /S
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
 
-See [Windows](Desktop Agent) and [Linux](http://docs.papertrail.co.za/Installation/desktop-agent-linux)
+See [Windows](Desktop Agent) and [Linux](Ubuntu-Linux)
 ### Office Addin
 
 Download and run the installer from [http://downloads.papertrail.co.za](https://downloads.papertrail.co.za/Desktop)
@@ -31,9 +31,9 @@ Download and run the installer from [http://downloads.papertrail.co.za](https://
 See [MS Office Add-in](MS Office Add-in)
 ### Web Scan
 
-Web scan is distributed as an addon to the Advanced Plugin:
+Web scan is distributed as an add-on to the Advanced Plugin:
 
 1. Install the Advanced Plugin
-2. Download and Install the Web Scan Addon from [Downloads](https://downloads.papertrail.co.za/scan)
+2. Download and Install the Web Scan Add-on from [Downloads](https://downloads.papertrail.co.za/scan)
 3. Configure scan profiles under System -> Scanning
 

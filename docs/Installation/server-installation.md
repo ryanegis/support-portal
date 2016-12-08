@@ -27,8 +27,7 @@ Rename the `Papertrail` installation folder according to date of upgrade and cur
 1. Turn off [maintenance mode](../Reference/maintenance)
 
 #### More Links
-TODO : Link Broken
-[Service options](../Configuration/service)  
+[Service options](service)  
 [Backups](../Configuration/Backups)  
 [Replication](Replication)  
 [LDAP / Active Directory](../Integration/ldap-ad)
