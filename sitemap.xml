@@ -222,12 +222,6 @@
     </url>
         
     <url>
-     <loc>/Reference/Document Properties/</loc>
-     <lastmod>2017-01-09</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/Reference/Encryption/</loc>
      <lastmod>2017-01-09</lastmod>
      <changefreq>daily</changefreq>
@@ -253,6 +247,12 @@
         
     <url>
      <loc>/Reference/System-Nodes/</loc>
+     <lastmod>2017-01-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Reference/document-properties/</loc>
      <lastmod>2017-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
