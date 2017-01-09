@@ -71,6 +71,7 @@ Due to the large number of places, indexes/properties can be updated. It being t
 | visibility	   | Changes the visibility of the document  
 
 
+
 ## Arithmetic Operations
 
 Most properties and all custom index values are in String format. In order to use arithmetic in filters etc, you need to first convert them to a Number type. e.g.  
@@ -82,6 +83,8 @@ See [Groovy GDK String.asType()](http://docs.groovy-lang.org/latest/html/groovy-
 
 `IndexName=${(Double.valueOf(IndexName) * 1.14).round(2)} `
 
-## Dates 
+## Method Reference 
 
-For information about how to format dates, refer to  [SimpleDateFormat](http://download.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html.)
+[String](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html)  
+[Date](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/util/Date.html) and [SimpleDateFormat](http://download.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html.)  
+[Number](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/Number.html)  
