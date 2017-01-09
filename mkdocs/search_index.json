@@ -1422,13 +1422,18 @@
         }, 
         {
             "location": "/Reference/standard_expression/", 
-            "text": "Standard Expressions\n\n\nExpressions allow for values to be substituted at runtime. As an example of how expression values are substituted, if you are given a document with the following index values:\n\n\ncreatedDate = 2009-03-15  \nfilename = test.doc  \ntitle = sample title  \ndocid = 123  \n\n\n\n\nIf the basic syntax is \n${lookup?defaultValue:format}\n then this is how you would read the expression results using the values in the table in Document properties / indexes on page :\n\n\n\n\n\n\n\n\nStandard Expression\n\n\nOutput\n\n\n\n\n\n\n\n\n\n\n${createdDate:yyyy}\n\n\n2009\n\n\n\n\n\n\n${createdDate:yyyy-MM-dd}\n\n\n2009-13-15\n\n\n\n\n\n\n${createdDate:yyyyMM}\n\n\n200903\n\n\n\n\n\n\n${filename} - ${title} ($docid})\n\n\ntest.doc - sample (123)", 
+            "text": "Standard Expressions\n\n\nExpressions allow for values to be substituted at runtime. As an example of how expression values are substituted, if you are given a document with the following index values:\n\n\ncreatedDate = 2009-03-15  \nfilename = test.doc  \ntitle = sample title  \ndocid = 123  \n\n\n\n\nIf the basic syntax is \n${lookup?defaultValue:format}\n then this is how you would read the expression results using the values in the table in Document properties / indexes on page :\n\n\n\n\n\n\n\n\nStandard Expression\n\n\nOutput\n\n\n\n\n\n\n\n\n\n\n${createdDate:yyyy}\n\n\n2009\n\n\n\n\n\n\n${createdDate:yyyy-MM-dd}\n\n\n2009-13-15\n\n\n\n\n\n\n${createdDate:yyyyMM}\n\n\n200903\n\n\n\n\n\n\n${filename} - ${title} ($docid})\n\n\ntest.doc - sample (123)\n\n\n\n\n\n\n\n\nCustom Scripts\n\n\nCustom Groovy code can also be used e.g. to return the first 3 chars of a filename\n\n\n${filename.toLowerCase()[0..3]}\n\n\n\n\nSee \nGroovy JDK\n\n\n\n\nNote that due to the \n?\n and \n:\n being used to format values they cannot be used in code e.g. \n\n\n\n\ne.g. \n'${index1 == 'val' ? 'yes' : 'no }\n will not work, use \n${ if (index1 == 'val') then 'yes' else 'no' }\n\n\nSee \nDocument Properties\n for a full list of fields available.", 
             "title": "Standard expression"
         }, 
         {
             "location": "/Reference/standard_expression/#standard-expressions", 
             "text": "Expressions allow for values to be substituted at runtime. As an example of how expression values are substituted, if you are given a document with the following index values:  createdDate = 2009-03-15  \nfilename = test.doc  \ntitle = sample title  \ndocid = 123    If the basic syntax is  ${lookup?defaultValue:format}  then this is how you would read the expression results using the values in the table in Document properties / indexes on page :     Standard Expression  Output      ${createdDate:yyyy}  2009    ${createdDate:yyyy-MM-dd}  2009-13-15    ${createdDate:yyyyMM}  200903    ${filename} - ${title} ($docid})  test.doc - sample (123)", 
             "title": "Standard Expressions"
+        }, 
+        {
+            "location": "/Reference/standard_expression/#custom-scripts", 
+            "text": "Custom Groovy code can also be used e.g. to return the first 3 chars of a filename  ${filename.toLowerCase()[0..3]}  See  Groovy JDK   Note that due to the  ?  and  :  being used to format values they cannot be used in code e.g.    e.g.  '${index1 == 'val' ? 'yes' : 'no }  will not work, use  ${ if (index1 == 'val') then 'yes' else 'no' }  See  Document Properties  for a full list of fields available.", 
+            "title": "Custom Scripts"
         }, 
         {
             "location": "/Troubleshooting/Performance/", 

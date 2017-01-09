@@ -309,6 +309,7 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#standard-expressions">Standard Expressions</a></li>
+            <li><a href="#custom-scripts">Custom Scripts</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -347,7 +348,18 @@ docid = 123
 <td>test.doc - sample (123)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h3 id="custom-scripts">Custom Scripts</h3>
+<p>Custom Groovy code can also be used e.g. to return the first 3 chars of a filename</p>
+<pre><code class="groovy">${filename.toLowerCase()[0..3]}
+</code></pre>
+
+<p>See <a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk">Groovy JDK</a></p>
+<blockquote>
+<p>Note that due to the <code>?</code> and <code>:</code> being used to format values they cannot be used in code e.g. </p>
+</blockquote>
+<p>e.g. <code>'${index1 == 'val' ? 'yes' : 'no }</code> will not work, use <code>${ if (index1 == 'val') then 'yes' else 'no' }</code></p>
+<p>See <a href="../document-properties">Document Properties</a> for a full list of fields available.</p></div>
         </div>
 
         <footer class="col-md-12">
