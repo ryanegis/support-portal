@@ -9,9 +9,11 @@ To install PaperTrail you will first need to install the prerequisites:
 
 Once you have the prerequisites : 
 
-1.  Download and run the installer - this can be done silently using the **-q** option  
-2.  Access the installation wizard at **http://localhost:8080**  
-3.  When complete, conduct a [Health Check](../Reference/health)  
+1.  Create a new database (e.g. "PaperTrail") within the installed database application on the host server
+2.  Download and run the installer - this can be done silently using the **-q** option 
+3.  You will need to provide the database name ("PaperTrail" in this example; this is case sensitive) as well as administrative credentials to the database application to complete the installation process
+4.  Access the installation wizard at **http://localhost:8080**  
+5.  When complete, conduct a [Health Check](../Reference/health)  
 
 See [Windows](Windows), 
  [Linux](ubuntu-linux), [MacOSX](macosx) 
