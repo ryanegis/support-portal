@@ -320,13 +320,18 @@
 <p>To install PaperTrail you will first need to install the prerequisites:</p>
 <ul>
 <li>Java 8 SDK</li>
-<li>PostgreSQL or MS SQL on localhost or remote server</li>
+<li>PostgreSQL, MySQL or MS SQL on localhost or remote server (You will require the IP address of the database server, the TCP port that the server is listening on as well as administrative credentials to the database)</li>
 <li>LibreOffice</li>
 </ul>
 <p>Once you have the prerequisites : </p>
 <ol>
-<li>Download and run the installer - this can be done silently using the <strong>-q</strong> option  </li>
+<li>Create a new database (e.g. <code>papertrail</code>) within the installed database application on the host server</li>
+<li>Download and run the installer - this can be done silently using the <strong>-q</strong> option</li>
 <li>Access the installation wizard at <strong>http://localhost:8080</strong>  </li>
+<li>You will need to provide the following details:<br>
+    4.1  The desired HTTP port for the frontend (<code>8080</code> in this example)<br>
+    4.2  The IP address, TCP port and administrative credentials of the database host server (if the database is installed on the same server, use <code>localhost</code> as DB Host)<br>
+    4.3  Database name (<code>papertrail</code> in this example; this is case sensitive)</li>
 <li>When complete, conduct a <a href="../../Reference/health">Health Check</a>  </li>
 </ol>
 <p>See <a href="../Windows">Windows</a>, 
