@@ -69,22 +69,3 @@ Due to the large number of places, indexes/properties can be updated. It being t
 | owner	   | Assigns ownership to the user  
 | node	   | Moves the document to the specified node  
 | visibility	   | Changes the visibility of the document  
-
-
-
-## Arithmetic Operations
-
-Most properties and all custom index values are in String format. In order to use arithmetic in filters etc, you need to first convert them to a Number type. e.g.  
-`customNumberIndex.asInt() > 10000`  
-
-See [Groovy GDK String.asType()](http://docs.groovy-lang.org/latest/html/groovy-jdk/java/lang/String.html#asType(java.lang.Class))
-
-## Rounding
-
-`IndexName=${(Double.valueOf(IndexName) * 1.14).round(2)} `
-
-## Method Reference 
-
-[String](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html)  
-[Date](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/util/Date.html) and [SimpleDateFormat](http://download.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html.)  
-[Number](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/Number.html)  
