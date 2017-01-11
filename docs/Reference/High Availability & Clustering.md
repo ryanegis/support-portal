@@ -53,3 +53,5 @@ storage.upstream=http://slave:8080
 *  Restart PaperTrail.
 
 > Note: Clustering requires a low latency (<1ms), reliable (preferably dual path redundant network) network connection to function correctly.  Replication can be used in WAN environments.
+
+Ensure that port `5701` is open for inbound traffic from all cluster members to all cluster members. See [Hazelcast Ports](http://docs.hazelcast.org/docs/3.3/manual/html/ports.html)
