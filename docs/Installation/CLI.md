@@ -31,5 +31,5 @@ Choose only one of the below options:
     `pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' import newusers.yml`
 
 ### Reference
- * The above 2 examples export and import users respectively based on the YAML format. See more [here] (http://support.papertrail.co.za/Configuration/Yaml%20Config/?#yaml-import-and-export)
- * Further details specific to the user import and export process can be found [here] (http://support.papertrail.co.za/Configuration/user-export-import)
+ * The above 2 examples export and import users respectively based on the YAML format. See more [here](http://support.papertrail.co.za/Configuration/Yaml%20Config/?#yaml-import-and-export)
+ * Further details specific to the user import and export process can be found [here](http://support.papertrail.co.za/Configuration/user-export-import)
