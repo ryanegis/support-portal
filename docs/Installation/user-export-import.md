@@ -1,7 +1,7 @@
 # User export and import via the pt CLI command
 
 ### Requirements
-* Ensure that the `pt` utility is installed on a Linux host. See guide [here] (http://support.papertrail.co.za/Installation/CLI/)
+* Ensure that the `pt` utility is installed on a Linux host. See guide [here](http://support.papertrail.co.za/Installation/CLI/)
 
 ### Export current user database
 * From the Linux host, execute<br>
@@ -23,7 +23,7 @@
 | true   | gillb@testserver.com | gillb | Gill Bates | {otp: 'false'} | FULL     |
 | true   | joes@testserver.com  | joes  | Joe Soap   | {otp: 'false'} | FULL     |
 
-* Convert the csv data to YAML. There is a decent online converter [here] (http://www.becsv.com/csv-yaml.php)
+* Convert the csv data to YAML. There is a decent online converter [here](http://www.becsv.com/csv-yaml.php)
 
 * Your YAML output should look like the below:<br>
 `---`<br>
