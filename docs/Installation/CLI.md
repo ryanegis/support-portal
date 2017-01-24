@@ -1,6 +1,6 @@
 # Papertrail Linux CLI command: pt
 
-A command line interface to perform functions not found in the administrative GUI is available. This utility can be installed on Linux via pip (package management system to install Python software packages).
+A command line interface to perform functions not found in the administrative GUI is available. It can also be used as part of a scripting process, e.g. bulk export/upload etc. This utility can be installed on Linux via pip (package management system to install Python software packages).
 
 ### Requirements:
 It is not necessary for this program to be installed on the Papertrail server that you intend on connecting to. However, the following packages need to be installed on the Linux host where you intend on using the `pt` CLI command:
@@ -22,7 +22,7 @@ Choose only one of the below options:
  * Execute `sudo python setup.py install`
 
 ### Usage
- * Once installed, executing `pt` will bring up the available options and commands
+ * Once installed, executing `pt --help` will bring up the available options and commands. Use `pt {command} --help` for more details on the specific command itself; e.g. `pt import --help`
  * To connect to a Papertrail host server:<br>
     `pt --host 192.168.1.10:8080 -- username admin --password 'mypassword'` (which will not execute an actual command)
  * Add onto the above for the specific function you wish to achieve, e.g.<br>
@@ -32,4 +32,4 @@ Choose only one of the below options:
 
 ### Reference
  * The above 2 examples export and import users respectively based on the YAML format. See more [here] (http://support.papertrail.co.za/Configuration/Yaml%20Config/?#yaml-import-and-export)
- * Further details specific to the user import and export process can be found [here] (http://support.papertrail.co.za/Configuration/Yaml%20Config/?#yaml-import-and-export)
+ * Further details specific to the user import and export process can be found [here] (http://support.papertrail.co.za/Configuration/user-export-import)
