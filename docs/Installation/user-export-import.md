@@ -1,7 +1,7 @@
 # User export and import via the pt CLI command
 
 ### Requirements
-* Ensure that the `pt` utility is installed on a Linux host. See guide [here] (http://support.papertrail.co.za/Installation/Create%20Linux%20CLI%20command: pt.md/)
+* Ensure that the `pt` utility is installed on a Linux host. See guide [here] (http://support.papertrail.co.za/Installation/CLI/)
 
 ### Export current user database
 * From the Linux host, execute<br>
