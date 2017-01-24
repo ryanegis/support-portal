@@ -3,11 +3,11 @@
 A command line interface to perform functions not found in the administrative GUI is available. It can also be used as part of a scripting process, e.g. bulk export/upload etc. This utility can be installed on Linux via pip (package management system to install Python software packages).
 
 ### Requirements:
-It is not necessary for this program to be installed on the Papertrail server that you intend on connecting to. However, the following packages need to be installed on the Linux host where you intend on using the `pt` CLI command:<br>
-* Python<br>
-* Pip<br>
-* Git<br>
-
+It is not necessary for this program to be installed on the Papertrail server that you intend on connecting to. However, the following packages need to be installed on the Linux host where you intend on using the `pt` CLI command:
+ * Python
+ * pip
+ * Git
+ 
 The installation of these packages may vary depending on the flavour of Linux running (e.g. *yum*, *rpm*, *apt-get*)
 
 ### Installation
@@ -32,4 +32,4 @@ Choose only one of the below options:
 
 ### Reference
  * The above 2 examples export and import users respectively based on the YAML format. See more [here](http://support.papertrail.co.za/Configuration/Yaml%20Config/?#yaml-import-and-export)
- * Further details specific to the user import and export process can be found [here](http://support.papertrail.co.za/Configuration/user-export-import)
+ * Further details specific to the user import and export process can be found [here](http://support.papertrail.co.za/Configuration/user-export-and-import/)
