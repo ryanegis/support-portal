@@ -24,3 +24,31 @@ OR
 *  Click __Save__.  
 *  Restart __PaperTrail__.  
 
+
+## Encrypting Outbound Email (SMIME)
+
+In `papertrail.properties` add the following property:
+e.g.
+```
+email.smime.out.<email address>=<path to X509 public certificate>
+```
+e.g.
+```
+email.sime.out.confidential@example.com=C:\public.cert
+```
+
+To test: Email anything from PaperTrail to that email and it should automatically be encrypted.
+
+> Tip: The [KeyStore Explorer](http://keystore-explorer.sourceforge.net/index.php) application can be used to create and import certificates into most formats.
+
+## Decrypting Inbound Email (SMIME)
+
+Under `Services -> Properties -> Imports` configure.
+
+**Email Decryption Cert Path**: A path to a JCEKS Key Store that contains one or more keys to decrypt incoming email. The file should have an `jceks` extension. Each entry in the keystore should have the same password as the keystore it self.  
+
+**Email Decryption Password**: The password to the keystore.  
+
+To test try and view any encrypted mail in preview - The body and attachments should be available - if it does not work then a smime.p7m attachment will only be visible.
+ 
+
