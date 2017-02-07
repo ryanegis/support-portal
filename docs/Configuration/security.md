@@ -1,6 +1,6 @@
-# Security Settings
+## Security Mode
 
-PaperTrail can be run in 4 distinct security modes:
+PaperTrail can be run in 4 distinct security modes under **Properties -> Security -> Security Mode**
 
 ###  Low (Default)
 
@@ -63,3 +63,23 @@ Includes all the restrictions of Medium and:
 -   Custom options in Meta Model Fields
 -   PQL Expressions
 
+
+
+
+## Brute Force Login protection
+
+There are 2 options under Properties -> Authentication that can be enabled
+
+`Captcha on password reset` - Force a captcha to be passed before allowing a password reset email to be sent  
+> Tip: password resets can also be disabled by unchecking `enable self service password reset`
+`Captcha on login attempts` - Force a captcha to be passed before X number of failed login attempts
+
+
+
+## Brute Force Request Protection
+
+Check `Enable brute force protection` under `Services -> Security`  
+
+## Secure Cookie Handling
+
+Check the options under `Services -> Security -> Cookies`
