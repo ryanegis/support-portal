@@ -15,7 +15,8 @@ OR
 
 ## Encrypting files in transit (SSL)
 
-*  Create a __Java keystore__.  
+*  Create a __Java keystore (JKS)__ 
+> If you have a pfx or certificate in another format it will need to be converted to JKS using tool like  [KeyStore Explorer](http://keystore-explorer.sourceforge.net/index.php) or [OpenSSL](https://www.digicert.com/ssl-support/jks-import-export-java.htm)
 *  Copy the keystore to __conf/keystore__.
 *  Under __Services -> Properties -> Front End (SSL)__.
 *  Check __Enable__.
@@ -23,7 +24,6 @@ OR
 *  Optional: Check __Force SSL__ to ensure all traffic from HTTP is redirected to HTTPS.  
 *  Click __Save__.  
 *  Restart __PaperTrail__.  
-
 
 ## Encrypting Outbound Email (SMIME)
 
@@ -39,13 +39,13 @@ email.sime.out.confidential@example.com=C:\public.cert
 
 To test: Email anything from PaperTrail to that email and it should automatically be encrypted.
 
-> Tip: The [KeyStore Explorer](http://keystore-explorer.sourceforge.net/index.php) application can be used to create and import certificates into most formats.
+
 
 ## Decrypting Inbound Email (SMIME)
 
 Under `Services -> Properties -> Imports` configure.
 
-**Email Decryption Cert Path**: A path to a JCEKS Key Store that contains one or more keys to decrypt incoming email. The file should have an `jceks` extension. Each entry in the keystore should have the same password as the keystore it self.  
+**Email Decryption Cert Path**: A path to a JCEKS Key Store  (Note: JCEKS not JKS) that contains one or more keys to decrypt incoming email. The file should have an `jceks` extension. Each entry in the keystore should have the same password as the keystore it self.  
 
 **Email Decryption Password**: The password to the keystore.  
 
