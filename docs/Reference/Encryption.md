@@ -16,7 +16,9 @@ OR
 ## Encrypting files in transit (SSL)
 
 *  Create a __Java keystore (JKS)__ 
-> If you have a pfx or certificate in another format it will need to be converted to JKS using tool like  [KeyStore Explorer](http://keystore-explorer.sourceforge.net/index.php) or [OpenSSL](https://www.digicert.com/ssl-support/jks-import-export-java.htm)
+
+>If you have a pfx or certificate in another format it will need to be converted to JKS using tool like  [KeyStore Explorer](http://keystore-explorer.sourceforge.net/index.php) or [OpenSSL](https://www.digicert.com/ssl-support/jks-import-export-java.htm)
+
 *  Copy the keystore to __conf/keystore__.
 *  Under __Services -> Properties -> Front End (SSL)__.
 *  Check __Enable__.
