@@ -15,7 +15,7 @@
 * In the new tab (ensure that pop-ups are not blocked), set fields etc and then add the Signature box(es)
 * Signatures can be open to anyone (leave the `Name` field blank), or restricted to a specific user via the `Name` field
 * When done, click the disk (Save) icon to save the design
-  * This saves the form design under the e`Signature Upload Node` defined in the Requirements and Preparation stage.
+  * This saves the form design under the `eSignature Upload Node` defined in the Requirements and Preparation stage.
 * Then click the Settings cog and `Save as template`
   * Name the template and select the node that this template will reside in. The node must either be a Cabinet or a Folder; Divisions are not allowed. This is the location where the created forms will save to
 
@@ -23,3 +23,7 @@
 * V2 Interface: Navigate to `eSign` and select the form > `New Request`
 * Classic Interface: `Tools > New Form`
 * Signed documents will be created in the node specified under `Save as template`
+
+### Notes
+* To edit an existing design, select the design by clicking `eSign` (V2 interface) and selecting the design you wish to edit. Then `More > Sign`. Save the design and the template
+* To auto-populate indexes based on values in the form, name the `Field ID` in the design stage to the same as the index you wish to populate.
