@@ -5,7 +5,7 @@
 
 ### Export current user database
 * From the Linux host, execute<br>
-`pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' export User > users.yml`
+`pt --host 192.168.1.10:8080 --username admin --password 'mypassword' export User > users.yml`
 * Evaluate the contents of users.yml to identify the required fields; example below:<br>
 `--- !<User>`<br>
 `active: true`<br>
@@ -49,5 +49,5 @@
 ### Import new user database
 * Copy your YAML file over to the Linux host (using WinSCP as an option)
 * On the Linux host, execute<br>
-`pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' import newusers.yml`
+`pt --host 192.168.1.10:8080 --username admin --password 'mypassword' import newusers.yml`
 * If you encounter any error messages, check the server logs to identify the offending statement (put `com.egis.kernel.messaging` on DEBUG/TRACE if additional logging is required)
