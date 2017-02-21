@@ -1,5 +1,13 @@
 # Web Scan
 
+For installing webscan see [End user installation](http://support.papertrail.co.za/Installation/end-user-installation/#web-scan)  
+
+Each user who useses webscan will need to be configured as a Webscan user type in **User Management -> Users**  
+
+Web Scan is configured using JSON profiles stored in `System/scanning/profiles`  
+
+
+
 ## Web Scan Profile Settings
 
 ### separation
