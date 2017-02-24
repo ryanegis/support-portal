@@ -23,13 +23,8 @@ Check __Services -> Properties -> SSO__ (Windows Kerberos/NTLM)
 
 ### Windows Based SSO (NTLM): Automatic Logon settings
 If SSO is not functioning as expected (e.g. the browser displays a Windows Security authentication window prompting for credentials), check the settings in Internet Explorer around Automatic Logon:
-* Open Internet Explorer
-* Click the Settings Cog and select Internet Options
-* Select the Security tab and click Custom Level
-* Navigate to User Authentication > Logon and select `Automatic logon only in Intranet zone` and click OK
-* Back at the Security tab, select the Local intranet zone and click Sites > Advanced
-* Add the sites: http://[PT server hostname] and http://[PT server IP] to this zone
-* Save all options
+* Ensure that the Custom-level Security Setting for User Authentication is set to `Automatic log-on only in Intranet zone`
+* Add the hostname and IP address of the PaperTrail server to the `Local intranet zone`
 
 **Note:** The Google Chrome browser uses the security settings around SSO from those defined in Internet Explorer.
 
