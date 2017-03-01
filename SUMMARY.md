@@ -1,8 +1,9 @@
 # Summary
 
 * [Introduction](index.md)
-* [Configuration]
+* Configuration
   * [Advanced Login](configuration/advanced-login.md)
+  * [Advanced Permissions](configuration/advanced-permissions.md)
+  * [Backups](configuration/backups.md)
 
-* [Troubleshooting High Usage](troubleshooting-high-usage.md)
 
