@@ -4,7 +4,7 @@
 * Configuration
   * [Advanced Login](configuration/advanced-login.md)
   * [Advanced Permissions](configuration/advanced-permissions.md)
-  * [Backups](configuration/backups.md)
+  * [Backups](configuration/backups-text.md)
   * [Barcode](configuration/barcode.md)
   * [Branding](configuration/branding.md)
   * [Logging](configuration/logging.md)
