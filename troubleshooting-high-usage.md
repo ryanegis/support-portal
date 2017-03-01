@@ -1,4 +1,4 @@
-\# Troubleshooting High CPU usage
+# Troubleshooting High CPU usage
 
 
 
