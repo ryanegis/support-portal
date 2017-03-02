@@ -141,6 +141,6 @@ Native restore from backup
 5. Copy over the PT_Repo and PT_Index directories to the new server
 6. Install PaperTrail on the new server
 7. Copy the following files from the OLD PaperTrail server to the new PaperTrail server:
- * services_x64.vmoptions (only if hosted on our environment)
+ * services_x64.vmoptions
  * any customer .jar files in the deploy directory
  * MySQL ONLY - copy mysql-connector-{version} from libs directory
