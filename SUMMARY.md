@@ -30,4 +30,13 @@
   * [Server Installation](installation/server-installation.md)
   * [Service](installation/service.md)
   * [Solution](installation/solution.md)
+* Integration
+  * [Database](integration/database.md)
+  * [Easy PDF](integration/EasyPDF.md)
+  * [Folder Export](integration/folder-export.md)
+  * [Data Sources](integration/data-sources.md)
+  * [Email Watch](integration/email-watch.md)
+  * [Folder Watch](integration/folder-watch.md)
+  * [LDAP ad](integration/ldap-ad.md)
+
 
