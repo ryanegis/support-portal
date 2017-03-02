@@ -31,12 +31,12 @@
   * [Service](installation/service.md)
   * [Solution](installation/solution.md)
 * Integration
-  * [Database](integration/database.md)
-  * [Easy PDF](integration/EasyPDF.md)
-  * [Folder Export](integration/folder-export.md)
-  * [Data Sources](integration/data-sources.md)
-  * [Email Watch](integration/email-watch.md)
-  * [Folder Watch](integration/folder-watch.md)
-  * [LDAP ad](integration/ldap-ad.md)
+  * [Database](integration/database-text.md)
+  * [Easy PDF](integration/easypdf-text.md)
+  * [Folder Export](integration/folder-export-text.md)
+  * [Data Sources](integration/data-sources-text.md)
+  * [Email Watch](integration/email-watch-text.md)
+  * [Folder Watch](integration/folder-watch-text.md)
+  * [LDAP ad](integration/ldap-ad-text.md)
 
 
