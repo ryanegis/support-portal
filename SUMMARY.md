@@ -18,4 +18,16 @@
   * [Security](configuration/security.md)
   * [SSL](configuration/ssl.md)
   * [User Export and Import](configuration/user-export-and-import.md)
+* Installation
+  * [CLI](installation/cli-article.md)
+  * [Desktop Agent](installation/desktop-agent.md)
+  * [MS Office Add In](installation/ms-office-add-in.md)
+  * [Sizing](installation/sizing.md)
+  * [Ubuntu Linux](installation/ubuntu-linux.md)
+  * [Windows](installation/Windows.md)
+  * [End User Installation](installation/end-user-installation.md)
+  * [Mac OS X](installation/macosx.md)
+  * [Server Installation](installation/server-installation.md)
+  * [Service](installation/service.md)
+  * [Solution](installation/solution.md)
 
