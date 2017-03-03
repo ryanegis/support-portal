@@ -25,10 +25,10 @@ System properties can either be set as startup configuration option using `-Dsys
 | java.net.useSystemProxies||true
 | http.proxyHost|HTTP Proxy Host|squid
 | http.proxyPort|HTTP Proxy Port|8800
-| http.proxyUser||
-| http.proxyPassword||
-| http.nonProxyHosts||`"localhost|127.0.0.1|10.*.*.*|*.foo.co|etc"`
-| socksProxyHost||
-| socksProxyPort||
-| java.net.socks.username||
-| java.net.socks.password||
+| http.proxyUser|    |
+| http.proxyPassword|     |
+| http.nonProxyHosts|    |`localhost|127.0.0.1|10.*.*.*|*.foo.co|etc`
+| socksProxyHost|     |
+| socksProxyPort|     |
+| java.net.socks.username|     |
+| java.net.socks.password|   | 
