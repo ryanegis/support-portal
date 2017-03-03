@@ -4,7 +4,7 @@
 
 1.  Is there enough memory?  There should always be at least 1 - 2GB
     free memory in production to avoid using swap space
-2.  Is CPU Usage high? Then check the [CPU Usage guide](cpu-usage)
+2.  Is CPU Usage high? Then check the [CPU Usage guide](cpu-usage-text.md)
 3.  Check network performance via ICMP ping and Browser developer tools
     network tab - Response times of < 250ms are good and < 1s are
     acceptable.

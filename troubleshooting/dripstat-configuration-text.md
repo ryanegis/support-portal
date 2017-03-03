@@ -1,3 +1,5 @@
+# Dripstat Configuration
+
 Dripstat monitoring can be installed and configured on PaperTrail instances to monitor performance and enable more detailed information relating to server/web service performance issues.
 
 The following will need to be set up:

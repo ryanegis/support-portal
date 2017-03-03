@@ -57,6 +57,6 @@ Custom Groovy code can also be used e.g. to
 
 See [Groovy JDK](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk)
 
-See [Document Properties](document-properties) for a full list of fields available.
+See [Document Properties](document-properties-text.md) for a full list of fields available.
 
 
