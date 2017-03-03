@@ -18,7 +18,7 @@ Once you have the prerequisites :
     4.3  Database name (`papertrail` in this example; this is case sensitive)
 5.  When complete, conduct a [Health Check](../reference/health-text.md)  
 
-See [Windows](Windowsmd), 
+See [Windows](Windows.md), 
  [Linux](ubuntu-linux-text.md), [MacOSX](macosx.md) 
 
 ## Upgrades
