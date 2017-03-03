@@ -38,5 +38,28 @@
   * [Email Watch](integration/email-watch-text.md)
   * [Folder Watch](integration/folder-watch-text.md)
   * [LDAP ad](integration/ldap-ad-text.md)
+* Reference
+  * [Cold Standby Failover Procedure](reference/cold-standby-failover-procedure-text.md)
+  * [Encryption](reference/encryption-text.md)
+  * [Linking](reference/linking-text.md)
+  * [Logging](reference/logging-text.md)
+  * [System Nodes](reference/system-nodes-text.md)
+  * [Document Properties](reference/document-properties-text.md)
+  * [Health](reference/health-text.md)
+  * [High Availability](reference/high-availability-text.md)
+  * [Licensing](reference/licensing-text.md)
+  * [Linking Syntax](reference/linking-syntax-text.md)
+  * [Maintenance](reference/maintenance-text.md)
+  * [PQL](reference/pql-text.md)
+  * [Regex](reference/regex-text.md)
+  * [Standard Expression](reference/standard-expression-text.md)
+* Troubleshooting
+  * [Dripstat Configuration](troubleshooting/dripstat-configuration-text.md)
+  * [Performance](troubleshooting/performance-text.md)
+  * [Troubleshooting Client](troubleshooting/troubleshooting-client-text.md)
+  * [Troubleshooting Server](troubleshooting/troubleshooting-server-text.md)
+  * [CPU Usage](troubleshooting/cpu-usage-text.md)
+  * [DB Tuning](troubleshooting/db-tuning-text.md)
+  * [Exceptions](troubleshooting/exceptions-text.md)
 
 
