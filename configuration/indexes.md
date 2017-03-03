@@ -63,11 +63,11 @@ When a user selects **ID** a `ID No` field will be shown which can include valid
 
 e.g. `${new Date():yyyy}` will automatically populate a year index with the current year.
 
-See [Standard Expression](/Reference/standard_expression/)
+See [Standard Expression](../reference/standard-expression-text.md)
 
 **Regex** is a Java regular expression that is evaluated server side, if the value does not match the user is shown a validation error.
 
-See [Regular Expressions](/Reference/regex)
+See [Regular Expressions](../reference/regex-text.md)
 
 **Filter** are evaluated just before an index value is saved, it accepts any Groovy statement
 

@@ -1,7 +1,7 @@
 # User export and import via the pt CLI command
 
 ### Requirements
-* Ensure that the `pt` utility is installed on a Linux host. See guide [here](../installation/cli-article.html)
+* Ensure that the `pt` utility is installed on a Linux host. See guide [here](../installation/cli-article.md)
 
 ### Export current user database
 * From the Linux host, execute<br>
