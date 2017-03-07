@@ -63,7 +63,7 @@ When a user selects **ID** a `ID No` field will be shown which can include valid
 
 e.g. `${new Date():yyyy}` will automatically populate a year index with the current year.
 
-See [Standard Expression](../reference/standard-expression-text)
+See [Standard Expression](../reference/standard-expression-text.md)
 
 **Regex** is a Java regular expression that is evaluated server side, if the value does not match the user is shown a validation error.
 
