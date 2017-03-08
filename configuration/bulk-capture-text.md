@@ -6,4 +6,4 @@
 
 ### Customize indexes per queue
 
-1. To customise the indexes used in Bulk Capture create a new Meta MOdel with the queue name
+1. To customise the indexes used in Bulk Capture create a new Meta Model with the queue name
