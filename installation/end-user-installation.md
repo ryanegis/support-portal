@@ -12,7 +12,7 @@ The minimum requirements that are advised for Workstations are as follows:
 ### Advanced Plugin
 1. Click on Help / Cog -> Check Installation and then follow the instructions that will guide you through the installation process
 
-See [Windows](Desktop Agent)
+See [Windows](desktop-agent.md)
 
 For silent installation use following command:
 ```

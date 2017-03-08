@@ -1,6 +1,6 @@
 # Web Scan
 
-For installing webscan see [End user installation](http://support.papertrail.co.za/Installation/end-user-installation/#web-scan)  
+For installing webscan see [End user installation](../installation/end-user-installation.md)  
 
 Each user who useses webscan will need to be configured as a Webscan user type in **User Management -> Users**  
 
@@ -82,7 +82,7 @@ Fields:
 
 type - *object*
 
-See [Barcode Configuration](Barcode) for list of supported properties
+See [Barcode Configuration](barcode-text.md) for list of supported properties
 
 ## Examples
 
