@@ -6,7 +6,7 @@ dependencies:
   override:
     - sudo pip install -e git+https://github.com/MadLittleMods/markdown-icons.git || echo ok
     - sudo pip install mkdocs
-    - sudo npm install -g gitbook-cli
+    - npm install -g gitbook-cli
 
 test:
   override:
