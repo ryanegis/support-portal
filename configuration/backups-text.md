@@ -137,7 +137,7 @@ Native restore from backup
 4. Run the SQL command to update the license on the new server:
  * `update system_property set value = '[License Text]' where name ='license'`
 5. Copy over the PT_Repo and PT_Index directories to the new server
-6. Complete the [install of PaperTrail](http://support.papertrail.co.za/Installation/server-installation/#installation) on the new server
+6. Complete the [install of PaperTrail](../installation/server-installation.md) on the new server
 7. Copy the following files from the OLD PaperTrail server to the NEW PaperTrail server:
  * services_x64.vmoptions
  * any customer .jar files in the deploy directory
