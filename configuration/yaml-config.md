@@ -6,13 +6,13 @@ Imports can be imported multiple times without creating duplicates, this can be 
 
 ## Examples
 
-To import one or more entities:
+### To import one or more entities:
 
 ```javascript
 POST: / dao /import/yml
 ```
 
-To export all instances of an entity: 
+### To export all instances of an entity: 
 
 ```javascript
 /dao/export/yml/{Entity}
@@ -26,11 +26,13 @@ To export a specific entity:
 
 Where {Entity} is one of:  
 
-*  User - All permissions and group memberships will be retained.  
-*  Node - All child nodes, indexes, permissions and rules will be retained.  
+*  User *All permissions and group memberships will be retained*
+*  Node *All child nodes, indexes, permissions and rules will be retained*  
 *  ListIndex - All values will be retained.  
 *  DataSource  
 *  RuleApplication  
+*  QueueConfig
+*  MetaModel
 *  Form  
 *  Template  
 *  All entities will export something - but the output may or may not import back in.  
