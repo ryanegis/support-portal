@@ -130,14 +130,14 @@ Native restore from backup
 3. Check new installation and enter existing database details
 
 ## Migrate PaperTrail to another host
-1. On the current server, perform a dump of the DB. Refer to [how to backup](http://support.papertrail.co.za/Configuration/Backups/#how-to-backup)
+1. On the current server, perform a dump of the DB. Refer to [how to backup](backups-text.md/#how-to-backup)
 2. On the new server, install the pre-requisites (Java 8 SDK, LibreOffice, DB application) and create the DB. DO NOT install PaperTrail as yet
 3. Import the DB dump onto the new server. Example Postgres command:
  * `psql -U postgres papertrail < C:\PTBackup\20170302.sql`
 4. Run the SQL command to update the license on the new server:
  * `update system_property set value = '[License Text]' where name ='license'`
 5. Copy over the PT_Repo and PT_Index directories to the new server
-6. Complete the [install of PaperTrail](http://support.papertrail.co.za/Installation/server-installation/#installation) on the new server
+6. Complete the [install of PaperTrail](../installation/server-installation.md) on the new server
 7. Copy the following files from the OLD PaperTrail server to the NEW PaperTrail server:
  * services_x64.vmoptions
  * any customer .jar files in the deploy directory
