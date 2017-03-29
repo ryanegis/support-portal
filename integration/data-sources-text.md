@@ -17,17 +17,17 @@ The properties can then be added to a .properties file in the Papertrail/conf in
 Connect to any remote database accessible via a JDBC URL examples of
 which are:
 
-`jdbc:mysql://host:3306/{db}{.sql}`
+`jdbc:mysql://host:3306/{db}`
 
-`jdbc:sqlserver://host:1443;databaseName={db}{.sql}`
+`jdbc:sqlserver://host:1443;databaseName={db}`
 
-`jdbc:postgresql://host:5432/{db}{.sql}`
+`jdbc:postgresql://host:5432/{db}`
 
 Parameters can be specified using **\${param}** syntax (they are
 escaped to prevent SQL Injection):
  e.g.
 
-`SELECT index1 as name, index2 as value FROM external_table WHERE index3 LIKE '${filter}'{.sql}`
+`SELECT index1 as name, index2 as value FROM external_table WHERE index3 LIKE '${filter}'`
 
 Note the **aliasing** to **name** and **value** is required to
 correctly render in lookup fields/lists.
