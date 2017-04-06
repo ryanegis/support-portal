@@ -18,3 +18,11 @@ One time passwords are a global. If a user does not have a mobile phone, then th
 
 *  Make sure that SMS Notifications are configured.  
 *  From __Services > Properties > One Time Password__, select __Require OTP SMS__.
+
+## Automatic User Creation
+
+Users can be automatically created by checking **Properties** --> **LDAP** --> **Auto Create Users**, this requires that LDAP be configured and working. Users who try and login with a valid LDAP login and password will be created automatically. 
+
+Non LDAP based authentication can also be used by specifying **Properties** --> **Authenitcation** --> **Authentication Data Provider** which will accept either a fully qualified classname that implements `com.egis.security.UserCreator` or a datasource via `ds:{DataSourceName}` the datasource can either return an un-persisted `User` object or a Map of user fields including `login`, `name`, `password`, `email`, etc..
+
+
