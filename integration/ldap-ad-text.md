@@ -21,12 +21,14 @@ ldap.extra.domain2-corp.local.pass=
 
 ## Synchronizing With LDAP / Active Directory
 
-*  Check LDAP -> Auto Create users  to create new users from LDAP when they login  
-*  Check LDAP -> Auto Sync Groups  to synchronize group membership, this will sync on user create and on the interval specified under Authentication -> Group Sync Interval
+*  Check **LDAP** -> **Auto Create Users**  to create new users from LDAP when they login  
+*  Check **LDAP** -> **Auto Sync Groups**  to synchronize group membership, this will sync on user create and on the interval specified under **Authentication** -> **Group Sync Interval**  
 
-You can also specify a datasource under **Authentication -> Group Sync Provider** e.g. ds:groups 
+You can also specify a datasource under **Authentication -> Group Sync Provider** e.g. `ds:groups`
 
-```SELECT memberOf as groups FROM '@ldap/objectClass=user&SAMAccountName=${filter}```
+```sql
+SELECT memberOf as groups FROM '@ldap/objectClass=user&SAMAccountName=${filter}
+```
 
 ## Troubleshooting
 
@@ -43,7 +45,7 @@ GUI:
 
 CLI:  
 
-```
+```shell
 ldapsearch -h 172.16.237.131 -D "administrator@corp.egis-software.com" -w password -b "cn=users,dc=corp,dc=egis-software,dc=com" -s sub "(&(objectClass=user)(mail=*))" '*'
 ```  
 
