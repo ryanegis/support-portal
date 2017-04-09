@@ -30,7 +30,7 @@ appender("FILE", RollingFileAppender) {             
 
 ## Logging to Syslog Host
 
-``java
+```
 import com.egis.utils.apm.*; 
 import org.productivity.java.syslog4j.impl.net.tcp.*; 
 
@@ -48,7 +48,7 @@ import org.productivity.java.syslog4j.impl.net.tcp.*;
 
 Replace //gelf in the logback.groovy with:
 
-```groovy
+```
 appender("GELF", GelfAppender) {     
 	host = "${gelfHost}"    
  	filter(ThresholdFilter) {       
@@ -66,7 +66,7 @@ setup: `gelf.host` and `gelf.level`
 ## Logging to individual files per logger
  e.g. to append file access logs to a standalone `storage.log` file:
 
-```groovy
+```
 appender("STORAGE", RollingFileAppender) {
     file = "logs/storage.log"
     append = true
