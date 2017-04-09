@@ -33,11 +33,11 @@ eg. Order_No = PO 12345
 ### Regex Examples eg.
 1)  **\\w+**    : All alphanumeric values
 
-2)  **\\W**     : A non-word character: [^\w]
+2)  **\\W**     : A non-word character: `[^\w]`
 
 3)  **\\d+**    : All numeric values
 
-4)  **\\D**     : A non-digit: [^0-9]
+4)  **\\D**     : A non-digit: `[^0-9]`
 
 5)  **\\s**     : A whitespace character
 
