@@ -9,7 +9,7 @@ Imports can be imported multiple times without creating duplicates, this can be 
 To import one or more entities:
 
 ```javascript
-POST: / dao /import/yml
+POST: /dao/import/yml
 ```
 
 To export all instances of an entity: 
