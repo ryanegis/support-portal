@@ -51,7 +51,7 @@
 | User.activate          |         |             |      |
 | User.deactivate        |         |             |      |
 | User.resetPassword     |         |             |      |
-| User.outOfOffice       |         |             |      |
+| User.outOfOffice       | delegate,reason (since 8.8.7)|             |      |
 | User.outOfOfficeReturn |         |             |      |
 | **Entity**.insert      |         |             |      |
 | **Entity**.update      |         |             |      |
