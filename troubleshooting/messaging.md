@@ -34,7 +34,7 @@ See [Message Bus](https://msdn.microsoft.com/en-us/library/ms978583.aspx)  and [
 | message.queue.size                  | 500                       | Size of the in memory queue              |
 | message.queue.size.**queueId**      |                           |                                          |
 | message.failover.**queueId**        | *None*                    | Failover to this queue instead of marking as dead |
-|                                     |                           |  
+| message.threads.**queueId**         |1                          |  Increase the concurrency of the queue to use more threads to process messages|
 
 Message queues and properties are set using the **queueId**, normally `ClassName.methodName` - 1 event could have multiple queue's each with their own settings 
 
