@@ -51,7 +51,7 @@
 | User.activate          |         |             |      |
 | User.deactivate        |         |             |      |
 | User.resetPassword     |         |             |      |
-| User.outOfOffice       | delegate,reason (since 8.8.7)|             |      |
+| User.outOfOffice (8.8.7+)      | delegate,reason,until,from - setting out of office for future will fire 2 events, once when it set and again when it begins|             |      |
 | User.outOfOfficeReturn |         |             |      |
 | **Entity**.insert      |         |             |      |
 | **Entity**.update      |         |             |      |
