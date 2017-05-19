@@ -11,15 +11,7 @@ It is not necessary for this program to be installed on the Papertrail server th
 The installation of these packages may vary depending on the flavour of Linux running (e.g. *yum*, *rpm*, *apt-get*)
 
 ### Installation
-Choose only one of the below options:
-
-#### Option 1
-* `sudo pip install git+ssh://git@github.com/egis/papertrail-python-cli.git`
-
-#### Installation Option 2 (should you receive an access denied message when following Option 1)
- * Download the contents of `https://github.com/egis/papertrail-python-cli` (include sub-folders)
- * Transfer this to the Linux host (using WinSCP as an option)
- * Execute `sudo python setup.py install`
+* `sudo pip install papertrail-cli`
 
 ### Usage
  * Once installed, executing `pt --help` will bring up the available options and commands. Use `pt {command} --help` for more details on the specific command itself; e.g. `pt import --help`
