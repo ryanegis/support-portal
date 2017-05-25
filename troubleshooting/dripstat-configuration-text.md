@@ -6,7 +6,7 @@ The following will need to be set up:
 
 1. Download the Dripstat JAR file from https://s3.amazonaws.com/papertrail/libs/dripstat.jar 
 2. Copy the JAR to PaperTrail installation path/dripstat
-3. Copy the dripstat.properties file (only generated once a license has been purchased) to PaperTrail installation path/dripstat
+3. Copy the config.properties file (only generated once a license has been purchased) to PaperTrail installation path/dripstat
 4. Add the following line to the service.vmoptions OR service_x64.vmoptions:
 <br>
    -javaagent:dripstat/dripstat.jar
