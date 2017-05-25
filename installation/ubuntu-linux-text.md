@@ -74,3 +74,8 @@ db.type=postgresql
 3) Start papertrail
 `/etc/init.d/papertrail start`
 
+## Issues stopping the PaperTrail Service
+Occasionally, the PaperTrail service may fail to stop. While `service papertrail status` may show that the service is inactive, the java process could still be running. In this scenario, you'll see that the PaperTrail web front-end is still available. Executing `ps -aux` will show the java process still running.
+
+1) To end the java process: `killall java`
+2) Verify that the PaperTrail web front-end is down. If this is still up, try `killall -KILL java` to end that stubborn java process
