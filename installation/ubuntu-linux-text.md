@@ -38,6 +38,21 @@ sudo -u postgres psql -c 'create database papertrail with owner papertrail;'
 echo host  papertrail papertrail  127.0.0.1/32 md5 >> /etc/postgresql/$PSQL_VERSION/main/pg_hba.conf /etc/init.d/postgresql restart
 ```
 
+### Setup PostgreSQL to allow remote connections
+This is useful if you wish to install PaperTrail on a Windows server for example, but wish to keep the PostgreSQL DB on a Linux environment. Following the below will allow the Windows host to communicate with the Linux DB host and also allow you to use the pgAdmin GUI and tools against the Linux DB.
+
+1) On the Linux machine hosting the PostGres DB, navigate to `/etc/postgresql/[version]/main/`
+
+2) Modify file `pg_hba.conf` to add entries under IPv4 local connections for each host; e.g  
+`host    all             all             127.0.0.1/32            md5`  
+`host    all             all             192.168.192.10/32       md5`
+
+3) Modify file `postgresql.conf` and unhash the listen_addresses, changing it to  
+`enable listen_addresses = '*'`
+
+4) Restart the postgresql service  
+`service postgresql restart`
+
 ## Conversion
 
 Install the following dependencies:
@@ -74,8 +89,11 @@ db.type=postgresql
 3) Start papertrail
 `/etc/init.d/papertrail start`
 
-## Issues stopping the PaperTrail Service
+### Troubleshooting the PaperTrail Service
 Occasionally, the PaperTrail service may fail to stop. While `service papertrail status` may show that the service is inactive, the java process could still be running. In this scenario, you'll see that the PaperTrail web front-end is still available. Executing `ps -aux` will show the java process still running.
 
 1) To end the java process: `killall java`
-2) Verify that the PaperTrail web front-end is down. If this is still up, try `killall -KILL java` to end that stubborn java process
+2) Verify that the PaperTrail web front-end is down. If this is still up, try `killall -KILL java` to end a stubborn java process.  
+**Note:**  
+`killall java` - will do a controlled shutdown  
+`killall -KILL java` - just terminates the process, which can cause PaperTrail to lose messages
