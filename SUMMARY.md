@@ -39,7 +39,13 @@
   * [Folder Watch](integration/folder-watch-text.md)
   * [LDAP / Active Directory](integration/ldap-ad-text.md)
 * Reference
+  * [Best Practises](reference/best-practises.md)
   * [Cold Standby Failover Procedure](reference/cold-standby-failover-procedure-text.md) 
+  * [Encryption](reference/encryption-text.md)
+  * [Linking](reference/linking-text.md)
+  * [Logging](reference/logging-text.md)
+  * [Jobs](reference/jobs-text.md)
+  * [System Nodes](reference/system-nodes-text.md)
   * [Document Properties](reference/document-properties-text.md)
   * [Encryption](reference/encryption-text.md)
   * [Events](reference/events.md)
