@@ -15,6 +15,7 @@
   * [Template Extraction](configuration/template-extraction.md)  
   * [User Export and Import](configuration/user-export-and-import.md)
   * [User Management](configuration/user-management.md)
+  * [Queues](configuration/queues.md)
   * [WebScan](configuration/webscan-text.md)
   * [YAML](configuration/yaml-config.md)
 * End User Installation
