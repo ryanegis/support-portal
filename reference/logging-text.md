@@ -21,6 +21,7 @@
 | com.egis.requests  | All HTTP requests, very verbose | 1 line per HTTP request
 | com.egis.workflow  | All Workflow rules fired up until a stationary rule is reached (Human Task, Unassigned Task) | 10+ lines depending on amount of rules
 | com.egis.allocation.QueueService | queue fill events | 
+| com.egis.party.GroupSyncService  | Group sync job's user group membership actions | 2 lines per user
 
 ## Log file Retention
 
