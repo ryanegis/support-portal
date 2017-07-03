@@ -4,7 +4,8 @@ machine:
 
 dependencies:
   override:
-      - npm install -g gitbook-cli gh-pages
+    - npm install gh-pages
+    - npm install -g gitbook-cli
 
 test:
   override:
