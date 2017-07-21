@@ -1,10 +1,10 @@
-                                        Adding Of Signatures
+                                        Adding of signatures
 
   1.  Go to the system->templates folder in the front end of papertrail.
 
   2.  Edit/Check-out the template.html file.
 
-  3.  Use this html editor to the make the changes/Create: http://htmledit.squarefree.com/
+  3.  Use this html editor to the make the changes/Create:http://htmledit.squarefree.com/
 
   4.  Once completed. Check-in the file and send email to confirm the signature.
 
